@@ -32,7 +32,7 @@ $app->run("listing");
 <!--     <script type="text/javascript" src="/js/swfobject.js"></script> -->
 
 <!--     <script type="text/javascript"> -->
-//         swfobject.embedSWF("/data/livingroom.swf", "myContent", "100%", "100%", "9.0.0");
+<!-- //         swfobject.embedSWF("/data/livingroom.swf", "myContent", "100%", "100%", "9.0.0"); -->
     </script>
 
 <!--   </head> -->
