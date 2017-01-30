@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<h2>发送站内信</h2>
+<form action="/account/account.php?act=process_pm" method="post" >
+	<input type="hidden" name="sendId" value="{%$sendId|default:''%}">
+	<input type="hidden" name="revId" value="{%$revId|default:''%}">
+	
+	<textarea rows="20" cols="50" name="content" > </textarea>
+	<input type="submit" value="发送">
+</form>
+</body>
+</html>

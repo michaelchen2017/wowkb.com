@@ -1,0 +1,94 @@
+<?php
+class account_tools {
+	//检查密码
+	function check_password($plain, $encrypted) {
+	
+		if ($this->wxc_not_null($plain) && $this->wxc_not_null($encrypted)) {
+			
+			if ($plain == $this->decrypt_password($encrypted)) {
+				return true;
+			} elseif ($this->decrypt_password($plain) == $this->decrypt_password($encrypted)) {
+				return true;
+			}
+		}
+	
+		return false;
+	}
+	
+	//编码
+	function encrypt_password($plain) {
+	
+		$password = '';
+	
+		for ($i=0; $i<10; $i++) {
+			$password .= $this->wxc_rand();
+		}
+	
+		$salt = substr(md5($password), 0, 2);
+	
+		$crypttext = new Crypter($salt);
+		$password = $crypttext->encrypt($plain) . ':' . $salt;
+	
+		return $password;
+	}
+	
+	//解码
+	function decrypt_password($encrypted) {
+	
+		$stack = explode(':', $encrypted);
+	
+		if (sizeof($stack) != 2) return false;
+	
+		$crypttext = new Crypter($stack[1]);
+		$plain = $crypttext->decrypt($stack[0]);
+	
+		return $plain;
+	}
+	
+	//工具1
+	private function wxc_not_null($value) {
+		if (is_array($value)) {
+			if (sizeof($value) > 0) {
+				return true;
+			} else {
+				return false;
+			}
+		} else {
+			if (($value != '') && (strtolower($value) != 'null') && (strlen(trim($value)) > 0)) {
+				return true;
+			} else {
+				return false;
+			}
+		}
+	}
+	
+	//工具2
+	private function wxc_rand($min = null, $max = null) {
+		static $seeded;
+	
+		if (!isset($seeded)) {
+			mt_srand((double)microtime()*1000000);
+			$seeded = true;
+		}
+	
+		if (isset($min) && isset($max)) {
+			if ($min >= $max) {
+				return $min;
+			} else {
+				return mt_rand($min, $max);
+			}
+		} else {
+			return mt_rand();
+		}
+	}
+	
+	function gen_randpassword($length=12) {
+		$dict = 'abcdefghijklmnopqrstuwxyzABCDEFGHIJKLMNOPQRSTUWXYZ0123456789@#';
+		$password = '';
+		for ($i = 0; $i < $length; $i++) {
+			$password .= $dict[(rand() % strlen($dict))];
+		}
+		return $password;
+	}
+	
+}

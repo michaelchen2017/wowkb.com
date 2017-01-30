@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<p><a href="/account/space.php?act=send_pm">发送私信</a></p>
+<p><a href="/account/space.php?act=pm&statue=unread&id={%$id%}">私信未读</a></p>
+<p><a href="/account/space.php?act=pm&statue=read&id={%$id%}">私信已读</a></p>
+<p><a href="/account/space.php?act=pm&statue=delete&id={%$id%}">已删除</a></p>
+
+{%if !empty($result)%}
+
+{%foreach from=$result key=k item=val%}
+<p>发信人：{%$val['send_id']%} {%$val['message']%} {%$val['post_date']|date_format:'%Y-%m-%d %H:%M:%S'%} <a href="/account/space.php?act=send_pm&rec_id={%$val['send_id']%}">回复</a></p>
+{%/foreach%}
+
+{%/if%}
+</body>
+</html>

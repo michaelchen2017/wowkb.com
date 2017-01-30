@@ -1,0 +1,9 @@
+@CHARSET "UTF-8";
+#musicBox{height:90px;}
+#select{display:block;height:26px;line-height:26px;float:left;}
+#uploading{display:none;height:26px;line-height:26px;float:left;margin-right:24px;}
+#uploading img{margin:auto 4px;}
+#confirm{display:none;}
+#music-ifr{overflow:hidden;margin:6px 4px 4px 4px;}
+form{margin:0;padding:0;}
+.smallbtn{height:26px;font-size:12px;font-family:SimSun,sans-serif;float:left;margin-left:4px;}

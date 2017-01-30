@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Music Properties</title>
+<link href="/include/editor/api/css/media.css" rel="stylesheet" type="text/css" />
+
+<script src="common/fck_dialog_common.js" type="text/javascript"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js" type="text/javascript"></script>
+<script src="/include/editor/api/js/o.js" type="text/javascript"></script>
+<script type="text/javascript"> function Cancel(){mediaCore.cancel();} </script>
+</head>
+<body scroll="no" style="OVERFLOW: hidden;">
+<div id="musicBox">
+	  <form id="music_upload_input" name="music_upload_input" action="" style="display:block;" method="POST" enctype="multipart/form-data" target="music_upload_targert">
+		<input id="autostart" name="autostart" type="checkbox" checked="checked"><span style="line-height:24px"> 页面加载时自动播放</span><br>
+		<div id="select"><input type="file" size="12" name="music" id="music" class="smallbtn" onchange="mediaCore.addfile();"></div>
+		<div id="uploading"><img src="/images/loading/03.gif">文件上传中，请稍候...</div>
+	    <input type="hidden" value="" id="userID" name="userID"/>
+	    <input type="hidden" value="" id="NickName" name="NickName"/>
+	    
+	    <input type="hidden" value="" id="dataID" name="dataID"/>
+	    <input type="hidden" value="" id="dataType" name="dataType"/>
+	    <input type="hidden" value="" id="TempID" name="TempID"/>
+	    
+	    <input type="hidden" value="" id="fileID" name="fileID"/>
+	    <input type="hidden" value="" id="filePathInfo" name="filePathInfo"/>
+		<input id="confirm" type="button" value="确定" class="smallbtn" onclick="mediaCore.setHtml();">
+	  </form>
+	
+	  <iframe id="music-ifr" width="320" height="24" src="/include/editor/api/script/audio.php" frameborder="0"></iframe>
+	  <iframe name="music_upload_targert" id="music_upload_targert" style="display:none;" width="0" height="0" src="/include/plugins/blank.html" frameborder="0" ></iframe>
+</div>
+<script type="text/javascript">
+	var dialog	= window.parent ;
+	var oEditor = dialog.InnerDialogLoaded() ;
+	
+	mediaCore.type = 'dialog';
+	mediaCore.init();
+</script>
+</body>
+</html>

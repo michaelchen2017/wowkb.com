@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>HiaTrip.com</title>
+<link rel="stylesheet" href="/account/css/profile_sidebar.css">
+
+ <link href="/css/page/bootstrap.min.css" rel="stylesheet">
+ 
+ <link rel="stylesheet" href="/account/css/login_signup.css">
+ <link rel="stylesheet" href="/css/page/footer-distributed-with-address-and-phones.css">
+ 
+<link rel="stylesheet" href="/account/css/prettyPhoto.css" type="text/css" media="screen" title="prettyPhoto main stylesheet" >
+   <script type="text/javascript" src="/js/image_upload.js"></script>
+   
+<style type="text/css" media="screen">
+		ul {
+		    list-style-type: none;
+		    margin: 0;
+		    padding: 0;
+		}
+		ul li { 
+			display: inline; 
+			
+		}
+    
+</style>
+</head>
+<body>
+  {%include file="$root/template/ssi/header_navbar.html"%}
+    <div class="container-fluid">
+    <div class="row">
+  	{%include file="$root/template/ssi/header_modal.html"%}
+        <!-- Page Header -->
+        
+        </div>
+     </div>
+<div class="container">
+    <div class="row profile">
+		<div class="col-md-3">
+			{%include file="$root/template/ssi/specialsidebar.html"%}
+		</div>
+		<div class="col-md-9">
+            <div class="profile-content">
+            <table  style="width:100%">
+	            <tr>
+	            	<td>UserName</td>
+	            	<td>user_ip</td>
+	            	<td>userlevel</td>
+	            	<td>created_time</td>
+	            	<td>email</td>
+	            	<td>操作</td>
+	            </tr>
+            
+			{%if !empty($users)%}
+			
+				{%foreach from=$users key=k item=val%}
+				<tr>
+					<td>{%$val.username|default:''%}</td>
+					<td>{%$val.user_ip|default:''%}</td>
+					<td>{%$val.userlevel|default:''%}</td>
+					<td>{%$val.created_time|date_format:'%Y-%m-%d %H:%M:%S'%}</td>
+					<td>{%$val.email|default:''%}</td>
+					<td><input type="button" class="btn btn-info" onclick="location.href='/account/admin.php?act=delete_user&id={%$val.pk_id%}'" value="删除"></td>
+				</tr>
+				{%/foreach%}
+			
+			{%/if%}
+			</table>
+            </div>
+		</div>
+		
+	</div>
+	  {%include file="$root/template/ssi/pagenav.html"%}
+</div>
+  {%include file="$root/template/ssi/footer.html"%}
+   <!-- jQuery -->
+
+<script src="/js/jquery-1.11.3.min.js"></script>
+<script src="/js/jquery-ui.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+    
+
+</body>
+</html>

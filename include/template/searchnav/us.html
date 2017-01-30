@@ -1,0 +1,34 @@
+{%if $pagenav.totalpage>1%}
+<!--Prev-->
+{%if $pagenav.prevgroup!=''%}
+	[<a href="{%$pagenav.prevgroup%}" class="tishilink" title="Prev {%$pagenav.group%} page"><span style="font-family:Tahoma"><<</span></a>]
+{%/if%} 
+{%if $pagenav.prevpage!=''%}
+	[<a href="{%$pagenav.prevpage%}" class="tishilink" title="Prev"><span style="font-family:Tahoma">Prev</span></a>]
+{%/if%} 
+
+<!--page number-->
+{%foreach from=$pagenav.eachpage item=vol%}
+	{%if $vol[1]!=""%}
+		[<a href="{%$vol[1]%}" class="tishilink"><strong>{%$vol[0]%}</strong></a>]
+	{%else%}
+		[<span style="color:#FF0000"><strong>{%$vol[0]%}</strong></span>]
+	{%/if%}
+{%/foreach%}
+	 
+<!--Next-->
+{%if $pagenav.nextpage!=''%}
+	[<a href="{%$pagenav.nextpage%}" class="tishilink" title="Next"><span style="font-family:Tahoma">Next</span></a>]
+{%/if%}
+{%if $pagenav.nextgroup!=''%}
+	[<a href="{%$pagenav.nextgroup%}" class="tishilink" title="Next {%$pagenav.group%} Page"><span style="font-family:Tahoma">>></span></a>]
+{%/if%}
+
+<!--first & last-->	
+{%if $pagenav.firstpage!=''%}
+	[<a href="{%$pagenav.firstpage%}" class="tishilink">First</a>]
+{%/if%}
+{%if $pagenav.lastpage!=''%}
+	[<a href="{%$pagenav.lastpage%}" class="tishilink">Last</a>]
+{%/if%}	
+{%/if%}

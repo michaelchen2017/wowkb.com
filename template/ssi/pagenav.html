@@ -1,0 +1,46 @@
+<div class="row text-center">
+<div class="col-lg-12">
+<ul class="pagination">
+{%if !empty($pagenav.totalpage)%}
+	<!--Prev-->
+	{%if $pagenav.prevgroup!=''%}
+		<li>
+		<a href="{%$pagenav.prevgroup%}" title="Prev {%$pagenav.group%} page"><span style="font-family:Tahoma"><<</span></a>
+		</li>
+	{%/if%} 
+	{%if $pagenav.prevpage!=''%}
+		<li>
+		<a href="{%$pagenav.prevpage%}" class="tishilink" title="Prev"><span style="font-family:Tahoma">上一页</span></a>
+		</li>
+	{%/if%} 
+	
+	<!--page number-->
+	{%foreach from=$pagenav.eachpage item=vol%}
+		{%if $vol[1]!=""%}
+			<li>
+			<a href="{%$vol[1]%}" class="tishilink">{%$vol[0]%}</a>
+			</li>
+		{%else%}
+			<li>
+			<span><strong style="color:black">{%$vol[0]%}</strong></span>
+			</li>
+		{%/if%}
+	{%/foreach%}
+		 
+	<!--Next-->
+	{%if $pagenav.nextpage!=''%}
+		<li>
+		<a href="{%$pagenav.nextpage%}" class="tishilink" title="Next"><span style="font-family:Tahoma">下一页</span></a>
+		</li>
+	{%/if%}
+	{%if $pagenav.nextgroup!=''%}
+		<li>
+		<a href="{%$pagenav.nextgroup%}" class="tishilink" title="Next {%$pagenav.group%} Page"><span style="font-family:Tahoma">>></span></a>
+		</li>
+	{%/if%}
+{%/if%}
+</ul>
+</div>
+</div>
+
+        

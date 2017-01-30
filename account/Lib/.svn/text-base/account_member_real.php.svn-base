@@ -1,0 +1,7 @@
+<?php
+class account_member_real extends Model
+{
+	protected $tableName="member_real";
+	protected $dbinfo=array("config"=>"member", "type"=>"MySQL");
+	
+}

@@ -1,0 +1,5 @@
+@CHARSET "UTF-8";
+#videoBox{width:auto;height:310px;margin:2px;padding:0;}
+#video-url{float:left;font-size:12px;}
+.box{float:left;margin:2px 0px;padding:0px 2px;line-height:18px;display:block; clear:both; overflow:auto;}
+.smallbtn{float:left;margin-right:4px;height:26px;font-size:12px;font-family:SimSun,sans-serif;}

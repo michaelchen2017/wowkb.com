@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+{%if !empty($res)%}
+{%foreach from=$res key=k item=val%}
+<p>{%$val['user_id']%}: {%$val['content']%} {%$val['created_time']|date_format:'%Y-%m-%d %H:%M:%S'%}</p>
+{%/foreach%}
+
+<form action="/account/account.php?act=msg_reply" method="post" >
+	<input type="hidden" name="sendId" value="{%$sendId|default:''%}">
+	<input type="hidden" name="msgid" value="{%$msgid|default:''%}">
+	<textarea rows="7" cols="50" name="content" > </textarea>
+	<input type="submit" value="回复">
+</form>
+{%/if%}
+</body>
+</html>

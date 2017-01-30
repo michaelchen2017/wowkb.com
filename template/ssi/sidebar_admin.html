@@ -1,0 +1,79 @@
+<script src="/account/js/likes_ajax.js"></script>	
+		<div class="profile-sidebar">
+				<!-- SIDEBAR USERPIC -->
+				<div class="profile-userpic" id="main">
+				<img src="/account/static/pics/headpic.png" class="img-responsive" alt="" width="230px" height="230px">
+					<ul class="gallery clearfix">
+						<li><a href="/account/static/pics/headpic.png" rel="prettyPhoto" title=""></a></li>
+				</ul>
+				<!-- {%if !empty($res_user_pic['pic_path'])%}
+				
+					<img src="{%$res_user_pic['pic_path']%}" class="img-responsive" alt="" width="230px" height="230px">
+					<ul class="gallery clearfix">
+						<li><a href="{%$res_user_pic['pic_path']%}" rel="prettyPhoto" title=""><img src="{%$res_user_pic['pic_path']%}" width="60px" height="60px" class="img-responsive" alt="" /></a></li>
+					</ul>
+					
+				{%/if%} -->
+				
+				</div>
+				<!-- END SIDEBAR USERPIC -->
+				<!-- SIDEBAR USER TITLE -->
+				<div class="profile-usertitle">
+					<div class="profile-usertitle-name">
+						{%$res_user['username']|default:''%}
+					</div>
+					
+				</div>
+				<!-- END SIDEBAR USER TITLE -->
+				<!-- SIDEBAR BUTTONS -->
+				<div class="profile-userbuttons">
+				{%if $flag%}
+					<button type="button" class="btn btn-success btn-sm" onclick="location.href='/account/space.php?act=upload_user_pic&id={%$userid%}'">上传头像 </button>
+				{%/if%}	
+				<!-- <input type="hidden" id="userid" value="{%$id%}">
+					<a  id="likes" class="btn btn-success btn-sm" role="button" onClick="getlikes();" ><span class="badge">{%$likes%}</span>&nbsp;赞</a>
+					<a href="/account/account.php?act=pm&id={%$id%}" class="btn btn-danger btn-sm" role="button">站内信</a> -->
+				</div>
+				<!-- END SIDEBAR BUTTONS -->
+				<!-- SIDEBAR MENU -->
+				<div class="profile-usermenu">
+					<ul class="nav">
+						<!-- <li {%if !empty($basic_info) %}class="active" {%/if%}>
+							<a href="/account/space.php?act=basicinfo&id={%$id%}">
+							<i class="glyphicon glyphicon-home"></i>
+							基本信息 </a>
+						</li> -->
+						<!--  
+						<li {%if !empty($setting) %}class="active" {%/if%}>
+							<a href="/account/space.php?act=setting&id={%$id%}">
+							<i class="glyphicon glyphicon-user"></i>
+							账户设置 </a>
+						</li>
+						-->
+						<!-- <li {%if !empty($wishlist) %}class="active" {%/if%}>
+							<a href="/account/space.php?act=wishlist&id={%$id%}">
+							<i class="glyphicon glyphicon-heart"></i>
+							心愿单 </a>
+						</li> -->
+						<!-- <li {%if !empty($posts) %}class="active" {%/if%}>
+							<a href="/account/space.php?act=posts&id={%$id%}" >
+							<i class="glyphicon glyphicon-ok"></i>
+							 已发过的帖子</a>
+						</li> -->
+						
+						<!-- <li {%if !empty($gallery) %}class="active" {%/if%}>
+							<a href="/account/space.php?act=gallery&id={%$id%}">
+							<i class="glyphicon glyphicon-picture"></i>
+							相册 </a>
+						</li> -->
+						<!--  {%if $flag%}
+						<li {%if !empty($pm) %}class="active" {%/if%}>
+							<a href="/account/account.php?act=display_pm">
+							<i class="glyphicon glyphicon-envelope"></i>
+							站内信 </a>
+						</li>
+						{%/if%}  -->
+					</ul>
+				</div>
+				<!-- END MENU -->
+			</div>

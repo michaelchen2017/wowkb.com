@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html >
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>wowkb.com</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="/css/page/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="/css/page/3-col-portfolio.css" rel="stylesheet">
+     <link rel="stylesheet" href="/css/page/footer-distributed-with-address-and-phones.css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    
+   
+</head>
+<body>
+    {%include file="$root/template/ssi/header_navbar.html"%}
+        <br>
+    <!-- Page Content -->
+    <div class="container">
+    <div class="row">
+  	{%include file="$root/template/ssi/header_modal.html"%}
+    </div>
+    </div>
+        <!-- /.row -->
+		<div class="container text-center">
+			<form role="form"  method="post" action="/page/publish.php"  id="postform">
+			      <input type='hidden' name='action' value='true' readonly>
+			      {%if !empty($id)%}
+			      <input type='hidden' name='id' value="{%$id|default:''%}" readonly>
+			      {%/if%}
+			      <p>标&nbsp;题：<input type="text"  name="title" value="{%$result['title']|default:''%}"></p>
+			      <p>结构图：<input type="text"  name="struct_pic" value="{%$result['struct_pic']|default:''%}"></p>
+			      <p>360°全景图：<input type="text"  name="3d" value="{%$result['3d']|default:''%}"></p>
+			      
+			      <!-- <p>目的地：<input type="text"  name="destination" value="{%$result['destination']|default:''%}"></p> -->
+			      <!-- <p>出发时间：<input type="text"  name="start_time" value="{%$result['start_time']|default:''%}"></p> -->
+			      <button type="submit" class="btn btn-primary" form="postform" value="Submit">保&nbsp;存</button>
+			      <!-- <input name="mod" class="btn btn-primary" type="button" id="mod" onclick="self.location.href='/page/publish.php?act=delete&id={%$id%}'" value="删&nbsp;除"> -->
+			</form>
+		</div>
+
+        <!-- /.row -->
+
+        <!-- Footer -->
+       {%include file="$root/template/ssi/footer.html"%}
+
+    <!-- /.container -->
+
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+     <script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <!--  <script src="/js/bootstrap.min.js"></script>-->
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<script src="/js/search.js"></script>
+
+</body>
+
+</html>

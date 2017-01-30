@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Video Properties</title>
+<link href="/include/editor/api/css/video.css" rel="stylesheet" type="text/css" />
+
+<script src="common/fck_dialog_common.js" type="text/javascript"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js" type="text/javascript"></script>
+<script src="/include/editor/api/js/o.js" type="text/javascript"></script>
+<script type="text/javascript"> function Cancel(){} </script>
+</head>
+<body scroll="no" style="OVERFLOW: hidden;">
+<div id="videoBox">
+	<div class="box">
+		<input id="video-w" type="text" value="420" maxlength="3" style="width:45px;">x<input id="video-h" type="text" value="360" maxlength="3" style="width:45px;">
+	</div>
+	<div class="box">
+		<input id="video-url" type="text" value="" maxlength="124">
+		<input type="button" value="预览" class="smallbtn" onclick="videoCore.preview();">
+		<input type="button" value="确定" class="smallbtn" onclick="videoCore.setHtml();">
+	</div>
+	<p class="box">
+		本站目前仅支持YouTube视频分享，如有不便，敬主谅解。
+	</p>
+	<iframe id="video-ifr" width="240" height="180" src="/include/editor/api/html/Video.html" frameborder="0"></iframe>
+</div>
+<script type="text/javascript">
+	var dialog	= window.parent ;
+	var oEditor = dialog.InnerDialogLoaded() ;
+	
+	videoCore.type = 'dialog';
+</script>
+</body>
+</html>

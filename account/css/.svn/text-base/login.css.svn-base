@@ -1,0 +1,161 @@
+header {
+	margin-top:20px;
+	line-height:40px
+}
+header h1 {
+	width:40%
+}
+header nav ul {
+	float:left;
+	list-style:none;
+	width:55%;
+	font-size:.9em;
+	padding-top:5px
+}
+header nav li {
+	float:right;
+	padding:5px
+}
+header nav li.line {
+	width:10px
+}
+header nav li a {
+	text-decoration:none;
+	color:#333
+}
+.maincontainer {
+	width:100%;
+	clear:both;
+	background:url(/account/images/background.jpg) no-repeat center #0d96e7;
+	background-size:cover;
+}
+.mainwrapper {
+	height:100%;
+	background:url(/account/images/background.gif) no-repeat left center
+}
+section {
+	float:right;
+	width:310px;
+	margin-top:40px;
+	margin-bottom:30px;
+	_margin-left:0;
+	_float:right;
+	_margin-right:20px;
+	border-top:4px solid #06c;
+	background:#fff;
+	padding:30px;
+	padding-bottom:20px
+}
+section h1 {
+	margin:0;
+	_margin-bottom:5px;
+	padding:0;
+	height:60px;
+	line-height:60px;
+	font-size:1.9em
+}
+section p {
+	line-height:30px
+}
+form .entry {
+	line-height:60px;
+	height:60px;
+	font-size:1.2em;
+	width:auto
+}
+form .entry span.agree {
+	float:left;
+	line-height:30px
+}
+form .entry span.forget {
+	float:right;
+	line-height:30px;
+	font-size:1em
+}
+form input {
+	width:210px;
+ *width:220px;
+	_width:220px;
+	height:30px;
+	line-height:30px;
+	padding-left:5px;
+	border:1px solid #aaa
+}
+input.newsletter {
+	float:left;
+	width:16px;
+	margin-right:5px;
+	border:0
+}
+input.button {
+	width:140px;
+	height:35px;
+	line-height:35px;
+	margin-top:10px;
+	margin-bottom:10px
+}
+.prompt {
+	color:red;
+	clear:both
+}
+.prompt ul {
+	padding-left:15px;
+	margin-bottom:0
+}
+.prompt ul li {
+	line-height:20px;
+	font-size:1.2em
+}
+a:hover {
+	color:red;
+	text-decoration:underline
+}
+.channelbar {
+	background:#fff;
+	border-bottom:1px solid #ddd;
+	padding:15px 0;
+	margin-bottom:20px
+}
+.channels a {
+	display:block;
+	text-decoration:none;
+	float:left;
+	width:330px;
+	overflow:hidden
+}
+.channels a:hover {
+	text-decoration:none;
+	background:#f1f1f1
+}
+.channelbar a.last {
+	margin-right:0
+}
+.cell {
+	overflow:hidden
+}
+.cell .icon {
+	float:left;
+	width:18%;
+}
+.cell .icon img {
+	width:50px;
+	height:50px;
+	border:0
+}
+.cell .channelcontent {
+	float:left;
+	width:82%;
+	margin-top:5px
+}
+.channelcontent h3 {
+	margin:0;
+	padding:0;
+	color:#666;
+	font-size:1.2em
+}
+.channelcontent p {
+	font-size:12px;
+	color:#666;
+	white-space:nowrap;
+	margin:5px 0;
+}

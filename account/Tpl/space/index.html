@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>wowkb.com</title>
+<link rel="stylesheet" href="/account/css/profile_sidebar.css">
+
+ <link href="/css/page/bootstrap.min.css" rel="stylesheet">
+ 
+ <link rel="stylesheet" href="/account/css/login_signup.css">
+ <link rel="stylesheet" href="/css/page/footer-distributed-with-address-and-phones.css">
+ 
+<link rel="stylesheet" href="/account/css/prettyPhoto.css" type="text/css" media="screen" title="prettyPhoto main stylesheet" >
+   <script type="text/javascript" src="/js/image_upload.js"></script>
+   
+<style type="text/css" media="screen">
+		ul {
+		    list-style-type: none;
+		    margin: 0;
+		    padding: 0;
+		}
+		ul li { 
+			display: inline; 
+			
+		}
+    
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+	<script type="text/javascript">
+	$(document).ready(function() {
+		  if (window.File && window.FileList && window.FileReader) {
+		    $("#files").on("change", function(e) {
+		      var files = e.target.files,
+		        filesLength = files.length;
+		      for (var i = 0; i < filesLength; i++) {
+		        var f = files[i]
+		        var fileReader = new FileReader();
+		        fileReader.onload = (function(e) {
+		          var file = e.target;
+		          $("<span class=\"pip\">" +
+		            "<img class=\"imageThumb\" src=\"" + e.target.result + "\" title=\"" + file.name + "\"/>" +
+		            "<br/><span class=\"remove\"><label>X</label></span>" +
+		            "</span>").insertAfter("#files");
+		          $(".remove").click(function(){
+		            $(this).parent(".pip").remove();
+		          });
+		        });
+		        fileReader.readAsDataURL(f);
+		      }
+		    });
+		  } else {
+		    alert("Your browser doesn't support to File API")
+		  }
+		});
+	</script>
+	<script>
+	input[type="file"] {
+		  display: block;
+		}
+		.imageThumb {
+		  max-height: 75px;
+		  border: 2px solid;
+		  padding: 1px;
+		  cursor: pointer;
+		}
+		.pip {
+		  display: inline-block;
+		  margin: 10px 10px 0 0;
+		}
+		.remove {
+		  display: block;
+		  background: #444;
+		  border: 1px solid black;
+		  color: white;
+		  text-align: center;
+		  cursor: pointer;
+		}
+		.remove:hover {
+		  background: white;
+		  color: black;
+		}
+	</script>
+
+</head>
+<body>
+  {%include file="$root/template/ssi/header_navbar.html"%}
+    <div class="container-fluid">
+    <div class="row">
+  	{%include file="$root/template/ssi/header_modal.html"%}
+        <!-- Page Header -->
+        
+        </div>
+     </div>
+<div class="container">
+    <div class="row profile">
+		<div class="col-md-3">
+			{%include file="$root/template/ssi/sidebar_admin.html"%}
+		</div>
+		<div class="col-md-9">
+            <div class="profile-content">
+            {%if $res_user['isdesigner']|default:''%}
+            <div class="field" align="left">
+			<form action="/account/space.php?act=upload" method="post" enctype="multipart/form-data">
+   
+			    <img class="profile-pic" src="" />
+				<input type="file" id="files" name="files[]" multiple >
+			    <div class="upload-button"> 请选择要上传的文件</div>
+			    <input type="hidden"  name="userid" value="{%$userid%}">
+			    <input type="submit" value="保存" name="submit">
+			</form>
+			</div>
+			{%/if%}
+            </div>
+		</div>
+		
+	</div>
+</div>
+  {%include file="$root/template/ssi/footer.html"%}
+   <!-- jQuery -->
+
+<script src="/js/jquery-1.11.3.min.js"></script>
+<script src="/js/jquery-ui.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+        
+<script src="/account/js/jquery.prettyPhoto.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript" charset="utf-8">
+			$(document).ready(function(){
+				$("area[rel^='prettyPhoto']").prettyPhoto();
+				
+				$(".gallery:first a[rel^='prettyPhoto']").prettyPhoto({animation_speed:'normal',theme:'pp_default',slideshow:3000, autoplay_slideshow: false});
+				//$(".gallery:gt(0) a[rel^='prettyPhoto']").prettyPhoto({animation_speed:'fast',slideshow:1000, hideflash: true});
+				$(".gallery:gt(0) a[rel^='prettyPhoto']").prettyPhoto({animation_speed:'normal',slideshow:2000, autoplay_slideshow: false});
+		
+				$("#custom_content a[rel^='prettyPhoto']:first").prettyPhoto({
+					custom_markup: '<div id="map_canvas" style="width:260px; height:265px"></div>',
+					changepicturecallback: function(){ initialize(); }
+				});
+			});
+</script>
+
+</body>
+</html>

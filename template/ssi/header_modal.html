@@ -1,0 +1,241 @@
+<script type="text/javascript">
+function validateForm() {
+    var title = document.forms["fabu"]["title"].value;
+    var content = document.forms["fabu"]["content"].value;
+    var regionId = document.forms["fabu"]["region_id"].value;
+    var destination = document.forms["fabu"]["destination"].value; 
+    var pic = document.forms["fabu"]["post_file_upload"].value;
+    
+    var state = true;
+    var error = "";
+    
+    if (title.length > 30) {
+    	error += "标题的字数已经超过30个字，请重新输入，谢谢！" + "\n";
+    	state = false;
+    }
+    
+    
+    if(title == null || title == ""){
+    	error += "\n" + "标题不能为空" + "\n";
+    	state = false;
+    }
+    
+    if(content == null || content == ""){
+    	error += "\n" + "内容不能为空" + "\n";
+    	state = false;
+    }
+    
+    if(regionId == "0"){
+    	error += "\n" + "国家或地区不能为空" + "\n";
+    	state = false;
+    }
+    
+    if(destination == null || destination == ""){
+    	error += "\n" + "目的地不能为空" + "\n";
+    	state = false;
+    }
+    
+    if(pic == null || pic == ""){
+    	error += "\n" + "上传图片不能为空" + "\n";
+    	state = false;
+    }
+    
+    
+    if(state == false){
+    	alert(error);
+    	return false;
+    }else{
+    	$(document).ready(function () {
+    	    $("#register-submit").click(function () {
+    	        $("#register-submit").attr("disabled", true);
+    	        return true;
+    	    });
+    	});
+
+    	return true;
+    }
+    
+}
+</script>
+
+<!--<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">-->
+<!--  <script src="//code.jquery.com/jquery-1.10.2.js"></script>-->
+<!--  <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>-->
+<link rel="stylesheet" href="/css/page/themes-smoothness-jquery-ui.css">
+<script src="/js/jquery-1.11.3.min.js"></script>
+<script src="/js/jquery-ui.js"></script>
+
+<script>
+  $(function() {
+    $( "#datepicker" ).datepicker({ dateFormat: 'yy-mm-dd' });
+  });
+</script>
+  
+  
+  <!-- post message -->
+   <div class="modal fade" id="post_msg" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title text-center">发布同游信息</h4>
+        </div>
+        <div class="modal-body">
+       <form id="post-form" name="fabu" action="/page/publish.php"  onsubmit="return validateForm()" method="post" role="form"  enctype="multipart/form-data">
+        <input type='hidden' name='action' value='true' readonly>
+        							<div class="form-group">
+										标题<span style="color:red">*</span>: （带红色星号为必填项）<input  name="title" id="title"  tabindex="1" class="form-control" placeholder="" ></textarea>
+									</div>
+									
+									<div class="form-group">
+										同游/活动内容<span style="color:red">*</span>: <textarea  name="content" id="content" rows="10" cols="30" tabindex="1" class="form-control" placeholder="" ></textarea>
+									</div>
+									
+									<div class="form-group">
+										前往国家或地区<span style="color:red">*</span>: 
+										<!--  <input type="text" name="destination" id="destination" tabindex="1" class="form-control" placeholder="" value="" required> -->
+										<select name="region_id">
+											  <option value="0">选择国家或地区</option>
+											  <option value="9">中国各地</option>
+											  <option value="4">北美</option>
+											  <option value="1">东南亚</option>
+											  <option value="8">台湾</option>
+											  <option value="2">日本</option>
+											  <option value="11">韩国</option>
+											  <option value="3">欧洲</option>
+											  <option value="5">澳洲/新西兰</option>
+											  <option value="6">俄罗斯</option>
+											  <option value="7">非洲</option>
+											  <option value="10">中南美洲</option>
+											  <option value="12">其他</option>
+										</select>
+									</div>
+									
+									<div class="form-group">
+											目的地城市（可填多个，以分号隔开）<span style="color:red">*</span>：
+										 <input type="text" name="destination" id="destination" tabindex="1" class="form-control" placeholder="" value="" > 
+											
+									</div>
+									
+									<div class="form-group">
+				                               <div class="input-group">
+                            						出发时间: <input type="text" id="datepicker"  name="start_time" > &nbsp;&nbsp;游玩天数: <input type="text" name="trip_time" >
+                          					   </div>
+									</div>
+									<div class="form-group">
+									<span >
+   										 上传图片<span style="color:red">*</span>（上传个人或景点美图，有助于增加个人魅力值，更快约到小伙伴哦~） <input type="file" id="files" name="post_file_upload" value="上传图片" accept="image/*" >
+									<span style="color:red">上传图片大小不能超过5M</span>
+									</span>
+									</div>
+									<div class="form-group">
+										<div class="row">
+											<div class="col-sm-6 col-sm-offset-3">
+												<input type="submit" name="register-submit" id="register-submit" tabindex="4" class="form-control btn btn-register" value="马上发布">
+											</div>
+										</div>
+									</div>
+		</form>
+        </div>
+        <script type="text/javascript">document.getElementById('files').addEventListener('change', handleFileSelect, false);</script>
+        <!-- <div class="modal-footer">
+        </div> -->
+      </div>
+      
+    </div>
+  </div>
+   
+   <!-- register Modal -->   
+    <div class="modal fade" id="register" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title text-center">注&nbsp;&nbsp;册</h4>
+        </div>
+        <div class="modal-body">
+       <form id="register-form" action="/account/account.php?act=signup" method="post" role="form" >
+									<div class="form-group">
+										用户名: <input type="text" name="username" id="username" tabindex="1" class="form-control" placeholder="" value="" required>
+									</div>	
+									<div class="form-group">
+										Email: <input type="email" name="email" id="email" tabindex="1" class="form-control" placeholder="" value="" required>
+									</div>
+									<div class="form-group">
+										密码: <input type="password" name="password" id="password" tabindex="2" class="form-control" placeholder="" required>
+									</div>
+									<!-- 
+									<div class="form-group">
+										确认密码: <input type="password" name="confirm-password" id="confirm-password" tabindex="2" class="form-control" placeholder="">
+									</div>
+									 -->
+									<div class="form-group">
+									    性别: <input type="radio" name="gender" value="male">  Male &nbsp;&nbsp; <input type="radio" name="gender" value="female">  Female
+									</div>
+									<div class="form-group">
+										<div class="row">
+											<div class="col-sm-6 col-sm-offset-3">
+												<input type="submit" name="register-submit" id="register-submit" tabindex="4" class="form-control btn btn-register" value="马上注册">
+											</div>
+										</div>
+									</div>
+		</form>
+        </div>
+        <!-- <div class="modal-footer">
+        </div> -->
+      </div>
+      
+    </div>
+  </div>
+   <!-- login Modal -->   
+    <div class="modal fade" id="login" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title text-center">登&nbsp;录</h4>
+        </div>
+        <div class="modal-body">
+         <form id="login-form" action="/account/account.php?act=login" method="post" role="form" >
+									<div class="form-group">
+										<input type="text" name="email" id="email" tabindex="1" class="form-control" placeholder="邮箱" value="" required>
+									</div>
+									<div class="form-group">
+										<input type="password" name="password" id="password" tabindex="2" class="form-control" placeholder="密&nbsp;码" required>
+									</div>
+									<div class="form-group text-center">
+										<input type="checkbox" tabindex="3" class="" name="remember" id="remember">
+										<label for="remember"> 记住密码</label>
+									</div>
+									<div class="form-group">
+										<div class="row">
+											<div class="col-sm-6 col-sm-offset-3">
+												<input type="submit" name="login-submit" id="login-submit" tabindex="4" class="form-control btn btn-login " value="登&nbsp;录">
+											</div>
+										</div>
+									</div>
+									<div class="form-group">
+										<div class="row">
+											<div class="col-lg-12">
+												<div class="text-center">
+													<a href="" tabindex="5" class="forgot-password">忘记密码?</a>
+												</div>
+											</div>
+										</div>
+									</div>
+		</form>
+        </div>
+        <!-- <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div> -->
+      </div>
+      
+    </div>
+  </div>
+  

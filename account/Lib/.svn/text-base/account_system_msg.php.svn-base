@@ -1,0 +1,7 @@
+<?php
+class account_system_msg extends Model
+{
+	protected $tableName="system_msg";
+	protected $dbinfo=array("config"=>"member", "type"=>"MySQL");
+	
+}

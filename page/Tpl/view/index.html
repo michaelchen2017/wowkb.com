@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>HiaTrip.com</title>
+
+<!-- Bootstrap Core CSS -->
+<link href="/css/page/bootstrap.min.css" rel="stylesheet">
+  
+ <!-- Custom CSS -->
+    <link href="/css/page/3-col-portfolio.css" rel="stylesheet">
+    <link href="/css/page/search.css" rel="stylesheet">
+    <link rel="stylesheet" href="/account/css/login_signup.css">
+    <link rel="stylesheet" href="/css/page/footer-distributed-with-address-and-phones.css">
+    <script type="text/javascript" src="/js/image_upload.js"></script>
+    
+<style type="text/css">
+.user_name{
+    font-size:14px;
+    font-weight: bold;
+}
+.comments-list .media{
+    border-bottom: 1px dotted #ccc;
+}
+</style>
+<link href="http://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">  
+
+</head>
+<body>
+<div class="container">
+  {%include file="$root/template/ssi/header_navbar.html"%}
+</div>  
+ <!-- Page Content -->
+    <div class="container-fluid">
+    <div class="row">
+  	{%include file="$root/template/ssi/header_modal.html"%}
+        <!-- Page Header -->
+        
+        </div>
+     </div>
+<div class="container">
+ 		   <div class="row">
+           <div class="col-md-8">
+           <div class="form-group">
+           		<p><img src="{%$pic_res['pic_path']%}"></p>
+				<pre>内容：{%$result['content']|default:''%}</pre>
+				<pre>出发时间：{%$result['start_time']|default:''%}</pre>
+				<pre>目的地：{%$result['destination']|default:''%}</pre>
+           </div>
+           </div>
+           </div>
+           <div class="row">
+           <div class="col-md-8">
+           <form action="/page/view.php?act=comments" method="post">
+		      <div class="form-group">
+		        <label for="comment">留个言呗~</label>
+		        <textarea name="comment" class="form-control" rows="3"></textarea>
+		        <input type="hidden" name="post_id" value="{%$post_id%}">
+		      </div>
+		      <button type="submit" name="submit" class="btn btn-default" value="comment">求加入</button>
+   			</form>
+   			</div>
+           </div>
+            <div class="row">
+                <div class="col-md-8">
+                  <div class="page-header">
+                    <h1><small class="pull-right">{%$numofcomments%} 条</small> 留言列表: </h1>
+                  </div> 
+                   <div class="comments-list">
+                   {%foreach from=$comments key=myId item=val%}
+                       <div class="media">
+                           <p class="pull-right"><small>{%$val.created_time|date_format:"%m/%d/%Y %H:%M:%S"%}</small></p>
+                            <a class="media-left" href="#">
+                              <img src="http://lorempixel.com/40/40/people/1/">
+                            </a>
+                            <div class="media-body">
+                                
+                              <h4 class="media-heading user_name">{%$val.username%}</h4>
+                              {%$val.comment%}
+                              
+                              <p><small><a href="">Like</a> - <a href="">Share</a></small></p>
+                            </div>
+                          </div>
+                     {%/foreach%}
+                   </div>
+                    
+                    
+                    
+                </div>
+            </div>
+        </div>
+          {%include file="$root/template/ssi/footer.html"%}
+          <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+     <script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js"></script>
+        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+</body>
+</html>

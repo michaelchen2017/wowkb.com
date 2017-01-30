@@ -1,0 +1,81 @@
+<?php
+class account_notify {
+	
+	static function getInstance() {
+		static $notifyObj;
+		if (empty($notifyObj)) {
+			$notifyObj = load('account_notify');
+		}
+		return $notifyObj;
+	}
+	
+	function sendAccountResetEmail($dstEmail, $dstName, $newPassword)
+	{
+		$chnagePwdURL = account_url_generator::genChangePwdURL(true, $dstEmail, $newPassword);
+		$title = "haiwai.com账号重置密码";
+		$html = "
+			你好, {$dstName}, <br><br>
+			请使用以下链接来修改你的账号密码:
+			<a href='{$chnagePwdURL}' target=_blank>{$chnagePwdURL}</a><br><br>
+			谢谢你使用Haiwai<br><br>
+			Best Regards,<br>
+			Haiwai<br>
+			本邮件由系统发出，请不要直接回复本邮件。<br>
+		";
+		$txt = "haiwai.com 请及时修改您的新账号密码。";
+		$notifyCfg = $this->getNotifyConfig();
+		$status = func_sendMail($title, $html, $txt, $dstEmail, $dstName, $notifyCfg);
+	}
+	
+	function sendAccountConfirmEmail($dstEmail, $dstName) {
+		$loginURL = account_url_generator::genLoginURL(true);
+		$title = "欢迎加入海外（Haiwai.com）！";
+		$html = "
+			亲爱的海外用户：, <br><br>
+			恭喜您，您已经成功激活海外通行证！现在就可以马上使用海外网站的服务了！<br><br>
+			请登录个人账户或海外首页开始您的海外之旅，或者点击帮助查看使用说明。<br><br>
+			海外竭诚为您提供最便利的生活信息服务。 <br><br>
+			——海外（<a href='http://classified.haiwai.com' target='_blank'>Haiwai.com</a>）<br>
+			本邮件由系统发出，请不要直接回复本邮件。<br>
+		";
+		$txt = "恭喜您，您已经成功激活海外通行证！现在就可以马上使用海外网站的服务了！";
+		
+		$notifyCfg = $this->getNotifyConfig();
+		$status = func_sendMail($title, $html, $txt, $dstEmail, $dstName, $notifyCfg);
+	}
+	
+	
+	function sendAccountActivationEmail($verifyCode, $dstEmail, $dstName)
+	{
+		$verifyURL = account_url_generator::genVerifyURL($verifyCode);
+		$verifyURL = 'http://' . $_SERVER['HTTP_HOST'] . $verifyURL;
+		
+		$title = "就差一步，马上激活您的海外通行证账号！";
+		$html="
+			亲爱的海外用户：,<br><br>
+			欢迎申请海外通行证！<br><br>
+			请点击下面的链接激活账号完成注册：<br><br>
+			<a href='{$verifyURL}' target=_blank>{$verifyURL}</a><br><br>
+			如果以上链接无法点击，请将上面的地址复制到你的浏览器的地址栏。<br><br>
+			欢迎您加入海外Haiwai.com！<br><br>
+			——海外（<a href='http://classified.haiwai.com' target='_blank'>Haiwai.com</a>) <br>
+			本邮件由系统发出，请不要直接回复本邮件。<br>
+		";
+		$txt = "请通过'{$verifyURL}'激活您的海外通行证账号！。";
+		
+		$notifyCfg = $this->getNotifyConfig();
+		$status = func_sendMail($title, $html, $txt, $dstEmail, $dstName, $notifyCfg);
+	}
+	
+	function getNotifyConfig() {
+		$config = conf("account.notify_config");
+		$notifyCfg  = array(
+				'host'=>$config['smtp_server_host'],
+				'user'=>$config['smtp_user_name'],
+				'pass'=>$config['smtp_user_password'],
+				'name'=>$config['smtp_sender_name'],
+				'charset'=>'UTF-8',
+		);
+		return $notifyCfg;
+	}
+}

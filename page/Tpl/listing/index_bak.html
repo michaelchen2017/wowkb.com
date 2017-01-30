@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html >
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    
+
+    <title>wowkb.com</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="/css/page/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="/css/page/3-col-portfolio.css" rel="stylesheet">
+    <link href="/css/page/search.css" rel="stylesheet">
+    <link rel="stylesheet" href="/account/css/login_signup.css">
+    <link rel="stylesheet" href="/css/page/footer-distributed-with-address-and-phones.css">
+   
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+<style>
+body {
+background: #FFFFFF;
+}
+#blog-landing {
+margin-top: 2%;
+position: relative;
+max-width: 100%;
+width: 100%;
+}
+img {
+width: 100%;
+max-width: 100%;
+height: auto;
+}
+.white-panel {
+position: absolute;
+top: 50%; left: 50%;
+background: white;
+box-shadow: 0px 1px 2px rgba(0,0,0,0.3);
+padding: 10px;
+}
+.white-panel h1 {
+font-size: 1em;
+}
+.white-panel h1 a {
+color: #A92733;
+}
+.white-panel:hover {
+box-shadow: 1px 1px 10px rgba(0,0,0,0.5);
+margin-top: -5px;
+-webkit-transition: all 0.3s ease-in-out;
+-moz-transition: all 0.3s ease-in-out;
+-o-transition: all 0.3s ease-in-out;
+transition: all 0.3s ease-in-out;
+}
+</style>
+
+        
+<link href="http://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+
+    {%include file="$root/template/ssi/header_navbar.html"%}
+    <!-- search bar -->
+        <!-- {%include file="$root/template/ssi/search.html"%} -->
+        <br>
+    <!-- Page Content -->
+    <div class="container-fluid">
+    <div class="row">
+  	{%include file="$root/template/ssi/header_modal.html"%}
+        <!-- Page Header -->
+        
+        </div>
+     </div>
+        <!-- /.row -->
+{%if !empty($result)%}
+<div class="container marketing">
+<section id="blog-landing">
+ {%foreach from=$result key=k item=res %} 
+<article class="white-panel"> 
+<a href="/page/view.php?id={%$res['pk_id']%}" style="text-decoration:none;">
+<img src="{%page_postPics::genPicUrl($res['pk_id'])%}">
+<!-- <h1>{%$res['content']%}</h1> -->
+
+</a>
+</article>
+{%/foreach%} 
+</section>
+</div>
+{%/if%}
+
+<div class="jquery-script-clear"></div>
+<!-- Pagination -->
+        {%include file="$root/template/ssi/pagenav.html"%}
+        <!-- /.row -->
+        <!-- Footer -->
+       {%include file="$root/template/ssi/footer.html"%}
+    <!-- /.container -->
+
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+     <script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js"></script>
+ <script type="text/javascript" src="/js/image_upload.js"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <!--  <script src="/js/bootstrap.min.js"></script>-->
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<script src="/js/search.js"></script>
+
+<script src="/js/pinterest_grid.js"></script> 
+<script>
+        $(document).ready(function() {
+
+            $('#blog-landing').pinterest_grid({
+                no_columns: 5,
+                padding_x: 10,
+                padding_y: 10,
+                margin_bottom: 50,
+                single_column_breakpoint: 700
+            });
+
+        });
+    </script>
+    
+  
+</body>
+
+</body>
+
+</html>

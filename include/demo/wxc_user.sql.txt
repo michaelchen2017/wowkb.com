@@ -1,0 +1,1172 @@
+-- phpMyAdmin SQL Dump
+-- version 3.5.5
+-- http://www.phpmyadmin.net
+--
+-- 主机: 192.168.100.185
+-- 生成日期: 2014 年 10 月 22 日 09:45
+-- 服务器版本: 5.5.29-0ubuntu0.12.04.1-log
+-- PHP 版本: 5.3.5-1ubuntu7.11
+
+SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
+
+--
+-- 数据库: `wxc_user`
+--
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `user`
+--
+
+CREATE TABLE IF NOT EXISTS `user` (
+  `id` int(12) NOT NULL AUTO_INCREMENT,
+  `username` varchar(50) NOT NULL COMMENT '用户名',
+  `truename` varchar(100) NOT NULL COMMENT '真实姓名',
+  `email` varchar(60) NOT NULL COMMENT '邮箱',
+  `password` varchar(32) NOT NULL COMMENT '密码',
+  `gender` enum('M','F','N') NOT NULL DEFAULT 'N' COMMENT '性别，N表示没选择填写',
+  `loginerrornum` int(1) NOT NULL DEFAULT '0' COMMENT '错误登录的次数',
+  `nickname` varchar(50) NOT NULL COMMENT '昵称',
+  `avatar` varchar(255) DEFAULT NULL COMMENT '用户头像',
+  `aboutme` varchar(255) DEFAULT NULL COMMENT '自我介绍',
+  `country` varchar(4) NOT NULL COMMENT '国家',
+  `province` int(12) NOT NULL COMMENT '地区',
+  `city` int(12) NOT NULL COMMENT '城市',
+  `zipcode` varchar(10) NOT NULL COMMENT '区域编码',
+  `configure` varchar(255) NOT NULL COMMENT '存储序列化后的用户配置',
+  `userlevel` int(1) NOT NULL DEFAULT '0' COMMENT '用户级别',
+  `regcode` varchar(255) DEFAULT NULL COMMENT '激活，重置密码时用的验证码',
+  `jointime` int(12) DEFAULT NULL COMMENT '加入时间',
+  `isactive` enum('Y','N') NOT NULL DEFAULT 'N' COMMENT '是否激活',
+  `isminisite` enum('Y','N') NOT NULL DEFAULT 'N' COMMENT '是否开通了社区',
+  `isblog` enum('Y','N') NOT NULL DEFAULT 'N' COMMENT '是否开设了博客',
+  `isOpenInvite` enum('Y','N') NOT NULL DEFAULT 'Y' COMMENT '是否开放被邀请',
+  `from` int(12) NOT NULL DEFAULT '1' COMMENT '注册来源网站',
+  `inviteID` int(12) NOT NULL COMMENT '邀请人的ID',
+  PRIMARY KEY (`id`),
+  KEY `userlevel` (`userlevel`),
+  KEY `username` (`username`),
+  KEY `nickname` (`nickname`),
+  KEY `email` (`email`),
+  KEY `inviteID` (`inviteID`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `user_info`
+--
+
+CREATE TABLE IF NOT EXISTS `user_info` (
+  `userID` int(12) NOT NULL COMMENT '关联用户ID',
+  `point` int(12) NOT NULL DEFAULT '0' COMMENT '总积分',
+  `pointtype` varchar(25) NOT NULL DEFAULT 'basic' COMMENT '用户级别类型',
+  `totallogin` int(12) NOT NULL DEFAULT '0' COMMENT '总计登录次数',
+  `totalbbs` int(12) NOT NULL DEFAULT '0' COMMENT '总计论坛发贴',
+  `totalblog` int(12) NOT NULL DEFAULT '0' COMMENT '总计博客发文章',
+  `totalfriends` int(12) NOT NULL DEFAULT '0' COMMENT '好友',
+  `totalgroups` int(12) NOT NULL DEFAULT '0' COMMENT '参与组',
+  `lastlogintime` int(12) DEFAULT NULL COMMENT '最后登录',
+  `lastLoginIP` varchar(16) NOT NULL COMMENT '最后登录的IP',
+  `sessionid` varchar(32) DEFAULT NULL COMMENT '最后登录成功的sessionID',
+  `mesgnum` int(12) unsigned NOT NULL DEFAULT '0' COMMENT '未读消息',
+  `totalfans` int(12) NOT NULL DEFAULT '0' COMMENT '关注者',
+  PRIMARY KEY (`userID`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='用户关联信息表，分表主键userID';
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `user_info_0`
+--
+
+CREATE TABLE IF NOT EXISTS `user_info_0` (
+  `userID` int(12) NOT NULL COMMENT '关联用户ID',
+  `point` int(12) NOT NULL DEFAULT '0' COMMENT '总积分',
+  `pointtype` varchar(25) NOT NULL DEFAULT 'basic' COMMENT '用户级别类型',
+  `totallogin` int(12) NOT NULL DEFAULT '0' COMMENT '总计登录次数',
+  `totalbbs` int(12) NOT NULL DEFAULT '0' COMMENT '总计论坛发贴',
+  `totalblog` int(12) NOT NULL DEFAULT '0' COMMENT '总计博客发文章',
+  `totalfriends` int(12) NOT NULL DEFAULT '0' COMMENT '好友',
+  `totalgroups` int(12) NOT NULL DEFAULT '0' COMMENT '参与组',
+  `lastlogintime` int(12) DEFAULT NULL COMMENT '最后登录',
+  `lastLoginIP` varchar(16) NOT NULL COMMENT '最后登录的IP',
+  `sessionid` varchar(32) DEFAULT NULL COMMENT '最后登录成功的sessionID',
+  `mesgnum` int(12) unsigned NOT NULL DEFAULT '0' COMMENT '未读消息',
+  `totalfans` int(12) NOT NULL DEFAULT '0' COMMENT '关注者',
+  PRIMARY KEY (`userID`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='用户关联信息表，分表主键userID';
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `user_info_1`
+--
+
+CREATE TABLE IF NOT EXISTS `user_info_1` (
+  `userID` int(12) NOT NULL COMMENT '关联用户ID',
+  `point` int(12) NOT NULL DEFAULT '0' COMMENT '总积分',
+  `pointtype` varchar(25) NOT NULL DEFAULT 'basic' COMMENT '用户级别类型',
+  `totallogin` int(12) NOT NULL DEFAULT '0' COMMENT '总计登录次数',
+  `totalbbs` int(12) NOT NULL DEFAULT '0' COMMENT '总计论坛发贴',
+  `totalblog` int(12) NOT NULL DEFAULT '0' COMMENT '总计博客发文章',
+  `totalfriends` int(12) NOT NULL DEFAULT '0' COMMENT '好友',
+  `totalgroups` int(12) NOT NULL DEFAULT '0' COMMENT '参与组',
+  `lastlogintime` int(12) DEFAULT NULL COMMENT '最后登录',
+  `lastLoginIP` varchar(16) NOT NULL COMMENT '最后登录的IP',
+  `sessionid` varchar(32) DEFAULT NULL COMMENT '最后登录成功的sessionID',
+  `mesgnum` int(12) unsigned NOT NULL DEFAULT '0' COMMENT '未读消息',
+  `totalfans` int(12) NOT NULL DEFAULT '0' COMMENT '关注者',
+  PRIMARY KEY (`userID`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='用户关联信息表，分表主键userID';
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `user_info_2`
+--
+
+CREATE TABLE IF NOT EXISTS `user_info_2` (
+  `userID` int(12) NOT NULL COMMENT '关联用户ID',
+  `point` int(12) NOT NULL DEFAULT '0' COMMENT '总积分',
+  `pointtype` varchar(25) NOT NULL DEFAULT 'basic' COMMENT '用户级别类型',
+  `totallogin` int(12) NOT NULL DEFAULT '0' COMMENT '总计登录次数',
+  `totalbbs` int(12) NOT NULL DEFAULT '0' COMMENT '总计论坛发贴',
+  `totalblog` int(12) NOT NULL DEFAULT '0' COMMENT '总计博客发文章',
+  `totalfriends` int(12) NOT NULL DEFAULT '0' COMMENT '好友',
+  `totalgroups` int(12) NOT NULL DEFAULT '0' COMMENT '参与组',
+  `lastlogintime` int(12) DEFAULT NULL COMMENT '最后登录',
+  `lastLoginIP` varchar(16) NOT NULL COMMENT '最后登录的IP',
+  `sessionid` varchar(32) DEFAULT NULL COMMENT '最后登录成功的sessionID',
+  `mesgnum` int(12) unsigned NOT NULL DEFAULT '0' COMMENT '未读消息',
+  `totalfans` int(12) NOT NULL DEFAULT '0' COMMENT '关注者',
+  PRIMARY KEY (`userID`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='用户关联信息表，分表主键userID';
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `user_info_3`
+--
+
+CREATE TABLE IF NOT EXISTS `user_info_3` (
+  `userID` int(12) NOT NULL COMMENT '关联用户ID',
+  `point` int(12) NOT NULL DEFAULT '0' COMMENT '总积分',
+  `pointtype` varchar(25) NOT NULL DEFAULT 'basic' COMMENT '用户级别类型',
+  `totallogin` int(12) NOT NULL DEFAULT '0' COMMENT '总计登录次数',
+  `totalbbs` int(12) NOT NULL DEFAULT '0' COMMENT '总计论坛发贴',
+  `totalblog` int(12) NOT NULL DEFAULT '0' COMMENT '总计博客发文章',
+  `totalfriends` int(12) NOT NULL DEFAULT '0' COMMENT '好友',
+  `totalgroups` int(12) NOT NULL DEFAULT '0' COMMENT '参与组',
+  `lastlogintime` int(12) DEFAULT NULL COMMENT '最后登录',
+  `lastLoginIP` varchar(16) NOT NULL COMMENT '最后登录的IP',
+  `sessionid` varchar(32) DEFAULT NULL COMMENT '最后登录成功的sessionID',
+  `mesgnum` int(12) unsigned NOT NULL DEFAULT '0' COMMENT '未读消息',
+  `totalfans` int(12) NOT NULL DEFAULT '0' COMMENT '关注者',
+  PRIMARY KEY (`userID`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='用户关联信息表，分表主键userID';
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `user_info_4`
+--
+
+CREATE TABLE IF NOT EXISTS `user_info_4` (
+  `userID` int(12) NOT NULL COMMENT '关联用户ID',
+  `point` int(12) NOT NULL DEFAULT '0' COMMENT '总积分',
+  `pointtype` varchar(25) NOT NULL DEFAULT 'basic' COMMENT '用户级别类型',
+  `totallogin` int(12) NOT NULL DEFAULT '0' COMMENT '总计登录次数',
+  `totalbbs` int(12) NOT NULL DEFAULT '0' COMMENT '总计论坛发贴',
+  `totalblog` int(12) NOT NULL DEFAULT '0' COMMENT '总计博客发文章',
+  `totalfriends` int(12) NOT NULL DEFAULT '0' COMMENT '好友',
+  `totalgroups` int(12) NOT NULL DEFAULT '0' COMMENT '参与组',
+  `lastlogintime` int(12) DEFAULT NULL COMMENT '最后登录',
+  `lastLoginIP` varchar(16) NOT NULL COMMENT '最后登录的IP',
+  `sessionid` varchar(32) DEFAULT NULL COMMENT '最后登录成功的sessionID',
+  `mesgnum` int(12) unsigned NOT NULL DEFAULT '0' COMMENT '未读消息',
+  `totalfans` int(12) NOT NULL DEFAULT '0' COMMENT '关注者',
+  PRIMARY KEY (`userID`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='用户关联信息表，分表主键userID';
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `user_info_5`
+--
+
+CREATE TABLE IF NOT EXISTS `user_info_5` (
+  `userID` int(12) NOT NULL COMMENT '关联用户ID',
+  `point` int(12) NOT NULL DEFAULT '0' COMMENT '总积分',
+  `pointtype` varchar(25) NOT NULL DEFAULT 'basic' COMMENT '用户级别类型',
+  `totallogin` int(12) NOT NULL DEFAULT '0' COMMENT '总计登录次数',
+  `totalbbs` int(12) NOT NULL DEFAULT '0' COMMENT '总计论坛发贴',
+  `totalblog` int(12) NOT NULL DEFAULT '0' COMMENT '总计博客发文章',
+  `totalfriends` int(12) NOT NULL DEFAULT '0' COMMENT '好友',
+  `totalgroups` int(12) NOT NULL DEFAULT '0' COMMENT '参与组',
+  `lastlogintime` int(12) DEFAULT NULL COMMENT '最后登录',
+  `lastLoginIP` varchar(16) NOT NULL COMMENT '最后登录的IP',
+  `sessionid` varchar(32) DEFAULT NULL COMMENT '最后登录成功的sessionID',
+  `mesgnum` int(12) unsigned NOT NULL DEFAULT '0' COMMENT '未读消息',
+  `totalfans` int(12) NOT NULL DEFAULT '0' COMMENT '关注者',
+  PRIMARY KEY (`userID`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='用户关联信息表，分表主键userID';
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `user_info_6`
+--
+
+CREATE TABLE IF NOT EXISTS `user_info_6` (
+  `userID` int(12) NOT NULL COMMENT '关联用户ID',
+  `point` int(12) NOT NULL DEFAULT '0' COMMENT '总积分',
+  `pointtype` varchar(25) NOT NULL DEFAULT 'basic' COMMENT '用户级别类型',
+  `totallogin` int(12) NOT NULL DEFAULT '0' COMMENT '总计登录次数',
+  `totalbbs` int(12) NOT NULL DEFAULT '0' COMMENT '总计论坛发贴',
+  `totalblog` int(12) NOT NULL DEFAULT '0' COMMENT '总计博客发文章',
+  `totalfriends` int(12) NOT NULL DEFAULT '0' COMMENT '好友',
+  `totalgroups` int(12) NOT NULL DEFAULT '0' COMMENT '参与组',
+  `lastlogintime` int(12) DEFAULT NULL COMMENT '最后登录',
+  `lastLoginIP` varchar(16) NOT NULL COMMENT '最后登录的IP',
+  `sessionid` varchar(32) DEFAULT NULL COMMENT '最后登录成功的sessionID',
+  `mesgnum` int(12) unsigned NOT NULL DEFAULT '0' COMMENT '未读消息',
+  `totalfans` int(12) NOT NULL DEFAULT '0' COMMENT '关注者',
+  PRIMARY KEY (`userID`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='用户关联信息表，分表主键userID';
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `user_info_7`
+--
+
+CREATE TABLE IF NOT EXISTS `user_info_7` (
+  `userID` int(12) NOT NULL COMMENT '关联用户ID',
+  `point` int(12) NOT NULL DEFAULT '0' COMMENT '总积分',
+  `pointtype` varchar(25) NOT NULL DEFAULT 'basic' COMMENT '用户级别类型',
+  `totallogin` int(12) NOT NULL DEFAULT '0' COMMENT '总计登录次数',
+  `totalbbs` int(12) NOT NULL DEFAULT '0' COMMENT '总计论坛发贴',
+  `totalblog` int(12) NOT NULL DEFAULT '0' COMMENT '总计博客发文章',
+  `totalfriends` int(12) NOT NULL DEFAULT '0' COMMENT '好友',
+  `totalgroups` int(12) NOT NULL DEFAULT '0' COMMENT '参与组',
+  `lastlogintime` int(12) DEFAULT NULL COMMENT '最后登录',
+  `lastLoginIP` varchar(16) NOT NULL COMMENT '最后登录的IP',
+  `sessionid` varchar(32) DEFAULT NULL COMMENT '最后登录成功的sessionID',
+  `mesgnum` int(12) unsigned NOT NULL DEFAULT '0' COMMENT '未读消息',
+  `totalfans` int(12) NOT NULL DEFAULT '0' COMMENT '关注者',
+  PRIMARY KEY (`userID`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='用户关联信息表，分表主键userID';
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `user_info_8`
+--
+
+CREATE TABLE IF NOT EXISTS `user_info_8` (
+  `userID` int(12) NOT NULL COMMENT '关联用户ID',
+  `point` int(12) NOT NULL DEFAULT '0' COMMENT '总积分',
+  `pointtype` varchar(25) NOT NULL DEFAULT 'basic' COMMENT '用户级别类型',
+  `totallogin` int(12) NOT NULL DEFAULT '0' COMMENT '总计登录次数',
+  `totalbbs` int(12) NOT NULL DEFAULT '0' COMMENT '总计论坛发贴',
+  `totalblog` int(12) NOT NULL DEFAULT '0' COMMENT '总计博客发文章',
+  `totalfriends` int(12) NOT NULL DEFAULT '0' COMMENT '好友',
+  `totalgroups` int(12) NOT NULL DEFAULT '0' COMMENT '参与组',
+  `lastlogintime` int(12) DEFAULT NULL COMMENT '最后登录',
+  `lastLoginIP` varchar(16) NOT NULL COMMENT '最后登录的IP',
+  `sessionid` varchar(32) DEFAULT NULL COMMENT '最后登录成功的sessionID',
+  `mesgnum` int(12) unsigned NOT NULL DEFAULT '0' COMMENT '未读消息',
+  `totalfans` int(12) NOT NULL DEFAULT '0' COMMENT '关注者',
+  PRIMARY KEY (`userID`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='用户关联信息表，分表主键userID';
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `user_info_9`
+--
+
+CREATE TABLE IF NOT EXISTS `user_info_9` (
+  `userID` int(12) NOT NULL COMMENT '关联用户ID',
+  `point` int(12) NOT NULL DEFAULT '0' COMMENT '总积分',
+  `pointtype` varchar(25) NOT NULL DEFAULT 'basic' COMMENT '用户级别类型',
+  `totallogin` int(12) NOT NULL DEFAULT '0' COMMENT '总计登录次数',
+  `totalbbs` int(12) NOT NULL DEFAULT '0' COMMENT '总计论坛发贴',
+  `totalblog` int(12) NOT NULL DEFAULT '0' COMMENT '总计博客发文章',
+  `totalfriends` int(12) NOT NULL DEFAULT '0' COMMENT '好友',
+  `totalgroups` int(12) NOT NULL DEFAULT '0' COMMENT '参与组',
+  `lastlogintime` int(12) DEFAULT NULL COMMENT '最后登录',
+  `lastLoginIP` varchar(16) NOT NULL COMMENT '最后登录的IP',
+  `sessionid` varchar(32) DEFAULT NULL COMMENT '最后登录成功的sessionID',
+  `mesgnum` int(12) unsigned NOT NULL DEFAULT '0' COMMENT '未读消息',
+  `totalfans` int(12) NOT NULL DEFAULT '0' COMMENT '关注者',
+  PRIMARY KEY (`userID`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='用户关联信息表，分表主键userID';
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `user_profile_categorise`
+--
+
+CREATE TABLE IF NOT EXISTS `user_profile_categorise` (
+  `id` int(12) NOT NULL AUTO_INCREMENT,
+  `name` varchar(100) NOT NULL,
+  `description` text NOT NULL,
+  `status` enum('Y','N') NOT NULL DEFAULT 'N' COMMENT '状态',
+  `type` enum('field','record') NOT NULL DEFAULT 'field' COMMENT '分类类型，复合数据或单一数据',
+  `order` int(12) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='用户信息类型分类表';
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `user_profile_checkbox`
+--
+
+CREATE TABLE IF NOT EXISTS `user_profile_checkbox` (
+  `id` int(12) NOT NULL AUTO_INCREMENT,
+  `userID` int(12) NOT NULL,
+  `typeID` int(12) NOT NULL COMMENT '对应profiledefine中的ID',
+  `value` int(12) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `userID` (`userID`),
+  KEY `typeID` (`typeID`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='用户多选类型的信息数据表，分表主键userID';
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `user_profile_checkbox_0`
+--
+
+CREATE TABLE IF NOT EXISTS `user_profile_checkbox_0` (
+  `id` int(12) NOT NULL AUTO_INCREMENT,
+  `userID` int(12) NOT NULL,
+  `typeID` int(12) NOT NULL COMMENT '对应profiledefine中的ID',
+  `value` int(12) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `userID` (`userID`),
+  KEY `typeID` (`typeID`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='用户多选类型的信息数据表，分表主键userID';
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `user_profile_checkbox_1`
+--
+
+CREATE TABLE IF NOT EXISTS `user_profile_checkbox_1` (
+  `id` int(12) NOT NULL AUTO_INCREMENT,
+  `userID` int(12) NOT NULL,
+  `typeID` int(12) NOT NULL COMMENT '对应profiledefine中的ID',
+  `value` int(12) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `userID` (`userID`),
+  KEY `typeID` (`typeID`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='用户多选类型的信息数据表，分表主键userID';
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `user_profile_checkbox_2`
+--
+
+CREATE TABLE IF NOT EXISTS `user_profile_checkbox_2` (
+  `id` int(12) NOT NULL AUTO_INCREMENT,
+  `userID` int(12) NOT NULL,
+  `typeID` int(12) NOT NULL COMMENT '对应profiledefine中的ID',
+  `value` int(12) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `userID` (`userID`),
+  KEY `typeID` (`typeID`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='用户多选类型的信息数据表，分表主键userID';
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `user_profile_checkbox_3`
+--
+
+CREATE TABLE IF NOT EXISTS `user_profile_checkbox_3` (
+  `id` int(12) NOT NULL AUTO_INCREMENT,
+  `userID` int(12) NOT NULL,
+  `typeID` int(12) NOT NULL COMMENT '对应profiledefine中的ID',
+  `value` int(12) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `userID` (`userID`),
+  KEY `typeID` (`typeID`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='用户多选类型的信息数据表，分表主键userID';
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `user_profile_checkbox_4`
+--
+
+CREATE TABLE IF NOT EXISTS `user_profile_checkbox_4` (
+  `id` int(12) NOT NULL AUTO_INCREMENT,
+  `userID` int(12) NOT NULL,
+  `typeID` int(12) NOT NULL COMMENT '对应profiledefine中的ID',
+  `value` int(12) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `userID` (`userID`),
+  KEY `typeID` (`typeID`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='用户多选类型的信息数据表，分表主键userID';
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `user_profile_checkbox_5`
+--
+
+CREATE TABLE IF NOT EXISTS `user_profile_checkbox_5` (
+  `id` int(12) NOT NULL AUTO_INCREMENT,
+  `userID` int(12) NOT NULL,
+  `typeID` int(12) NOT NULL COMMENT '对应profiledefine中的ID',
+  `value` int(12) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `userID` (`userID`),
+  KEY `typeID` (`typeID`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='用户多选类型的信息数据表，分表主键userID';
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `user_profile_checkbox_6`
+--
+
+CREATE TABLE IF NOT EXISTS `user_profile_checkbox_6` (
+  `id` int(12) NOT NULL AUTO_INCREMENT,
+  `userID` int(12) NOT NULL,
+  `typeID` int(12) NOT NULL COMMENT '对应profiledefine中的ID',
+  `value` int(12) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `userID` (`userID`),
+  KEY `typeID` (`typeID`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='用户多选类型的信息数据表，分表主键userID';
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `user_profile_checkbox_7`
+--
+
+CREATE TABLE IF NOT EXISTS `user_profile_checkbox_7` (
+  `id` int(12) NOT NULL AUTO_INCREMENT,
+  `userID` int(12) NOT NULL,
+  `typeID` int(12) NOT NULL COMMENT '对应profiledefine中的ID',
+  `value` int(12) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `userID` (`userID`),
+  KEY `typeID` (`typeID`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='用户多选类型的信息数据表，分表主键userID';
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `user_profile_checkbox_8`
+--
+
+CREATE TABLE IF NOT EXISTS `user_profile_checkbox_8` (
+  `id` int(12) NOT NULL AUTO_INCREMENT,
+  `userID` int(12) NOT NULL,
+  `typeID` int(12) NOT NULL COMMENT '对应profiledefine中的ID',
+  `value` int(12) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `userID` (`userID`),
+  KEY `typeID` (`typeID`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='用户多选类型的信息数据表，分表主键userID';
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `user_profile_checkbox_9`
+--
+
+CREATE TABLE IF NOT EXISTS `user_profile_checkbox_9` (
+  `id` int(12) NOT NULL AUTO_INCREMENT,
+  `userID` int(12) NOT NULL,
+  `typeID` int(12) NOT NULL COMMENT '对应profiledefine中的ID',
+  `value` int(12) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `userID` (`userID`),
+  KEY `typeID` (`typeID`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='用户多选类型的信息数据表，分表主键userID';
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `user_profile_data`
+--
+
+CREATE TABLE IF NOT EXISTS `user_profile_data` (
+  `id` int(12) NOT NULL AUTO_INCREMENT,
+  `userID` int(12) NOT NULL,
+  `int` int(12) DEFAULT NULL,
+  `date` date DEFAULT NULL COMMENT '日期类信息',
+  `date_extra` date NOT NULL COMMENT '时间区间',
+  `varchar` varchar(255) DEFAULT NULL,
+  `select` int(12) DEFAULT NULL,
+  `typeID` int(12) NOT NULL COMMENT '对应profiledefine中的ID',
+  `privacy` enum('Y','N') NOT NULL DEFAULT 'N' COMMENT '是否起用隐私保护',
+  PRIMARY KEY (`id`),
+  KEY `userID` (`userID`),
+  KEY `typeID` (`typeID`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='用户信息数据表，分表主键userID';
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `user_profile_data_0`
+--
+
+CREATE TABLE IF NOT EXISTS `user_profile_data_0` (
+  `id` int(12) NOT NULL AUTO_INCREMENT,
+  `userID` int(12) NOT NULL,
+  `int` int(12) DEFAULT NULL,
+  `date` date DEFAULT NULL COMMENT '日期类信息',
+  `date_extra` date NOT NULL COMMENT '时间区间',
+  `varchar` varchar(255) DEFAULT NULL,
+  `select` int(12) DEFAULT NULL,
+  `typeID` int(12) NOT NULL COMMENT '对应profiledefine中的ID',
+  `privacy` enum('Y','N') NOT NULL DEFAULT 'N' COMMENT '是否起用隐私保护',
+  PRIMARY KEY (`id`),
+  KEY `userID` (`userID`),
+  KEY `typeID` (`typeID`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='用户信息数据表，分表主键userID';
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `user_profile_data_1`
+--
+
+CREATE TABLE IF NOT EXISTS `user_profile_data_1` (
+  `id` int(12) NOT NULL AUTO_INCREMENT,
+  `userID` int(12) NOT NULL,
+  `int` int(12) DEFAULT NULL,
+  `date` date DEFAULT NULL COMMENT '日期类信息',
+  `date_extra` date NOT NULL COMMENT '时间区间',
+  `varchar` varchar(255) DEFAULT NULL,
+  `select` int(12) DEFAULT NULL,
+  `typeID` int(12) NOT NULL COMMENT '对应profiledefine中的ID',
+  `privacy` enum('Y','N') NOT NULL DEFAULT 'N' COMMENT '是否起用隐私保护',
+  PRIMARY KEY (`id`),
+  KEY `userID` (`userID`),
+  KEY `typeID` (`typeID`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='用户信息数据表，分表主键userID';
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `user_profile_data_2`
+--
+
+CREATE TABLE IF NOT EXISTS `user_profile_data_2` (
+  `id` int(12) NOT NULL AUTO_INCREMENT,
+  `userID` int(12) NOT NULL,
+  `int` int(12) DEFAULT NULL,
+  `date` date DEFAULT NULL COMMENT '日期类信息',
+  `date_extra` date NOT NULL COMMENT '时间区间',
+  `varchar` varchar(255) DEFAULT NULL,
+  `select` int(12) DEFAULT NULL,
+  `typeID` int(12) NOT NULL COMMENT '对应profiledefine中的ID',
+  `privacy` enum('Y','N') NOT NULL DEFAULT 'N' COMMENT '是否起用隐私保护',
+  PRIMARY KEY (`id`),
+  KEY `userID` (`userID`),
+  KEY `typeID` (`typeID`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='用户信息数据表，分表主键userID';
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `user_profile_data_3`
+--
+
+CREATE TABLE IF NOT EXISTS `user_profile_data_3` (
+  `id` int(12) NOT NULL AUTO_INCREMENT,
+  `userID` int(12) NOT NULL,
+  `int` int(12) DEFAULT NULL,
+  `date` date DEFAULT NULL COMMENT '日期类信息',
+  `date_extra` date NOT NULL COMMENT '时间区间',
+  `varchar` varchar(255) DEFAULT NULL,
+  `select` int(12) DEFAULT NULL,
+  `typeID` int(12) NOT NULL COMMENT '对应profiledefine中的ID',
+  `privacy` enum('Y','N') NOT NULL DEFAULT 'N' COMMENT '是否起用隐私保护',
+  PRIMARY KEY (`id`),
+  KEY `userID` (`userID`),
+  KEY `typeID` (`typeID`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='用户信息数据表，分表主键userID';
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `user_profile_data_4`
+--
+
+CREATE TABLE IF NOT EXISTS `user_profile_data_4` (
+  `id` int(12) NOT NULL AUTO_INCREMENT,
+  `userID` int(12) NOT NULL,
+  `int` int(12) DEFAULT NULL,
+  `date` date DEFAULT NULL COMMENT '日期类信息',
+  `date_extra` date NOT NULL COMMENT '时间区间',
+  `varchar` varchar(255) DEFAULT NULL,
+  `select` int(12) DEFAULT NULL,
+  `typeID` int(12) NOT NULL COMMENT '对应profiledefine中的ID',
+  `privacy` enum('Y','N') NOT NULL DEFAULT 'N' COMMENT '是否起用隐私保护',
+  PRIMARY KEY (`id`),
+  KEY `userID` (`userID`),
+  KEY `typeID` (`typeID`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='用户信息数据表，分表主键userID';
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `user_profile_data_5`
+--
+
+CREATE TABLE IF NOT EXISTS `user_profile_data_5` (
+  `id` int(12) NOT NULL AUTO_INCREMENT,
+  `userID` int(12) NOT NULL,
+  `int` int(12) DEFAULT NULL,
+  `date` date DEFAULT NULL COMMENT '日期类信息',
+  `date_extra` date NOT NULL COMMENT '时间区间',
+  `varchar` varchar(255) DEFAULT NULL,
+  `select` int(12) DEFAULT NULL,
+  `typeID` int(12) NOT NULL COMMENT '对应profiledefine中的ID',
+  `privacy` enum('Y','N') NOT NULL DEFAULT 'N' COMMENT '是否起用隐私保护',
+  PRIMARY KEY (`id`),
+  KEY `userID` (`userID`),
+  KEY `typeID` (`typeID`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='用户信息数据表，分表主键userID';
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `user_profile_data_6`
+--
+
+CREATE TABLE IF NOT EXISTS `user_profile_data_6` (
+  `id` int(12) NOT NULL AUTO_INCREMENT,
+  `userID` int(12) NOT NULL,
+  `int` int(12) DEFAULT NULL,
+  `date` date DEFAULT NULL COMMENT '日期类信息',
+  `date_extra` date NOT NULL COMMENT '时间区间',
+  `varchar` varchar(255) DEFAULT NULL,
+  `select` int(12) DEFAULT NULL,
+  `typeID` int(12) NOT NULL COMMENT '对应profiledefine中的ID',
+  `privacy` enum('Y','N') NOT NULL DEFAULT 'N' COMMENT '是否起用隐私保护',
+  PRIMARY KEY (`id`),
+  KEY `userID` (`userID`),
+  KEY `typeID` (`typeID`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='用户信息数据表，分表主键userID';
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `user_profile_data_7`
+--
+
+CREATE TABLE IF NOT EXISTS `user_profile_data_7` (
+  `id` int(12) NOT NULL AUTO_INCREMENT,
+  `userID` int(12) NOT NULL,
+  `int` int(12) DEFAULT NULL,
+  `date` date DEFAULT NULL COMMENT '日期类信息',
+  `date_extra` date NOT NULL COMMENT '时间区间',
+  `varchar` varchar(255) DEFAULT NULL,
+  `select` int(12) DEFAULT NULL,
+  `typeID` int(12) NOT NULL COMMENT '对应profiledefine中的ID',
+  `privacy` enum('Y','N') NOT NULL DEFAULT 'N' COMMENT '是否起用隐私保护',
+  PRIMARY KEY (`id`),
+  KEY `userID` (`userID`),
+  KEY `typeID` (`typeID`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='用户信息数据表，分表主键userID';
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `user_profile_data_8`
+--
+
+CREATE TABLE IF NOT EXISTS `user_profile_data_8` (
+  `id` int(12) NOT NULL AUTO_INCREMENT,
+  `userID` int(12) NOT NULL,
+  `int` int(12) DEFAULT NULL,
+  `date` date DEFAULT NULL COMMENT '日期类信息',
+  `date_extra` date NOT NULL COMMENT '时间区间',
+  `varchar` varchar(255) DEFAULT NULL,
+  `select` int(12) DEFAULT NULL,
+  `typeID` int(12) NOT NULL COMMENT '对应profiledefine中的ID',
+  `privacy` enum('Y','N') NOT NULL DEFAULT 'N' COMMENT '是否起用隐私保护',
+  PRIMARY KEY (`id`),
+  KEY `userID` (`userID`),
+  KEY `typeID` (`typeID`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='用户信息数据表，分表主键userID';
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `user_profile_data_9`
+--
+
+CREATE TABLE IF NOT EXISTS `user_profile_data_9` (
+  `id` int(12) NOT NULL AUTO_INCREMENT,
+  `userID` int(12) NOT NULL,
+  `int` int(12) DEFAULT NULL,
+  `date` date DEFAULT NULL COMMENT '日期类信息',
+  `date_extra` date NOT NULL COMMENT '时间区间',
+  `varchar` varchar(255) DEFAULT NULL,
+  `select` int(12) DEFAULT NULL,
+  `typeID` int(12) NOT NULL COMMENT '对应profiledefine中的ID',
+  `privacy` enum('Y','N') NOT NULL DEFAULT 'N' COMMENT '是否起用隐私保护',
+  PRIMARY KEY (`id`),
+  KEY `userID` (`userID`),
+  KEY `typeID` (`typeID`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='用户信息数据表，分表主键userID';
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `user_profile_define`
+--
+
+CREATE TABLE IF NOT EXISTS `user_profile_define` (
+  `id` int(12) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) NOT NULL,
+  `tpl` varchar(50) NOT NULL COMMENT '调用标识',
+  `notes` varchar(255) NOT NULL COMMENT '字段注释说明，用于前台提示',
+  `type` enum('int','date','dategap','varchar','text','select','checkbox','multiSelect','label') NOT NULL DEFAULT 'varchar',
+  `defaultValue` varchar(100) NOT NULL COMMENT '字段默认值，有多个默认值请使用逗号分隔',
+  `globalLabel` varchar(255) NOT NULL COMMENT '调用全局标签预设值',
+  `categorise` int(12) NOT NULL,
+  `status` enum('Y','N') NOT NULL DEFAULT 'N' COMMENT '状态',
+  `privacy` enum('Y','N') NOT NULL DEFAULT 'N' COMMENT '是否设置隐私保护',
+  `admin` enum('Y','N') NOT NULL DEFAULT 'N' COMMENT '是否仅管理员可见',
+  `order` int(12) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='用户信息定义表';
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `user_profile_fields`
+--
+
+CREATE TABLE IF NOT EXISTS `user_profile_fields` (
+  `id` int(12) NOT NULL AUTO_INCREMENT,
+  `upid` int(11) NOT NULL DEFAULT '0' COMMENT '级联ID',
+  `profileID` int(12) NOT NULL,
+  `name` varchar(100) NOT NULL,
+  `description` varchar(255) NOT NULL COMMENT '备注',
+  `order` int(12) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `profileID` (`profileID`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='数据字段';
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `user_profile_label`
+--
+
+CREATE TABLE IF NOT EXISTS `user_profile_label` (
+  `id` int(12) NOT NULL AUTO_INCREMENT,
+  `userID` int(12) NOT NULL COMMENT '用户ID',
+  `typeID` int(12) NOT NULL COMMENT '对应profiledefine中的ID',
+  `value` varchar(255) NOT NULL COMMENT '标签内容',
+  PRIMARY KEY (`id`),
+  KEY `userID` (`userID`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='用户自定义类型的信息数据表，分表主键userID';
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `user_profile_label_0`
+--
+
+CREATE TABLE IF NOT EXISTS `user_profile_label_0` (
+  `id` int(12) NOT NULL AUTO_INCREMENT,
+  `userID` int(12) NOT NULL COMMENT '用户ID',
+  `typeID` int(12) NOT NULL COMMENT '对应profiledefine中的ID',
+  `value` varchar(255) NOT NULL COMMENT '标签内容',
+  PRIMARY KEY (`id`),
+  KEY `userID` (`userID`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='用户自定义类型的信息数据表，分表主键userID';
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `user_profile_label_1`
+--
+
+CREATE TABLE IF NOT EXISTS `user_profile_label_1` (
+  `id` int(12) NOT NULL AUTO_INCREMENT,
+  `userID` int(12) NOT NULL COMMENT '用户ID',
+  `typeID` int(12) NOT NULL COMMENT '对应profiledefine中的ID',
+  `value` varchar(255) NOT NULL COMMENT '标签内容',
+  PRIMARY KEY (`id`),
+  KEY `userID` (`userID`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='用户自定义类型的信息数据表，分表主键userID';
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `user_profile_label_2`
+--
+
+CREATE TABLE IF NOT EXISTS `user_profile_label_2` (
+  `id` int(12) NOT NULL AUTO_INCREMENT,
+  `userID` int(12) NOT NULL COMMENT '用户ID',
+  `typeID` int(12) NOT NULL COMMENT '对应profiledefine中的ID',
+  `value` varchar(255) NOT NULL COMMENT '标签内容',
+  PRIMARY KEY (`id`),
+  KEY `userID` (`userID`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='用户自定义类型的信息数据表，分表主键userID';
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `user_profile_label_3`
+--
+
+CREATE TABLE IF NOT EXISTS `user_profile_label_3` (
+  `id` int(12) NOT NULL AUTO_INCREMENT,
+  `userID` int(12) NOT NULL COMMENT '用户ID',
+  `typeID` int(12) NOT NULL COMMENT '对应profiledefine中的ID',
+  `value` varchar(255) NOT NULL COMMENT '标签内容',
+  PRIMARY KEY (`id`),
+  KEY `userID` (`userID`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='用户自定义类型的信息数据表，分表主键userID';
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `user_profile_label_4`
+--
+
+CREATE TABLE IF NOT EXISTS `user_profile_label_4` (
+  `id` int(12) NOT NULL AUTO_INCREMENT,
+  `userID` int(12) NOT NULL COMMENT '用户ID',
+  `typeID` int(12) NOT NULL COMMENT '对应profiledefine中的ID',
+  `value` varchar(255) NOT NULL COMMENT '标签内容',
+  PRIMARY KEY (`id`),
+  KEY `userID` (`userID`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='用户自定义类型的信息数据表，分表主键userID';
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `user_profile_label_5`
+--
+
+CREATE TABLE IF NOT EXISTS `user_profile_label_5` (
+  `id` int(12) NOT NULL AUTO_INCREMENT,
+  `userID` int(12) NOT NULL COMMENT '用户ID',
+  `typeID` int(12) NOT NULL COMMENT '对应profiledefine中的ID',
+  `value` varchar(255) NOT NULL COMMENT '标签内容',
+  PRIMARY KEY (`id`),
+  KEY `userID` (`userID`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='用户自定义类型的信息数据表，分表主键userID';
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `user_profile_label_6`
+--
+
+CREATE TABLE IF NOT EXISTS `user_profile_label_6` (
+  `id` int(12) NOT NULL AUTO_INCREMENT,
+  `userID` int(12) NOT NULL COMMENT '用户ID',
+  `typeID` int(12) NOT NULL COMMENT '对应profiledefine中的ID',
+  `value` varchar(255) NOT NULL COMMENT '标签内容',
+  PRIMARY KEY (`id`),
+  KEY `userID` (`userID`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='用户自定义类型的信息数据表，分表主键userID';
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `user_profile_label_7`
+--
+
+CREATE TABLE IF NOT EXISTS `user_profile_label_7` (
+  `id` int(12) NOT NULL AUTO_INCREMENT,
+  `userID` int(12) NOT NULL COMMENT '用户ID',
+  `typeID` int(12) NOT NULL COMMENT '对应profiledefine中的ID',
+  `value` varchar(255) NOT NULL COMMENT '标签内容',
+  PRIMARY KEY (`id`),
+  KEY `userID` (`userID`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='用户自定义类型的信息数据表，分表主键userID';
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `user_profile_label_8`
+--
+
+CREATE TABLE IF NOT EXISTS `user_profile_label_8` (
+  `id` int(12) NOT NULL AUTO_INCREMENT,
+  `userID` int(12) NOT NULL COMMENT '用户ID',
+  `typeID` int(12) NOT NULL COMMENT '对应profiledefine中的ID',
+  `value` varchar(255) NOT NULL COMMENT '标签内容',
+  PRIMARY KEY (`id`),
+  KEY `userID` (`userID`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='用户自定义类型的信息数据表，分表主键userID';
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `user_profile_label_9`
+--
+
+CREATE TABLE IF NOT EXISTS `user_profile_label_9` (
+  `id` int(12) NOT NULL AUTO_INCREMENT,
+  `userID` int(12) NOT NULL COMMENT '用户ID',
+  `typeID` int(12) NOT NULL COMMENT '对应profiledefine中的ID',
+  `value` varchar(255) NOT NULL COMMENT '标签内容',
+  PRIMARY KEY (`id`),
+  KEY `userID` (`userID`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='用户自定义类型的信息数据表，分表主键userID';
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `user_profile_siteindex`
+--
+
+CREATE TABLE IF NOT EXISTS `user_profile_siteindex` (
+  `id` int(12) NOT NULL AUTO_INCREMENT,
+  `siteID` int(12) NOT NULL,
+  `profileID` int(12) NOT NULL,
+  `isNull` enum('Y','N') NOT NULL DEFAULT 'N' COMMENT '是否必填',
+  PRIMARY KEY (`id`),
+  KEY `siteID` (`siteID`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='网站profile定义表';
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `user_profile_text`
+--
+
+CREATE TABLE IF NOT EXISTS `user_profile_text` (
+  `id` int(12) NOT NULL AUTO_INCREMENT,
+  `userID` int(12) NOT NULL,
+  `typeID` int(12) NOT NULL COMMENT '对应profiledefine中的ID',
+  `value` text NOT NULL COMMENT '对应存储全局标签ID',
+  `privacy` enum('Y','N') NOT NULL DEFAULT 'N' COMMENT '是否起用隐私保护',
+  PRIMARY KEY (`id`),
+  KEY `userID` (`userID`),
+  KEY `typeID` (`typeID`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='用户文本类型的信息数据表，分表主键userID';
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `user_profile_text_0`
+--
+
+CREATE TABLE IF NOT EXISTS `user_profile_text_0` (
+  `id` int(12) NOT NULL AUTO_INCREMENT,
+  `userID` int(12) NOT NULL,
+  `typeID` int(12) NOT NULL COMMENT '对应profiledefine中的ID',
+  `value` text NOT NULL COMMENT '对应存储全局标签ID',
+  `privacy` enum('Y','N') NOT NULL DEFAULT 'N' COMMENT '是否起用隐私保护',
+  PRIMARY KEY (`id`),
+  KEY `userID` (`userID`),
+  KEY `typeID` (`typeID`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='用户文本类型的信息数据表，分表主键userID';
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `user_profile_text_1`
+--
+
+CREATE TABLE IF NOT EXISTS `user_profile_text_1` (
+  `id` int(12) NOT NULL AUTO_INCREMENT,
+  `userID` int(12) NOT NULL,
+  `typeID` int(12) NOT NULL COMMENT '对应profiledefine中的ID',
+  `value` text NOT NULL COMMENT '对应存储全局标签ID',
+  `privacy` enum('Y','N') NOT NULL DEFAULT 'N' COMMENT '是否起用隐私保护',
+  PRIMARY KEY (`id`),
+  KEY `userID` (`userID`),
+  KEY `typeID` (`typeID`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='用户文本类型的信息数据表，分表主键userID';
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `user_profile_text_2`
+--
+
+CREATE TABLE IF NOT EXISTS `user_profile_text_2` (
+  `id` int(12) NOT NULL AUTO_INCREMENT,
+  `userID` int(12) NOT NULL,
+  `typeID` int(12) NOT NULL COMMENT '对应profiledefine中的ID',
+  `value` text NOT NULL COMMENT '对应存储全局标签ID',
+  `privacy` enum('Y','N') NOT NULL DEFAULT 'N' COMMENT '是否起用隐私保护',
+  PRIMARY KEY (`id`),
+  KEY `userID` (`userID`),
+  KEY `typeID` (`typeID`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='用户文本类型的信息数据表，分表主键userID';
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `user_profile_text_3`
+--
+
+CREATE TABLE IF NOT EXISTS `user_profile_text_3` (
+  `id` int(12) NOT NULL AUTO_INCREMENT,
+  `userID` int(12) NOT NULL,
+  `typeID` int(12) NOT NULL COMMENT '对应profiledefine中的ID',
+  `value` text NOT NULL COMMENT '对应存储全局标签ID',
+  `privacy` enum('Y','N') NOT NULL DEFAULT 'N' COMMENT '是否起用隐私保护',
+  PRIMARY KEY (`id`),
+  KEY `userID` (`userID`),
+  KEY `typeID` (`typeID`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='用户文本类型的信息数据表，分表主键userID';
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `user_profile_text_4`
+--
+
+CREATE TABLE IF NOT EXISTS `user_profile_text_4` (
+  `id` int(12) NOT NULL AUTO_INCREMENT,
+  `userID` int(12) NOT NULL,
+  `typeID` int(12) NOT NULL COMMENT '对应profiledefine中的ID',
+  `value` text NOT NULL COMMENT '对应存储全局标签ID',
+  `privacy` enum('Y','N') NOT NULL DEFAULT 'N' COMMENT '是否起用隐私保护',
+  PRIMARY KEY (`id`),
+  KEY `userID` (`userID`),
+  KEY `typeID` (`typeID`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='用户文本类型的信息数据表，分表主键userID';
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `user_profile_text_5`
+--
+
+CREATE TABLE IF NOT EXISTS `user_profile_text_5` (
+  `id` int(12) NOT NULL AUTO_INCREMENT,
+  `userID` int(12) NOT NULL,
+  `typeID` int(12) NOT NULL COMMENT '对应profiledefine中的ID',
+  `value` text NOT NULL COMMENT '对应存储全局标签ID',
+  `privacy` enum('Y','N') NOT NULL DEFAULT 'N' COMMENT '是否起用隐私保护',
+  PRIMARY KEY (`id`),
+  KEY `userID` (`userID`),
+  KEY `typeID` (`typeID`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='用户文本类型的信息数据表，分表主键userID';
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `user_profile_text_6`
+--
+
+CREATE TABLE IF NOT EXISTS `user_profile_text_6` (
+  `id` int(12) NOT NULL AUTO_INCREMENT,
+  `userID` int(12) NOT NULL,
+  `typeID` int(12) NOT NULL COMMENT '对应profiledefine中的ID',
+  `value` text NOT NULL COMMENT '对应存储全局标签ID',
+  `privacy` enum('Y','N') NOT NULL DEFAULT 'N' COMMENT '是否起用隐私保护',
+  PRIMARY KEY (`id`),
+  KEY `userID` (`userID`),
+  KEY `typeID` (`typeID`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='用户文本类型的信息数据表，分表主键userID';
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `user_profile_text_7`
+--
+
+CREATE TABLE IF NOT EXISTS `user_profile_text_7` (
+  `id` int(12) NOT NULL AUTO_INCREMENT,
+  `userID` int(12) NOT NULL,
+  `typeID` int(12) NOT NULL COMMENT '对应profiledefine中的ID',
+  `value` text NOT NULL COMMENT '对应存储全局标签ID',
+  `privacy` enum('Y','N') NOT NULL DEFAULT 'N' COMMENT '是否起用隐私保护',
+  PRIMARY KEY (`id`),
+  KEY `userID` (`userID`),
+  KEY `typeID` (`typeID`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='用户文本类型的信息数据表，分表主键userID';
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `user_profile_text_8`
+--
+
+CREATE TABLE IF NOT EXISTS `user_profile_text_8` (
+  `id` int(12) NOT NULL AUTO_INCREMENT,
+  `userID` int(12) NOT NULL,
+  `typeID` int(12) NOT NULL COMMENT '对应profiledefine中的ID',
+  `value` text NOT NULL COMMENT '对应存储全局标签ID',
+  `privacy` enum('Y','N') NOT NULL DEFAULT 'N' COMMENT '是否起用隐私保护',
+  PRIMARY KEY (`id`),
+  KEY `userID` (`userID`),
+  KEY `typeID` (`typeID`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='用户文本类型的信息数据表，分表主键userID';
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `user_profile_text_9`
+--
+
+CREATE TABLE IF NOT EXISTS `user_profile_text_9` (
+  `id` int(12) NOT NULL AUTO_INCREMENT,
+  `userID` int(12) NOT NULL,
+  `typeID` int(12) NOT NULL COMMENT '对应profiledefine中的ID',
+  `value` text NOT NULL COMMENT '对应存储全局标签ID',
+  `privacy` enum('Y','N') NOT NULL DEFAULT 'N' COMMENT '是否起用隐私保护',
+  PRIMARY KEY (`id`),
+  KEY `userID` (`userID`),
+  KEY `typeID` (`typeID`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='用户文本类型的信息数据表，分表主键userID';
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `user_score`
+--
+
+CREATE TABLE IF NOT EXISTS `user_score` (
+  `id` int(12) NOT NULL AUTO_INCREMENT,
+  `uid` int(12) NOT NULL COMMENT '用户id',
+  `item` varchar(50) NOT NULL COMMENT '项目',
+  `act` varchar(50) NOT NULL COMMENT '行为',
+  `pos` varchar(50) NOT NULL COMMENT '位置',
+  `score` int(12) NOT NULL COMMENT '积分',
+  PRIMARY KEY (`id`),
+  KEY `uid` (`uid`),
+  KEY `item` (`item`),
+  KEY `act` (`act`),
+  KEY `pos` (`pos`),
+  KEY `score` (`score`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='积分汇总表，uid为分表主键';
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `user_score_define`
+--
+
+CREATE TABLE IF NOT EXISTS `user_score_define` (
+  `id` int(12) NOT NULL AUTO_INCREMENT,
+  `mid` int(4) NOT NULL COMMENT '关联配置ID',
+  `item` varchar(50) NOT NULL COMMENT '项目',
+  `key` varchar(50) NOT NULL COMMENT '键',
+  `val` int(12) NOT NULL DEFAULT '0' COMMENT '值',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='积分定义表';

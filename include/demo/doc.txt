@@ -1,0 +1,176 @@
+创建本地调试环境,
+	假定本地站点根目录为 D:/website/wenxuecity.com/, 
+	假定站点使用的数据库前缀为wxc_
+
+1、数据库，
+导入wxc_main,wxc_user,wxc_userdata 三个主要的数据库
+
+2、开发框架
+使用svn从http://svn.haiwai.com/svn/wenxuecity.com/ 检出源码到  D:/website/wenxuecity.com/
+部分程序必须与memcached 配合使用，需要设置本地memcached环境
+
+3、网站程序
+在D:/website/wenxuecity.com/中创建目录 data ，upload, cache  三个目录，确认apache对这三个目录有写权限
+下载 http://svn.haiwai.com/images.tgz  解压到 D:/website/wenxuecity.com/images 
+下载字体文件 http://svn.haiwai.com/source.tgz 解压到 D:/website/source/
+
+4、设置基本配置文件
+修改 _inc.comm.php 到 D:/website/wenxuecity.com/inc.comm.php
+修改 _inc.db.php 到 D:/website/wenxuecity.com/inc.db.php
+请根据inc.comm.php和inc.db.php中的注释做适当修改,
+
+5、调试
+使用浏览器访问 http://本地站点访问名称/admin/
+
+
+到此本地环境调试完成
+
+====================================================================
+svn维护流程
+
+本地文件修改后，提交到svn版本库
+访问http://beta.wenxuecity.com/admin/
+选择：系统管理->版本同步->选择相应目录->选择相应的文件和版本号［这两项也可以不选］
+提交即可
+
+
+====================================================================
+由于框架的本质是一套程序的调用规则，框架按规则自动调用各种php文件并运行。
+所以调用框架的前提是必须按结构及命名规则编写程序。
+
+结构说明
+'admin','space','service','office','accounts'及根目录下的每一个目录都是一个独立的项目
+其中数据目录，如images,data,upload,cache,css,js等例外
+
+每个项目下有四个基础目录，
+Action/ 所有扩展Action的类放在此目录下，文件名称与此文件上的类名称相同, 此目录中的类对象可以使用 Factory->run() 函数调用
+Config/ 放置配置文件
+Tpl/ 放置模板，子目录名称与使用该模板的Action类名称相同
+Lib/ 放置数据对象，文件名称与此文件上的类名称相同, 此目录中的类对象可以使用 load（）函数调用
+
+
+MVC
+框架的核心文件为 cls.Factory.php,cls.Model.php,cls.Action.php, 全部都在 /include/下
+常规的URL调试参数调用参见 /include/_function.php顶部注释
+SQL执行方法参见 /include/cls.Model.php 和 lib.MySQL.php
+
+一个示例程序，参见/admin/document：
+
+程序入口：
+/admin/document/index.php
+=======================================================
+<?php
+include( "../../inc.comm.php" );//加载框架环境
+define( 'AppName', "admin/document" );//设置当前项目
+
+$app = new Factory();//加载工厂类
+
+//通过设置工厂类的属性，设置运行环境
+$app->admin=true;//表示当前页面使用后台管理框架
+//$app->space=true;//表示当前页面使用用户空间框架, ＊＊不能与admin同时存在＊＊
+$app->sess=true;//表示启用session
+
+
+//指定程序调用 /admin/document/Action/manager.php 中的类 manager
+$app->run("manager");
+?>
+=======================================================
+
+程序控制器
+/admin/document/Action/manager.php
+=======================================================
+每个控制器件文件仅有一个类
+class manager extends Action{//所有控制器都需要扩展 Action
+
+	//以ACT_开头的函数代表一个实体页面，它的实际地址是/admin/document/index.php?act=index
+	function ACT_index(){
+		//调用数据对象 /admin/document/Lib/document_document.php 中的类 document_document
+		$obj=load("document_document");
+
+		//执行sql查询
+		$rs=$obj->getList(array('id','title','updatetime'),array('sort'=>$this->item,'order'=>array('order'=>'DESC')),25);
+		if(!empty($rs)){
+			foreach($rs as $k=>$v){
+				$v['updatetime']=times::getTime($v['updatetime']);
+				$rs[$k]=$v;
+			}
+		}
+
+		//控制器将运行结果输出
+		$this->assign('result',$rs);
+
+		//函数运行结束后，框架会自动调用smarty并加载 /admin/document/Tpl/manager/index.html 输出最终结果
+		//由于模板对象是直接调用的smarty，框架中自定义的模板标识是{% %},使用方法参见smarty手册。
+	}
+
+	//以ACT_开头的函数代表一个实体页面，它的实际地址是/admin/document/index.php?act=add
+	function ACT_add()
+
+	//不以ACT_开头的函数，与框架无关，正常php使用方式调用
+	private function _loadEditor()
+	.....
+=======================================================
+
+数据对象
+/admin/document/Lib/document_document.php
+=======================================================
+class document_document extends Model{
+	protected $tableName="document";//定义要调用的表名
+	protected $dbinfo=array("config"=>"main","type"=>"MySQL");//指定要使用的数据连接标识，此标识在根目录的inc.db.php中定义
+
+	//所有扩展Model的数据对象，拥有所有的内置数据快捷方法，框架会自动对数据进行过滤和启用查询缓存，主要的调用方法有：getOne,getAll,Insert,Replace,Update,Remove,exec,getList,详见cls.Model.php的注释
+}
+
+
+程序安全问题
+=======================================================
+所有用户输入的参数[get/post]都要做预期类型检查
+所有用户输入的数据，在系统处理后输出时，都要在smarty中做someval|escape
+
+系统防数据注入：
+1，所有使用框架中数组定义的方式进行的查询都是安全的
+2，使用用户输入的数据拼接SQL时，对数字类型的参数要使用intval/floatval进行类型验证，对字符类型的参数要使用dbtools::escape进行过滤，并在SQL中使用引号包括用户输入的数据
+3，使用框架或自己接拼接SQL尽量不要引用用户数据生成表名，如一定需要这样做，程序员要严格限定输入的参数格式
+
+
+系统时间处理
+=======================================================
+在inc.comm.php中打开多时区支持，去掉"加载程序配置文件"前的注释
+include( DOCUROOT . "/include/_init.php" );
+
+1，写入数据库的时间永远是GMT0的绝对时间 
+$createTime = time();
+
+
+2，显示给用户的时间是根据用户所在时区处理后的时间
+$displayTime = times::getTime($createTime);
+
+
+3, 用户输入的时间处理
+$inputDateTime = "2014-01-01 12:59:59";
+$inputTime = strtotime($inputDateTime);
+$userInputGMT = times::getGMT($inputTime); //GMT0的绝对时间
+
+
+在程序中使用绝对时间进行查询或比较
+if( $userInputGMT > $createTime ) echo "OK";
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

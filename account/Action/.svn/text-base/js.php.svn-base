@@ -1,0 +1,20 @@
+<?php
+
+include_once(DOCUROOT . '/site/Lib/site_url_generator.php');
+
+class js extends Action
+{
+	function ACT_account_space_locations() {
+		$defaultLoc = $_GET['default_loc'];
+		if (empty($defaultLoc)) {
+			$geoInfo = http::getGeoInfo();
+			$defaultLoc = strtolower($geoInfo['country_code']);
+		}
+		$spaceRegions = conf('account.regions_config');
+		
+		$this->assign('accountSpaceRegions', $spaceRegions);
+		$this->assign('defaultLoc', $defaultLoc);
+	}
+	
+	function ACT_avatar_uploadify() { }
+}

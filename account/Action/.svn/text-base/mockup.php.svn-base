@@ -1,0 +1,16 @@
+<?php
+
+include_once(DOCUROOT . '/site/Lib/site_url_generator.php');
+
+class mockup extends Action
+{
+	function ACT_index() {
+		$tpl = $_GET['tpl'];
+		if (!empty($tpl)) {
+			$this->tpl = "mockup/{$tpl}.html";
+		} else {
+			echo ('please input the tpl filename (excluding the extension)');
+			exit();
+		}
+	}
+}

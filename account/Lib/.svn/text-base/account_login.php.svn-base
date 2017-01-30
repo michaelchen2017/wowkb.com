@@ -1,0 +1,280 @@
+<?php
+class account_login {
+	var $libTools;
+	
+	function __construct() {
+		$this->libTools = load('account_tools');
+	}
+	
+	function isLogined() {
+		if ((int)$_SESSION['ME']['ID'] > 0) {
+			return true;
+		}
+	}
+	
+	function autoLogin() {
+		$autologinCode = $_COOKIE['AUTOLOGIN_CODE'];
+		$email = $_COOKIE['AUTOLOGIN_EMAIL'];
+		
+		if (empty($email) || empty($autologinCode)) {
+			return false;
+		}
+		
+		//查询用户
+		$where = array('autologin_code'=>$autologinCode);
+		$rs = account_members::getInstance()->getOne('*', $where);
+		$rs = $this->_getUser($rs['email']);
+		
+		if (!empty($rs) && $rs['email'] == $email) {
+			$this->writeAccountSession($rs);
+			return true;
+		}
+	}
+	
+	function loginIn($email, $password, $autologin=false) 
+	{
+		$errors = array();
+		if (!strings::verify_EmailAddr($email)) {
+			$errors[] = array('field'=>'email', 'reason'=>'输入的邮箱格式不正确。',);
+		}
+		
+		if (empty($password)) {
+			$errors[] = array('field'=>'password', 'reason'=>'密码不能为空。',);
+		}
+		
+		if (empty($errors)) {
+			return $this->_login($email, $password, $autologin);
+		}
+		
+		return $errors;
+	}
+	
+	function reset($email) {
+		$errors = array();
+		$where = array('email'=>$email);
+		$cnt = account_members::getInstance()->count($where);
+		if (empty($cnt)) {
+			$errors[] = array('field'=>'', 'reason'=>'账号不存在。');
+		} else {
+			$randpass = $this->libTools->gen_randpassword();
+			$password = $this->libTools->encrypt_password($randpass);
+			$condition = array('pwd'=>$password);
+			
+			$result = account_members::getInstance()->update($condition, $where);
+			
+			if(!empty($result)) {
+				account_notify::getInstance()->sendAccountResetEmail($email, $email, $randpass);
+			} else {
+				$errors[] = array('field'=>'', 'reason'=>'系统发生未知错误。');
+			}
+		}
+		
+		return $errors;
+	}
+
+	function changePwd($email, $oldPwd, $newPwd, $newPwdAgain, $captcha) {
+		$errors = $this->_checkChangePwd($email, $oldPwd, $newPwd, $newPwdAgain, $captcha);
+		if (!empty($errors)) return $errors;
+		
+		$rs = $this->_getUser($email);
+		if (!empty($rs)) {
+			$errors = $this->_checkUser($oldPwd, $rs);
+			if (empty($errors)) {
+				$password = $this->libTools->encrypt_password($newPwd);
+				account_members::getInstance()->Update(array('pwd'=>$password), array('email'=>$email));
+				
+				//登录
+				$this->writeAccountSession($rs);
+			}
+		} else {
+			$errors[0] = array('field'=>'', 'reason'=>'旧密码不正确。',);
+		}
+		return $errors;
+	}
+	
+	function loginOff() {
+		// clear sessions.
+		session_unset();
+		// clear cookies.
+		foreach($_COOKIE as $key=>$val) {
+			setcookie($key, '', null, '/', ".haiwai.com");
+		}
+	}
+	
+	function writeAccountSession($rs) {
+		//主要信息
+		$_SESSION['ME']['ID'] = $rs['ME']['pk_id'];
+		$_SESSION['ME']['EMAIL'] = $rs['ME']['email'];
+		$_SESSION['ME']['region'] = $rs['ME']['region'];
+		$_SESSION['ME']['PWD'] = $this->libTools->decrypt_password($rs['ME']['pwd']);
+		$_SESSION['ME']['NICK'] = $rs['ME']['nick'];
+		$_SESSION['ME']['TEL'] = $rs['ME']['tel'];
+		$_SESSION['ME']['ROLE'] = $rs['ME']['role'];
+		$_SESSION['ME']['membership_since'] = $rs['ME']['membership_since'];
+		$_SESSION['ME']['is_verified'] = $rs['ME']['is_verified'];
+		$_SESSION['ME']['is_blocked'] = $rs['ME']['is_blocked'];
+		$_SESSION['ME']['is_enabled'] = $rs['ME']['is_enabled'];
+		
+		if(!empty($rs['DETAILS']))
+		{
+			//详细信息
+			$_SESSION['DETAILS']['gender'] = $rs['DETAILS']['gender'];
+			$_SESSION['DETAILS']['birthday'] = $rs['DETAILS']['birthday'];
+			$_SESSION['DETAILS']['location'] = $rs['DETAILS']['location'];
+			$_SESSION['DETAILS']['contact_email'] = $rs['DETAILS']['contact_email'];
+			$_SESSION['DETAILS']['ims_field'] = $rs['DETAILS']['ims_field'];
+			$_SESSION['DETAILS']['ims_value'] = $rs['DETAILS']['ims_value'];
+			$_SESSION['DETAILS']['occupation'] = $rs['DETAILS']['occupation'];
+			$_SESSION['DETAILS']['signature'] = $rs['DETAILS']['signature'];
+		}
+		
+		//实名
+		if(!empty($rs['REAL']))
+		{
+			$_SESSION['REAL']['description'] = $rs['REAL']['description'];
+			$_SESSION['REAL']['name'] = $rs['REAL']['name'];
+			$_SESSION['REAL']['email'] = $rs['REAL']['email'];
+			$_SESSION['REAL']['id_type'] = $rs['REAL']['id_type'];
+			$_SESSION['REAL']['id_number'] = $rs['REAL']['id_number'];
+			$_SESSION['REAL']['id_pic'] = $rs['REAL']['id_pic'];
+			$_SESSION['REAL']['phone'] = $rs['REAL']['phone'];
+			$_SESSION['REAL']['dateline'] = $rs['REAL']['dateline'];
+			$_SESSION['REAL']['verified'] = $rs['REAL']['verified'];
+		}
+		
+		//框架内管理员查看
+		if($rs['ME']['role']=='ADMIN')
+			$_SESSION['UserLevel']=6;
+		
+		//添加老用户区域
+		if(empty($rs['ME']['region']))
+		{
+			$region=region_api::get();
+			account_members::getInstance()->update(array('region'=>$region),array('pk_id'=>$rs['ME']['pk_id']));
+			$_SESSION['ME']['region'] = $region;
+		}
+		
+		//获取区域名字 (第三级)
+		if(isset($_COOKIE['region']))
+			$_SESSION['ME']['region']=$_COOKIE['regionID'];
+		else
+		{
+			$region=region_api::getRegionLevel($_SESSION['ME']['region']);
+			$_SESSION['ME']['region_name']=$region['name'];
+			$_SESSION['ME']['region']=$region['id'];
+			$_SESSION['ME']['region_name_real']=$region['real_name'];
+			$_SESSION['ME']['region_real']=$region['real_id'];
+		}
+		
+		// log this login.
+		if(!empty($rs['ME']['pk_id']))
+		{
+			$libLogLogins = load('account_log_logins');
+			$libLogLogins->logUserLogin($rs['ME']['pk_id']);
+		}
+	}
+	
+	function writeAutoLoginSettings($rs) {
+		$autoLoginCode = substr(md5(time() . $rs['email'] . 'autologin'), 16);
+		$expireTime = time() + 864000; // 10 days
+		setcookie("AUTOLOGIN_CODE", $autoLoginCode, $expireTime, "/", ".haiwai.com");
+		setcookie('AUTOLOGIN_EMAIL', $rs['email'], $expireTime, "/", ".haiwai.com");
+		
+		$condition = array('autologin_code'=>$autoLoginCode);
+		$where = array('email'=>$rs['email']);
+		account_members::getInstance()->update($condition, $where);
+	}
+	
+	private function _login($email, $password, $autologin=false) {
+		$errors = array();
+		$rs = $this->_getUser($email);
+		
+		if (!empty($rs)) {
+			$errors = $this->_checkUser($password, $rs);
+			if (empty($errors)) {
+				$this->writeAccountSession($rs);
+				if ($autologin) $this->writeAutoLoginSettings($rs);
+			}
+		} else {
+			$errors[] = array('field'=>'', 'reason'=>'输入的用户名和密码不正确。',);
+		}
+		
+		return $errors;
+	}
+	
+	public function _getUser($email) {
+		$memberObj = account_members::getInstance();
+		$where = array('email'=>$email, 'is_enabled'=>1);
+		$rs = $memberObj->getOne('*', $where);
+		
+		$obj_member_details=load("account_member_details");
+		$rs_member_details=$obj_member_details->getOne("*",array('fk_member_id'=>$rs['pk_id']));
+		
+		$obj_member_real=load("account_member_real");
+		$rs_member_real=$obj_member_real->getOne('*',array('fk_member_id'=>$rs['pk_id']));
+		
+		$rs['ME']=$rs;
+		
+		if(!empty($rs_member_details))
+			foreach($rs_member_details as $k=>$v)
+				$rs['DETAILS'][$k]=$v;
+		
+		if(!empty($rs_member_real))
+			foreach($rs_member_real as $k=>$v)
+				$rs['REAL'][$k]=$v;
+		
+		return $rs;
+	}
+	
+	private function _checkUser($password, $rs) {
+		$errors = array();
+		if($rs['is_blocked']) {
+			$errors[] = array('field'=>'', 'reason'=>'该用户目前已被锁定。',);
+		}
+		else if (!$rs['is_verified']) {
+			$errors[] = array('field'=>'email', 'reason'=>'该邮件地址尚未通过邮箱验证。',);
+		}
+		else if (!$this->libTools->check_password($password, $rs['pwd'])) {
+			$errors[] = array('field'=>'', 'reason'=>'输入的用户名和密码不正确。',);
+		}
+		
+		return $errors;
+	}
+	
+	private function _checkChangePwd($email, $oldPwd, $newPwd, $newPwdAgain, $captcha) {
+		$errors = array();
+		/*
+		if (empty($email) || !strings::verify_EmailAddr($email)) {
+			$errors[] = array('field'=>'email', 'reason'=>'邮箱地址输入不正确。');
+		}
+		*/
+		if (empty($oldPwd)) {
+			$errors[0] = array('field'=>'old_pwd', 'reason'=>'账号密码不能为空。');
+		}
+		if (empty($newPwd)) {
+			$errors[1] = array('field'=>'new_pwd', 'reason'=>'账号新密码不能为空。');
+		} 
+		
+		else if ($newPwd != $newPwdAgain) {
+			$errors[2] = array('field'=>'new_pwd', 'reason'=>'两次输入的新密码不匹配。');
+		} 
+		
+		else if (mb_strlen($newPwdAgain, 'UTF-8') < 6) {
+			$errors[1] = array('field'=>'', 'reason'=>'输入的密码长度至少为6位。');
+		  /*
+		  else {
+			$containsLetter  = preg_match('/[a-zA-Z]/', $newPwdAgain);
+			$containsDigit   = preg_match('/\d/', $newPwdAgain);
+			if (!$containsLetter || !$containsDigit) {
+				$errors[1] = array('field'=>'new_pwd', 'reason'=>'新密码必须至少有一位字母和数字');
+			}
+		  */
+		}
+		
+		if (empty($captcha) || !sessCode::check($captcha)) {
+			$errors[3] = array('field'=>'captcha', 'reason'=>'验证码输入不正确。');
+		}
+		
+		return $errors;
+	}
+}

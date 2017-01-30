@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>HiaTrip.com</title>
+<link rel="stylesheet" href="/account/css/profile_sidebar.css">
+
+ <link href="/css/page/bootstrap.min.css" rel="stylesheet">
+ 
+ <link rel="stylesheet" href="/account/css/login_signup.css">
+ <link rel="stylesheet" href="/css/page/footer-distributed-with-address-and-phones.css">
+ 
+<link rel="stylesheet" href="/account/css/prettyPhoto.css" type="text/css" media="screen" title="prettyPhoto main stylesheet" >
+   <script type="text/javascript" src="/js/image_upload.js"></script>
+   
+<style type="text/css" media="screen">
+		ul {
+		    list-style-type: none;
+		    margin: 0;
+		    padding: 0;
+		}
+		ul li { 
+			display: inline; 
+			
+		}
+    
+</style>
+</head>
+<body>
+  {%include file="$root/template/ssi/header_navbar.html"%}
+    <div class="container-fluid">
+    <div class="row">
+  	{%include file="$root/template/ssi/header_modal.html"%}
+        <!-- Page Header -->
+        
+        </div>
+     </div>
+<div class="container">
+    <div class="row profile">
+		<div class="col-md-3">
+			{%include file="$root/template/ssi/specialsidebar.html"%}
+		</div>
+		<div class="col-md-9">
+            <div class="profile-content">
+            <form action="" method="post">
+            输入要封的IP地址：<input type="text" name="ip" value="">
+            <input type="submit" name="submit" value="确定">
+            </form>
+            
+            <p>被封的IP地址：</p>
+            {%if !empty($ips)%}
+            {%foreach from=$ips key=k item=val%}
+            <p>IP: {%$val.ip|default:''%}  <input type="button" class="btn btn-info" onclick="location.href='/account/admin.php?act=restore_ip&id={%$val.id%}'" value="解封"></p>
+            {%/foreach%}
+            {%/if%}
+            </div>
+		</div>
+		
+	</div>
+	  {%include file="$root/template/ssi/pagenav.html"%}
+</div>
+  {%include file="$root/template/ssi/footer.html"%}
+   <!-- jQuery -->
+
+<script src="/js/jquery-1.11.3.min.js"></script>
+<script src="/js/jquery-ui.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+        
+
+</body>
+</html>

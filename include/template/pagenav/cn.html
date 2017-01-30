@@ -1,0 +1,44 @@
+{%if !empty($pagenav.totalpage)%}
+{%if $pagenav.pageinfo %}
+<!--页面信息-->
+页次：<strong><span style="color:#FF0000">{%$pagenav.current%}</span>/{%$pagenav.totalpage%}</strong>
+每页<strong>{%$pagenav.per%}</strong>条记录，
+本页显示<strong>{%$pagenav.first%}</strong>
+到<strong>{%$pagenav.last%}</strong>，
+共<strong><span style="color:#FF0000">{%$pagenav.total%}</span></strong>
+&nbsp;分页：&nbsp; 
+{%/if%}
+
+<!--向前-->
+{%if $pagenav.prevgroup!=''%}
+	[<a href="{%$pagenav.prevgroup%}" class="tishilink" title="前{%$pagenav.group%}页"><span style="font-family:宋体"><<</span></a>]
+{%/if%} 
+{%if $pagenav.prevpage!=''%}
+	[<a href="{%$pagenav.prevpage%}" class="tishilink" title="上一页"><span style="font-family:宋体">上一页</span></a>]
+{%/if%} 
+
+<!--翻页信息-->
+{%foreach from=$pagenav.eachpage item=vol%}
+	{%if $vol[1]!=""%}
+		[<a href="{%$vol[1]%}" class="tishilink"><strong>{%$vol[0]%}</strong></a>]
+	{%else%}
+		[<span style="color:#FF0000"><strong>{%$vol[0]%}</strong></span>]
+	{%/if%}
+{%/foreach%}
+	 
+<!--向后-->
+{%if $pagenav.nextpage!=''%}
+	[<a href="{%$pagenav.nextpage%}" class="tishilink" title="下一页"><span style="font-family:宋体">下一页</span></a>]
+{%/if%}
+{%if $pagenav.nextgroup!=''%}
+	[<a href="{%$pagenav.nextgroup%}" class="tishilink" title="后{%$pagenav.group%}页"><span style="font-family:宋体">>></span></a>]
+{%/if%}
+
+<!--首尾页-->	
+{%if $pagenav.firstpage!=''%}
+	[<a href="{%$pagenav.firstpage%}" class="tishilink">首页</a>]
+{%/if%}
+{%if $pagenav.lastpage!=''%}
+	[<a href="{%$pagenav.lastpage%}" class="tishilink">尾页</a>]
+{%/if%}	
+{%/if%}

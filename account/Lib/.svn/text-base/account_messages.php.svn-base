@@ -1,0 +1,12 @@
+<?php
+class account_messages  extends Model 
+{
+	protected $tableName="messages";
+	protected $dbinfo=array("config"=>"message", "type"=>"MySQL");
+	
+	function getInboxMessage($user_id, $msg_id, $condition="*") {
+		$where = array('fk_receiver_id'=>$user_id, 'pk_id'=>$msg_id);
+		$msg = $this->getOne($condition, $where);
+		return $msg;
+	}
+}

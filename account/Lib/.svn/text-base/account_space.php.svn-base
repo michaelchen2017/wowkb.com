@@ -1,0 +1,142 @@
+<?php
+class account_space {
+	var $libTools;
+	var $libMembers;
+	var $libMemberDetails;
+	
+	function __construct() {
+		$this->libTools = load('account_tools');
+		$this->libMembers = load('account_members');
+		$this->libMemberDetails = load('account_member_details');
+	}
+	
+	function getMyAvatar($userId) {
+		$avatarUrl = $_SESSION['ME']['AVATAR_URL'];
+		if (!isset($avatarUrl)) {
+			$avatarUrl = $this->libMemberDetails->getMemberAvatar($userId);
+			$this->cacheMyAvatar($avatarUrl);
+		}
+		
+		return $avatarUrl;
+	}
+	
+	function cacheMyAvatar($avatarUrl) {
+		$_SESSION['ME']['AVATAR_URL'] = $avatarUrl;
+	}
+	
+	function uploadAvatar() {
+		$conf = array(
+				'uploadPath'=>'/upload/account/avatar/',
+				'uploadInputName'=>'avatar-file',
+		);
+		include_once(DOCUROOT . "/site/Lib/site_uploader.php");
+		$libUploader = new site_uploader();
+		$libUploader->setUploadParams($conf);
+		$uploadedFile = $libUploader->processUpload();
+		
+		return $uploadedFile;
+	}
+	
+	function saveMyAvatar($avatarFile) {
+		if (!empty($avatarFile)) {
+			$avatar_url = $avatarFile['path'];
+			$profile = array('avatar_url'=>$avatar_url);
+			$userId = account_api::getSessionUserId();
+			$this->libMemberDetails->insertOrUpdateMemberDetails($userId, $profile);
+			$this->cacheMyAvatar($avatar_url);
+		}
+		
+		return $avatarFile;
+	}
+	
+	function loadMyClassified($userId, $filter) {
+		$libClasApi = load('classified_api');
+		$items = $libClasApi->getUserItems($userId, $filter);
+		return $items;
+	}
+	
+	function loadMyProfile($userId) {
+		$libMembers = load('account_members');
+		$member = $this->libMembers->getOne('*', array('pk_id'=>$userId));
+		
+		if (!empty($member)) {
+			$memberDetails = $this->libMemberDetails->getOne('*', array('fk_member_id'=>$userId));
+			$member['details'] = $memberDetails;
+			$dateCompents = getdate(strtotime($member['details']['birthday']));
+			$member['details']['birthdate'] = $dateCompents;
+		}
+		
+		return $member;
+	}
+	
+	function checkNickAvailability($nickname, $fromUserId=null) {
+		if (empty($fromUserId)) {
+			$fromUserId = account_api::getSessionUserId();
+		}
+		$rs = $this->libMembers->getOne(array('pk_id'), array('nick'=>$nickname));
+		if (!empty($rs)) {
+			return ($rs['pk_id'] == $fromUserId);
+		}
+		
+		return true;
+	}
+	
+	function saveMyProfile($profile) {
+		$errors = $this->checkSaveProfile($profile);
+		if (empty($errors)) {
+			$userId = $profile['user_id'];
+			// update members table.
+			$this->libMembers->updateNickAndTel($userId, $profile['nick'], $profile['tel']);
+			$this->libMemberDetails->insertOrUpdateMemberDetails($userId, $profile);
+		}
+		
+		return $errors;
+	}
+	
+	function checkSaveProfile($profile) {
+		$errors = array();
+		$userId = $profile['user_id'];
+		$nick = $profile['nick'];
+		$gender = $profile['gender'];
+		$birthyear = $profile['year'];
+		$birthMonth = $profile['month'];
+		$birthDay = $profile['day'];
+		$location = $profile['location'];
+		$tel = $profile['tel'];
+		$contactEmail = $profile['contact_email'];
+		$imsField = $profile['ims_field'];
+		$imsValue = $profile['ims_value'];
+		$occupation = $profile['occupation'];
+		$signature = $profile['signature'];
+		
+		if (empty($userId)) { 
+			$errors[] = "无效用户id，请不要非法操作。"; 
+		}
+		if (!isset($gender)) { 
+			$errors[] = "请选择你的性别。"; 
+		}
+		if (empty($birthyear) || empty($birthMonth) || empty($birthDay)) {
+			$errors[] = "请选择你的生日。";
+		}
+		if (empty($location)) {
+			$errors[] = "请选择你的所在地。";
+		}
+		
+		if(!empty($nick)) {
+			$err = account_helper::validateNickname($nick);
+			if (empty($err)) {
+				if(!$this->checkNickAvailability($nick, $userId)) {
+					$err = "昵称已被使用，请选择其他昵称。";
+				}
+			}
+			
+			if (!empty($err)) $errors[] = $err;
+		}
+		
+		if (!empty($signature) && mb_strlen($signature, 'UTF-8') > 128) {
+			$errors[] = "个性签名不能大于128个字符";
+		}
+		
+		return $errors;
+	}
+}

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+{%if !empty($results)%}
+{%foreach from=$results key=k item=val%}
+<p><a href="/account/account.php?act=display_msg&msgid={%$val.msgid%}"> <img class="img-circle" src="{%$val.picpath%}" width="40px" height="40px">{%$val.username%}</a> <a href="/account/account.php?act=delete_pm&msgid={%$val.msgid%}">删除</a></p>
+{%/foreach%}
+{%/if%}
+</body>
+</html>
+
+
+

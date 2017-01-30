@@ -1,0 +1,280 @@
+--
+-- 表的结构 `admin`
+--
+
+CREATE TABLE IF NOT EXISTS `admin` (
+  `id` int(12) NOT NULL auto_increment,
+  `pid` int(12) NOT NULL,
+  `mid` int(12) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `label` varchar(50) default NULL COMMENT '用于定义配置内容的标识 ',
+  `link` varchar(255) NOT NULL,
+  `sign` enum('off','on','auto') NOT NULL COMMENT '标识',
+  `cate` int(2) NOT NULL,
+  `order` int(12) NOT NULL,
+  `configure` text NOT NULL COMMENT '配置信息',
+  PRIMARY KEY  (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='菜单存储' AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `cfg_app`
+--
+
+CREATE TABLE IF NOT EXISTS `cfg_app` (
+  `id` int(12) NOT NULL auto_increment COMMENT '存储主键',
+  `pid` int(12) NOT NULL COMMENT 'page的主键',
+  `tpl` varchar(50) default NULL COMMENT '前台输出的实例调用名称，同一页面下不可重复',
+  `name` varchar(50) default NULL COMMENT '前台输出的实例显示名称',
+  `url` varchar(255) NOT NULL COMMENT '单元更多链接',
+  `app` varchar(50) NOT NULL COMMENT '应用程序ID',
+  `sub` enum('Y','N') default 'N' COMMENT '当前模块是否为内部调用',
+  `param` text COMMENT '传递给应用程序的运行参数; 必须为序列化后的数组',
+  `operation` enum('Y','N') NOT NULL default 'N' COMMENT '布尔类型，是否使用自动方式处理，默认为N;',
+  `description` text NOT NULL COMMENT '说明文字',
+  `order` int(12) NOT NULL default '0' COMMENT '排序',
+  `status` enum('sys','user','smask','umask') NOT NULL default 'user',
+  `isCommend` enum('Y','N') NOT NULL default 'N' COMMENT '是否为推荐单元',
+  PRIMARY KEY  (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='Page 生成页面的操作配置' AUTO_INCREMENT=56 ;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `cfg_authz`
+--
+
+CREATE TABLE IF NOT EXISTS `cfg_authz` (
+  `id` int(12) NOT NULL auto_increment,
+  `pid` int(12) NOT NULL COMMENT '页面ID',
+  `username` varchar(50) NOT NULL COMMENT '用户名',
+  `level` enum('manager','owner') NOT NULL COMMENT '身份',
+  PRIMARY KEY  (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='用户授权表' AUTO_INCREMENT=15 ;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `cfg_domain`
+--
+
+CREATE TABLE IF NOT EXISTS `cfg_domain` (
+  `id` int(12) NOT NULL auto_increment,
+  `pid` int(12) NOT NULL COMMENT 'page ID',
+  `domain` varchar(255) NOT NULL COMMENT '相关域名',
+  `type` enum('alias','domain') NOT NULL default 'alias' COMMENT '域名类型',
+  `order` int(12) NOT NULL,
+  PRIMARY KEY  (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='隶属域名' AUTO_INCREMENT=14 ;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `cfg_label`
+--
+
+CREATE TABLE IF NOT EXISTS `cfg_label` (
+  `id` int(12) NOT NULL auto_increment,
+  `mid` int(12) default NULL COMMENT '数据ID，为0时，表示向URL跳转',
+  `system` int(10) default NULL COMMENT '内容大类',
+  `subnet` int(10) default NULL COMMENT '子类',
+  `categorise` int(4) default NULL COMMENT '子栏目',
+  `subcategory` int(12) NOT NULL default '0',
+  `property` int(4) default NULL COMMENT '内容属性',
+  `order` varchar(6) character set utf8 collate utf8_unicode_ci default NULL COMMENT '用于排序',
+  `type` enum('Article','TArticle','Topic','Book','Lab') character set utf8 collate utf8_unicode_ci default 'Article' COMMENT '结构属性',
+  PRIMARY KEY  (`id`),
+  KEY `mid` (`mid`),
+  KEY `categorise` (`type`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='页面隶属标签存储表' AUTO_INCREMENT=207 ;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `cfg_mod`
+--
+
+CREATE TABLE IF NOT EXISTS `cfg_mod` (
+  `id` int(12) NOT NULL auto_increment,
+  `label` varchar(50) NOT NULL COMMENT '关联前台调用标识',
+  `pid` int(12) NOT NULL COMMENT '项目ID',
+  `name` varchar(255) NOT NULL COMMENT '调用名称',
+  `appname` int(12) NOT NULL COMMENT '关联后台模块配置',
+  `appconfig` text COMMENT '项目模块配置',
+  `remark` text COMMENT '备注',
+  `order` int(12) default NULL COMMENT '排序',
+  `categorise` enum('A','M') NOT NULL default 'A' COMMENT '前台或管理',
+  PRIMARY KEY  (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='Page 或 社区所包括的全部模块' AUTO_INCREMENT=35 ;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `data_relation`
+--
+
+CREATE TABLE IF NOT EXISTS `data_relation` (
+  `id` int(12) NOT NULL auto_increment,
+  `pid` int(12) default NULL COMMENT '页面ID',
+  `mid` int(12) default NULL COMMENT '关联ID',
+  `ord` int(12) default NULL COMMENT '排序',
+  `aid` int(12) NOT NULL COMMENT '隶属于哪个应用',
+  PRIMARY KEY  (`id`),
+  KEY `ord` (`ord`),
+  KEY `pid` (`pid`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='存储与其它数据单元关联的相关推荐' AUTO_INCREMENT=15 ;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `data_unit`
+--
+
+CREATE TABLE IF NOT EXISTS `data_unit` (
+  `id` int(12) NOT NULL auto_increment,
+  `mid` int(12) NOT NULL default '0' COMMENT 'item关联ID',
+  `pageid` int(12) default NULL COMMENT '关联ID',
+  `title` varchar(255) collate utf8_unicode_ci default NULL COMMENT '标题',
+  `pic` varchar(255) collate utf8_unicode_ci default NULL COMMENT '图片',
+  `width` int(11) default '0',
+  `height` int(11) default '0',
+  `url` varchar(255) collate utf8_unicode_ci default NULL COMMENT '链接标识',
+  `text` mediumtext collate utf8_unicode_ci COMMENT '描述',
+  `order` int(12) default NULL COMMENT '排序',
+  `position` int(12) default NULL COMMENT '关联应用程序表，获取前台模板位置定义',
+  `status` enum('Y','N') collate utf8_unicode_ci default 'N' COMMENT '发布状态',
+  `updatetime` int(12) default NULL COMMENT '更新时间',
+  `user` int(12) default NULL COMMENT '操作人',
+  `configure` text collate utf8_unicode_ci COMMENT '关联设置',
+  PRIMARY KEY  (`id`),
+  KEY `order` (`order`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='页面信息存储表' AUTO_INCREMENT=114 ;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `document`
+--
+
+CREATE TABLE IF NOT EXISTS `document` (
+  `id` int(12) NOT NULL auto_increment,
+  `mid` int(12) NOT NULL default '0' COMMENT '标识从属关系，为0时表示不属于某个文章单元',
+  `itemid` int(12) NOT NULL default '0' COMMENT '分类id,关联itemsort',
+  `title` varchar(255) default NULL COMMENT '文章标题',
+  `url` varchar(255) character set utf8 collate utf8_unicode_ci default NULL COMMENT '链接标识',
+  `style` int(8) NOT NULL default '0' COMMENT '文章修饰样式',
+  `flag` enum('hot','new','flag','none') character set utf8 collate utf8_unicode_ci NOT NULL default 'none',
+  `summary` text character set utf8 collate utf8_unicode_ci COMMENT '摘要',
+  `configure` text character set utf8 collate utf8_unicode_ci COMMENT '序列化的杂项内容，如出处信息，搜索标签等',
+  `searchkey` varchar(500) character set utf8 collate utf8_unicode_ci default NULL COMMENT '搜索标签',
+  `content` mediumtext character set utf8 collate utf8_unicode_ci COMMENT '文章主体内容',
+  `tpl` varchar(50) character set utf8 collate utf8_unicode_ci default NULL COMMENT '模板选项',
+  `hotnum` int(12) NOT NULL default '0' COMMENT '浏览统计',
+  `status` enum('Y','N') character set utf8 collate utf8_unicode_ci NOT NULL default 'N' COMMENT '发布状态',
+  `ismember` int(2) NOT NULL default '0' COMMENT '阅读级别，0为不限',
+  `iscomment` enum('Y','N') character set utf8 collate utf8_unicode_ci NOT NULL default 'Y' COMMENT '是否允许评论',
+  `islink` enum('Y','N') character set utf8 collate utf8_unicode_ci NOT NULL default 'N' COMMENT '文章主体是否为链接',
+  `filltime` int(12) NOT NULL COMMENT '创建时间',
+  `updatetime` int(12) NOT NULL COMMENT '更新时间',
+  `uid` int(11) NOT NULL default '0',
+  `order` int(12) NOT NULL default '0' COMMENT '用于排序',
+  PRIMARY KEY  (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='与非网文章内容' AUTO_INCREMENT=68605 ;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `document_level`
+--
+
+CREATE TABLE IF NOT EXISTS `document_level` (
+  `id` int(12) NOT NULL auto_increment,
+  `mid` int(12) NOT NULL default '0' COMMENT '级别关联',
+  `name` varchar(255) default NULL COMMENT '赋值',
+  `note` text COMMENT '说明',
+  `tpl` varchar(255) default NULL COMMENT '模板',
+  `status` enum('N','Y') default NULL COMMENT '状态',
+  `order` int(12) NOT NULL COMMENT '排序',
+  `cate` enum('article','blog','topic','book') NOT NULL default 'article' COMMENT '分类',
+  PRIMARY KEY  (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='分类级别' AUTO_INCREMENT=6 ;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `label`
+--
+
+CREATE TABLE IF NOT EXISTS `label` (
+  `id` int(10) NOT NULL auto_increment COMMENT '标签ID',
+  `mid` int(10) default '0' COMMENT '标签父ID，顶层为0',
+  `name` varchar(255) NOT NULL COMMENT '标签名称',
+  `note` varchar(255) default NULL COMMENT '标签说明',
+  `order` int(10) default NULL COMMENT '排序',
+  `isshow` enum('1','0') default '1' COMMENT '显示隐藏，默认显示为1',
+  `createuser` int(10) NOT NULL default '0' COMMENT '创建人',
+  `updateuser` int(10) NOT NULL default '0' COMMENT '更新人',
+  PRIMARY KEY  (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='标签表' AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `page`
+--
+
+CREATE TABLE IF NOT EXISTS `page` (
+  `id` int(12) NOT NULL auto_increment,
+  `mid` int(12) NOT NULL default '0' COMMENT '所在分类的唯一标识',
+  `name` varchar(255) default NULL COMMENT '赋值',
+  `slogan` varchar(255) default NULL COMMENT '口号',
+  `structs` text COMMENT '结构配置信息',
+  `url` char(50) NOT NULL COMMENT '访问标识',
+  `keyword` varchar(255) default NULL COMMENT '关键词',
+  `description` text COMMENT '当categorise为page时，作为域名存储字段，其他情况为说明',
+  `tpl` char(20) default NULL COMMENT '模板选项',
+  `status` enum('Y','V','N') default 'N' COMMENT '状态',
+  `ismod` enum('Y','N') NOT NULL COMMENT '是否有附属模块',
+  `order` int(12) NOT NULL default '0' COMMENT '排序',
+  `categorise` char(50) NOT NULL default 'topic' COMMENT '分类',
+  PRIMARY KEY  (`id`),
+  KEY `tpl` (`tpl`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='页面主表' AUTO_INCREMENT=89 ;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `page_item`
+--
+
+CREATE TABLE IF NOT EXISTS `page_item` (
+  `id` int(12) NOT NULL auto_increment,
+  `mid` int(12) NOT NULL COMMENT '关联ID，根据categorise的内容匹配对应项目ID,可为文章ID,pageID,appID等',
+  `app` int(12) NOT NULL COMMENT '隶属于哪个app',
+  `name` varchar(255) default NULL COMMENT '赋值',
+  `note` text COMMENT '说明',
+  `tpl` varchar(255) default NULL COMMENT '模板选项',
+  `status` enum('Y','N') default NULL COMMENT '状态',
+  `order` int(12) NOT NULL COMMENT '排序',
+  `categorise` varchar(255) NOT NULL COMMENT '分类信息',
+  PRIMARY KEY  (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='从属内容类别,id是article库的分类主键' AUTO_INCREMENT=23504 ;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `page_level`
+--
+
+CREATE TABLE IF NOT EXISTS `page_level` (
+  `id` int(12) NOT NULL auto_increment,
+  `mid` int(12) NOT NULL default '0' COMMENT '关联ID,当categorise为property时，此处为模块ID',
+  `name` varchar(255) default NULL COMMENT '赋值',
+  `text` text COMMENT '当categorise为page时，作为域名存储字段，其他情况为说明',
+  `page` int(12) default NULL COMMENT '调用page程序时关联的pageID',
+  `status` enum('Y','N') default 'N' COMMENT '状态',
+  `level` int(2) NOT NULL default '0' COMMENT '级别数量',
+  `order` varchar(255) NOT NULL default '000' COMMENT '排序',
+  PRIMARY KEY  (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='页面分类级别' AUTO_INCREMENT=65 ;

@@ -1,0 +1,102 @@
+$(document).ready(function(e) {
+	$('#btn-check-nickname').click(function(e) {
+		$('#check-nickname-result').text('');
+		var nick = $("input[name='nick']").val();
+		if (!nick) { alert('请输入昵称!'); return };
+		
+		$.getJSON( "/account/?c=ajax&act=check_nickname", {'nick' : nick}, function(data) {
+			if (data.available) {
+				$('#check-nickname-result').text('恭喜您, 该昵称可用。');
+			} else {
+				$('#check-nickname-result').text(data.reason);
+			}
+		})
+	});
+
+	$("#change-pwd-form").validate({
+		submitHandler: function(form) { 
+			var submit_button = $(form).find('input[type=submit]');
+			submit_button.attr('disabled', 'disabled');
+			$('#loading-indicator').show();
+			$('.output-info').text('');
+			var post_data = $(form).serialize();
+	
+			$.ajax({
+				url:  $(form).attr('action'),
+				type: 'post',
+				dataType: 'json',
+				data: post_data + '&format=json',
+				success: function(data) {
+					if (data.success) {
+						alert(data.tips);
+						$('.output-info').html(data.tips);
+					} else {
+						var errorMsgs = '';
+						var errorDetails = "<b>请检查如下错误信息:</b><br/>";
+						for(var i in data.tips) {
+							errorMsgs += data.tips[i] + '\n';
+							errorDetails += '<span>' + data.tips[i] + '</span><br/>';
+						}
+						alert(errorMsgs);
+						$('.output-info').html(errorDetails);
+					}
+				},
+				error: function() {
+					var msg = '系统出现未知错误，请重试或联系管理员。';
+					alert(msg);
+					$('.output-info').text(msg);
+				},
+				complete: function() {
+					$('#loading-indicator').hide();
+					submit_button.removeAttr("disabled");
+				}
+			});
+		}
+	});
+
+	$("#edit-myprofile-form").validate({
+		rules: {
+    		gender: {
+      			required: true
+    		}
+ 		},
+		submitHandler: function(form) { 
+			var submit_button = $(form).find('input[type=submit]');
+			submit_button.attr('disabled', 'disabled');
+			$('#loading-indicator').show();
+			$('.output-info').text('');
+			var post_data = $(form).serialize();
+
+			$.ajax({
+				url:  $(form).attr('action'),
+				type: 'post',
+				dataType: 'json',
+				data: post_data + '&format=json',
+				success: function(data) {
+					if (data.success) {
+						alert(data.tips);
+						$('.output-info').html(data.tips);
+					} else {
+						var errorMsgs = '';
+						var errorDetails = "<b>请检查如下错误信息:</b><br/>";
+						for(var i in data.tips) {
+							errorMsgs += data.tips[i] + '\n';
+							errorDetails += '<span>' + data.tips[i] + '</span><br/>';
+						}
+						alert(errorMsgs);
+						$('.output-info').html(errorDetails);
+					}
+				},
+				error: function() {
+					var msg = '系统出现未知错误，请重试或联系管理员。';
+					alert(msg);
+					$('.output-info').text(msg);
+				},
+				complete: function() {
+					$('#loading-indicator').hide();
+					submit_button.removeAttr("disabled");
+				}
+			});
+		}
+	});
+});

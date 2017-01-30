@@ -1,0 +1,44 @@
+<?php
+
+class account_helper {
+	/**
+	 * Date time.
+	 */
+	static function genFormatedMemberSinceDateTime($datetime) {
+		$date = DateTime::createFromFormat("Y-m-d H:i:s", $datetime);
+		return $date->format('m-d-Y');
+	}
+	
+	static function genUserActivityHtmlTags($userId) {
+		$prevMonth = time() - (30 * 24 * 60 * 60); // 30 days ago.
+		$sinceDate = date("Y-m-d H:i:s", $prevMonth);
+		$libLogLogins = load('account_log_logins');
+		$loginCnt = $libLogLogins->getUserLoginCount($userId, $sinceDate);
+		
+		$iconImg = '';
+		if ($loginCnt >= 30) {
+			$iconImg = 'icon_sun.gif';
+		} 
+		else if ($loginCnt >= 10 && $loginCnt < 30) {
+			$iconImg = 'icon_moon.gif';
+		}
+		else {
+			$iconImg = 'icon_rock.gif';
+		}
+		
+		return "<img src='/account/images/{$iconImg}' title='30天内登陆{$loginCnt}次' />";
+	}
+	
+	static function validateNickname($nickname) {
+		$nickLen = mb_strlen($nickname, 'UTF-8');
+		if (!($nickLen >= 2 && $nickLen <= 12)) {
+			return '昵称最少需要2位, 最多为12位';
+		}
+		
+		//  最少2位 最多12位（不允许包含空格）例如： obama_北美01
+		$reg = '/^[\x{4e00}-\x{9fa5}a-zA-Z0-9_\-]+$/u'; 
+		if (!preg_match ( $reg, $nickname )) {
+			return "昵称中存在非法字符。";
+		} 
+	}
+}

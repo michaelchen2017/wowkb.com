@@ -1,0 +1,39 @@
+#maincontainer .standard {
+	border-top:4px solid #1a75ca
+}
+.aside ul{
+	margin-top:28px
+}
+.article h1 {
+	margin-bottom:0;
+	padding-left:0;
+	font-size:16px
+}
+.article h2{
+	font-size:14px
+}
+.article ul {
+	margin:0;
+	padding:0;
+	margin-left:20px;
+	font-size:1.2em
+}
+.article ul li {
+	line-height:20px;
+}
+.article p {
+	line-height:24px;
+	padding:0;
+	font-size:14px;
+}
+#breadcrumb {
+	font-size:1.2em;
+	padding-bottom:10px;
+	border-bottom:1px dotted #ccc
+}
+#breadcrumb span {
+	margin-right:10px
+}
+#breadcrumb a {
+	text-decoration:none
+}

@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/repos/haiwai.com/!svn/ver/4186/account/Config
+END
+notify_config.php
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/repos/haiwai.com/!svn/ver/724/account/Config/notify_config.php
+END
+system_msg.php
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/repos/haiwai.com/!svn/ver/4186/account/Config/system_msg.php
+END
+regions_config.php
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/repos/haiwai.com/!svn/ver/2933/account/Config/regions_config.php
+END

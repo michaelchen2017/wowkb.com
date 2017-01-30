@@ -1,0 +1,7 @@
+<?php
+return array(
+	'smtp_server_host' => "smtpout.secureserver.net",
+	'smtp_user_name' => "noreply@haiwai.com",
+	'smtp_user_password' => "haiwai2014",
+	'smtp_sender_name' => "www.haiwai.com",
+);

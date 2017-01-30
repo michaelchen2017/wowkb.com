@@ -1,0 +1,46 @@
+header {
+	margin-top:20px;
+	line-height:40px
+}
+header h1 {
+	width:40%
+}
+header nav ul {
+	float:left;
+	list-style:none;
+	width:55%;
+	font-size:.9em;
+	padding-top:5px
+}
+header nav li {
+	float:right;
+	padding:5px
+}
+header nav li.line {
+	width:10px
+}
+header nav li a {
+	text-decoration:none;
+	color:#333
+}
+.maincontainer {
+	width:100%;
+	clear:both;
+	background:#d1e5fd;
+	margin-bottom:20px
+}
+.article {
+	overflow:auto;
+	width:990px;
+	margin:30px auto;
+	border-top:4px solid #06c;
+	background:#fff;
+	padding:140px 0;
+	*padding-right:30px;
+	text-align:center
+}
+.article p {
+	clear:both;
+	line-height:35px;
+	margin:0
+}

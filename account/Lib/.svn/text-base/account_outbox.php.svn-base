@@ -1,0 +1,6 @@
+<?php
+class account_outbox  extends Model 
+{
+	protected $tableName="outbox";
+	protected $dbinfo=array("config"=>"message", "type"=>"MySQL");
+}

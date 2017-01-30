@@ -1,0 +1,254 @@
+.article {
+	padding-top:18px;
+	font-size:1.4em
+}
+.article .module {
+	clear:both
+}
+.article .module .title {
+	border-bottom:1px solid #ddd;
+	overflow:visible;
+	height:43px
+}
+.article .module .title ul {
+	list-style:none;
+	margin:0;
+	padding:0
+}
+.article .module .title ul li {
+	float:left;
+	width:15%;
+	position:relative;
+	top:1px;
+	text-align:center;
+	font-weight:normal;
+	margin:0;
+	margin-right:5px;
+	padding:5px 0;
+	border:1px solid #ddd;
+	border-top:3px solid #eee;
+	border-bottom:0;
+	background:#fafafa;
+	height:29px;
+	line-height:29px
+}
+.article .module .title ul li.selected {
+	border-top:3px solid #1a75ca;
+	background:#fff;
+	height:30px
+}
+.article .module .title span {
+	float:right;
+	width:48%;
+	display:block;
+	overflow:hidden
+}
+.article .module .title span img{
+	float:right;
+	font-weight:normal;
+	height:20px;
+	margin-top:7px
+}
+.article .module .title span b{
+	font-weight:normal;
+	line-height:35px;
+}
+.article .module .title a {
+	float:right;
+	padding:0;
+	display:block;
+	width:auto;
+	overflow:hidden;
+	text-decoration:none
+}
+.article .module .title a:hover{
+	color:red;
+	text-decoration:underline
+}
+.article .module center {
+	padding:50px 0
+}
+.article p {
+	border-bottom:1px dotted #ddd;
+	margin-top:10px;
+	margin-bottom:.5em;
+	padding-bottom:10px;
+	padding-left:25px;
+	font-size:1em;
+	line-height:24px
+}
+.article p i {
+	color:#09f;
+	padding:0 5px
+}
+.article p a {
+	margin:0 5px;
+}
+.article p a:hover{
+	color:red
+}
+.article .page{
+	float:right
+}
+.lastestpost ul {
+	margin:0;
+	padding:0;
+	list-style:none;
+	clear:both
+}
+.lastestpost ul li {
+	height:38px;
+	line-height:38px;
+	border-bottom:1px dotted #ddd;
+	overflow:hidden;
+	clear:both;
+}
+.lastestpost ul li input {
+	float:left;
+	display:block;
+	margin:11px 11px 11px 5px;
+	*margin-top:7px;
+	_margin-top:7px;
+	width:14px
+}
+.lastestpost ul li img {
+	display:block;
+	float:left;
+	padding:12px;
+	padding-left:0;
+	width:16px
+}
+.lastestpost ul li span {
+	display:block;
+	float:left;
+	overflow:hidden;
+	white-space:nowrap;
+	padding:0
+}
+.lastestpost ul li span.sender {
+	width:10%;
+	margin-right:12px;
+	color:#606
+}
+.lastestpost ul li span.sender a {
+	text-decoration:none
+}
+.lastestpost ul li span.post {
+	width:59%
+}
+.lastestpost ul li span.post a {
+	color:#1a75ca;
+	text-decoration:none
+}
+.lastestpost ul li span.post a:hover{
+	text-decoration:underline
+}
+.lastestpost ul li .unread {
+	font-weight:bold
+}
+.lastestpost ul li time {
+	float:right;
+	display:block;
+	font-size:.9em;
+	*font-size:12px;
+	_font-size:12px;
+	margin-right:10px
+}
+.lastestpost ul li span.edit {
+	display:block;
+	float:right;
+	font-size:.9em;
+	*font-size:12px;
+	_font-size:12px
+}
+.lastestpost ul li span.edit a {
+	text-decoration:none;
+	margin-left:5px
+}
+.lastestpost ul li span.edit a:hover{
+	text-decoration:underline
+}
+select#area{
+	float:left
+}
+#message{
+	height:22px
+}
+.lastestpost span.all{
+	font-size:.9em;
+	*font-size:12px;
+	_font-size:12px
+}
+.lastestpost span.calculate{
+	float:left;
+	display:block;
+	font-size:.9em;
+	*font-size:12px;
+	_font-size:12px
+}
+.lastestpost span.calculate a{
+	text-decoration:none
+}
+.lastestpost span.calculate a:hover{
+	color:red;
+	text-decoration:underline
+}
+.lastestpost a.pages {
+	float:right;
+	font-size:.9em;
+	*font-size:12px;
+	_font-size:12px;
+	display:block;
+	color:blue
+}
+.lastestpost a.pages:hover{
+	color:red;
+	text-decoration:underline
+}
+.infobox {
+    border: 1px solid #f1f1f1;
+    margin: 20px auto 10px;
+}
+.topic {
+    width: 100%;
+}
+.topic dl {
+    border-bottom: 1px solid #f1f1f1;
+    clear: left;
+    float: left;
+    line-height: 2.5;
+    width: 100%;
+	margin:0
+}
+.topic dt {
+    background: none repeat scroll 0 0 #f8f8f8;
+    color: #666;
+    float: left;
+    padding-right: 10px;
+    text-align: right;
+    width: 80px;
+}
+.topic dd {
+    float: left;
+    padding-left: 10px;
+	margin:0
+}
+.article .msgct p{
+	border-bottom:0;
+	line-height:2.5
+}
+.article .msgct p.right{
+	padding-right:15px;
+	height:20px;
+	line-height:20px;
+}
+.article span.red{
+	color:red;
+	float:right
+}
+.aside ul{
+	*padding:0;
+	_padding:0;
+	*margin-top:10px;
+	_margin_top:10px
+}

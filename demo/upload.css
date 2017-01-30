@@ -1,0 +1,36 @@
+body{
+    font-family: 'Segoe UI';
+    font-size: 12pt;
+}
+
+header h1{
+    font-size:12pt;
+    color: #fff;
+    background-color: #1BA1E2;
+    padding: 20px;
+
+}
+article
+{
+    width: 80%;
+    margin:auto;
+    margin-top:10px;
+}
+
+
+.thumbnail{
+
+    height: 100px;
+    margin: 10px; 
+    float: left;
+}
+#clear{
+   display:none;
+}
+#result {
+    border: 4px dotted #cccccc;
+    display: none;
+    float: right;
+    margin:0 auto;
+    width: 511px;
+}

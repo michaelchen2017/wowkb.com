@@ -1,0 +1,331 @@
+<?php
+include DOCUROOT."/account/Action/base.php";
+//2935是稳定版本
+class space extends base
+{
+	function __construct() {
+		parent::__construct();
+		
+		//查看用户登录
+		$obj=load("account_api");
+		
+		$this->redirect=rawurlencode($_SERVER['PHP_SELF']).'?'.$_SERVER['QUERY_STRING'];
+		$this->userinfo=$obj->init_user(false,$this->redirect);
+		$this->admin=$this->isAdmin();
+		
+		$this->assign('admin',$this->admin);
+		$this->assign('userinfo',$this->userinfo);
+		$this->assign('redirect',$this->redirect);
+		
+		$this->account_space=load("account_space");
+		$this->userAvatar = $this->account_space->getMyAvatar($this->userinfo['pk_id']);
+		$this->assign('userAvatar', $this->userAvatar);
+	}
+
+	//用户首页
+	function ACT_index() 
+	{
+		$obj_classifiedinfo=load("classifiedinfo_classifiedinfo");
+		$obj_biz=load("biz_biz");
+		$obj_system_msg=load("account_system_msg");
+		
+		//计数
+		$this->count($obj_classifiedinfo,$obj_biz,$obj_system_msg);
+	}
+	
+	//基本信息
+	function ACT_profile()
+	{
+		$obj_member=load("account_members");
+		$obj_member_details=load("account_member_details");
+		
+		//地区查询
+		$this->getRegions($this->userinfo['region_real']);
+		
+		//生日
+		$birthday = getdate(strtotime($this->userinfo['birthday']));
+		$this->assign('birthday',$birthday);
+		
+		//检查昵称
+		$nick=empty($_GET['nick'])?"":$_GET['nick'];
+		if(!empty($nick))
+			$this->check(array('nick'=>$nick),$obj_member);
+		
+		//提交表单
+		if(!empty($_POST['submit']))
+		{
+			$yeardate=empty($_POST['yeardate'])?"":$_POST['yeardate'];
+			$monthdate=empty($_POST['monthdate'])?"":$_POST['monthdate'];
+			$daydate=empty($_POST['daydate'])?"":$_POST['daydate'];
+			$birthday="{$yeardate}-{$monthdate}-{$daydate}";
+			
+			$nick=empty($_POST['nick'])?"":$_POST['nick'];
+			$gender=empty($_POST['gender'])?"":$_POST['gender'];
+			$region=empty($_POST['region'])?"":$_POST['region'];
+			$tel=empty($_POST['tel'])?"":$_POST['tel'];
+			$contact_email=empty($_POST['contact_email'])?"":$_POST['contact_email'];
+			$ims_field=empty($_POST['ims_field'])?"":$_POST['ims_field'];
+			$ims_value=empty($_POST['ims_value'])?"":$_POST['ims_value'];
+			$occupation=empty($_POST['occupation'])?"":$_POST['occupation'];
+			$signature=empty($_POST['signature'])?"":$_POST['signature'];
+			
+			//昵称重复
+			if($this->userinfo['nick']!=$nick)
+			{
+				$check=$this->check(array('nick'=>$nick),$obj_member);
+				if(!$check)	return;
+			}
+			
+			$obj_member->update(array('nick'=>$nick,'tel'=>$tel,'region'=>$region),array('pk_id'=>$this->userinfo['pk_id']));
+			
+			$check=$obj_member_details->getOne(array('fk_member_id'),array('fk_member_id'=>$this->userinfo['pk_id']));
+			if(!empty($check))
+				$obj_member_details->update(array('gender'=>$gender,'contact_email'=>$contact_email,'location'=>$region,'birthday'=>$birthday,'ims_field'=>$ims_field,'ims_value'=>$ims_value,'occupation'=>$occupation,'signature'=>$signature),array('fk_member_id'=>$this->userinfo['pk_id']));
+			else
+				$obj_member_details->insert(array('fk_member_id'=>$this->userinfo['pk_id'],'gender'=>$gender,'contact_email'=>$contact_email,'location'=>$region,'birthday'=>$birthday,'ims_field'=>$ims_field,'ims_value'=>$ims_value,'occupation'=>$occupation,'signature'=>$signature));
+			
+			//重设值session和cookie
+			$this->editsession($this->userinfo['pk_id'],$obj_member,$obj_member_details);
+			setcookie("regionID", $region, time()+31536000, '/', conf('global','session.sessiondomain'));
+			
+			go("/account/space.php?act=profile&msg=success");
+		}
+	}
+	
+	//修改密码
+	function ACT_password()
+	{
+		$libLogin = load('account_login');
+		
+		$oldpwd = empty($_POST['oldpwd'])?"":$_POST['oldpwd']; 
+		$captcha = empty($_POST['captcha'])?"":$_POST['captcha'];
+		$newpwd = empty($_POST['newpwd'])?"":$_POST['newpwd'];
+		$confirm_new_pwd = empty($_POST['confirm_new_pwd'])?"":$_POST['confirm_new_pwd'];
+		$format=empty($_POST['format'])?"":$_POST['format'];
+		
+		if(!empty($_POST['submit']))
+		{
+			$errs = $libLogin->changePwd($this->userinfo['email'], $oldpwd, $newpwd, $confirm_new_pwd, $captcha);
+			if(!empty($errs))
+				$this->assign('errs',$errs);
+			else
+				$this->assign('success',1);
+		}
+	}
+	
+	//实名验证
+	/*
+	function ACT_confirm()
+	{
+		$obj_member_real=load("account_member_real");
+		
+		$rs_member_real=$obj_member_real->getOne('*',array('fk_member_id'=>$this->userinfo['pk_id']));
+		$this->assign('rs_member_real',$rs_member_real);
+		
+		if(!empty($_POST['submit']))
+		{
+			$description=empty($_POST['description'])?"":$_POST['description'];
+			$name=empty($_POST['name'])?"":$_POST['name'];
+			$id_type=empty($_POST['id_type'])?"":$_POST['id_type'];
+			$id_number=empty($_POST['id_number'])?"":$_POST['id_number'];
+			$phone=empty($_POST['phone'])?"":$_POST['phone'];
+			
+			//保存图片
+			if(!empty($rs_member_real) && empty($_FILES["id_pic"]['name']))
+				$id_pic=$rs_member_real['id_pic'];
+			else
+				$id_pic=$this->save_pic($_FILES["id_pic"],$this->userinfo['pk_id']);
+			
+			$time=times::gettime();
+			if(!empty($rs_member_real))
+				$obj_member_real->update(array('description'=>$description,'name'=>$name,'email'=>$this->userinfo['email'],'id_type'=>$id_type,'id_number'=>$id_number,'phone'=>$phone,'id_pic'=>$id_pic,'dataline'=>$time),array('fk_member_id'=>$this->userinfo['pk_id']));
+			else
+				$obj_member_real->insert(array('fk_member_id'=>$this->userinfo['pk_id'],'description'=>$description,'name'=>$name,'email'=>$this->userinfo['email'],'id_type'=>$id_type,'id_number'=>$id_number,'phone'=>$phone,'id_pic'=>$id_pic,'dataline'=>$time));
+		
+			go("/account/space.php?act=confirm&msg=success");
+		}
+	}
+	*/
+	
+	//信息管理列表
+	function ACT_msg()
+	{
+		$obj_system_msg=load("account_system_msg");
+		
+		$rs_system_msg=$obj_system_msg->getList('*',array('userid'=>$this->userinfo['pk_id'],'visible'=>1,'order'=>array('id'=>'DESC')),25);
+		
+		//消息计数
+		$count=$this->count_msg($obj_system_msg);
+		
+		$this->assign('rs_system_msg',$rs_system_msg);
+		$this->assign('count',$count);
+		
+		//单一信息删除
+		if(!empty($_GET['action']))
+		{
+			$id=empty($_GET['id'])?"":$_GET['id'];
+			
+			if($_GET['action']=='delete')
+				$obj_system_msg->update(array('visible'=>0),array('id'=>$id));
+			
+			go("/account/space.php?act=msg");
+		}
+		
+		//消息操作
+		if(!empty($_POST['action']))
+		{
+			$id=empty($_POST['id'])?"":$_POST['id'];
+			
+			//删除
+			if($_POST['action']=='delete')
+				$obj_system_msg->update(array('visible'=>0),array('OR'=>array('id'=>$id)));
+				
+			//已读
+			if($_POST['action']=='read')
+				$obj_system_msg->update(array('view'=>1),array('OR'=>array('id'=>$id)));
+				
+			//未读
+			if($_POST['action']=='unread')
+				$obj_system_msg->update(array('view'=>0),array('OR'=>array('id'=>$id)));
+			
+			go("/account/space.php?act=msg");
+		}
+		
+	}
+	
+	//信息管理查看
+	function ACT_msg_view()
+	{
+		$id=empty($_GET['id'])?"":$_GET['id'];
+		
+		$obj_system_msg=load("account_system_msg");
+		
+		$rs_system_msg=$obj_system_msg->getOne('*',array('id'=>$id));
+		
+		if(empty($rs_system_msg['view']))
+			$obj_system_msg->update(array('view'=>1),array('id'=>$id));
+		
+		$this->assign('rs_system_msg',$rs_system_msg);
+	}
+	
+	//分类广告
+	function ACT_classifiedinfo()
+	{
+		$obj_classifiedinfo=load("classifiedinfo_classifiedinfo");
+		$obj_biz=load("biz_biz");
+		$obj_system_msg=load("account_system_msg");
+		
+		//计数
+		$this->count($obj_classifiedinfo,$obj_biz,$obj_system_msg);
+		
+		$visible=isset($_GET['visible'])?$_GET['visible']:1;
+		
+		if($visible==0)
+			$rs_classifiedinfo=$obj_classifiedinfo->ci_search(array('fk_user_id'=>$this->userinfo['pk_id'],'visible'=>array(0,-1)),15);
+		else
+			$rs_classifiedinfo=$obj_classifiedinfo->ci_search(array('fk_user_id'=>$this->userinfo['pk_id'],'visible'=>array(1)),15);
+		
+		$this->assign('rs_classifiedinfo',$rs_classifiedinfo);
+		
+		//删除分类		
+		if(!empty($_GET['action']))
+		{
+			$pk_id=empty($_GET['pk_id'])?'':$_GET['pk_id'];
+			
+			//双重保险
+			$check=$obj_classifiedinfo->getOne(array('visible'),array('pk_id'=>$pk_id));
+			if($check['visible']==-1)
+				go("/account/space.php?act=classifiedinfo&visible={$visible}");
+			
+			if($_GET['action']=='delete')
+				$update = array("visible"=>0);
+			
+			if($_GET['action']=='recover')
+				$update = array("visible"=>1);
+			
+			classifiedinfo_helper::update_ci($pk_id,$update);
+			
+			go("/account/space.php?act=classifiedinfo&visible={$visible}");
+		}
+	}
+	
+	//商铺信息
+	function ACT_biz()
+	{
+		$obj_classifiedinfo=load("classifiedinfo_classifiedinfo");
+		$obj_biz=load("biz_biz");
+		$obj_system_msg=load("account_system_msg");
+		
+		//计数
+		$this->count($obj_classifiedinfo,$obj_biz,$obj_system_msg);
+		
+		$type=empty($_GET['type'])?'':$_GET['type'];
+		
+		$rs_biz=$obj_biz->get_biz_list(array($type=>$this->userinfo['pk_id'],'visible'=>1));
+		
+		//check我管理的商铺
+		$obj_biz=load("biz_biz");
+		$check=$obj_biz->getOne(array('entityID'),array('managerID'=>$this->userinfo['pk_id'],'visible'=>1));
+		
+		$this->assign('rs_biz',$rs_biz);
+		$this->assign('check',$check);
+	}
+	
+	//联系客服
+	function ACT_feedback()
+	{
+		if(!empty($_POST['submit']))
+		{
+			$name=empty($_POST['name'])?'':$_POST['name'];
+			$email=empty($_POST['email'])?'':$_POST['email'];
+			$title=empty($_POST['title'])?'':$_POST['title'];
+			$msg=empty($_POST['msg'])?'':$_POST['msg'];
+			
+			//发送邮件
+			$config=array(
+					'host'=>'smtpout.secureserver.net',
+					'user'=>'noreply@haiwai.com',
+					'pass'=>'haiwai2014',
+					'name'=>'www.haiwai.com',
+					'charset'=>'utf-8',
+					'debug'=>true,
+			);
+			
+			$html=$email."<br>".$msg;
+			$id=func_sendMail($title,$html,$text='haiwai.com feedback',$email='noreply@haiwai.com',$user=$name,$config);
+			
+			go("/account/space.php?act=feedback&msg=success");
+		}
+	}
+	
+	//总信息计数
+	function count($obj_classifiedinfo,$obj_biz,$obj_system_msg)
+	{
+		$count['classifiedinfo']=$obj_classifiedinfo->count(array('fk_user_id'=>$this->userinfo['pk_id'],'visible'=>1));
+		$count['biz']=$obj_biz->count("(ownerID={$this->userinfo['pk_id']} or managerID={$this->userinfo['pk_id']}) and visible=1");
+		$count['msg']=$obj_system_msg->count(array('userid'=>$this->userinfo['pk_id'],'visible'=>1));
+		
+		$this->assign('count',$count);
+	}
+	
+	//用户消息计数
+	function count_msg($obj_system_msg)
+	{
+		$rs['read']=$obj_system_msg->count(array('userid'=>$this->userinfo['pk_id'],'view'=>1));
+		$rs['unread']=$obj_system_msg->count(array('userid'=>$this->userinfo['pk_id'],'view'=>0));
+		
+		return $rs;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+}

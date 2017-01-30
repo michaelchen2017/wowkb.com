@@ -1,0 +1,12 @@
+@CHARSET "UTF-8";
+#pictureBox{height:240px;}
+#select,#preview,#setup{float:left;display:block;height:26px;line-height:26px;clear:both;text-align:center;}
+#preview{width:100%;height:186px;margin:2px auto;line-height:186px;font-size:18px;font-weight:bold; color:#CCC;border-top:1px dotted gray;border-bottom:1px dotted gray;}
+#preview img{margin:2px auto; cursor:pointer;}
+#setup{width:100%;}
+#uploading{display:none;height:26px;line-height:26px;float:left;margin-right:24px;}
+#uploading img{margin:auto 4px;}
+#confirm{display:none;}
+form{margin:0;padding:0;}
+select{font-size:12px;}
+.smallbtn{height:26px;font-size:12px;font-family:SimSun,sans-serif;float:left;margin-left:4px;}

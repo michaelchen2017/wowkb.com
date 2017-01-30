@@ -1,0 +1,306 @@
+.article h2 {
+	font-size:1.8em;
+	font-weight:normal;
+	background:none;
+	padding-left:10px;
+	margin-bottom:0;
+	*margin-top:20px;
+	_margin-top:20px;
+	*margin-bottom:15px;
+	_margin-bottom:15px
+}
+.article h2 a{
+	color:#2255dd;
+	text-decoration:none
+}
+.article h2 a:hover{
+	text-decoration:underline;
+	color:red
+}
+.article h2 a.username{
+	display:inline-block;
+	background:url(/account/images/icon_arrowup.gif) no-repeat center bottom;
+	*background:none;
+	_background:none;
+	height:35px;
+	*height:auto;
+	_height:auto;
+}
+.article h2 .edit{
+	font-size:13px;
+	margin-left:10px
+}
+.article .userinfo {
+	overflow:hidden;
+	margin-top:-1px
+}
+.article .userinfo .infobox {
+	background:#f8fff3;
+	border:1px solid #ddd;
+	padding:10px 0;
+	float:left;
+	width:75%
+}
+.article .userinfo .btngroup {
+	float:right;
+	width:22%
+}
+.article a.button {
+	float:right;
+	width:150px;
+	height:35px;
+	line-height:35px;
+	font-size:15px;
+	border:0;
+	margin-bottom:15px;
+	color:#fff;
+	font-weight:bold;
+	display:block;
+	text-align:center
+}
+.article #btn_green {
+	background:#56bc7a;
+	border-bottom:4px solid #43915e
+}
+.article #btn_blue {
+	background:#5193ec;
+	border-bottom:3px solid #3f71b5
+}
+.article #btn_orange {
+	background:#fb7200;
+	border-bottom:4px solid #da6403
+}
+.article a#btn_green:hover{
+	background:#51b373
+}
+.userinfo .infobox p {
+	padding-left:15px;
+	font-size:13px;
+	line-height:22px
+}
+.userinfo .infobox p a:hover{
+	color:red;
+	text-decoration:underline
+}
+.userinfo .infobox img#yxrz{
+	width:19px;
+	height:19px;
+	border:0
+}
+.userinfo h1 a.username {
+	font-weight:normal;
+	margin-right:10px;
+	color:#1a75ca
+}
+.userinfo .edit {
+	font-size:13px;
+	margin-left:10px
+}
+.userinfo p a {
+	padding:0 4px 0 10px;
+	text-decoration:none
+}
+.article .module {
+	float:left;
+	margin:20px 0 0;
+	*margin:10px 0;
+	_margin:10px 0;
+	font-size:1.4em;
+	clear:both
+}
+.article .module .title {
+	border-bottom:1px solid #ddd;
+	overflow:visible;
+	height:43px
+}
+.article .module .title ul {
+	list-style:none;
+	margin:0;
+	padding:0
+}
+.article .module .title ul li {
+	float:left;
+	width:20%;
+	position:relative;
+	top:1px;
+	text-align:center;
+	font-weight:normal;
+	margin:0;
+	margin-right:5px;
+	padding:5px 0;
+	border:1px solid #ddd;
+	border-top:3px solid #eee;
+	border-bottom:0;
+	background:#fafafa;
+	height:29px;
+	line-height:29px
+}
+.article .module .title ul li.selected {
+	border-top:3px solid #1a75ca;
+	background:#fff;
+	height:30px
+}
+.article .module span {
+	display:block;
+	float:left;
+	width:79%;
+	height:44px;
+	line-height:54px
+}
+.article .module span a {
+	float:right;
+	padding:0 15px;
+	text-decoration:none
+}
+.article .module center {
+	padding:50px 0
+}
+.article .lastestpost ul {
+	margin:0;
+	padding:0;
+	list-style:none;
+	margin-top:15px
+}
+.article .lastestpost ul li {
+	height:38px;
+	line-height:38px;
+	border-bottom:1px dotted #ddd
+}
+.article .lastestpost ul li span {
+	border-bottom:0;
+	display:inline;
+	width:auto;
+	height:30px;
+	line-height:30px
+}
+.article .lastestpost ul li span.classify {
+	color:#999;
+	padding-left:5px;
+	font-size:.9em
+}
+.article .lastestpost ul li span.post {
+	width:75%;
+	overflow:hidden;
+	white-space:norwrap;
+	padding:0 10px;
+}
+.article .lastestpost ul li span.post a {
+	color:#1a75ca
+}
+.article .lastestpost ul li span.post a:hover{
+	text-decoration: underline
+}
+.article .lastestpost ul li a {
+	float:left;
+	width:auto;
+	text-decoration:none;
+	padding:0 5px
+}
+.article .lastestpost ul li time {
+	float:right;
+	font-size:.9em;
+	color:#666
+}
+.article .mystore span {
+	float:right;
+	width:15%
+}
+.group {
+	width:100%;
+	padding:1em 0 0;
+	border-bottom:1px dotted #CCC
+}
+.group figure {
+	float:left;
+	width:22%;
+	margin-bottom:.5em
+}
+.group figure img {
+	float:left;
+	width:150px;
+	height:100px;
+	margin:0 15px 15px 0;
+	padding:4px
+}
+.group .section {
+	float:left;
+	width:78%
+}
+.group .section h1 {
+	float:left;
+	width:76%;
+	margin:4px 0 8px
+}
+.group .section h1 a {
+	color:#1A75CA
+}
+.group .section h1 span {
+	padding-left:1em;
+	color:#551a8b;
+	text-decoration:none
+}
+.group .section .approve {
+	float:left;
+	margin:0;
+	color:#F90
+}
+.group .section .approve img {
+	width:1.8em;
+	height:1.8em;
+	margin-right:.2em;
+	float:left
+}
+.group .section .approve span {
+	line-height:2em;
+	display:block;
+	width:auto
+}
+.group .section .approve a {
+	float:left;
+	padding:0 5px;
+	text-decoration:none;
+	width:auto;
+}
+.group .section .info {
+	float:left;
+	width:70%;
+	margin-right:1.2em;
+	margin-bottom:.8em
+}
+.group .section .info p {
+	margin-top:.4em;
+	margin-bottom:0;
+}
+.group .section .info p.label {
+	margin-top:1em
+}
+.group .section .info p.label a {
+	display:block;
+	padding-right:.8em;
+	float:left;
+	color:#1A75CA
+}
+.article .sitegps {
+	clear:both;
+	border-top:1px solid #ddd;
+	color:#999;
+	font-size:.9em
+}
+.article .sitegps p{
+	padding-left:5px
+}
+.article .sitegps a {
+	color:#666;
+	text-decoration:none;
+	padding:0 5px;
+	font-size:1em
+}
+.article .sitegps a:hover{
+	text-decoration:underline
+}
+.aside ul{
+	*padding:0;
+	_padding:0;
+	*margin-top:10px;
+	_margin_top:10px
+}

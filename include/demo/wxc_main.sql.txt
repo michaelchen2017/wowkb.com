@@ -1,0 +1,501 @@
+-- phpMyAdmin SQL Dump
+-- version 3.5.5
+-- http://www.phpmyadmin.net
+--
+-- 主机: 192.168.100.185
+-- 生成日期: 2014 年 10 月 22 日 09:44
+-- 服务器版本: 5.5.29-0ubuntu0.12.04.1-log
+-- PHP 版本: 5.3.5-1ubuntu7.11
+
+SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
+
+--
+-- 数据库: `wxc_main`
+--
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `admin`
+--
+
+CREATE TABLE IF NOT EXISTS `admin` (
+  `id` int(12) NOT NULL AUTO_INCREMENT,
+  `pid` int(12) NOT NULL,
+  `mid` int(12) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `link` varchar(255) NOT NULL,
+  `sign` enum('off','on','auto') NOT NULL COMMENT '标识',
+  `cate` int(2) NOT NULL,
+  `status` enum('Y','N') NOT NULL DEFAULT 'Y' COMMENT '是否生效',
+  `order` int(12) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='菜单存储';
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `ads`
+--
+
+CREATE TABLE IF NOT EXISTS `ads` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `type` varchar(255) DEFAULT NULL,
+  `item` varchar(255) DEFAULT NULL,
+  `code1` text,
+  `code2` text,
+  `width` int(11) DEFAULT NULL,
+  `height` int(11) DEFAULT NULL,
+  `align` enum('Center','Left','Right') DEFAULT NULL,
+  `shrinkheight` int(11) DEFAULT NULL,
+  `delay` int(11) DEFAULT NULL,
+  `timeout` int(11) DEFAULT NULL,
+  `status` enum('Inactive','Active') DEFAULT NULL,
+  `term` int(11) DEFAULT NULL,
+  `showcase` enum('N','Y') DEFAULT NULL,
+  `datetimeStart` datetime DEFAULT NULL,
+  `datetimeEnd` datetime DEFAULT NULL,
+  `days` varchar(255) DEFAULT NULL,
+  `country` varchar(255) DEFAULT NULL,
+  `state` varchar(255) DEFAULT NULL,
+  `city` varchar(255) DEFAULT NULL,
+  `dma` varchar(255) DEFAULT NULL,
+  `updatetime` int(11) DEFAULT NULL,
+  `priority` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `status` (`status`),
+  KEY `priority` (`priority`),
+  KEY `datetimeStart` (`datetimeStart`),
+  KEY `datetimeEnd` (`datetimeEnd`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `adslink`
+--
+
+CREATE TABLE IF NOT EXISTS `adslink` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `type` varchar(255) NOT NULL,
+  `item` varchar(255) NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `link` varchar(255) NOT NULL,
+  `position` enum('L','R') NOT NULL,
+  `ordernum` varchar(2) NOT NULL,
+  `status` enum('Inactive','Active') NOT NULL,
+  `country` varchar(255) DEFAULT NULL,
+  `state` varchar(255) DEFAULT NULL,
+  `city` varchar(255) DEFAULT NULL,
+  `dma` varchar(255) DEFAULT NULL,
+  `priority` int(11) NOT NULL,
+  `datetimeStart` datetime NOT NULL,
+  `datetimeEnd` datetime NOT NULL,
+  `days` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `priority` (`priority`),
+  KEY `status` (`status`),
+  KEY `datetimeStart` (`datetimeStart`),
+  KEY `datetimeEnd` (`datetimeEnd`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `badWord`
+--
+
+CREATE TABLE IF NOT EXISTS `badWord` (
+  `id` int(12) NOT NULL AUTO_INCREMENT,
+  `label` varchar(100) NOT NULL,
+  `word` text NOT NULL,
+  `addtime` int(12) NOT NULL,
+  `userid` int(12) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='非法词表';
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `cfg_app`
+--
+
+CREATE TABLE IF NOT EXISTS `cfg_app` (
+  `id` int(12) NOT NULL AUTO_INCREMENT COMMENT '存储主键',
+  `pid` int(12) NOT NULL COMMENT 'page的主键',
+  `tpl` varchar(50) DEFAULT NULL COMMENT '前台输出的实例调用名称，同一页面下不可重复',
+  `name` varchar(50) DEFAULT NULL COMMENT '前台输出的实例显示名称',
+  `url` varchar(255) NOT NULL COMMENT '单元更多链接',
+  `app` varchar(50) NOT NULL COMMENT '应用程序ID',
+  `param` text COMMENT '传递给应用程序的运行参数; 必须为序列化后的数组',
+  `description` text NOT NULL COMMENT '说明文字',
+  `order` int(12) NOT NULL DEFAULT '0' COMMENT '排序',
+  `status` enum('Y','N') NOT NULL DEFAULT 'N',
+  `include` enum('Y','N') NOT NULL DEFAULT 'N' COMMENT '是否引用',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='Page 生成页面的操作配置';
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `cfg_authz`
+--
+
+CREATE TABLE IF NOT EXISTS `cfg_authz` (
+  `id` int(12) NOT NULL AUTO_INCREMENT,
+  `pid` int(12) NOT NULL COMMENT '页面ID',
+  `uid` int(12) NOT NULL COMMENT '用户ID',
+  `level` enum('manager','owner') NOT NULL COMMENT '身份',
+  `authinfo` text NOT NULL COMMENT '授权信息',
+  `updatetime` int(12) NOT NULL COMMENT '更新时间',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='用户授权表';
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `cfg_authz_label`
+--
+
+CREATE TABLE IF NOT EXISTS `cfg_authz_label` (
+  `id` int(12) NOT NULL AUTO_INCREMENT,
+  `siteid` int(12) NOT NULL,
+  `uid` int(12) NOT NULL,
+  `label` varchar(50) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `siteid` (`siteid`),
+  KEY `uid` (`uid`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='用户授权标签表，对用户授权的查询';
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `cfg_domain`
+--
+
+CREATE TABLE IF NOT EXISTS `cfg_domain` (
+  `id` int(12) NOT NULL AUTO_INCREMENT,
+  `pid` int(12) NOT NULL COMMENT 'page ID',
+  `domain` varchar(255) NOT NULL COMMENT '相关域名',
+  `type` enum('alias','domain') NOT NULL DEFAULT 'alias' COMMENT '域名类型',
+  `unique` enum('Y','N') NOT NULL DEFAULT 'N' COMMENT '是否是唯一有效域名',
+  `order` int(12) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='隶属域名';
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `cfg_label`
+--
+
+CREATE TABLE IF NOT EXISTS `cfg_label` (
+  `id` int(12) NOT NULL AUTO_INCREMENT,
+  `mid` int(12) DEFAULT NULL COMMENT '数据ID，为0时，表示向URL跳转',
+  `system` int(10) DEFAULT NULL COMMENT '内容大类',
+  `subnet` int(10) DEFAULT NULL COMMENT '子类',
+  `categorise` int(4) DEFAULT NULL COMMENT '子栏目',
+  `subcategory` int(12) NOT NULL DEFAULT '0',
+  `property` int(4) DEFAULT NULL COMMENT '内容属性',
+  `order` varchar(6) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '用于排序',
+  `type` enum('Article','TArticle','Topic','Book','Lab') CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT 'Article' COMMENT '结构属性',
+  PRIMARY KEY (`id`),
+  KEY `mid` (`mid`),
+  KEY `categorise` (`type`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='页面隶属标签存储表';
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `cfg_mod`
+--
+
+CREATE TABLE IF NOT EXISTS `cfg_mod` (
+  `id` int(12) NOT NULL AUTO_INCREMENT,
+  `label` varchar(50) NOT NULL COMMENT '关联前台调用标识',
+  `pid` int(12) NOT NULL COMMENT '项目ID',
+  `name` varchar(255) NOT NULL COMMENT '调用名称',
+  `link` varchar(255) DEFAULT NULL COMMENT '目标链接',
+  `appname` varchar(100) NOT NULL COMMENT '关联后台模块配置',
+  `apptype` varchar(255) NOT NULL COMMENT '应用程序的设置类型',
+  `appconfig` text COMMENT '项目模块配置',
+  `remark` text COMMENT '备注',
+  `order` int(12) DEFAULT NULL COMMENT '排序',
+  `status` enum('Y','N') NOT NULL DEFAULT 'N' COMMENT '当前状态',
+  `categorise` enum('home','app','page') NOT NULL DEFAULT 'app' COMMENT '功能分类',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='Page 或 社区所包括的全部模块';
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `content_test`
+--
+
+CREATE TABLE IF NOT EXISTS `content_test` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `title` varchar(255) NOT NULL,
+  `text` text NOT NULL,
+  `datetime` int(11) NOT NULL,
+  `userid` int(11) NOT NULL,
+  `datatype` varchar(50) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `data_label`
+--
+
+CREATE TABLE IF NOT EXISTS `data_label` (
+  `id` int(12) NOT NULL AUTO_INCREMENT,
+  `uid` int(12) NOT NULL COMMENT '文档ID',
+  `lid` int(12) NOT NULL COMMENT '标签ID',
+  `type` enum('label','mfr') NOT NULL COMMENT '类型',
+  `pid` int(12) NOT NULL COMMENT 'pageID',
+  `category` enum('page','unit','document','upload') NOT NULL DEFAULT 'unit' COMMENT '关联类型',
+  PRIMARY KEY (`id`),
+  KEY `uid` (`uid`),
+  KEY `lid` (`lid`),
+  KEY `type` (`type`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='属性标签表';
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `data_relation`
+--
+
+CREATE TABLE IF NOT EXISTS `data_relation` (
+  `id` int(12) NOT NULL AUTO_INCREMENT,
+  `pid` int(12) DEFAULT NULL COMMENT '页面ID',
+  `mid` int(12) DEFAULT NULL COMMENT '关联ID',
+  `ord` int(12) DEFAULT NULL COMMENT '排序',
+  `aid` int(12) NOT NULL COMMENT '隶属于哪个应用',
+  PRIMARY KEY (`id`),
+  KEY `ord` (`ord`),
+  KEY `pid` (`pid`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='存储与其它数据单元关联的相关推荐';
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `data_type`
+--
+
+CREATE TABLE IF NOT EXISTS `data_type` (
+  `id` int(12) NOT NULL AUTO_INCREMENT,
+  `appid` int(12) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `tpl` varchar(255) DEFAULT NULL COMMENT '用于模板调用标识',
+  `status` enum('Y','N') NOT NULL DEFAULT 'Y' COMMENT '状态',
+  `isshow` int(11) NOT NULL DEFAULT '0' COMMENT '是否是主要参数',
+  `isuse` int(11) NOT NULL COMMENT '是否输出',
+  `islink` enum('Y','N') NOT NULL DEFAULT 'N' COMMENT '是否为链接字段',
+  `isorder` enum('Y','N') NOT NULL DEFAULT 'N' COMMENT '是否是排序字段',
+  `width` int(12) NOT NULL DEFAULT '0' COMMENT '前台显示时的宽度定义',
+  `type` enum('int','varchar','text','content','file','datetime','select') NOT NULL DEFAULT 'varchar' COMMENT '字段类型，content为编辑器文本，text为普通文本',
+  `order` int(12) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `appid` (`appid`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='动态功能字段定义';
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `data_typeValue`
+--
+
+CREATE TABLE IF NOT EXISTS `data_typeValue` (
+  `id` int(12) NOT NULL AUTO_INCREMENT,
+  `typeid` int(12) NOT NULL COMMENT '参数关联id',
+  `itemid` int(12) NOT NULL COMMENT '数据关联ID',
+  `int` int(12) NOT NULL DEFAULT '0' COMMENT '数值型参数',
+  `varchar` varchar(255) NOT NULL COMMENT '参数值',
+  `text` text NOT NULL COMMENT '文本型参数',
+  PRIMARY KEY (`id`),
+  KEY `typeid` (`typeid`),
+  KEY `itemid` (`itemid`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='动态功能值存储表';
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `data_unit`
+--
+
+CREATE TABLE IF NOT EXISTS `data_unit` (
+  `id` int(12) NOT NULL AUTO_INCREMENT,
+  `itemid` int(12) NOT NULL DEFAULT '0' COMMENT 'item关联ID',
+  `mid` int(12) NOT NULL DEFAULT '0' COMMENT 'item关联ID',
+  `pageid` int(12) DEFAULT NULL COMMENT '关联ID',
+  `title` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '标题',
+  `highlight` varchar(6) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '高亮',
+  `pic` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '图片',
+  `width` int(11) DEFAULT '0',
+  `height` int(11) DEFAULT '0',
+  `url` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '链接标识',
+  `link` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '引用的链接',
+  `summary` text COLLATE utf8_unicode_ci COMMENT '内容摘要',
+  `text` mediumtext COLLATE utf8_unicode_ci COMMENT '描述',
+  `order` int(12) DEFAULT NULL COMMENT '排序',
+  `position` int(12) DEFAULT NULL COMMENT '关联应用程序表，获取前台模板位置定义',
+  `status` enum('Y','N') COLLATE utf8_unicode_ci DEFAULT 'N' COMMENT '发布状态',
+  `show` enum('Y','N') COLLATE utf8_unicode_ci NOT NULL DEFAULT 'N' COMMENT '内容是否在页面中调用',
+  `updatetime` int(12) DEFAULT NULL COMMENT '更新时间',
+  `visit` int(12) NOT NULL COMMENT '访问次数',
+  `user` int(12) DEFAULT NULL COMMENT '操作人',
+  `configure` text COLLATE utf8_unicode_ci COMMENT '关联设置',
+  PRIMARY KEY (`id`),
+  KEY `order` (`order`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='页面信息存储表';
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `document`
+--
+
+CREATE TABLE IF NOT EXISTS `document` (
+  `id` int(12) NOT NULL AUTO_INCREMENT,
+  `sort` varchar(50) NOT NULL DEFAULT 'develop' COMMENT '分类标识',
+  `title` varchar(255) DEFAULT NULL COMMENT '文章标题',
+  `label` varchar(500) DEFAULT NULL COMMENT '关键字标签',
+  `content` mediumtext COMMENT '文章主体内容',
+  `updatetime` int(12) NOT NULL COMMENT '更新时间',
+  `uid` int(11) NOT NULL DEFAULT '0',
+  `order` int(12) NOT NULL DEFAULT '0' COMMENT '用于排序',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='与非网文章内容';
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `ipcount`
+--
+
+CREATE TABLE IF NOT EXISTS `ipcount` (
+  `id` int(12) NOT NULL AUTO_INCREMENT,
+  `ip` varchar(16) NOT NULL,
+  `browser` text,
+  `datetime` int(12) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `label`
+--
+
+CREATE TABLE IF NOT EXISTS `label` (
+  `id` int(10) NOT NULL AUTO_INCREMENT COMMENT '标签ID',
+  `mid` int(10) DEFAULT '0' COMMENT '标签父ID，顶层为0',
+  `idname` varchar(50) NOT NULL COMMENT '用于系统调用',
+  `name` varchar(255) NOT NULL COMMENT '标签名称',
+  `note` varchar(255) DEFAULT NULL COMMENT '标签说明',
+  `order` int(10) DEFAULT NULL COMMENT '排序',
+  `isshow` enum('1','0') DEFAULT '1' COMMENT '显示隐藏，默认显示为1',
+  `createuser` int(10) NOT NULL DEFAULT '0' COMMENT '创建人',
+  `updateuser` int(10) NOT NULL DEFAULT '0' COMMENT '更新人',
+  `rootid` int(12) NOT NULL DEFAULT '0' COMMENT '隶属的顶级ID',
+  `cate` int(12) NOT NULL DEFAULT '0' COMMENT '全局或站内标签',
+  PRIMARY KEY (`id`),
+  KEY `idname` (`idname`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='标签表';
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `page`
+--
+
+CREATE TABLE IF NOT EXISTS `page` (
+  `id` int(12) NOT NULL AUTO_INCREMENT,
+  `mid` int(12) NOT NULL DEFAULT '0' COMMENT '所在分类的唯一标识',
+  `name` varchar(255) DEFAULT NULL COMMENT '赋值',
+  `slogan` varchar(255) DEFAULT NULL COMMENT '口号',
+  `structs` text COMMENT '结构配置信息',
+  `url` char(50) NOT NULL COMMENT '访问标识',
+  `keyword` varchar(255) DEFAULT NULL COMMENT '关键词',
+  `description` text COMMENT '当categorise为page时，作为域名存储字段，其他情况为说明',
+  `tpl` char(20) DEFAULT NULL COMMENT '模板选项',
+  `style` varchar(50) DEFAULT NULL COMMENT '样式',
+  `status` enum('Y','V','N') DEFAULT 'N' COMMENT '状态',
+  `order` int(12) NOT NULL DEFAULT '0' COMMENT '排序',
+  `categorise` varchar(50) NOT NULL DEFAULT 'Portal' COMMENT '分类',
+  `sort` int(2) NOT NULL DEFAULT '0' COMMENT '站点类型',
+  `signature` varchar(255) DEFAULT NULL COMMENT '签名字段',
+  `authz` enum('visit','user','member') NOT NULL DEFAULT 'visit' COMMENT '页面访问级别',
+  PRIMARY KEY (`id`),
+  KEY `tpl` (`tpl`),
+  KEY `categorise` (`categorise`),
+  KEY `url` (`url`),
+  KEY `sort` (`sort`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='页面主表';
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `site_email`
+--
+
+CREATE TABLE IF NOT EXISTS `site_email` (
+  `id` int(11) NOT NULL,
+  `mailbody` longtext NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='网站信体定义表';
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `upload`
+--
+
+CREATE TABLE IF NOT EXISTS `upload` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `mid` int(11) DEFAULT NULL COMMENT '关联id',
+  `categorise` varchar(255) DEFAULT NULL COMMENT '所属内容类型',
+  `name` varchar(255) DEFAULT NULL COMMENT '文件名',
+  `save_name` varchar(255) DEFAULT NULL COMMENT '保存名称',
+  `size` varchar(255) DEFAULT NULL COMMENT '文件大小',
+  `type` varchar(255) DEFAULT NULL COMMENT '文件类型',
+  `path_info` varchar(255) DEFAULT NULL COMMENT '保存路径',
+  `note` longtext COMMENT '注释',
+  `order` int(11) DEFAULT NULL COMMENT '排序',
+  `filltime` int(11) DEFAULT NULL COMMENT '创建时间',
+  `updatetime` int(11) DEFAULT NULL COMMENT '更新时间',
+  `user` int(11) DEFAULT NULL COMMENT '上传用户',
+  `getpoint` int(11) DEFAULT NULL COMMENT '下载需要积分',
+  `downloads` int(11) DEFAULT '0' COMMENT '下载次数',
+  `ext` varchar(100) DEFAULT NULL COMMENT '文件后缀',
+  `temp` varchar(32) DEFAULT NULL COMMENT '临时标识',
+  PRIMARY KEY (`id`),
+  KEY `uid` (`mid`,`categorise`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `web2db`
+--
+
+CREATE TABLE IF NOT EXISTS `web2db` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `title` varchar(255) NOT NULL,
+  `url` varchar(255) NOT NULL,
+  `pattern-url` varchar(255) NOT NULL,
+  `pattern-list` text NOT NULL,
+  `pattern-taglist` text NOT NULL,
+  `pattern-title` text NOT NULL,
+  `pattern-source` text NOT NULL,
+  `pattern-content` text NOT NULL,
+  `pattern-baseurl` varchar(255) NOT NULL,
+  `pattern-filter` text NOT NULL,
+  `pattern-listmatch` varchar(255) NOT NULL,
+  `poster` text NOT NULL,
+  `status` enum('Y','N') NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8;

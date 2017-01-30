@@ -1,0 +1,273 @@
+<?php
+include DOCUROOT."/account/Action/base.php";
+
+include_once(DOCUROOT . '/site/Lib/site_url_generator.php');
+
+class account extends base
+{
+	var $libLogin;
+	var $libSignup;
+	var $libAccountApi;
+	
+	function __construct() {
+		parent::__construct();
+		
+		$this->libLogin = load('account_login');
+		$this->libSignup = load('account_signup');
+		$this->libAccountApi = load('account_api');
+		
+		//查看用户登录
+		$this->redirect=rawurlencode($_SERVER['PHP_SELF']).'?'.$_SERVER['QUERY_STRING'];
+		$this->userinfo=$this->libAccountApi->init_user(true,$this->redirect);
+		$this->admin=$this->isAdmin();
+		
+		$this->assign('admin',$this->admin);
+		$this->assign('userinfo',$this->userinfo);
+		$this->assign('redirect',$this->redirect);
+	}
+	
+	function ACT_index() {
+		$this->ACT_login();
+	}
+	
+	function ACT_login() {
+		
+		$this->tpl = 'account/login.html';
+		$redirect = rawurldecode($_GET['redirect']);
+		$this->assign('redirect', $redirect);
+		
+		if ($this->libLogin->isLogined() || $this->libLogin->autoLogin()) {
+			$this->_loginSucceeded($redirect);
+		} 
+		else {
+			if (!empty($_POST['user_login'])) {
+				$errors = $this->libLogin->loginIn($_POST['email'], $_POST['password'], $_POST['autologin']);
+				if (empty($errors)) $this->_loginSucceeded($redirect);
+				else {
+					$this->assign('errors', $errors);
+					$this->assign('previousInput', $_POST);
+				}
+			}
+		}
+	}
+	
+	function ACT_signup() {
+		$this->tpl = 'account/signup.html';
+		
+		if (!empty($_POST['user_register'])) {
+			$errors = $this->libSignup->signup($_POST);			
+			if (empty($errors)) $this->_signupSucceeded();
+			else {
+				$this->assign('errors', $errors);
+				$this->assign('previousInput', $_POST);
+			}
+		}
+	}
+	
+	function ACT_resend() {
+		$email = $_POST['email'];
+		if (!empty($email) && strings::verify_EmailAddr($email)) {
+			$errors = $this->libSignup->resendActivationEmail($email);
+			header ("Content-Type:application/json");
+			echo(json_encode(array('errors'=>$errors)));
+			exit();
+		} else {
+			header("HTTP/1.1 404 Internal Server Error"); exit();
+		}
+	}
+	
+	function ACT_activate() 
+	{
+		$code = $_GET['code'];
+		if (!empty($code)) {
+			$email = $this->libSignup->activate($code);
+			if (!empty($email)) {
+				$this->assign('email', $email);
+				$this->tpl = 'account/verified.html';
+				
+				$where = array (
+					'event_name'=>'post_activation', 'action_target'=>$email, 
+					'enabled'=>1,
+				);
+				$accountEventActions = load('account_event_actions');
+				$rs = $accountEventActions->popSomeEventAction($where);
+				$actionValue = $rs['action_value'];
+				if (!empty($actionValue)) {
+					$this->assign('nextPlace', $actionValue);
+				}
+			}
+		} else alert(404);
+	}
+	
+	function ACT_logoff() {
+		$this->libLogin->loginOff();
+		
+		$redirectURL =  rawurldecode($_GET['redirect']);
+		$redirectURL = empty($redirectURL) ? "/" : $redirectURL;
+		go($redirectURL);
+	}
+	
+	function ACT_reset() {
+		if ($_POST['user_reset'])
+		{
+			$errors = array();
+			$email = $_POST['email'];
+			
+			if (empty($email)) {
+				$errors[] = array('field'=>'email', 'reason'=>'邮箱地址不能为空。');
+			} else {
+				$this->assign('email', $email);
+				$errors = $this->libLogin->reset($email);
+			}
+			$this->assign('errors', $errors);
+		}
+	}
+	
+	function ACT_change_pwd() {
+		if ($_POST['user_change_pwd']) {
+			$email = $_POST['email']; 
+			$oldPwd = $_POST['old_pwd'];
+			$newPwd = $_POST['new_pwd']; 
+			$newPwdAgain = $_POST['confirm_new_pwd'];
+			$captcha = $_POST['captcha'];
+			
+			$errors = $this->libLogin->changePwd($email, $oldPwd, $newPwd, $newPwdAgain, $captcha);
+			$this->assign('email', $email);
+			$this->assign('errors', $errors);
+			
+			if (empty($errors)) {
+				$this->tpl = 'account/confirm_change_pwd.html';
+			}
+		} else {
+			$email = urldecode($_GET['email']);
+			$this->assign('email', $email);
+		}
+	}
+	
+	//保存memcache
+	function ACT_memcache()
+	{
+		$memObj=func_initMemcached('cache03');
+		$memID=substr(session_id(),-20);
+		
+		//存贮临时文件
+		if(!empty($_FILES))
+		{
+			//创建缓存目录
+			$cacheFolder = DOCUROOT."/data/"."pageforward"."/".date("Ymd")."/".$memID;
+			if(!file_exists($cacheFolder)) files::mkdirs($cacheFolder);
+			$_POST['tmpfiles']=$this->initFiles( $cacheFolder, $_FILES );
+		}
+		
+		//储存post数据到缓存
+		$memObj->set($memID,$_POST,false,1800);
+		
+		go("/account/?c=account&act=publish_login");
+	}
+	
+	//发布用户登录注册
+	function ACT_publish_login()
+	{
+		$this->tpl = 'account/account_publish.html';
+		$memID=substr(session_id(),-20);
+
+		//提交表单
+		if(!empty($_POST['submit']))
+		{
+			//登录
+			if($_POST['type']=='login')
+				$errors=$this->libLogin->loginIn($_POST['email'], $_POST['password'], false);
+			
+			//注册
+			else if($_POST['type']=='register')
+				$errors=$this->libSignup->signup($_POST,true, true);
+			
+			/*匿名
+			else if($type=='anonymous')
+			{
+				if (empty($_POST['captcha']) || !sessCode::check($_POST['captcha']))
+					$errors=array('field'=>'captcha','reason'=>'验证码输入不正确。');
+			}
+			*/
+			
+			//通过发布
+			if(!empty($errors))
+			{
+				$this->assign($_POST['type'].'_errors',$errors);
+				$this->assign('error',$_POST['type']);
+				$this->assign($_POST['type'].'_post',$_POST);
+			}
+			else
+				go("/classifiedinfo/publish.php?session_id={$memID}");
+		}
+	}
+	
+	private function initFiles($cacheFolder,$files){
+		$filetype=array("jpg","gif","jpeg","png");
+		
+		foreach($files as $name=>$file){
+			if(is_array($file['name'])){//处理文件数组
+				foreach($file['name'] as $k=>$v){
+					$ext = files::getExt( $v );
+					if(!in_array(strtolower($ext),$filetype)) continue;
+	
+					move_uploaded_file($file['tmp_name'][$k], $cacheFolder."/".$v );
+					$tmpfiles[$name."[{$k}]"] = $cacheFolder."/".$v;
+				}
+			}else{//处理单一文件
+				$ext = files::getExt( $file['name'] );
+				if(!in_array(strtolower($ext),$filetype)) continue;
+					
+				move_uploaded_file($file['tmp_name'], $cacheFolder."/".$file['name'] );
+				$tmpfiles[$name] = $cacheFolder."/".$file['name'];
+			}
+		}
+		
+		return $tmpfiles;
+	}
+	
+	private function _signupSucceeded() {
+		$email = $_POST['email'];
+		$this->assign('email', $email);
+		$this->tpl = "account/checkmail.html";
+	}
+	
+	private function _loginSucceeded($redirect = null) {
+		if (empty($redirect)) {
+// 			go(account_url_generator::genMySpaceURL("settings"));
+			go("/");
+		} 
+		else 
+			go($redirect);
+	}
+	
+	private function post_publish_form($data)
+	{
+		$url=$data['url'];
+		$html = "<form action='{$url}' method='post' name='publish'>";
+		foreach($data as $k=>$v)
+			$html .="<input type='hidden' name='{$k}' value='{$v}'>";
+		
+		$html .="</form>";
+		$html .="<script language='JavaScript'>";
+		$html .="document.publish.submit();";
+		$html .="</script>";
+		
+		echo $html;
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

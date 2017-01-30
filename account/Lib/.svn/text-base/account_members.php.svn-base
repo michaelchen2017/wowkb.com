@@ -1,0 +1,30 @@
+<?php
+class account_members extends Model
+{
+	protected $tableName="members";
+	protected $dbinfo=array("config"=>"member", "type"=>"MySQL");
+	
+	static function getInstance()
+	{
+		static $memberObj;
+	
+		if (empty($memberObj)) {
+			$memberObj = load('account_members');
+		}
+		return $memberObj;
+	}
+	
+	function updateNickAndTel($user_id, $nick=null, $tel=null) {
+		if (!empty($nick) || !empty($tel)) {
+			$where = array('pk_id'=>$user_id);
+			$condition = array();
+			
+			if (!empty($nick)) $condition['nick'] = $nick;
+			if (!empty($tel)) $condition['tel'] = $tel;
+		
+			return $this->Update($condition, $where);
+		}
+		
+		return true;
+	}
+}

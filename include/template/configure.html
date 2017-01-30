@@ -1,0 +1,38 @@
+<!--内嵌到后台的信息配置选项-->
+{%if empty($config)%}
+<tr>
+    <td align="right" valign="middle" width="{%$cfg_width|default:120%}" height="25" style='font-size:14px;font-weight:bold;'>信息提示:</td>
+	<td align="left" valign="middle">此项目没有对应的配置选项！</td>
+</tr>
+{%else%}
+{%foreach from=$config key=k item=v%}
+<tr>
+    <td align="right" valign="middle" width="{%$cfg_width|default:120%}" height="25" style='font-size:14px;font-weight:bold;'>{%$v.name%}:</td>
+	<td align="left" valign="middle">
+		{%if $v.type=='input'%}
+		<input name="item__{%$k%}" id="item__{%$k%}" type="text" value="{%$v.defaultValue%}" style='font-size:14px;width:100%'/>
+		{%/if%}
+		{%if $v.type=='radio'%}
+			{%foreach from=$v.init key=kk item=val%}
+				<input name="item__{%$k%}" id="item__{%$k%}__{%$kk%}" type="radio" value="{%$val.value%}"{%if $v.defaultValue==$val.value%} checked="checked"{%/if%}/>
+				{%$val.name%}&nbsp;&nbsp;
+			{%/foreach%}
+		{%/if%}
+		{%if $v.type=='checkbox'%}
+			{%foreach from=$v.init key=kk item=val%}
+				<input name="item__{%$k%}[]" type="checkbox" value="{%$val.value%}"{%if $val.checked%} checked="checked"{%/if%}/>
+				{%$val.name%}&nbsp;&nbsp;
+			{%/foreach%}
+		{%/if%}
+		{%if $v.type=='select'%}
+			<select name="item__{%$k%}">
+			{%foreach from=$v.init key=kk item=val%}
+				<option value="{%$val.value%}" {%if $val.checked%} selected="selected"{%/if%}/>{%$val.name%}</option>
+				{%$val.name%}&nbsp;&nbsp;
+			{%/foreach%}
+			</select>
+		{%/if%}
+	</td>
+</tr>
+{%/foreach%}
+{%/if%}

@@ -1,0 +1,15 @@
+<?php
+class account_security_answers extends Model
+{
+	protected $tableName="security_answers";
+	protected $dbinfo=array("config"=>"member", "type"=>"MySQL");
+	
+	function getInstance()
+	{
+		static $secureAnswerObj;
+		if (empty($secureAnswerObj)) {
+			$secureAnswerObj = load('account_security_answers');
+		}
+		return $secureAnswerObj;
+	}
+}

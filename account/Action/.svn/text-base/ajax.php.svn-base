@@ -1,0 +1,37 @@
+<?php
+
+include_once(DOCUROOT . '/site/Lib/site_url_generator.php');
+
+class ajax extends Action
+{
+	function ACT_check_nickname() {
+		$nickname = $_GET['nick'];
+		
+		$available = false;
+		$error = account_helper::validateNickname($nickname);
+		if (empty($error)) {
+			$libAccountSpace = load('account_space');
+			$available = $libAccountSpace->checkNickAvailability($nickname);
+			if(!$available) $error = "抱歉, 该昵称已被使用。";
+		}
+		
+		$result = array('available'=>$available, 'reason'=>$error);
+		header ("Content-Type:application/json");
+		echo json_encode($result);
+		exit();
+	}
+	
+	function ACT_change_my_avatar() {
+		$libAccountSpace = load('account_space');
+		$avatarFile = $libAccountSpace->uploadAvatar();
+		$result = array('success'=>false);
+		if ($avatarFile) {
+			$libAccountSpace->saveMyAvatar($avatarFile);
+			$result['success'] = true;
+			$result['ret_imgurl'] = $avatarFile['path'];
+			header ("Content-Type:application/json");
+			echo json_encode($result);
+			exit();
+		}
+	}
+}

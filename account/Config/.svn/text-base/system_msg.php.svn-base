@@ -1,0 +1,50 @@
+<?php
+return array(
+		1=>array(
+			'case'=>'用户注册成功',
+			'title'=>'欢迎来到海外同城！',
+			'msgbody'=>'欢迎您加入海外同城！您可以自由发布分类信息，和查找各种生活服务、商家和分类广告。如需帮助，请点击右上角的“帮助”链接。',
+		),
+		
+		2=>array(
+			'case'=>'用户发布分类广告成功',
+			'title'=>'您的分类广告$title已成功发布',
+			'msgbody'=>'您的分类广告$title已成功发布！<a href="/classifiedinfo/view.php?id=$id">点击此链接</a>可查看您发布的分类广告。如需管理，请进入<a href="/account/space.php?act=classifiedinfo">我的发布</a>进行操作。',
+		),
+		
+		3=>array(
+			'case'=>'用户发布的分类广告被管理员下线',
+			'title'=>'您的分类广告$title已被管理员下线',
+			'msgbody'=>'您的分类广告$title已被管理员下线。广告内容不合适或者有其他重复内容的广告等，都会导致您的广告被下线。请进入<a href="/account/space.php?act=classifiedinfo">我的发布</a>对广告进行管理。',
+		),
+		
+		4=>array(
+			'case'=>'用户发布的黄页商铺通过审核',
+			'title'=>'您的商铺$title已通过审核',
+			'msgbody'=>'您的商铺$title已通过审核并上线！<a href="/biz/view.php?id=$id">点击此链接</a>可查看您发布的商铺。如需管理，请进入<a href="/account/space.php?act=biz&type=ownerID">我的发布</a>进行操作。',
+		),
+		
+		5=>array(
+			'case'=>'用户发布的黄页商铺未通过审核',
+			'title'=>'您的商铺$title未通过审核',
+			'msgbody'=>'您的商铺$title未通过审核。验证信息不全、重复发布、发布了不合适的内容、或者归类错误都会导致您的商铺不能通过审核。请进入<a href="/account/space.php?act=biz&type=ownerID">我的发布</a>重新编辑您的商铺并提交。更多详细信息，请点击右上角的“帮助”链接。',
+		),
+		
+		6=>array(
+			'case'=>'用户发布的黄页商铺被管理员下线',
+			'title'=>'您的商铺$title已被管理员下线',
+			'msgbody'=>'您的商铺$title已被管理员下线。商铺信息不实、重复发布、发布了不合适的内容、或者归类错误都会导致您的商铺被下线。请进入<a href="/account/space.php?act=biz&type=ownerID">我的发布</a>进行管理。',
+		),
+		
+		7=>array(
+			'case'=>'用户通过实名认证',
+			'title'=>'您已通过实名认证',
+			'msgbody'=>'您的实名认证已通过。您现在可以自由发布商铺信息了。如需帮助，请点击右上角的“帮助”链接。',
+		),
+		
+		8=>array(
+			'case'=>'用户未通过实名认证',
+			'title'=>'您未通过实名认证',
+			'msgbody'=>'您的实名认证未通过，请重新发送验证文件，或点击<a href"/account/space.php?act=feedback">联系客服</a>，并简短说明您的情况。',
+		),
+);

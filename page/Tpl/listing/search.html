@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>HiaTrip.com</title>
+
+<!-- Bootstrap Core CSS -->
+<link href="/css/page/bootstrap.min.css" rel="stylesheet">
+  
+ <!-- Custom CSS -->
+    <link href="/css/page/3-col-portfolio.css" rel="stylesheet">
+    <link href="/css/page/search.css" rel="stylesheet">
+    <link rel="stylesheet" href="/account/css/login_signup.css">
+    <link rel="stylesheet" href="/css/page/footer-distributed-with-address-and-phones.css">
+    <script type="text/javascript" src="/js/image_upload.js"></script>
+    
+    <link href="http://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">  
+    
+</head>
+<body>
+
+<p>搜索结果：</p>
+{%if !empty($results)%}
+{%foreach from=$results item=v%}
+<p><a href="/page/view.php?act=index&id={%$v['post_id']%}">{%$v['content']%}</a></p>
+{%/foreach%}
+{%/if%}
+<p>
+
+</p>
+</body>
+</html>

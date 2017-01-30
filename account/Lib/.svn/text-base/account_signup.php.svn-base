@@ -1,0 +1,154 @@
+<?php
+class account_signup {
+	var $libTools;
+	
+	function __construct() {
+		$this->libTools = load('account_tools');
+	}
+	
+	function signup($info, $confirm=true, $publish=false) {
+		$errors = $this->_checkSignup($info, $confirm);
+		if (empty($errors)) {
+			return $this->_signup($info,$publish);
+		}
+		return $errors;
+	}
+	
+	function activate($verifyCode) {
+		$condition = array('is_verified'=>1);
+		$where = array('verification_code'=>$verifyCode);
+		$result = account_members::getInstance()->update($condition, $where);
+		
+		if (!empty($result)) {
+			$rs = account_members::getInstance()->getOne(array('email','pk_id'), $where);
+			if (!empty($rs)) {
+				
+				$accountLogin = load('account_login');
+				$rs_login = $accountLogin->_getUser($rs['email']);
+				$accountLogin->writeAccountSession($rs_login);
+				
+				//发送消息
+				$obj=load("account_api");
+				$obj->sent_system_msg(1,$rs['pk_id']);
+				
+				$email = $rs['email'];
+				account_notify::getInstance()->sendAccountConfirmEmail($email, $email);
+				return $email;
+			}
+		}
+	}
+
+	function checkEmailAvailability($email) {
+		$rs = account_members::getInstance()->count(array('email'=>$email));
+		return empty($rs);
+	}
+	
+	function resendActivationEmail($email) {
+		$errors = array();
+		
+		$rs = account_members::getInstance()->getOne('*', array('email'=>$email));
+		if (empty($rs)) { 
+			$errors[] = array('field'=>'email', 'reason'=>'该邮箱尚未注册。');
+		}
+		else if (!empty($rs['is_verified'])) {
+			$errors[] = array('field'=>'email', 'reason'=>'该邮箱已经激活成功。');
+		}
+		else if (empty($rs['verification_code'])) {
+			$errors[] = array('field'=>'', 'reason'=>'系统出现未知错误。');
+		}
+		
+		if (empty($errors)) {
+			account_notify::getInstance()->sendAccountActivationEmail($confirmCode, $email, $email);
+		}
+		
+		return $errors;
+	}
+	
+	private function _checkSignup($info, $confirm=true) {
+		$email = $confirmEmail = $info['email'];
+		if ($confirm) $confirmEmail = $info['confirm_email'];
+		$password = $confirmPassword = $info['password'];
+		if ($confirm) $confirmPassword = $info['confirm_password'];
+		$touAccepted = $info['tou_accepted'];
+		$captcha = $info['captcha'];
+		$errors = array();
+		
+		if (!strings::verify_EmailAddr($email)) {
+			$errors[0] = array('field'=>'email', 'reason'=>'输入的邮箱格式不正确。');
+		} 
+		
+		//else if ($email != $confirmEmail) {
+			//$errors[] = array('field'=>'email', 'reason'=>'两次输入的邮箱地址不一致。',);
+		//}
+		
+		if (empty($password)) {
+			$errors[1] = array('field'=>'password', 'reason'=>'密码不能为空。');
+		} else if ($password != $confirmPassword) {
+			$errors[2] = array('field'=>'', 'reason'=>'两次输入的密码不一致。');
+		} else if(mb_strlen($password, 'UTF-8') < 6) {
+			$errors[1] = array('field'=>'', 'reason'=>'输入的密码长度至少为6位。');
+		}
+		
+		if (empty($captcha) || !sessCode::check($captcha)) {
+			if(!empty($_GET['debug'])){
+				debug::d($_SESSION);
+				debug::d($captcha);
+				debug::d($_SERVER);
+			}
+			$errors[3] = array('field'=>'captcha', 'reason'=>'验证码输入不正确。');
+		}
+		
+		if (empty($touAccepted)) {
+			$errors[4] = array('field'=>'tou_accepted', 'reason'=>'没有接受使用条款。');
+		}
+		
+		return $errors;
+	}
+	
+	public function _signup($info,$publish) {
+		$email = $info['email'];
+		$password = $info['password'];
+		$errors = array();
+		$obj_region_api=load("region_api");
+		
+		if (!$this->checkEmailAvailability($email)) {
+			$errors[0] = array('field'=>'email', 'reason'=>'该邮箱已被注册。');
+		} 
+		else {
+			$fromIp = http::getIP();
+			$password = $this->libTools->encrypt_password($password);
+			$confirmCode = md5(time() + $email + $password + $fromIp);
+			$createDate = date("Y-m-d H:i:s",times::getTime());
+			$region = region_api::get();
+			
+			$condition = array(
+				'email'=>$email, 'region'=>$region, 'pwd'=>$password, 'from_ip'=>$fromIp,
+				'verification_code'=>$confirmCode, 'membership_since'=>$createDate,
+			);
+			$memberId = account_members::getInstance()->insert($condition);
+			if ((int)$memberId <= 0) 
+				$errors[] = array('field'=>'', '系统出现未知错误。');
+			else 
+			{
+				//"发帖"注册
+				if($publish)
+				{
+					//立即登录
+					$accountLogin = load('account_login');
+					$rs_login = $accountLogin->_getUser($email);
+					$accountLogin->writeAccountSession($rs_login);
+					account_members::getInstance()->update(array('is_verified'=>1), array('email'=>$email));
+					
+					//发送消息
+					$obj=load("account_api");
+					$obj->sent_system_msg(1,$rs_login['pk_id']);
+				}
+				//"常规"注册
+				else
+					account_notify::getInstance()->sendAccountActivationEmail($confirmCode, $email, $email);
+			}
+		}
+		
+		return $errors;
+	}
+}

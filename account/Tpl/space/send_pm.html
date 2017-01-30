@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<form action="/account/space.php?act=send_pm" method="post">
+<table width="100%" border="0" cellpadding="8" cellspacing="0" class="sectiontable">
+<tbody><tr>
+	  	<td bgcolor="#f0f0f0">
+	                          		    <table width="100%" border="0" cellspacing="0" cellpadding="4">
+	                                      <tbody><tr>
+	                                        <td class="txtlarge">发 给: </td>
+	                                        <td><input name="rec_id" type="text" class="txtmedium" id="to" value="{%$rec_id|default:''%}" size="16" maxlength="20"></td>
+	                                      </tr>
+	                                      <tr>
+	                                        <td width="50" class="txtlarge">来 自: </td>
+	                                        <td class="txtlarge">{%$send_id%}</td>
+	                                        <input name="send_id" type="hidden" value="{%$send_id%}">
+	                                      </tr>
+	                                      <tr>
+	                                        <td class="txtlarge">主 题:</td>
+	                                        <td><input name="message" type="text" class="txtmedium" id="title" value="" size="60"></td>
+	                                      </tr>
+	                                    </tbody></table>
+	                                  </td>
+	                                </tr>
+	                              </tbody>
+	                              </table>
+	                              <tr>
+	                            <td><input name="submit" type="submit" class="txtlarge" id="Send" value="发送消息">
+	                            </td>
+	                          </tr>
+	                              </form>
+	                              
+	                              
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>HiaTrip.com</title>
+<link rel="stylesheet" href="/account/css/profile_sidebar.css">
+
+ <link href="/css/page/bootstrap.min.css" rel="stylesheet">
+ 
+ <link rel="stylesheet" href="/account/css/login_signup.css">
+ <link rel="stylesheet" href="/css/page/footer-distributed-with-address-and-phones.css">
+ 
+<link rel="stylesheet" href="/account/css/prettyPhoto.css" type="text/css" media="screen" title="prettyPhoto main stylesheet" >
+   <script type="text/javascript" src="/js/image_upload.js"></script>
+   
+<style type="text/css" media="screen">
+		ul {
+		    list-style-type: none;
+		    margin: 0;
+		    padding: 0;
+		}
+		ul li { 
+			display: inline; 
+			
+		}
+    
+</style>
+</head>
+<body>
+  {%include file="$root/template/ssi/header_navbar.html"%}
+    <div class="container-fluid">
+    <div class="row">
+  	{%include file="$root/template/ssi/header_modal.html"%}
+        <!-- Page Header -->
+        
+        </div>
+     </div>
+<div class="container">
+    <div class="row profile">
+		<div class="col-md-3">
+			{%include file="$root/template/ssi/sidebar_admin.html"%}
+		</div>
+		<div class="col-md-9">
+            <div class="profile-content">
+            </div>
+		</div>
+		
+	</div>
+</div>
+  {%include file="$root/template/ssi/footer.html"%}
+   <!-- jQuery -->
+
+<script src="/js/jquery-1.11.3.min.js"></script>
+<script src="/js/jquery-ui.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+        
+<script src="/account/js/jquery.prettyPhoto.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript" charset="utf-8">
+			$(document).ready(function(){
+				$("area[rel^='prettyPhoto']").prettyPhoto();
+				
+				$(".gallery:first a[rel^='prettyPhoto']").prettyPhoto({animation_speed:'normal',theme:'pp_default',slideshow:3000, autoplay_slideshow: false});
+				//$(".gallery:gt(0) a[rel^='prettyPhoto']").prettyPhoto({animation_speed:'fast',slideshow:1000, hideflash: true});
+				$(".gallery:gt(0) a[rel^='prettyPhoto']").prettyPhoto({animation_speed:'normal',slideshow:2000, autoplay_slideshow: false});
+		
+				$("#custom_content a[rel^='prettyPhoto']:first").prettyPhoto({
+					custom_markup: '<div id="map_canvas" style="width:260px; height:265px"></div>',
+					changepicturecallback: function(){ initialize(); }
+				});
+			});
+</script>
+
+</body>
+</html>

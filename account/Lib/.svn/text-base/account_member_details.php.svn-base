@@ -1,0 +1,58 @@
+<?php
+class account_member_details extends Model
+{
+	protected $tableName="member_details";
+	protected $dbinfo=array("config"=>"member", "type"=>"MySQL");
+	
+	function insertOrUpdateMemberDetails($user_id, $profile) {
+		if (isset($profile['gender'])) {
+			$condition['gender'] = 'F';
+			if (intval($profile['gender']) != 0) {
+				$condition['gender'] = 'M';
+			}
+		}
+		
+		if (isset($profile['year']) && isset($profile['month']) && isset($profile['day'])) {
+			$birthday = "{$profile['year']}-{$profile['month']}-{$profile['day']}";
+			$condition['birthday'] = $birthday;
+		}
+		
+		if (!empty($condition['location'])) {
+			$condition['location'] = $profile['location'];
+		}
+		
+		if (!empty($profile['contact_email'])) {
+			$condition['contact_email'] = $profile['contact_email'];
+		}
+		if (!empty($profile['ims_field']) && !empty($profile['ims_value'])) {
+			$condition['ims_field'] = $profile['ims_field'];
+			$condition['ims_value'] = $profile['ims_value'];
+		}
+		if (!empty($profile['occupation'])) {
+			$condition['occupation'] = $profile['occupation'];
+		}
+		if (!empty($profile['signature'])) {
+			$condition['signature'] = $profile['signature'];
+		}
+		if (!empty($profile['avatar_url'])) {
+			$condition['avatar_url'] = $profile['avatar_url'];
+		}
+		
+		$where['fk_member_id'] = $user_id;
+		$cnt = $this->Count($where);
+		if(!empty($cnt)) { 
+			// update member_details table
+			return $this->Update($condition, $where);
+		}
+		else { 
+			// insert member_details table
+			$condition['fk_member_id'] = $user_id;
+			return $this->Insert($condition);
+		}
+	}
+	
+	function getMemberAvatar($user_id) {
+		$rs = $this->getOne(array('avatar_url'), array('fk_member_id'=>$user_id));
+		return $rs['avatar_url'];
+	}
+}

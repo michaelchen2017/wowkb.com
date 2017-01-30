@@ -1,0 +1,116 @@
+<?php
+class base extends Action
+{
+	function __construct() {
+		parent::__construct();
+	}
+	
+	//调用编辑器
+	protected function loadEditor($html,$dataID=0)
+	{
+		$config = array(
+				'id'=>'msgbody',
+				'name'=>'msgbody',
+				'width' =>'100%',
+				'height' =>'450',
+				'toolbar' =>'simple',
+				'userID' =>$this->userinfo['userid'],
+				'dataID' =>$dataID,
+				'dataType' =>'lifetools',
+		);
+		$this->assign("content",editor::load($config, htmlspecialchars($html)));
+	}
+	
+	//查询用户所在区域
+	protected function getRegions($location)
+	{
+		$obj_regions = load("region_regions");
+		$root_regions = $obj_regions->getRootRegions();
+		$predefRegion = $obj_regions->getRegionByRegionId($location);
+		$this->assign("predefRegion",$predefRegion);
+		$this->assign('rootRegions', $root_regions);
+	}
+	
+	//检查是否重复
+	protected function check($field,$obj_member)
+	{
+		$key=array_keys($field);
+		$field['is_blocked']=0;
+	
+		//昵称重复
+		if($key[0]=='nick')
+		{
+			$check=$obj_member->getOne(array('pk_id','nick'),$field);
+			if(!empty($check))
+			{
+				$this->assign('msg','nick');
+				$this->assign('nick',$check['nick']);
+				return false;
+			}
+			else
+			{
+				$this->assign('msg','nick_success');
+				$this->assign('nick',$field['nick']);
+			}
+		}
+	
+		//邮箱重复
+		if($key[0]=='email')
+		{
+			$check=$obj_member->getOne(array('pk_id','email'),$field);
+			if(!empty($check))
+			{
+				$this->assign('msg','email');
+				$this->assign('email',$check['email']);
+				return false;
+			}
+			else
+			{
+				$this->assign('msg','email_success');
+				$this->assign('email',$field['email']);
+			}
+		}
+	
+		return true;
+	}
+	
+	//修改session
+	protected function editsession($pk_id,$obj_member,$obj_member_details)
+	{
+		$obj_account_login=load("account_login");
+		$obj_tools=load("account_tools");
+		
+		$rs_member=$obj_member->getOne('*',array('pk_id'=>$pk_id));
+		$rs_member['pwd']=$obj_tools->decrypt_password($rs_member['pwd']);
+		$member['ME']=$rs_member;
+		
+		$rs_member_details=$obj_member_details->getOne('*',array('fk_member_id'=>$pk_id));
+		$member_details['DETAILS']=$rs_member_details;
+		
+		$member_real['REAL']=array();
+		
+		$rs=array_merge($member,$member_details,$member_real);
+		
+		$obj_account_login->writeAccountSession($rs);
+	}
+	
+	//保存图片
+	protected function save_pic($id_pic,$pk_id)
+	{
+		//文件合法性检查
+		$pic_name=picture::getImageInfo($id_pic['tmp_name']);
+		if( !in_array($pic_name['ext'],array('jpg', 'jpeg', 'png', 'gif')) )
+			return;
+			
+		//存储图片
+		$folder=substr('0000'.$pk_id,-2);
+	
+		$dir=DOCUROOT."/data/space/{$folder}";
+		if(!is_dir($dir)) files::mkdirs($dir);
+	
+		$filepath=DOCUROOT."/data/space/{$folder}/{$pk_id}.{$pic_name['ext']}";
+		move_uploaded_file($id_pic['tmp_name'], $filepath);
+	
+		return "/data/space/{$folder}/{$pk_id}.{$pic_name['ext']}";
+	}
+}

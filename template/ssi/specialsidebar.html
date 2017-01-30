@@ -1,0 +1,58 @@
+		<div class="profile-sidebar">
+				<!-- SIDEBAR USERPIC -->
+				<div class="profile-userpic" id="main">
+				
+				{%if !empty($res_user_pic['pic_path'])%}
+				
+					<!-- <img src="{%$res_user_pic['pic_path']%}" class="img-responsive" alt="" width="230px" height="230px"> -->
+					<ul class="gallery clearfix">
+						<li><a href="{%$res_user_pic['pic_path']%}" rel="prettyPhoto" title=""><img src="{%$res_user_pic['pic_path']%}" width="60px" height="60px" class="img-responsive" alt="" /></a></li>
+					</ul>
+					
+				{%/if%}
+				
+				</div>
+				<!-- END SIDEBAR USERPIC -->
+				<!-- SIDEBAR USER TITLE -->
+				<div class="profile-usertitle">
+				</div>
+				<!-- END SIDEBAR USER TITLE -->
+				<!-- SIDEBAR BUTTONS -->
+				<!-- END SIDEBAR BUTTONS -->
+				<!-- SIDEBAR MENU -->
+				<div class="profile-usermenu">
+					<ul class="nav">
+						<li {%if !empty($allusers) %}class="active" {%/if%}>
+							<a href="/account/admin.php?act=find_all_users">
+							<i class="glyphicon glyphicon-user"></i>
+							查看所有用户 </a>
+						</li>
+						<li {%if !empty($detedusers) %}class="active" {%/if%}>
+							<a href="/account/admin.php?act=deletedusers">
+							<i class="glyphicon glyphicon-remove-sign"></i>
+							查看已删除用户 </a>
+						</li>
+						<li {%if !empty($finduser) %}class="active" {%/if%}>
+							<a href="/account/admin.php?act=finduser">
+							<i class="glyphicon glyphicon-search"></i>
+							查找用户 </a>
+						</li>
+						<li {%if !empty($allposts) %}class="active" {%/if%}>
+							<a href="/account/admin.php?act=allposts" >
+							<i class="glyphicon glyphicon-ok"></i>
+							 审核帖子</a>
+						</li>
+						<li {%if !empty($deletedpost) %}class="active" {%/if%}>
+							<a href="/account/admin.php?act=deletedposts" >
+							<i class="glyphicon glyphicon-remove"></i>
+							 已删除帖子</a>
+						</li>
+						<li {%if !empty($ip) %}class="active" {%/if%}>
+							<a href="/account/admin.php?act=block_ip" >
+							<i class="glyphicon glyphicon-exclamation-sign"></i>
+							 封锁IP</a>
+						</li>
+					</ul>
+				</div>
+				<!-- END MENU -->
+			</div>

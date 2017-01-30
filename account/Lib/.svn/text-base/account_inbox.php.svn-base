@@ -1,0 +1,95 @@
+<?php
+class account_inbox  extends Model 
+{
+	protected $tableName="inbox";
+	protected $dbinfo=array("config"=>"message", "type"=>"MySQL");
+	
+	function getInboxStatistics($user_id) {
+		$where = array('fk_member_id'=>$user_id);
+		// 获取全部的收件信息数目。
+		$totalMsgCnt = $this->Count($where);
+		// 获取已读信息数目。
+		$where['is_read'] = 1;
+		$readMsgCnt = $this->Count($where);
+		// 获取未读信息数目。
+		$where['is_read'] = 0;
+		$unreadMsgCnt = $this->Count($where);
+		// 获取被删除信息数目。
+		unset($where['is_read']);
+		$where['is_enabled'] = 0;
+		$deletedMsgCnt = $this->Count($where);
+		
+		return array(
+			'total'=>$totalMsgCnt,
+			'read'=>$readMsgCnt,
+			'unread'=>$unreadMsgCnt,
+			'deleted'=>$deletedMsgCnt,	
+		);
+	}
+	
+	function getInboxUndeletedMsgsList($user_id, $field='*', $num=15) {
+		$where = array(
+			'fk_member_id'=>$user_id,
+			'is_enabled'=>1,
+			'order'=>array('received_at'=>'DESC'),
+		);
+		return $this->getList($field, $where, $num);
+	}
+	
+	function getInboxDeletedMsgsList($user_id, $field='*', $num=15) {
+		$where = array(
+			'fk_member_id'=>$user_id,
+			'is_enabled'=>0,
+			'order'=>array('received_at'=>'DESC'),
+		);
+		return $this->getList($field, $where, $num);
+	}
+	
+	function markInboxMsgsDeleted($user_id, $msgs=array()) {
+		if (empty($msgs)) return;
+		
+		// filter sql statement.
+		$where_statement = "fk_message_id IN (" . implode(',', $msgs) . ')';
+		$where['SQL'] = $where_statement;
+		$where['fk_member_id'] = $user_id;
+		$cond = array('is_enabled'=>0);
+		
+		return $this->Update($cond, $where);
+	}
+	
+	function markInboxMsgsRecovered($user_id, $msgs=array()) {
+		if (empty($msgs)) return;
+		
+		// filter sql statement.
+		$where_statement = "fk_message_id IN (" . implode(',', $msgs) . ')';
+		$where['SQL'] = $where_statement;
+		$where['fk_member_id'] = $user_id;
+		$cond = array('is_enabled'=>1);
+		
+		return $this->Update($cond, $where);
+	}
+	
+	function markInboxMsgsRead($user_id, $msgs=array()) {
+		if (empty($msgs)) return;
+	
+		// filter sql statement.
+		$where_statement = "fk_message_id IN (" . implode(',', $msgs) . ')';
+		$where['SQL'] = $where_statement;
+		$where['fk_member_id'] = $user_id;
+		$cond = array('is_read'=>1);
+	
+		return $this->Update($cond, $where);
+	}
+	
+	function markInboxMsgsUnRead($user_id, $msgs=array()) {
+		if (empty($msgs)) return;
+	
+		// filter sql statement.
+		$where_statement = "fk_message_id IN (" . implode(',', $msgs) . ')';
+		$where['SQL'] = $where_statement;
+		$where['fk_member_id'] = $user_id;
+		$cond = array('is_read'=>0);
+	
+		return $this->Update($cond, $where);
+	}
+}

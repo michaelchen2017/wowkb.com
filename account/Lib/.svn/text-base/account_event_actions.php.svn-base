@@ -1,0 +1,23 @@
+<?php
+class account_event_actions extends Model
+{
+	protected $tableName="event_actions";
+	protected $dbinfo=array("config"=>"member", "type"=>"MySQL");
+	
+	function addEventAction($eventName, $actionTarget, $actionValue) {
+		$createDate = date("Y-m-d H:i:s", times::getTime());
+		$condition = array(
+				'event_name'=>$eventName, 'action_target'=>$actionTarget,
+				'action_value'=>$actionValue, 'created_at'=>$createDate,
+		);
+		return $this->Insert($condition);
+	}
+	
+	function popSomeEventAction($where) {
+		$rs = $this->getOne("*", $where);
+		if (!empty($rs)) {
+			$this->Update(array('enabled'=>0), $where);
+		}
+		return $rs;
+	}
+}

@@ -1,0 +1,170 @@
+.article {
+	margin-bottom:0
+}
+.article span {
+	float:left;
+	display:inline
+}
+.article .module {
+	margin:10px 0
+}
+.article .title {
+	border-bottom:1px solid #ddd;
+	overflow:visible;
+	height:43px
+}
+.article .title span {
+	float:right;
+	margin-top:18px
+}
+.article .title span a {
+	float:right;
+	font-size:1.2em;
+	padding-left:20px;
+	text-decoration:none
+}
+.article .title span a.article .title ul {
+	list-style:none;
+	margin:0;
+	padding:0
+}
+.article .title ul li {
+	float:left;
+	width:20%;
+	position:relative;
+	top:1px;
+	text-align:center;
+	font-weight:normal;
+	font-size:1.4em;
+	margin:0;
+	margin-right:5px;
+	padding:5px 0;
+	border:1px solid #ddd;
+	border-top:3px solid #eee;
+	border-bottom:0;
+	background:#fafafa;
+	height:29px;
+	line-height:29px
+}
+.article .title span a:hover {
+	text-decoration:underline
+}
+.article #area {
+	float:right;
+	margin-top:7px;
+	height:22px
+}
+.article ul li a button {
+	float:right;
+	margin-top:7px;
+	margin-left:5px;
+	background:url(/images/bg_btn.gif) no-repeat;
+	height:22px;
+	line-height:22px;
+	width:60px;
+	padding:0;
+	border:0
+}
+.article ul li a:hover button {
+	background:url(/images/bg_btn_click.gif) no-repeat
+}
+.article .title ul li.selected {
+	border-top:3px solid #1a75ca;
+	background:#fff;
+	height:30px
+}
+.lastestpost ul {
+	margin:0;
+	padding:0;
+	list-style:none
+}
+.lastestpost ul li {
+	height:35px;
+	line-height:35px;
+	border-bottom:1px dotted #ddd;
+	overflow:hidden
+}
+.lastestpost ul li span.edit {
+	display:block;
+	float:right
+}
+.lastestpost ul li span.edit a {
+	font-size:.9em;
+	text-decoration:none;
+}
+.lastestpost ul li span.edit a:hover {
+	text-decoration:underline
+}
+.lastestpost ul li input {
+	float:left;
+	height:31px
+}
+.lastestpost ul li span.info {
+	font-size:.9em;
+	padding-left:8px
+}
+.lastestpost ul li span.info i {
+	padding:0 5px;
+	color:#09F
+}
+.lastestpost ul li span.classify {
+	font-size:.9em;
+	color:#999;
+	padding-left:5px
+}
+.lastestpost ul li span.post {
+	width:61%;
+	overflow:hidden;
+	white-space:nowrap;
+	padding:0 5px;
+	font-size:1.1em
+}
+.lastestpost ul li span.post a {
+	color:#1a75ca
+}
+.lastestpost ul li span.post a:hover {
+	text-decoration:underline
+}
+.lastestpost ul li a {
+	text-decoration:none;
+	padding:0 5px
+}
+.lastestpost ul li time {
+	float:right;
+	font-size:.9em;
+	margin:0 10px 0 15px;
+	color:#999
+}
+.lastestpost ul li span.control {
+	float:right
+}
+.lastestpost ul li span.control a {
+	font-size:.9em;
+	padding-right:0
+}
+.lastestpost ul li span.control a:hover {
+	text-decoration:underline
+}
+center.release {
+	padding:20px 0;
+	font-size:1.4em	
+}
+center.release a {
+	padding:0 10px
+}
+.aside ul{
+	margin:10px;
+	border-top:1px dotted #eee;
+	padding-top:10px
+}
+.aside ul li{
+	padding-left:5px
+}
+.aside a:hover{
+	text-decoration:underline
+}
+.aside h4{
+	margin-top:30px;
+	padding-left:15px
+}
+	

@@ -1,0 +1,22 @@
+<?php
+
+class account_log_logins extends Model
+{
+	protected $tableName="log_logins";
+	protected $dbinfo=array("config"=>"log", "type"=>"MySQL");
+	
+	function getUserLoginCount($userId, $sinceDate) {
+		$where = array( 'fk_member_id'=>$userId, );
+		$where['SQL'] = "logined_at > '{$sinceDate}'";
+		return $this->Count($where);
+	}
+	
+	function logUserLogin($userId) {
+		$fromIp = http::getIP();
+		$loginDate = date("Y-m-d H:i:s", times::getTime());
+		$condition = array(
+			'fk_member_id'=>$userId, 'from_ip'=>$fromIp, 'logined_at'=>$loginDate,
+		);
+		return $this->insert($condition);
+	}
+}

@@ -1,0 +1,9 @@
+#! /bin/sh
+
+# 命令执行方法: 
+# 执行文件 + 目标文件夹/文件 + 版本号
+# sh update.sh /admin/site/index.php 893
+
+# $1 同步路径
+# $2 目标版本信息
+php /pub/www/www.wenxuecity.com/admin/tools/srcSync/svnTask.php $1 $2

@@ -1,0 +1,131 @@
+-- phpMyAdmin SQL Dump
+-- version 3.5.5
+-- http://www.phpmyadmin.net
+--
+-- 主机: 192.168.100.185
+-- 生成日期: 2014 年 10 月 22 日 09:46
+-- 服务器版本: 5.5.29-0ubuntu0.12.04.1-log
+-- PHP 版本: 5.3.5-1ubuntu7.11
+
+SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
+
+--
+-- 数据库: `wxc_userdata`
+--
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `data`
+--
+
+CREATE TABLE IF NOT EXISTS `data` (
+  `id` int(12) NOT NULL AUTO_INCREMENT,
+  `userID` int(12) NOT NULL,
+  `int` int(12) DEFAULT NULL,
+  `date` date DEFAULT NULL COMMENT '日期类信息',
+  `date_extra` date DEFAULT NULL COMMENT '时间区间',
+  `varchar` varchar(255) DEFAULT NULL,
+  `select` int(12) DEFAULT NULL,
+  `radio` int(12) NOT NULL,
+  `typeID` int(12) NOT NULL,
+  `datetime` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `userID` (`userID`),
+  KEY `typeID` (`typeID`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='信息数据表，分表主键userID';
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `data_checkbox`
+--
+
+CREATE TABLE IF NOT EXISTS `data_checkbox` (
+  `id` int(12) NOT NULL AUTO_INCREMENT,
+  `userID` int(12) NOT NULL,
+  `typeID` int(12) NOT NULL,
+  `value` int(12) NOT NULL,
+  `datetime` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `userID` (`userID`),
+  KEY `typeID` (`typeID`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='多选类型的信息数据表，分表主键userID';
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `data_text`
+--
+
+CREATE TABLE IF NOT EXISTS `data_text` (
+  `id` int(12) NOT NULL AUTO_INCREMENT,
+  `userID` int(12) NOT NULL,
+  `typeID` int(12) NOT NULL,
+  `value` text NOT NULL,
+  `datetime` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `userID` (`userID`),
+  KEY `typeID` (`typeID`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='文本类型的信息数据表，分表主键userID';
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `payment`
+--
+
+CREATE TABLE IF NOT EXISTS `payment` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `userID` int(11) NOT NULL,
+  `datetime` int(11) NOT NULL,
+  `description` varchar(255) DEFAULT NULL,
+  `type` varchar(50) NOT NULL,
+  `amount` decimal(6,2) NOT NULL DEFAULT '0.00',
+  `balance` decimal(6,2) NOT NULL DEFAULT '0.00',
+  PRIMARY KEY (`id`),
+  KEY `userID` (`userID`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `score`
+--
+
+CREATE TABLE IF NOT EXISTS `score` (
+  `id` int(12) NOT NULL AUTO_INCREMENT,
+  `uid` int(12) NOT NULL COMMENT '用户id',
+  `item` varchar(50) NOT NULL COMMENT '项目',
+  `act` varchar(50) NOT NULL COMMENT '行为',
+  `pos` varchar(50) NOT NULL COMMENT '位置',
+  `score` int(12) NOT NULL COMMENT '积分',
+  PRIMARY KEY (`id`),
+  KEY `uid` (`uid`),
+  KEY `item` (`item`),
+  KEY `act` (`act`),
+  KEY `pos` (`pos`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='积分汇总表，uid为分表主键';
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `score_log`
+--
+
+CREATE TABLE IF NOT EXISTS `score_log` (
+  `id` int(12) NOT NULL AUTO_INCREMENT,
+  `uid` int(12) NOT NULL COMMENT '用户id',
+  `rid` int(11) NOT NULL COMMENT '项目ID',
+  `item` varchar(50) NOT NULL COMMENT '项目',
+  `act` varchar(50) NOT NULL COMMENT '行为',
+  `pos` varchar(50) NOT NULL COMMENT '位置',
+  `score` int(12) NOT NULL COMMENT '积分',
+  `datetime` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `uid` (`uid`),
+  KEY `item` (`item`),
+  KEY `act` (`act`),
+  KEY `pos` (`pos`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='积分汇总表，uid为分表主键';

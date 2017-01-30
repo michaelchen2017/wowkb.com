@@ -1,0 +1,265 @@
+<?php
+include DOCUROOT."/account/Action/base.php";
+class admin extends base
+{
+	function __construct() {
+		parent::__construct();
+		
+		//查看用户登录
+		$obj=load("account_api");
+		
+		$this->redirect=rawurlencode($_SERVER['PHP_SELF']);
+		$this->userinfo=$obj->init_user(false,$this->redirect);
+		$this->admin=$this->isAdmin();
+		
+		$this->assign('admin',$this->admin);
+		$this->assign('userinfo',$this->userinfo);
+		$this->assign('redirect',$this->redirect);
+		
+		//管理员登录
+		if(!$this->admin)
+			go("/account/?c=account&act=login");
+			
+		//边栏名字
+		$this->assign("useradmin",true);
+		
+		$this->member=load("account_members");
+	}
+
+	//用户搜索
+	function ACT_index()
+	{
+		$obj_tools=load("account_tools");
+		
+		$searchfrom=date("Y-m-d 00:00:00",times::getTime());
+		$searchto=date("Y-m-d H:i:s",times::getTime());
+		
+		//关键字搜索
+		if(!empty($_GET['type']))	
+		{
+			$type=empty($_GET['type'])?"":$_GET['type'];
+			$key=empty($_GET['key'])?"":$_GET['key'];
+			
+			if($type=='pk_id')
+				$fields=array('pk_id'=>$key,'limit'=>100);
+			
+			if($type=='nick')
+				$fields=array('nick'=>$key,'limit'=>100);
+			
+			if($type=='email')
+				$fields=array('SQL'=>"email like '%{$key}%'",'limit'=>100);
+			
+			$rs_member=$this->member->getAll('*',$fields);
+		}
+		//日期搜索
+		else 
+		{
+			if(!empty($_POST['search']))
+			{
+				$searchfrom=empty($_POST['searchfrom'])?"":$_POST['searchfrom'];
+				$searchto=empty($_POST['searchto'])?"":$_POST['searchto'];
+			}
+			
+			//查询用户数据
+			$rs_member=$this->member->getAll("SELECT * FROM members where membership_since between '{$searchfrom}' and '{$searchto}' order by 'pk_id' DESC limit 0, 100");
+			foreach($rs_member as $k=>$v)
+				$rs_member[$k]['pwd']=$obj_tools->decrypt_password($v['pwd']);
+		}
+		
+		$this->assign('searchfrom',$searchfrom);
+		$this->assign('searchto',$searchto);
+		$this->assign('rs_member',$rs_member);
+	}
+	
+	//用户添加/修改
+	function ACT_edit()
+	{
+		$obj_tools=load("account_tools");
+		$obj_member_details=load("account_member_details");
+		
+		$pk_id=empty($_GET['pk_id'])?"":$_GET['pk_id'];
+		$nick=empty($_GET['nick'])?"":$_GET['nick'];
+		$email=empty($_GET['email'])?"":$_GET['email'];
+		
+		$rs_member=$this->member->getOne('*',array('pk_id'=>$pk_id));
+		$rs_member['pwd']=$obj_tools->decrypt_password($rs_member['pwd']);
+		$rs_member_details=$obj_member_details->getOne('*',array('fk_member_id'=>$pk_id));
+		
+		$this->assign('rs_member',$rs_member);
+		$this->assign('rs_member_details',$rs_member_details);
+		
+		//检查昵称
+		if(!empty($nick))
+			$this->check(array('nick'=>$nick),$this->member);
+		
+		//邮箱检查
+		if(!empty($email))
+			$this->check(array('email'=>$email),$this->member);
+		
+		//地区查询
+		$regionID=empty($rs_member['region'])?'':$rs_member['region'];
+		$this->getRegions($regionID);
+		
+		//提交表单
+		if(!empty($_POST['submit']))
+		{
+			$email=empty($_POST['email'])?"":$_POST['email'];
+			$pwd=empty($_POST['pwd'])?"":$obj_tools->encrypt_password($_POST['pwd']);
+			$nick=empty($_POST['nick'])?"":$_POST['nick'];
+			$gender=empty($_POST['gender'])?"":$_POST['gender'];
+			$region=empty($_POST['region'])?"":$_POST['region'];
+			$tel=empty($_POST['tel'])?"":$_POST['tel'];
+			$contact_email=empty($_POST['contact_email'])?"":$_POST['contact_email'];
+			$ims_field=empty($_POST['ims_field'])?"":$_POST['ims_field'];
+			$ims_value=empty($_POST['ims_value'])?"":$_POST['ims_value'];
+			$occupation=empty($_POST['occupation'])?"":$_POST['occupation'];
+			$signature=empty($_POST['signature'])?"":$_POST['signature'];
+			
+			//昵称重复
+			if($rs_member['nick']!=$nick)
+			{
+				$check=$this->check(array('nick'=>$nick),$this->member);
+				if(!$check)	return;
+			}
+			
+			//更改用户
+			if(!empty($pk_id))
+			{
+				$this->member->update(array('nick'=>$nick,'tel'=>$tel,'pwd'=>$pwd,'region'=>$region),array('pk_id'=>$pk_id));
+				$obj_member_details->update(array('gender'=>$gender,'contact_email'=>$contact_email,'location'=>$region,'ims_field'=>$ims_field,'ims_value'=>$ims_value,'occupation'=>$occupation,'signature'=>$signature),array('fk_member_id'=>$pk_id));
+			
+				//修改SESSION
+				$this->editsession($pk_id,$this->member,$obj_member_details);
+			}
+			//添加用户
+			else 
+			{
+				//邮箱重复
+				$check=$this->check(array('email'=>$email),$this->member);
+				if(!$check)	return;
+				
+				$membership_since=date('Y-m-d H:i:s',times::getTime());
+				$pk_id=$this->member->insert(array('email'=>$email,'region'=>$region,'pwd'=>$pwd,'nick'=>$nick,'tel'=>$tel,'from_ip'=>http::getIP(),'membership_since'=>$membership_since,'is_verified'=>1));
+				$obj_member_details->insert(array('fk_member_id'=>$pk_id,'gender'=>$gender,'contact_email'=>$contact_email,'ims_field'=>$ims_field,'ims_value'=>$ims_value,'occupation'=>$occupation,'signature'=>signature));
+			}
+			
+			go("/account/admin.php?act=edit&pk_id={$pk_id}&msg=success");
+		}
+	}
+	
+	//用户浏览
+	function ACT_view()
+	{
+		$obj_member_details=load("account_member_details");
+		$obj_tools=load("account_tools");
+		
+		$pk_id=empty($_GET['pk_id'])?"":$_GET['pk_id'];
+		$action=empty($_GET['action'])?"":$_GET['action'];
+		
+		$rs_member=$this->member->getOne('*',array('pk_id'=>$pk_id));
+		$rs_member_details=$obj_member_details->getOne('*',array('fk_member_id'=>$pk_id));
+		$rs_member['pwd']=$obj_tools->decrypt_password($rs_member['pwd']);
+		
+		$this->assign('rs_member',$rs_member);
+		$this->assign('rs_member_details',$rs_member_details);
+		
+		//删除用户
+		if($action=='close')
+		{
+			$this->member->update(array('is_enabled'=>0),array('pk_id'=>$pk_id));
+			go("/account/admin.php?act=view&pk_id={$pk_id}&msg=close");
+		}
+		
+		//打开用户
+		if($action=='open')
+		{
+			$this->member->update(array('is_enabled'=>1),array('pk_id'=>$pk_id));
+			go("/account/admin.php?act=view&pk_id={$pk_id}&msg=open");
+		}
+		
+		//封锁用户
+		if($action=='is_blocked')
+		{
+			$this->member->update(array('is_blocked'=>1),array('pk_id'=>$pk_id));
+			go("/account/admin.php?act=view&pk_id={$pk_id}&msg=blocked");
+		}
+		
+	}
+	
+	//黑名单
+	function ACT_blacklist()
+	{
+		$rs_member=$this->member->getList('*',array('is_enabled'=>0,'order'=>array('pk_id'=>'DESC')),50);
+		$this->assign('rs_member',$rs_member);
+	}
+	
+	//实名认证列表页
+	/*
+	function ACT_user_confirm()
+	{
+		$obj_member_real=load("account_member_real");
+		
+		$this->assign("useradmin",false);
+		$this->assign("user_confirm",true);
+			
+		$verified=empty($_GET['verified'])?"waiting":$_GET['verified'];
+		$type=empty($_GET['type'])?"":$_GET['type'];
+		
+		if(!empty($_GET['type']))
+		{
+			$key=empty($_GET['key'])?"waiting":$_GET['key'];
+			$rs_member_real=$obj_member_real->getList('*',array('SQL'=>"email like '%{$key}%'",'order'=>array('dateline'=>'DESC')),50);
+		}
+		else
+			$rs_member_real=$obj_member_real->getList('*',array('verified'=>$verified,'order'=>array('dateline'=>'DESC')),50);
+		
+		$this->assign('rs_member_real',$rs_member_real);
+	}
+	*/
+	
+	//实名认证审核页
+	function ACT_user_verify()
+	{
+		$obj_member_real=load("account_member_real");
+		
+		$this->assign("useradmin",false);
+		$this->assign("user_confirm",true);
+		
+		$fk_member_id=empty($_GET['fk_member_id'])?"":$_GET['fk_member_id'];
+		
+		$rs_member_real=$obj_member_real->getOne('*',array('fk_member_id'=>$fk_member_id));
+		
+		$this->assign('rs_member_real',$rs_member_real);
+		
+		//认证
+		if(!empty($_GET['verified']))
+		{
+			$verified=empty($_GET['verified'])?"waiting":$_GET['verified'];
+			
+			$obj_member_real->update(array('verified'=>$verified),array('fk_member_id'=>$fk_member_id));
+			
+			//审核通知
+			if($verified=='yes')
+				$type=7;
+			
+			if($verified=='no')
+				$type=8;
+			
+			$obj=load("account_api");
+			$obj->sent_system_msg($type,$fk_member_id);
+				
+			go("/account/admin.php?act=user_verify&fk_member_id={$fk_member_id}&msg={$verified}");
+		}
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+}

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<!-- Bootstrap Core CSS -->
+<link href="/css/page/bootstrap.min.css" rel="stylesheet">
+  
+ <!-- Custom CSS -->
+    <link href="/css/page/3-col-portfolio.css" rel="stylesheet">
+    <link href="/css/page/search.css" rel="stylesheet">
+    <link rel="stylesheet" href="/account/css/login_signup.css">
+    <link rel="stylesheet" href="/css/page/footer-distributed-with-address-and-phones.css">
+    <script type="text/javascript" src="/js/image_upload.js"></script>
+</head>
+<body>
+<div class="container">
+  {%include file="$root/template/ssi/header_navbar.html"%}
+</div>  
+ <!-- Page Content -->
+    <div class="container-fluid">
+    <div class="row">
+  	{%include file="$root/template/ssi/header_modal.html"%}
+        <!-- Page Header -->
+        
+        </div>
+     </div>
+     
+   <div class="container-fluid">
+    <div class="row">  
+    <div class="col-md-12 ">
+           <div class="form-group"> 
+		<p>搜索结果：</p>
+		{%if !empty($results)%}
+		{%foreach from=$results item=v%}
+		<p><a href="/page/view.php?act=index&id={%$v['post_id']%}">{%$v['content']%}</a></p>
+		{%/foreach%}
+		{%else%}
+		<p>没有匹配结果！</p>
+		{%/if%}
+		</div>
+		</div>
+  </div>
+     </div>
+    {%include file="$root/template/ssi/footer.html"%}
+          <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+     <script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js"></script>
+        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+</body>
+</html>
