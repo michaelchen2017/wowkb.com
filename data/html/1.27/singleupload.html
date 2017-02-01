@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Wow Kitchen & Bath</title>
+  <link rel="shortcut icon" type="image/x-icon" href="image/favicon.ico">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+  <link rel="stylesheet" type="text/css" href="css/library.css">
+  <link rel="stylesheet" type="text/css" href="css/font-awesome.css">
+	<style type="text/css">
+	@font-face {
+  		font-family: 'Avenir LT 45 Book';
+  		src: url('webfont.eot'); /* IE9 Compat Modes */
+  		src: url('webfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+        url('webfont.woff2') format('woff2'), /* Super Modern Browsers */
+        url('webfont.woff') format('woff'), /* Pretty Modern Browsers */
+        url('font/Avenir LT 45 Book.ttf')  format('truetype'), /* Safari, Android, iOS */
+        url('webfont.svg#svgFontName') format('svg'); /* Legacy iOS */
+}
+	@font-face {
+  		font-family: 'Avenir LT 95 Black';
+  		src: url('webfont.eot'); /* IE9 Compat Modes */
+  		src: url('webfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+        url('webfont.woff2') format('woff2'), /* Super Modern Browsers */
+        url('webfont.woff') format('woff'), /* Pretty Modern Browsers */
+        url('font/Avenir LT 95 Black.ttf')  format('truetype'), /* Safari, Android, iOS */
+        url('webfont.svg#svgFontName') format('svg'); /* Legacy iOS */
+}
+	@font-face {
+  		font-family: 'Avenir LT 35 Light';
+  		src: url('webfont.eot'); /* IE9 Compat Modes */
+  		src: url('webfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+        url('webfont.woff2') format('woff2'), /* Super Modern Browsers */
+        url('webfont.woff') format('woff'), /* Pretty Modern Browsers */
+        url('font/Avenir LT 35 Light.ttf')  format('truetype'), /* Safari, Android, iOS */
+        url('webfont.svg#svgFontName') format('svg'); /* Legacy iOS */
+}
+	</style>
+</head>
+<body>
+  <div id="navbar">
+    <div id="nav_logo">
+      <img id="nav_logo_pic" src="image/logo.png">
+    </div>
+  </div>
+
+<div id="all">
+    <div id="admin_sidebar">
+        <a href="searchproduct.html"><button id="admin_button">检索物料</button></a>
+        <button id="admin_button">上传物料</button>
+    </div>
+    
+    <div id="admin_main">
+        <h3>上传单个物料</h3>
+        <a href="admin.html">返回</a>
+
+        <div id="admin_upload">
+            <form action="">
+        <p>
+            产品名称:<input type="text" name="name">        
+        </p>
+        <p>
+            品牌:<input type="text" name="brand">        
+        </p>
+        <p>
+            产品编号:<input type="text" name="num">        
+        </p>
+          <p>
+           价格: $<input type="text" name="price">        
+        </p>
+        
+        
+        <p>
+            部门：<select name="department">
+                    <option value="furniture">家具</option>
+                    <option value="material">材料</option>
+                    <option value="tool">用具</option>
+                    <option value="lighting">灯饰</option>
+                    <option value="storage">储存</option>
+                    <option value="textile">织物</option>
+                 </select>
+        </p>
+        <p>
+            内容描述：<textarea name="detail"></textarea>
+        </p>
+        <p>
+            物品图片:<input type="file" name="picture">
+        </p>
+      
+        <p>
+            <input type="submit" name="" value="提交">
+        </p>
+        </form>
+        </div>
+
+      </div>
+
+  </div>
+
+
+
+<script>
+
+</script>
+
+
+  </body>
+</html>
