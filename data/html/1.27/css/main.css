@@ -1,0 +1,821 @@
+
+body{
+	margin: 0;
+}
+li{
+	list-style-type:none;
+}
+a{
+	text-decoration: none;
+}
+img{
+	width: 100%;
+	height: 100%;
+}
+.blank_150{
+	width: 100%;
+	height: 150px;
+}
+.blank_100{
+	width: 100%;
+	height: 100px;
+}
+.blank_60{
+	width: 100%;
+	height: 60px;
+}
+
+/*index page*/
+
+/*navigation bar*/
+#navbar{
+	width:100%;
+	min-width: 140px;
+	height:60px;
+	border:0px solid red;
+	position: fixed;
+	background-color: #fff;
+	border-bottom: 1px solid #ebebeb;
+	z-index: 2;
+}
+#nav_logo{
+	height:34px;
+	width: 280px;
+	padding-top: 10px;
+	margin-left: 20px;
+	display: inline-block;
+	vertical-align: top;
+}
+#nav_logo_pic{
+	width: 100%;
+	height: 100%;
+}
+#nav_sign{
+	width:600px;
+	height:55px;
+	margin-left: 30%;
+	border: 0px solid red;
+	display: inline-block;
+	vertical-align: top;
+}
+#nav_register{
+	width:20%;
+	height:40px;
+	border: 0px solid red;
+	display: inline-block;
+	vertical-align: top;
+	text-align: center;
+	padding-top: 20px;
+	color: orange;
+}
+#nav_signup{
+	width: 100px;
+	height:41px;
+	background-color: #97ccf7;
+	display: inline-block;
+	vertical-align: top;
+	text-align: center;
+	padding-top: 20px;
+	color: #fff;
+}
+
+/*header*/
+#header{
+	padding-top: 60px;
+	width:100%;
+	height:500px;
+	border:0px solid green;
+}
+#header_title{
+	height:60%;
+	width: 40%;
+	border: 0px solid red;
+	margin-left: 7.5%;
+/*	margin-right: auto;*/
+	margin-top:80px;
+	position: absolute;
+	z-index: 1;
+}
+#header_img{
+	width: 100%;
+	height: 100%;
+}
+#header_bg{
+	position: relative;
+	z-index: -1;
+}
+#header_titlet{
+	font-size: 4.5em;
+	font-family: 'Avenir LT 95 Black';
+	color: #fff;
+	line-height: 90%;
+}
+#header_titlep{
+	font-size: 18px;
+	color: #fff;
+	font-family:'Avenir LT 35 Light'; 
+	margin-top: 20px;
+	line-height: 1.3;
+}
+#header_titleb{
+	width: 160px;
+	height:35px;
+	margin-top: 40px;
+	border-radius: 5px;
+	text-align: center;
+	padding-top: 10px;
+	color: orange;
+	border: 2px solid orange;
+	font-family: 'Avenir LT 45 Book';
+}
+#header_titleb:hover{
+	border: 1px solid orange;
+	color: #fff;
+	background-color: orange;
+}
+
+/*introduction*/
+#introduction{
+	width:100%;
+	height:200px;
+	border:0px solid blue;
+	background-color: #ebebeb;
+}
+#intro_content{
+	width: 85%;
+	margin-left: auto;
+	margin-right: auto;
+}
+#intro_t{
+	width:30%;
+	height:80%;
+	border: 0px solid red;
+	display: inline-block;
+	font-size: 24px;
+	vertical-align: top;
+	margin-top: 50px;
+	font-family: 'Avenir LT 95 Black';
+	color: #97ccf7;
+}
+#intro_p{
+	width:65%;
+	height:80%;
+	border: 0px solid blue;
+	display: inline-block;
+	vertical-align: top;
+	font-family:'Avenir LT 45 Book';
+	margin-top: 50px;
+	line-height: 2;
+	color: #585858;
+}
+
+/*service and intro*/
+#service_intro{
+	width: 85%;
+	height:auto;
+	margin-left: auto;
+	margin-right: auto;
+	border:0px solid red;
+}
+.service_row_blank{
+	width:3%;
+	display: inline-block;
+	vertical-align: top;
+}
+#service_left{
+	border: 0px solid red;
+	width:300px;
+}
+.service_intro_pic{
+	width: 100%;
+	height: 100%;
+}
+.service_pic{
+	width:50%;
+	height:290px;
+	display: inline-block;
+	vertical-align: top;
+	border: 0px solid red;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.service_word{
+	width: 45%;
+	height:auto;
+	display: inline-block;
+	vertical-align: top;
+	border: 0px solid green;
+	text-align: center;
+}
+.service_wordt{
+	font-family:'Avenir LT 45 Book';
+    font-size: 2em;
+    color: #444444;
+}
+.service_wordp{
+	margin-top: 50px;
+	font-family:'Avenir LT 45 Book';
+	line-height: 2;
+	color: #585858;
+}
+.service_button{
+	margin-left: auto;
+	margin-right: auto;
+	width: 160px;
+	height:35px;
+	margin-top: 40px;
+	border-radius: 5px;
+	background-color: #97ccf7;
+	border: 2px solid #97ccf7;
+	text-align: center;
+	padding-top: 10px;
+	color: #fff;
+	font-family: 'Avenir LT 45 Book';
+}
+.service_button:hover{
+	background-color: #fff;
+	border: 2px solid #97ccf7;
+	color: #97ccf7;
+}
+
+/*design*/
+.design{
+	width:85%;
+	margin-left: auto;
+	margin-right: auto;
+	height:300px;
+	border: 0px solid red;
+}
+.design_project{
+	width:340px;
+	height:320px;
+	background-color: #fff;
+	display: inline-block;
+	vertical-align: top;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.design_project_blank{
+	width:50px;
+	height:50px;
+	display: inline-block;
+	vertical-align: top;
+}
+.project_img{
+	width: 100%;
+	height:75%;
+}
+.project_title{
+	font-family: 'Avenir LT 45 Book';
+	font-size: 18px;
+	padding-left: 10px;
+	padding-top: 10px;
+
+}
+
+/*process and price*/
+#process_price{
+	width: 100%;
+	height:auto;
+	margin-left: auto;
+	margin-right: auto;
+	border:0px solid green;
+	background-color: #ebebeb;
+}
+#process{
+	width: 85%;
+	height:auto;
+	margin-left: auto;
+	margin-right: auto;
+	border: 0px solid red;
+}
+#process_title{
+	text-align: center;
+	font-family:'Avenir LT 45 Book';
+	font-size: 2em;
+}
+.process_step{
+	width: 24%;
+	height:auto;
+	border: 0px solid red;
+	display: inline-block;
+	vertical-align: top;
+}
+.process_icon{
+	width: 60px;
+	padding-left: 38%;
+}
+.process_icon_pic{
+	width: 100%;
+	height: 100%;
+}
+.process_descript{
+	margin-top: 20px;
+	text-align: center;
+	font-family:'Avenir LT 45 Book';
+	color: #585858;
+}
+#price{
+	width: 85%;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+}
+.price_box{
+	width: 30%;
+	min-width: 300px;
+	height:500px;
+	border: 0px solid red;
+	display: inline-block;
+	vertical-align: top;
+    background-color: #fff;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.price_box_title{
+	font-family: 'Avenir LT 45 Book';
+	font-size: 1.2em;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	background-color: grey;
+	color: #fff;
+}
+.price_box_blank{
+	width: 2%;
+	height:100px;
+	display: inline-block;
+	vertical-align: top;
+}
+.price_box_price1{
+	margin-top: 20px;
+	font-family: 'Avenir LT 95 Black';
+	font-size: 1.8em;
+	color: orange;
+}
+.price_box_price2{
+	margin-top: 30px;
+	margin-bottom: 24px;
+	font-family: 'Avenir LT 45 Book';
+	font-size: 1em;
+	color: orange;
+}
+.price_box_list{
+	margin-top: 20px;
+	font-family: 'Avenir LT 45 Book';
+	line-height: 2.5;
+	border: 0px solid red;
+    margin-left: -30px;
+    color: #585858;
+}
+#price_little{
+	font-family: 'Avenir LT 45 Book';
+	font-size: 12px;
+	color: grey;
+}
+.price_box_button{
+	margin-left: auto;
+	margin-right: auto;
+	width: 160px;
+	height:35px;
+	margin-top: 40px;
+	border-radius: 5px;
+	background-color: #97ccf7;
+	text-align: center;
+	padding-top: 10px;
+	color: #fff;
+	font-family: 'Avenir LT 45 Book';
+}
+/*bottom bar*/
+#bottombar{
+	width: 100%;
+	height:auto;
+	border: 1px solid grey;
+	background-color: grey;
+	position: relative;
+	bottom: 0;
+	z-index: 2;
+}
+.bottom_content{
+	width: 85%;
+	margin-left: auto;
+	margin-right: auto;
+	font-family: 'Avenir LT 45 Book';
+	color: #444444;
+}
+.bottom_link{
+	width: 60%;
+	height:auto;
+	border: 0px solid red;
+	margin-top: 50px;
+	margin-bottom: 50px;
+}
+.bottom_link_line{
+	display: inline-block;
+	vertical-align: top;
+}
+.bottom_list{
+	line-height: 2;
+	font-size: 14px;
+}
+.bottom_blank{
+	width:40px;
+	height:10px;
+	vertical-align: top;
+	display: inline-block;
+}
+
+/*design page*/
+#design_show{
+	padding-top: 40px;
+	width:100%;
+	height:auto;
+	background-color: #ebebeb;
+}
+#design_all{
+	width:1160px;
+	margin-top: 60px;
+	margin-left: auto;
+	margin-right: auto;
+}
+.design_main{
+	width:70.5%;
+	height:1200px;
+	margin-bottom: 100px;
+	background-color: #fff;
+	display: inline-block;
+	vertical-align: top;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.09);
+}
+.design_subline{
+	width:27%;
+	height:400px;
+	margin-left: 2%;
+	background-color: #fff;
+	display: inline-block;
+	vertical-align: top;
+	position: fixed;
+	z-index: 1;
+}
+.design_sub{
+	width:100%;
+	height:400px;
+	background-color: #fff;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.09);
+}
+
+.design_sub1{
+	width:100%;
+	height:200px;
+	background-color: #fff;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.09);
+}
+.arrow-left{
+	position:absolute;
+	top:85px;
+	left:-20px;
+	border-width:10px;
+	border-style:dashed solid dashed dashed;
+	border-color:transparent #fff transparent transparent
+	}
+
+/*design detail*/
+/*main*/
+.design_main_content{
+	width:93%;
+	height:800px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 30px;
+	border:0px solid red;
+}
+.design_main_title{
+	width:auto;
+	height:80px;
+	font-family: 'Avenir LT 95 Black';
+	font-size: 1.8em;
+	border:0px solid red;
+}
+.design_main_subtitle{
+	/*width:300px;*/
+	height:40px;
+	border: 0px solid red;
+}
+.subtitle_icon1{
+	width: 22px;
+	height:13px;
+	display: inline-block;
+	vertical-align: top;
+	margin-top: 20px;
+}
+.subtitle_icon2{
+	width: 17px;
+	height:14px;
+	margin-left: 20px;
+	margin-top: 20px;
+	display: inline-block;
+	vertical-align: top;
+}
+.icon_title{
+	display: inline-block;
+	vertical-align: top;
+	font-family: 'Avenir LT 45 Book';
+	font-size: 14px;
+	margin-top: 19px;
+	color: #707070;
+}
+.design_main_descript{
+	margin-top: 10px;
+	width:100%;
+	height:600px;
+	border:0px solid green;
+}
+.design_main_button{
+	width: 170px;
+	height:30px;
+	border: 2px solid red;
+	border-radius: 50px;
+	position: absolute;
+	left: 415px;
+	top:400px;
+	z-index: 1;
+	color: #fff;
+	text-align: center;
+	padding-top: 12px;
+	border: 1px solid #fff;
+	font-family: 'Avenir LT 45 Book';
+	font-size: 16px;
+	background-color: rgba(0,0,0,0.3);
+}
+.design_main_button:hover{
+	background-color: rgba(0,0,0,0.6);
+}
+.design_main_detail{
+	width:100%;
+	height:auto;
+	border: 0px solid green;
+}
+.design_main_detail_pic{
+	width:100%;
+	height:400px;
+}
+.design_main_detail_word{
+	width:100%;
+	border:0px solid blue;
+	margin-top: 20px;
+	font-family: 'Avenir LT 45 Book';
+}
+.design_main_collect{
+	width:80px;
+	height:25px;
+	border: 1px solid #dd6916;
+	float: right;
+	margin-top: -70px;
+	border-radius: 3px;
+	text-align: center;
+	padding-top: 8px;
+	color:#dd6916;
+	font-size: 14px;
+}
+/*.design_main_collect:hover{
+	border: 2px solid #dd6916;
+	font-size: 15px;
+}*/
+.design_main_collect:hover{
+	border: 1px solid #dd6916;
+	font-size: 14px;
+	color: #fff;
+	background-color: #dd6916;
+}
+
+
+
+
+/*sub*/
+.design_sub_content{
+	width: 88%;
+	margin-top: 30px;
+	margin-left: auto;
+	margin-right: auto;
+	font-family: 'Avenir LT 45 Book';
+	color: #444444;
+	line-height: 1.6;
+}
+#sub_intro_title{
+	font-family: 'Avenir LT 45 Book';
+	font-size: 20px;
+	margin-bottom: 20px;
+	color: #707070;
+}
+.design_sub_material{
+	border: 0px solid red;
+	width:325px;
+	height:60px;
+	margin-top: 20px;
+}
+.sub_material_selection{
+	width:60px;
+	height: 40px;
+	display: inline-block;
+	vertical-align: top;
+	border: 1px solid red;
+	text-align: center;
+	padding-top: 20px;
+}
+.sub_material_selection:hover{
+	background-color: #ebebeb;
+}
+.sub_material_blank{
+	width: 10px;
+	height: 10px;
+	display: inline-block;
+	vertical-align: top;
+}
+.design_sub_custmize_button{
+	margin-left: 0px;
+	position: relative;
+	top: 30px;
+	width:310px;
+	height:40px;
+	border:1px solid #dd6916;
+	display: block;
+	border-radius: 4px;
+	text-align: center;
+	padding-top: 12px;
+
+
+}
+
+/*customize*/
+.customize_content{
+	height:800px;
+	width: 100%;
+	border: 0px solid red;
+	background-color: #ebebeb;
+	padding-top: 50px;
+}
+.customize_all{
+	width: 90%;
+	min-width: 1110px;
+	margin-left: auto;
+	margin-right: auto;
+}
+.customize_intro{
+	background-color: #fff;
+	width:400px;
+	height:380px;
+	margin-top: 50px;
+	display: inline-block;
+	vertical-align: top;
+	position: fixed;
+	z-index: 1;
+}
+.customize_table{
+	position: relative;
+	background-color: #fff;
+	width:720px;
+	height:480px;
+	margin-top: 50px;
+	margin-left: 420px;
+	display: inline-block;
+	vertical-align: top;
+	margin-bottom: 100px;
+}
+.customize_title{
+	font-family: 'Avenir LT 95 Black';
+	font-size: 1.8em;
+	margin-bottom: 20px;
+}
+.customize_form{
+	width: 90%;
+	padding: 20px;
+	border: 0px solid red;
+	margin-left: 20px;
+
+}
+.customize_pic{
+	width: 90%;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 20px;
+}
+.customize_pic_des{
+	font-family: 'Avenir LT 45 Book';
+	font-size: 16px;
+	color: #707070;
+	margin-left: 20px;
+	margin-top: 20px;
+	line-height: 1.6;
+}
+input[type=text] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+}
+
+.customize_start{
+	background-color: orange;
+	width: 160px;
+	height: 35px;
+	background-color: #dd6916;
+	font-family: 'Avenir LT 45 Book';
+	font-size: 16px;
+	color: #fff;
+	border-radius: 5px;
+	margin-top: 20px;
+	text-align: center;
+	padding-top: 15px;
+ }
+
+/* Personal*/
+.personal{
+	height:auto;
+	width: 100%;
+	border: 0px solid red;
+	background-color: #ebebeb;
+	padding-top: 50px;
+}
+.personal_all{
+	width: 90%;
+/*	min-width: 1110px;*/
+	margin-left: auto;
+	margin-right: auto;
+}
+.sidebar{
+	width: 240px;
+	height:180px;
+	border: 0px solid red;
+	display: inline-block;
+	vertical-align: top;
+	margin-top: 50px;
+	background-color: #fff;
+	text-align: center;
+}
+.personal_content{
+/*	position: relative;*/
+	width:800px;
+	height:480px;
+	margin-top: 50px;
+	margin-left: 20px;
+	display: inline-block;
+	vertical-align: top;
+	margin-bottom: 100px;
+}
+.personal_main{
+/*	background-color: grey;*/
+	width:800px;
+	height:480px;
+	margin-bottom: 200px;
+/*	display: block;*/
+}
+.personal_main2{
+	background-color: grey;
+	width:800px;
+	height:480px;
+	margin-bottom: 200px;
+}
+.sidebar_button{
+	font-family: 'Avenir LT 45 Book';
+	font-size: 16px;
+	margin-top: 15px;
+	line-height: 4;
+	color: #575757;
+}
+.sidebar_button:hover{
+	font-family: 'Avenir LT 45 Book';
+	font-size: 16px;
+	color: orange;
+}
+
+/*customize project*/
+.personal_title{
+	padding-left: 30px;
+	font-family: 'Avenir LT 95 Black';
+	font-size: 1.8em;
+}
+.personal_customize{
+	border: 0px solid red;
+	width:240px;
+	height:240px;
+	margin-left: 30px;
+	margin-top: 30px;
+}
+.personal_cus_project{
+	display: inline-block;
+	vertical-align: top;
+	border: 0px solid red;
+	background-color: #fff;
+}
+.personal_cus_pic{
+	width: 240px;
+	height: 160px;
+}
+.personal_cus_intro{
+	font-family: 'Avenir LT 45 Book';
+	font-size: 16px;
+	border: 0px solid red;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	margin-left: 10px;
+	margin-right: 10px;
+}
+
+
+

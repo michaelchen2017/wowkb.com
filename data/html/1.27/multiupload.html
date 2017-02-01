@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Wow Kitchen & Bath</title>
+  <link rel="shortcut icon" type="image/x-icon" href="image/favicon.ico">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+  <link rel="stylesheet" type="text/css" href="css/library.css">
+  <link rel="stylesheet" type="text/css" href="css/font-awesome.css">
+	<style type="text/css">
+	@font-face {
+  		font-family: 'Avenir LT 45 Book';
+  		src: url('webfont.eot'); /* IE9 Compat Modes */
+  		src: url('webfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+        url('webfont.woff2') format('woff2'), /* Super Modern Browsers */
+        url('webfont.woff') format('woff'), /* Pretty Modern Browsers */
+        url('font/Avenir LT 45 Book.ttf')  format('truetype'), /* Safari, Android, iOS */
+        url('webfont.svg#svgFontName') format('svg'); /* Legacy iOS */
+}
+	@font-face {
+  		font-family: 'Avenir LT 95 Black';
+  		src: url('webfont.eot'); /* IE9 Compat Modes */
+  		src: url('webfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+        url('webfont.woff2') format('woff2'), /* Super Modern Browsers */
+        url('webfont.woff') format('woff'), /* Pretty Modern Browsers */
+        url('font/Avenir LT 95 Black.ttf')  format('truetype'), /* Safari, Android, iOS */
+        url('webfont.svg#svgFontName') format('svg'); /* Legacy iOS */
+}
+	@font-face {
+  		font-family: 'Avenir LT 35 Light';
+  		src: url('webfont.eot'); /* IE9 Compat Modes */
+  		src: url('webfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+        url('webfont.woff2') format('woff2'), /* Super Modern Browsers */
+        url('webfont.woff') format('woff'), /* Pretty Modern Browsers */
+        url('font/Avenir LT 35 Light.ttf')  format('truetype'), /* Safari, Android, iOS */
+        url('webfont.svg#svgFontName') format('svg'); /* Legacy iOS */
+}
+	</style>
+</head>
+<body>
+  <div id="navbar">
+    <div id="nav_logo">
+      <img id="nav_logo_pic" src="image/logo.png">
+    </div>
+  </div>
+
+<div id="all">
+    <div id="admin_sidebar">
+        <a href="searchproduct.html"><button id="admin_button">检索物料</button></a>
+        <button id="admin_button">上传物料</button>
+    </div>
+    
+    <div id="admin_main">
+        <h3>批量上传物料</h3>
+        <a href="admin.html">返回</a>
+
+        <div id="admin_upload">
+               <form action="">
+            <input type="file" name="pic" accept="image/*">
+             <input type="submit">
+        </form>   
+        <div class="dropdown">
+  <span>批量编辑</span>
+  <div class="dropdown-content">
+    <a href="#"><p>修改选中文件名称</p></a>
+    <a href="#"><p>修改选中文件品牌</p></a>
+    <a href="#"><p>删除选中文件</p>
+  </div>
+</div>
+
+        <table id="multiupload">
+  <tr>
+    <th><input id="toggle" type="checkbox"></th>
+    <th>图片</th>
+    <th>系统编号</th>
+    <th>名称</th>
+    <th>品牌</th>
+    <th>产品编号</th>
+    <th>价格</th>
+    <th>内容描述</th>
+    <th>部门</th>
+    <th>文件格式</th>
+    <th>文件类型</th>
+    <th>文件大小</th>
+  </tr>
+  <tr>
+    <td><input id="toggle" type="checkbox"></td>
+    <td><img id="product_pic" src="#"></td>
+    <td>121001</td>
+    <td><input type="text" name="name"></td>
+    <td><input type="text" name="brand"></td>
+    <td><input type="text" name="num"></td>
+    <td><input type="text" name="price"></td>
+    <td><input type="text" name="detail"></td>
+    <td>
+    <select name="department">
+                    <option value="furniture">家具</option>
+                    <option value="material">材料</option>
+                    <option value="tool">用具</option>
+                    <option value="lighting">灯饰</option>
+                    <option value="storage">储存</option>
+                    <option value="textile">织物</option>
+                 </select>
+    </td>
+    <td>.png</td>
+    <td>图片</td>
+    <td>1.2M</td>
+  </tr>
+  <tr>
+    <td><input id="toggle" type="checkbox"></td>
+    <td><img id="product_pic" src="#"></td>
+    <td>121001</td>
+    <td><input type="text" name="name"></td>
+    <td><input type="text" name="brand"></td>
+    <td><input type="text" name="num"></td>
+    <td><input type="text" name="price"></td>
+    <td><input type="text" name="detail"></td>
+    <td>
+    <select name="department">
+                    <option value="furniture">家具</option>
+                    <option value="material">材料</option>
+                    <option value="tool">用具</option>
+                    <option value="lighting">灯饰</option>
+                    <option value="storage">储存</option>
+                    <option value="textile">织物</option>
+                 </select>
+    </td>
+    <td>.png</td>
+    <td>图片</td>
+    <td>1.2M</td>
+  </tr>
+</table>
+<!-- <input id="uploadsubmit" type="submit" name="" value="提交">
+  <form id="form" action="">
+              <input type="file" name="picture">
+            </form> -->
+
+        </div>
+
+
+          <button>保存</button>
+
+
+
+
+
+      </div>
+
+  </div>
+
+
+
+<script>
+
+</script>
+
+
+  </body>
+</html>
