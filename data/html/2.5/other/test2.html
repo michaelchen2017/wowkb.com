@@ -1,0 +1,78 @@
+<html> 
+<head> 
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+<title>www.yuanshi88.com</title> 
+<style> 
+body{font-family:Verdana, Geneva, sans-serif; font-size:12px; margin:0px; padding:0px;} 
+table{font-size:12px; font-family:Verdana, Geneva, sans-serif} 
+td{text-align:center; background:#FFF} 
+tr{height:20px;} 
+th{background:#9DACBF; color:#FFF; height:20px; line-height:20px} 
+a{color:#99C;} 
+a:hover{color:#F93} 
+.input td{padding:2px} 
+.input input{width:100%; border:1px solid #000; overflow:hidden} 
+.btn{} 
+
+</style> 
+<script src="jquery-1.2.6.min.js" type="text/javascript"></script> 
+<script type="text/javascript"> 
+//简化document.getElementById()方法 
+function getObj(obj){   
+  return document.getElementById(obj); 
+} 
+function insRow(){  
+  //插入行 
+  var obj=getObj("productList"); 
+  var newObbj=getObj("pp");
+  // var newObj=getElementById("add");
+  var newRow=obj.insertRow(newObbj.rows.length);  //插入行方法 
+  var newCell1=newRow.insertCell(newRow.cells.length); //插入单元格 如果直接用insertCell()在FF里会出错，所以为了兼容，我们要加上newRow.cells.length参数 
+  var newCell2=newRow.insertCell(newRow.cells.length); 
+  var newCell3=newRow.insertCell(newRow.cells.length); 
+  newCell1.innerHTML=getObj("name2").value; //插入单元格后，现在向单元格中添加内容 
+  newCell2.innerHTML=getObj("add2").value; 
+   
+  //清空文本框 
+  document.all("name").value=""; 
+  document.all("add").value=""; 
+   
+  //将当前表格最后一行的序号写在delRow()方法中，这样我们可以在delRow()方法中删除当前行 
+  newCell3.innerHTML='<a href="javascript:delRow('+(obj.rows.length-1)+')">删除</a>';  
+} 
+//删除行 
+function delRow(i){   
+  var obj=getObj("nw"); 
+  obj.deleteRow(i); 
+} 
+
+</script> 
+ 
+</head> 
+
+<body> 
+<table id="productList" cellpadding="0" cellspacing="1" border="0" width="320" bgcolor="#CCCC99"> 
+<th>编号</th> 
+  <th>名称</th> 
+  <th>操作</th> 
+  <tr class="input"> 
+  <td><input type="text" id="name" /></td> 
+  <td><input type="text" id="add" /></td> 
+  <td style="width:52px"><input type="button" value="添 加" class="btn" onClick="insRow()" /></td> 
+  </tr>    
+</table> 
+<table id="pp">
+  <th>编号</th> 
+  <th>名称</th> 
+  <th>操作</th> 
+  <tr>
+    <td><input type="text" id="name2" /></td>
+    <td><input type="text" id="add2" /></td>
+</tr>
+  <tr>
+    <td><input type="text" id="name3" /></td>
+    <td><input type="text" id="add3" /></td>
+</tr>
+</table>
+</body> 
+</html>

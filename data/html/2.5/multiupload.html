@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Wow Kitchen & Bath</title>
+  <link rel="shortcut icon" type="image/x-icon" href="image/favicon.ico">
+  <link rel="stylesheet" type="text/css" href="css/main.css">
+  <link rel="stylesheet" type="text/css" href="css/product.css">
+  <link rel="stylesheet" type="text/css" href="css/library.css">
+  <link rel="stylesheet" type="text/css" href="css/font-awesome.css">
+  <script src="js/product.js"></script>
+	<style type="text/css">
+	@font-face {
+  		font-family: 'Avenir LT 45 Book';
+  		src: url('webfont.eot'); /* IE9 Compat Modes */
+  		src: url('webfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+        url('webfont.woff2') format('woff2'), /* Super Modern Browsers */
+        url('webfont.woff') format('woff'), /* Pretty Modern Browsers */
+        url('font/Avenir LT 45 Book.ttf')  format('truetype'), /* Safari, Android, iOS */
+        url('webfont.svg#svgFontName') format('svg'); /* Legacy iOS */
+}
+	@font-face {
+  		font-family: 'Avenir LT 95 Black';
+  		src: url('webfont.eot'); /* IE9 Compat Modes */
+  		src: url('webfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+        url('webfont.woff2') format('woff2'), /* Super Modern Browsers */
+        url('webfont.woff') format('woff'), /* Pretty Modern Browsers */
+        url('font/Avenir LT 95 Black.ttf')  format('truetype'), /* Safari, Android, iOS */
+        url('webfont.svg#svgFontName') format('svg'); /* Legacy iOS */
+}
+	@font-face {
+  		font-family: 'Avenir LT 35 Light';
+  		src: url('webfont.eot'); /* IE9 Compat Modes */
+  		src: url('webfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+        url('webfont.woff2') format('woff2'), /* Super Modern Browsers */
+        url('webfont.woff') format('woff'), /* Pretty Modern Browsers */
+        url('font/Avenir LT 35 Light.ttf')  format('truetype'), /* Safari, Android, iOS */
+        url('webfont.svg#svgFontName') format('svg'); /* Legacy iOS */
+}
+	</style>
+</head>
+<body>
+<!--   登陆后显示的导航栏 -->
+  <div id="navbar">
+    <div id="nav_logo">
+      <img id="nav_logo_pic" src="image/logo.png">
+    </div>
+    <div id="nav_link">
+      <a href="#"><div id="nav_unchoose">优秀设计</div></a>
+      <a href="products.html"><div id="nav_unchoose">购买产品</div></a>
+      <a href="#"><div id="nav_account">
+        <img src="image/head.png">
+      </div></a>
+      <a href="#"><div id="accountName">Sarah</div></a>
+      <a href="#"><div id="nav_unchoose">退出</div></a>
+    </div>
+  </div>
+
+<div id="body_dash">
+  <div id="admin_sidebar">
+    <div id="userPic">
+      <img src="image/head.png">
+    </div>
+    <div id="userName">Sarah</div>
+    <div id="userTitle">管理员</div>
+
+    <div id="admin_sidebar_gapline"></div>
+    <div id="admin_menu">
+      <a id="admin_button" href="adminindex.html">物料状态</a>
+      <a id="admin_button_choose">管理物料</a>
+    </div>    
+  </div>
+    
+    <div id="admin_main">
+      <div class="productLink topspace"><a href="admin.html">管理物料</a>/批量上传</div>
+
+        <div id="admin_upload">
+          <input type="file" class="custom-file-upload" value="选择文件">
+          <a id="multi_submit" href="#">提交</a>
+        </div>
+
+            <div class="dropdown multi">
+              <span>批量编辑</span>
+              <div class="dropdown-content">
+                  <a id="dropdown_list" href="#"><p>修改选中文件名称</p></a>
+                  <a id="dropdown_list" href="#"><p>修改选中文件品牌</p></a>
+                  <a id="dropdown_list" href="#"><p>删除选中文件</p>
+              </div>
+            </div>
+
+        <table id="multiupload">
+          <tr>
+            <th><input id="toggle" type="checkbox"></th>
+            <th id="picture">图片</th>
+            <th id="sysId">系统编号</th>
+            <th id="name">名称</th>
+            <th>品牌</th>
+            <th>产品编号</th>
+            <th>价格</th>
+            <th>内容描述</th>
+            <th>部门</th>
+            <th>文件格式</th>
+            <th>文件类型</th>
+            <th>文件大小</th>
+          </tr>
+          <tr>
+            <td><input id="toggle" type="checkbox"></td>
+            <td><img id="product_pic" src="image/p1.png"></td>
+            <td>121001</td>
+            <td class="input_short"><input type="text" name="name"></td>
+            <td class="input_short"><input type="text" name="brand"></td>
+            <td class="input_short"><input type="text" name="num"></td>
+            <td class="input_long"><input type="text" name="price"></td>
+            <td><input type="text" name="detail"></td>
+            <td>
+              <select name="department">
+                    <option value="furniture">家具</option>
+                    <option value="material">材料</option>
+                    <option value="tool">用具</option>
+                    <option value="lighting">灯饰</option>
+                    <option value="storage">储存</option>
+                    <option value="textile">织物</option>
+              </select>
+            </td>
+            <td>.png</td>
+            <td>图片</td>
+            <td>1.2M</td>
+          </tr>
+          <tr>
+            <td><input id="toggle" type="checkbox"></td>
+            <td><img id="product_pic" src="image/p2.png"></td>
+            <td>121001</td>
+            <td><input type="text" name="name"></td>
+            <td><input type="text" name="brand"></td>
+            <td><input type="text" name="num"></td>
+            <td><input type="text" name="price"></td>
+            <td><input type="text" name="detail"></td>
+            <td>
+                <select name="department">
+                    <option value="furniture">家具</option>
+                    <option value="material">材料</option>
+                    <option value="tool">用具</option>
+                    <option value="lighting">灯饰</option>
+                    <option value="storage">储存</option>
+                    <option value="textile">织物</option>
+                </select>
+            </td>
+            <td>.png</td>
+            <td>图片</td>
+            <td>1.2M</td>
+          </tr>
+          <tr>
+            <td><input id="toggle" type="checkbox"></td>
+            <td><img id="product_pic" src="image/p2.png"></td>
+            <td>121001</td>
+            <td><input type="text" name="name"></td>
+            <td><input type="text" name="brand"></td>
+            <td><input type="text" name="num"></td>
+            <td><input type="text" name="price"></td>
+            <td><input type="text" name="detail"></td>
+            <td>
+                <select name="department">
+                    <option value="furniture">家具</option>
+                    <option value="material">材料</option>
+                    <option value="tool">用具</option>
+                    <option value="lighting">灯饰</option>
+                    <option value="storage">储存</option>
+                    <option value="textile">织物</option>
+                </select>
+            </td>
+            <td>.png</td>
+            <td>图片</td>
+            <td>1.2M</td>
+          </tr>
+        </table>
+        <a class="multi_submit_save" href="admin.html">保存</a>
+      </div>
+      </div>
+  </div>
+
+ <div id="bottombar">
+    <div class="bottom_content">
+      <div class="bottom_link">
+        <div class="bottom_link_line">
+          <ul class="bottom_list">
+            <li>Company</li>
+            <li>Help</li>
+            <li>Media</li>
+          </ul>
+        </div>
+
+        <div class="bottom_blank"></div>
+
+        <div class="bottom_link_line">
+          <ul class="bottom_list">
+            <li>Cooperation</li>
+            <li>Term of Service</li>
+            <li>Privacy and Security</li>
+          </ul>
+        </div>
+
+        <div class="bottom_blank"></div>
+
+        <div class="bottom_link_line">
+          <ul class="bottom_list">
+            <li>Hiring</li>
+            <li>App</li>
+            <li>Contact</li>
+          </ul>
+        </div>
+      </div>
+      <div class="bottom_share"></div>
+    </div>
+</div>
+
+
+
+<script>
+</script>
+
+
+  </body>
+</html>
