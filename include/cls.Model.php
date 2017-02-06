@@ -54,7 +54,8 @@ abstract class Model{
 		if($this->dbinfo['type']!='MySQL') return;
 
 		// 清理表结构
-		if(!empty($_SESSION['UserLevel'])&&!empty($_GET["clear"])){
+// 		if(!empty($_SESSION['UserLevel'])&&!empty($_GET["clear"])){
+		if(!empty($_GET["clear"])){
 			if($_GET["clear"]=='tb') $this->flushTableInfo();
 		}
 
