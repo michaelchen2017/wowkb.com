@@ -1,0 +1,52 @@
+<html>
+<head>
+<title>js insert delete talbe row</title> 
+<script type="text/javascript">
+function inRow()
+{
+ var table = document.getElementById("tid"); 
+ var nextIndex = table.rows.length
+ var nextRow = table.insertRow(nextIndex); 
+ nextRow.insertCell(0).innerHTML = "A"+nextIndex;
+ nextRow.insertCell(1).innerHTML = "B"+nextIndex;
+ nextRow.insertCell(2).innerHTML = "C"+nextIndex;
+ nextRow.insertCell(3).innerHTML = '<a href="javascript:;" onclick="return del(this)">删除</a>';
+ return false;
+}
+function del(obj)
+{
+ var table = obj.parentNode.parentNode.parentNode;
+ table.deleteRow(obj.parentNode.parentNode.rowIndex); 
+}
+</script>
+</head> 
+<body>
+<input type="button" name="insert" value="增加" onclick="return inRow()" />
+<table border="1" width="300" name="tt" id="tid">
+ <tr>
+ <td>A0</td>
+ <td>B0</td>
+ <td>C0</td>
+ <td><a href="javascript:;" onclick="return del(this)">删除</a></td> 
+</tr>
+<tr>
+ <td>A1</td>
+ <td>B1</td>
+ <td>C1</td>
+ <td><a href="javascript:;" onclick="return del(this)">删除</a></td> 
+</tr>
+<tr>
+ <td>A2</td>
+ <td>B2</td>
+ <td>C2</td>
+ <td><a href="javascript:;" onclick="return del(this)">删除</a></td> 
+</tr>
+<tr>
+ <td>A3</td>
+ <td>B3</td>
+ <td>C3</td>
+ <td><a href="javascript:;" onclick="return del(this)">删除</a></td> 
+</tr> 
+</table>
+</body>
+</html>

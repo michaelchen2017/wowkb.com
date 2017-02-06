@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Wow Kitchen & Bath</title>
+  <link rel="shortcut icon" type="image/x-icon" href="image/favicon.ico">
+  <link rel="stylesheet" type="text/css" href="css/main.css">
+  <link rel="stylesheet" type="text/css" href="css/library.css">
+  <link rel="stylesheet" type="text/css" href="css/product.css">
+  <link rel="stylesheet" type="text/css" href="css/font-awesome.css">
+  <script src="js/product.js"></script>
+  <style type="text/css">
+  @font-face {
+      font-family: 'Avenir LT 45 Book';
+      src: url('webfont.eot'); /* IE9 Compat Modes */
+      src: url('webfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+        url('webfont.woff2') format('woff2'), /* Super Modern Browsers */
+        url('webfont.woff') format('woff'), /* Pretty Modern Browsers */
+        url('font/Avenir LT 45 Book.ttf')  format('truetype'), /* Safari, Android, iOS */
+        url('webfont.svg#svgFontName') format('svg'); /* Legacy iOS */
+}
+  @font-face {
+      font-family: 'Avenir LT 95 Black';
+      src: url('webfont.eot'); /* IE9 Compat Modes */
+      src: url('webfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+        url('webfont.woff2') format('woff2'), /* Super Modern Browsers */
+        url('webfont.woff') format('woff'), /* Pretty Modern Browsers */
+        url('font/Avenir LT 95 Black.ttf')  format('truetype'), /* Safari, Android, iOS */
+        url('webfont.svg#svgFontName') format('svg'); /* Legacy iOS */
+}
+  @font-face {
+      font-family: 'Avenir LT 35 Light';
+      src: url('webfont.eot'); /* IE9 Compat Modes */
+      src: url('webfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+        url('webfont.woff2') format('woff2'), /* Super Modern Browsers */
+        url('webfont.woff') format('woff'), /* Pretty Modern Browsers */
+        url('font/Avenir LT 35 Light.ttf')  format('truetype'), /* Safari, Android, iOS */
+        url('webfont.svg#svgFontName') format('svg'); /* Legacy iOS */
+}
+  </style>
+</head>
+<body>
+<!--   登陆后显示的导航栏 -->
+  <div id="navbar">
+    <div id="nav_logo">
+      <img id="nav_logo_pic" src="image/logo.png">
+    </div>
+    <div id="nav_link">
+      <a href="#"><div id="nav_unchoose">优秀设计</div></a>
+      <a href="products.html"><div id="nav_unchoose">购买产品</div></a>
+      <a href="#"><div id="nav_account">
+        <img src="image/head.png">
+      </div></a>
+      <a href="#"><div id="accountName">Sarah</div></a>
+      <a href="#"><div id="nav_unchoose">退出</div></a>
+    </div>
+  </div>
+
+<div id="body_dash">
+  <div id="admin_sidebar">
+    <div id="userPic">
+      <img src="image/head.png">
+    </div>
+    <div id="userName">Sam</div>
+    <div id="userTitle">设计师</div>
+
+    <div id="admin_sidebar_gapline"></div>
+
+    <div id="admin_menu">
+      <a id="admin_button" href="designer_main.html">定制项目</a>
+<!--       <a id="admin_button" href="searchproduct.html">管理物料</a> -->
+      <a id="admin_button_choose">我的作品</a>
+    </div>    
+  </div>
+    
+    <div id="admin_main">
+        <div class="productLink topspace"><a href="designmanage.html">管理作品</a>/上传设计作品</div>
+        <div class="form-style-2">
+          <form action="" method="post">
+            <label for="field1"><span>作品名称<span class="required">*</span></span><input type="text" class="input-field" name="designname" value="" /></label>
+            <label for="field2"><span>空间尺寸<span class="required">*</span></span><input type="text" class="input-field" name="designsize" value="" /></label>
+            <label for="field5"><span>内容简介 <span class="required">*</span></span><textarea name="designdetail" class="textarea-field"></textarea></label>
+            <label><span>设计图片<span class="required">*</span></span><input type="file" name="designpicture"></label>
+            <label><span>&nbsp;</span><input type="submit" value="提交"/></label>
+          </form>
+        </div>
+      </div>
+  </div>
+
+  <div id="bottombar">
+    <div class="bottom_content">
+      <div class="bottom_link">
+        <div class="bottom_link_line">
+          <ul class="bottom_list">
+            <li>Company</li>
+            <li>Help</li>
+            <li>Media</li>
+          </ul>
+        </div>
+
+        <div class="bottom_blank"></div>
+
+        <div class="bottom_link_line">
+          <ul class="bottom_list">
+            <li>Cooperation</li>
+            <li>Term of Service</li>
+            <li>Privacy and Security</li>
+          </ul>
+        </div>
+
+        <div class="bottom_blank"></div>
+
+        <div class="bottom_link_line">
+          <ul class="bottom_list">
+            <li>Hiring</li>
+            <li>App</li>
+            <li>Contact</li>
+          </ul>
+        </div>
+      </div>
+      <div class="bottom_share"></div>
+    </div>
+</div>
+
+
+
+  </body>
+</html>
