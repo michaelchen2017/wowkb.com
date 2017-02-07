@@ -82,9 +82,11 @@ class admin extends Action{
 						$reader = new SpreadsheetReader($target_file);
 						
 						foreach ($reader as $i=>$row){
+							$item_id = time() . "_" . $row[2] . "_" . rand(1, 1000);
 							if($i > 7){
 								$res = array(
-									"item_id"=>time() . "_" . $row[2] . "_" . rand(1, 1000),
+										
+									"item_id"=> $item_id,
 									"created_time"=>time(),
 									"brand"=>$row[1],
 									"projno_name"=>$row[2],
@@ -96,13 +98,97 @@ class admin extends Action{
 								);
 								
 								$this->obj_material->insert($res);
-								go("/admin/admin.php?act=multi_preview");
+								go("/admin/admin.php?act=multi_pics");
 							}
 						}
 						
 			
 		}
 		
+	}
+	
+	function ACT_multi_pics(){
+		
+	}
+	
+	function ACT_multipics_process(){
+
+		if(isset($_POST) && !empty($_POST['submit'])){
+// 			debug::d($_FILES["files"]["name"]); exit;
+			foreach ($_FILES["files"]["name"] as $i => $value){
+// 						        debug::d($_FILES["files"]["name"]);exit;
+				$file_extension = pathinfo($value,PATHINFO_EXTENSION);
+				$target_dir = DOCUROOT . "/upload/images/";
+				
+				$files = explode(".", $_FILES["files"]["name"][$i]);
+				
+				$res_pic = $this->obj_material->getOne("*", array("projno_name"=>$files[0], "visible"=>1, "status"=>"pending"));
+// 				debug::d($res_pic);exit;
+				if(!isset($res_pic) || empty($res_pic['item_id'])){
+					continue;
+				}
+				
+				$new_file_name = $res_pic['item_id'] . '.' .  $file_extension;
+				$target_file = $target_dir . $new_file_name;
+					
+				$pic_path = "/upload/images/" . $new_file_name;
+				$uploadOk = 1;
+					
+				// Check if image file is a actual image or fake image
+					
+				$check = getimagesize($_FILES["files"]["tmp_name"][$i]);
+				if($check !== false) {
+					//echo "File is an image - " . $check["mime"] . ".";
+					$uploadOk = 1;
+				} else {
+					//echo "File is not an image.";
+					$uploadOk = 0;
+				}
+			
+				// Check if file already exists
+				if (file_exists($target_file)) {
+					//echo "Sorry, file already exists.";
+					$uploadOk = 0;
+				}
+				
+					// Allow certain file formats
+				$file_type = "图片";
+					$file_extension = strtolower($file_extension);
+					if($file_extension != "jpg" && $file_extension != "png" && $file_extension != "jpeg"
+							&& $file_extension != "gif") {
+								//echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
+								$uploadOk = 0;
+								$file_type = "非图片";
+							}
+							// Check if $uploadOk is set to 0 by an error
+							
+							
+							if ($uploadOk == 0) {
+								//echo "Sorry, your file was not uploaded.";
+								// if everything is ok, try to upload file
+							}
+							else {
+								if (move_uploaded_file($_FILES["files"]["tmp_name"][$i], $target_file)) {
+									
+									$update_pic = array(
+										"pic_path" => $pic_path,
+										"file_type" => $file_type,
+										"file_size"	=> $_FILES["files"]["size"][$i],
+										"file_format" => $file_extension,
+										
+										);
+								
+								$this->obj_material->update($update_pic, array("item_id"=>$res_pic['item_id'], "visible"=>1));
+								go("/admin/admin.php?act=multi_preview");
+									
+								} else {
+									//echo "Sorry, there was an error uploading your file.";
+								}
+							}
+							//go("/account/space.php?id={$_POST['userid']}");
+			
+			}//foreach
+		}
 	}
 	
 	function ACT_single_upload(){
@@ -190,6 +276,7 @@ class admin extends Action{
 									"item_id"=>$item_id,
 									"created_time"=>time(),
 									"brand"=>$_POST['brand'],
+									"category"=>$_POST['category'],
 									"projno_name"=>$_POST['projno_name'],
 									"texture"=>$_POST['texture'],
 									"size"=>$_POST['size'],
