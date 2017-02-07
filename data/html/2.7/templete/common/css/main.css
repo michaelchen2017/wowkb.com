@@ -1,0 +1,600 @@
+
+
+
+
+
+
+
+
+
+/*design page*/
+#design_show{
+	padding-top: 40px;
+	width:100%;
+	height:auto;
+	background-color: #ebebeb;
+}
+#design_all{
+	width:1160px;
+	margin-top: 60px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.design_subline{
+	width:27%;
+	height:400px;
+	margin-left: 2%;
+	background-color: #fff;
+	display: inline-block;
+	vertical-align: top;
+	position: fixed;
+	z-index: 1;
+}
+.design_sub{
+	width:100%;
+	height:400px;
+	background-color: #fff;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.09);
+}
+
+.design_sub1{
+	width:100%;
+	height:200px;
+	background-color: #fff;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.09);
+}
+.arrow-left{
+	position:absolute;
+	top:85px;
+	left:-20px;
+	border-width:10px;
+	border-style:dashed solid dashed dashed;
+	border-color:transparent #fff transparent transparent
+	}
+
+/*design detail*/
+/*main*/
+
+.design_main_title{
+	width:auto;
+	height:80px;
+	font-family: 'Avenir LT 95 Black';
+	font-size: 1.8em;
+	border:0px solid red;
+}
+
+.design_main_descript{
+	margin-top: 10px;
+	width:100%;
+	height:600px;
+	border:0px solid green;
+}
+
+.design_main_detail{
+	width:100%;
+	height:auto;
+	border: 0px solid green;
+}
+.design_main_detail_pic{
+	width:100%;
+	height:400px;
+}
+.design_main_detail_word{
+	width:100%;
+	border:0px solid blue;
+	margin-top: 20px;
+	font-family: 'Avenir LT 45 Book';
+}
+.design_main_collect{
+	width:80px;
+	height:25px;
+	border: 1px solid #dd6916;
+	float: right;
+	margin-top: -70px;
+	border-radius: 3px;
+	text-align: center;
+	padding-top: 8px;
+	color:#dd6916;
+	font-size: 14px;
+}
+.design_main_collect:hover{
+	border: 1px solid #dd6916;
+	font-size: 14px;
+	color: #fff;
+	background-color: #dd6916;
+}
+
+
+
+/*customize*/
+.customize_content{
+	height:800px;
+	width: 100%;
+	border: 0px solid red;
+	background-color: #ebebeb;
+	padding-top: 50px;
+}
+.customize_all{
+	width: 90%;
+	min-width: 1110px;
+	margin-left: auto;
+	margin-right: auto;
+}
+.customize_intro{
+	background-color: #fff;
+	width:400px;
+	height:380px;
+	margin-top: 50px;
+	display: inline-block;
+	vertical-align: top;
+	position: fixed;
+	z-index: 1;
+}
+.customize_table{
+	position: relative;
+	background-color: #fff;
+	width:720px;
+	height:480px;
+	margin-top: 50px;
+	margin-left: 420px;
+	display: inline-block;
+	vertical-align: top;
+	margin-bottom: 100px;
+}
+.customize_title{
+	font-family: 'Avenir LT 95 Black';
+	font-size: 1.8em;
+	margin-bottom: 20px;
+}
+.customize_form{
+	width: 90%;
+	padding: 20px;
+	border: 0px solid red;
+	margin-left: 20px;
+
+}
+.customize_pic{
+	width: 90%;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 20px;
+}
+.customize_pic_des{
+	font-family: 'Avenir LT 45 Book';
+	font-size: 16px;
+	color: #707070;
+	margin-left: 20px;
+	margin-top: 20px;
+	line-height: 1.6;
+}
+input[type=text] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+}
+
+.customize_start{
+	background-color: orange;
+	width: 160px;
+	height: 35px;
+	background-color: #dd6916;
+	font-family: 'Avenir LT 45 Book';
+	font-size: 16px;
+	color: #fff;
+	border-radius: 5px;
+	margin-top: 20px;
+	text-align: center;
+	padding-top: 15px;
+ }
+
+/* Personal*/
+.personal{
+	height:auto;
+	width: 100%;
+	border: 0px solid red;
+	background-color: #ebebeb;
+	padding-top: 50px;
+}
+.personal_all{
+	width: 90%;
+/*	min-width: 1110px;*/
+	margin-left: auto;
+	margin-right: auto;
+}
+.sidebar{
+	width: 240px;
+	height:180px;
+	border: 0px solid red;
+	display: inline-block;
+	vertical-align: top;
+	margin-top: 50px;
+	background-color: #fff;
+	text-align: center;
+}
+.personal_content{
+/*	position: relative;*/
+	width:800px;
+	height:480px;
+	margin-top: 50px;
+	margin-left: 20px;
+	display: inline-block;
+	vertical-align: top;
+	margin-bottom: 100px;
+}
+.personal_main{
+/*	background-color: grey;*/
+	width:800px;
+	height:480px;
+	margin-bottom: 200px;
+/*	display: block;*/
+}
+.personal_main2{
+	background-color: grey;
+	width:800px;
+	height:480px;
+	margin-bottom: 200px;
+}
+.sidebar_button{
+	font-family: 'Avenir LT 45 Book';
+	font-size: 16px;
+	margin-top: 15px;
+	line-height: 4;
+	color: #575757;
+}
+.sidebar_button:hover{
+	font-family: 'Avenir LT 45 Book';
+	font-size: 16px;
+	color: orange;
+}
+
+/*customize project*/
+.personal_title{
+	padding-left: 30px;
+	font-family: 'Avenir LT 95 Black';
+	font-size: 1.8em;
+}
+.personal_customize{
+	border: 0px solid red;
+	width:240px;
+	height:240px;
+	margin-left: 30px;
+	margin-top: 30px;
+}
+.personal_cus_project{
+	display: inline-block;
+	vertical-align: top;
+	border: 0px solid red;
+	background-color: #fff;
+}
+.personal_cus_pic{
+	width: 240px;
+	height: 160px;
+}
+.personal_cus_intro{
+	font-family: 'Avenir LT 45 Book';
+	font-size: 16px;
+	border: 0px solid red;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	margin-left: 10px;
+	margin-right: 10px;
+}
+#design_container{
+	background-color: #fff;
+}
+#all{
+	padding-top: 61px;
+}
+
+
+
+
+
+.admin_pageArea{
+   border:0px solid red;
+   text-align: right;
+}
+.admin_pageButton{
+    background-color: #97ccf7; 
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    margin: 6px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    vertical-align: top;
+}
+
+
+
+
+#multi_file{
+	margin-bottom: 40px;
+}
+
+#multiupload{
+	width: 1000px;
+	margin-top: 20px;
+}
+#uploadsubmit{
+	width: 50px;
+	height:20px;
+}
+#form{
+	width: 500px;
+	height: 300px;
+	border: 0px solid red;
+}
+#design_row{
+	width: 1100px;
+	height:300px;
+	border: 0px solid red;
+}
+
+#design_blank{
+	width: 20px;
+	height: 20px;
+	display: inline-block;
+	vertical-align: top;
+}
+
+
+
+
+
+
+
+
+
+
+#design_project{
+	width: 300px;
+	height:220px;
+	border: 0px solid red;
+	display: inline-block;
+	vertical-align: top;
+}
+
+#body{
+   background-color: #ebebeb;
+   padding-top: 100px;
+   padding-bottom: 100px;
+}
+#body_dash{
+   background-color: #ebebeb;
+   padding-bottom: 0px;
+}
+#container{
+   width:1280px;
+   padding-bottom: 200px;
+   margin-left: auto;
+   margin-right: auto;
+   border: 0px solid green;
+}
+#sidebar{
+   width: 240px;
+   height:auto;
+   display: inline-block;
+   vertical-align: top;
+   background-color: #fff;
+   padding-top: 20px;
+   padding-bottom: 20px;
+}
+.firstList{
+   margin-bottom: 20px;
+}
+.secondList{
+   color: #f8a041;
+   margin-bottom: 10px;
+}
+.thirdList{
+   margin-left: 30px;
+   line-height: 2;
+   font-size: 14px;
+}
+.sidebar_gapline{
+   width: 90%;
+   height:1px;
+   margin-left: auto;
+   margin-right: auto;
+   background-color: #ebebeb;
+   margin-top: 40px;
+   margin-bottom: 40px;
+}
+#mainContent{
+   width: 1000px;
+   height:1400px;
+   display: inline-block;
+   vertical-align: top;
+   margin-left: 20px;
+   background-color: #fff;
+}
+#adArea{
+   width: 100%;
+   height:200px;
+   background-color: grey;
+   margin-bottom: 50px;
+}
+#adBox{
+   width: 240px;
+   height: 110px;
+   padding: 24px;
+   line-height: 1.4;
+   position: absolute;
+   margin-left: 580px;
+   margin-top:22px;
+   z-index: 2;
+   border: 0px solid green;
+   background-color: #fff;
+   opacity: 0.6;
+}
+#adButton{
+    position: absolute;
+    margin-left: 656px;
+    margin-top:108px;
+    z-index: 3;
+    background-color: #dd6916; 
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    vertical-align: top;
+}
+.mainArea{
+   width: 100%;
+   height:auto;
+/*   background-color: #343434;*/
+}
+.pageArea{
+   margin-top: 40px;
+   border:0px solid red;
+   text-align: right;
+}
+.pageButton{
+    background-color: #97ccf7; 
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    margin: 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    vertical-align: top;
+}
+.row{
+   width: 960px;
+   margin-left: auto;
+   margin-right: auto;
+   border: 0px solid red;
+   display: block;
+}
+.single{
+   width:300px;
+   height:300px;
+   border: 0px solid red;
+   float: left;
+
+}
+.single_rowgap{
+   width:18px;
+   height: 10px;
+   display: inline-block;
+   vertical-align: top;
+}
+.row_gapline{
+   width: 960px;
+   height: 1px;
+   background-color: #d3d3d3;
+   margin-top: 20px;
+   margin-bottom: 20px;
+}
+.productPic{
+   height: 200px;
+   width: 200px;
+   margin-left: auto;
+   margin-right: auto;
+}
+#heart{
+   position: absolute;
+   z-index: 2;
+   width: 48px;
+   height: 24px;
+   margin-left: 180px;
+   margin-top: 20px;
+   border:1px solid #dd6916;
+   background:none;
+   color: #dd6916;
+   border-radius: 4px;
+   text-align: center;
+   padding-top: 2px;
+   font-size: 13px;
+}
+#heart:hover{
+   background-color: #dd6916;
+   color: #fff;
+}
+.productIntro{
+   margin-left: 40px;
+   margin-top: 10px;
+}
+
+
+#productSearch{
+   margin-left: 20px;
+   margin-bottom: 20px;
+}
+input {
+   outline: none;
+}
+input[type=search] {
+   -webkit-appearance: textfield;
+   -webkit-box-sizing: content-box;
+   font-family: inherit;
+   font-size: 100%;
+}
+input::-webkit-search-decoration,
+input::-webkit-search-cancel-button {
+   display: none; 
+}
+input[type=search] {
+   background: #ededed url(http://static.tumblr.com/ftv85bp/MIXmud4tx/search-icon.png) no-repeat 9px center;
+   width: 150px;
+   background-color: #fff;
+   border-color: #66CC75;
+   border: solid 1px #ccc;
+   padding: 9px 10px 9px 32px;
+   
+   -webkit-border-radius: 10em;
+   -moz-border-radius: 10em;
+   border-radius: 10em;
+   
+   -webkit-box-shadow: 0 0 5px rgba(109,207,246,.5);
+   -moz-box-shadow: 0 0 5px rgba(109,207,246,.5);
+   box-shadow: 0 0 5px rgba(109,207,246,.5);
+}
+
+
+input:-moz-placeholder {
+   color: #999;
+}
+input::-webkit-input-placeholder {
+   color: #999;
+}
+#designs_container{
+/*  padding-left:60px;*/
+  background: none;
+  border: 0px solid red;
+  width: 1030px;
+  margin-right: auto;
+  margin-left: auto;
+
+}
+#nav_link{
+  border:0px solid red;
+  width: 600px;
+  display: inline-block;
+  vertical-align: top;
+  float: right;
+}
+#nav_account{
+  display: inline-block;
+  vertical-align: top;
+  margin-top: 10px;
+  margin-left: 20px;
+  width: 40px;
+  height: 40px;
+}
+#accountName{
+  display: inline-block;
+  vertical-align: top;
+  margin-top: 20px;
+  margin-left: 10px;
+  border: 0px solid red;

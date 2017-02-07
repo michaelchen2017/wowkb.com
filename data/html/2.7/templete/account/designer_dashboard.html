@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Wow Kitchen & Bath</title>
+  <link rel="shortcut icon" type="image/x-icon" href="image/favicon.ico">
+  <link rel="stylesheet" type="text/css" href="../common/css/common.css">
+  <link rel="stylesheet" type="text/css" href="../../account/account.css">
+  <script src="../../js/product.js"></script>
+</head>
+<body>
+{%include file="$root/templete/common/navbar.html"%}
+
+<div id="body_dash">
+  {%include file="$root/templete/common/sidebar.html"%}
+
+  <div id="admin_main">
+    <div id="admin_label">
+      <a id="label_choose">正在进行的定制</a>
+      <div id="label_blank"></div>
+      <a id="label_unchoose" href="designer_history.html">已完成的定制</a>
+    </div>
+
+    <div id="admin_content">
+        <div class="admin_project">
+          <div class="admin_project_pic">
+            <img src="../../image/t1.jpg">
+          </div>
+          <div class="admin_project_intro">
+            <div class="admin_project_title">美式厨房设计</div>
+            <div class="admin_project_designer">用户：XXX</div>
+            <div class="admin_project_status">进行中</div>
+            <div class="admin_project_update">最后更新：1天前</div>
+          </div>
+        </div>
+        <div class="admin_project">
+          <div class="admin_project_pic">
+            <img src="../../image/t2.jpg">
+          </div>
+          <div class="admin_project_intro">
+            <div class="admin_project_title">美式厨房设计</div>
+            <div class="admin_project_designer">用户：XXX</div>
+            <div class="admin_project_status">进行中</div>
+            <div class="admin_project_update">最后更新：1天前</div>
+          </div>
+        </div>
+        <div class="admin_project">
+          <div class="admin_project_pic">
+            <img src="../../image/t3.jpg">
+          </div>
+          <div class="admin_project_intro">
+            <div class="admin_project_title">美式厨房设计</div>
+            <div class="admin_project_designer">用户：XXX</div>
+            <div class="admin_project_status">进行中</div>
+            <div class="admin_project_update">最后更新：1天前</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{%include file="$root/templete/common/footer.html"%}
+
+  </body>
+</html>
