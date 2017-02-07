@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Wow Kitchen & Bath</title>
+  <link rel="shortcut icon" type="image/x-icon" href="image/favicon.ico">
+  <link rel="stylesheet" type="text/css" href="../common/css/common.css">
+  <link rel="stylesheet" type="text/css" href="../../account/account.css">
+  <script src="../../js/product.js"></script>
+</head>
+<body>
+{%include file="$root/templete/common/navbar.html"%}
+
+<div id="body_dash">
+    {%include file="$root/templete/common/sidebar.html"%}
+    
+    <div id="admin_main">
+        <div class="productLink topspace"><a href="designer_manage.html">管理作品</a>/上传设计作品</div>
+        <div class="form-style-2">
+          <form action="" method="post">
+            <label for="field1"><span>作品名称<span class="required">*</span></span><input type="text" class="input-field" name="designname" value="" /></label>
+            <label for="field2"><span>空间尺寸<span class="required">*</span></span><input type="text" class="input-field" name="designsize" value="" /></label>
+            <label for="field5"><span>内容简介 <span class="required">*</span></span><textarea name="designdetail" class="textarea-field"></textarea></label>
+            <label><span>设计图片<span class="required">*</span></span><input type="file" name="designpicture"></label>
+            <label><span>&nbsp;</span><input type="submit" value="提交"/></label>
+          </form>
+        </div>
+      </div>
+  </div>
+
+{%include file="$root/templete/common/footer.html"%}
+ 
+  </body>
+</html>

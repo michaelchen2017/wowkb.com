@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Wow Kitchen & Bath</title>
+  <link rel="shortcut icon" type="image/x-icon" href="image/favicon.ico">
+  <link rel="stylesheet" type="text/css" href="../common/css/common.css">
+  <link rel="stylesheet" type="text/css" href="../../admin/admin.css">
+  <script src="../../js/product.js"></script>
+</head>
+<body>
+{%include file="$root/templete/common/navbar.html"%}
+
+<div id="body_dash">
+  
+  {%include file="$root/templete/common/sidebar.html"%}
+    
+    <div id="admin_main">
+        <div class="productLink topspace"><a href="admin_manage.html">管理物料</a>/上传单个物料</div>
+        <div class="form-style-2">
+          <form action="" method="post">
+            <label for="field1"><span>产品名称<span class="required">*</span></span><input type="text" class="input-field" name="name" value="" /></label>
+            <label for="field2"><span>品牌<span class="required">*</span></span><input type="text" class="input-field" name="brand" value="" /></label>
+            <label><span>产品编号</span><input type="text" class="tel-number-field" name="id" value=""/></label>
+            <label><span>价格($)<span class="required">*</span></span><input type="text" class="tel-number-field" name="price" value=""/></label>
+            <label for="field4"><span>类别</span><select name="department" class="select-field">
+              <option value="furniture">家具</option>
+              <option value="material">材料</option>
+              <option value="tool">用具</option>
+              <option value="lighting">灯饰</option>
+              <option value="storage">储存</option>
+              <option value="textile">织物</option>
+            </select></label>
+            <label for="field5"><span>内容描述 <span class="required">*</span></span><textarea name="detail" class="textarea-field"></textarea></label>
+            <label><span>物品图片:<span class="required">*</span></span><input type="file" name="picture"></label>
+            <label><span>&nbsp;</span><input onclick="window.admin.html" type="submit" value="提交"/></label>
+          </form>
+        </div>
+      </div>
+  </div>
+
+  {%include file="$root/templete/common/footer.html"%}
+
+  </body>
+</html>
