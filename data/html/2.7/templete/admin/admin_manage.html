@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Wow Kitchen & Bath</title>
+  <link rel="shortcut icon" type="image/x-icon" href="image/favicon.ico">
+  <link rel="stylesheet" type="text/css" href="../common/css/common.css">
+  <link rel="stylesheet" type="text/css" href="../../admin/admin.css">
+  <script src="../../js/product.js"></script>
+</head>
+<body>
+{%include file="$root/templete/common/navbar.html"%}
+
+<div id="body_dash">
+    {%include file="$root/templete/common/sidebar.html"%}
+
+  <div id="admin_main">
+      
+      <div id="admin_content">
+        <a id="admin_edit_button" href="admin_supload.html">单个上传</a>
+        <a id="admin_edit_button" href="admin_mupload.html">批量上传</a>
+        <div class="dropdown">
+          <span>批量编辑</span>
+          <div class="dropdown-content">
+            <a id="dropdown_list" href="#"><p>修改选中文件名称</p></a>
+            <a id="dropdown_list" href="#"><p>修改选中文件品牌</p></a>
+            <a id="dropdown_list" href="#"><p>删除选中文件</p></a>
+          </div>
+        </div>
+        <form id="search">
+          <input id="admin_search" type="text" name="productname" value="产品名称/项目编号检索">
+        </form>
+
+      <table id="productList">
+        <tr>
+          <th><input id="toggle" type="checkbox"></th>
+          <th>图片</th>
+          <th>系统编号</th>
+          <th>名称</th>
+          <th>品牌</th>
+          <th>产品编号</th>
+          <th>价格</th>
+          <th>内容描述</th>
+          <th>文件格式</th>
+          <th>文件类型</th>
+          <th>文件大小</th>
+          <th></th>
+        </tr>
+        <tr>
+          <td><input id="toggle" type="checkbox"></td>
+          <td><img id="product_pic" src="../../image/p1.png"></td>
+          <td>121001</td>
+          <td>椅子</td>
+          <td>CHair</td>
+          <td>CH3242</td>
+          <td>$234</td>
+          <td>Made from Germany</td>
+          <td>.png</td>
+          <td>图片</td>
+          <td>1.2M</td>
+          <td>
+            <a id="edit" href="#">修改</a>
+            |
+            <a id="delete" href="#" onclick="return del(this)">删除</a>
+          </td>
+        </tr>
+        <tr>
+          <td><input id="toggle" type="checkbox"></td>
+          <td><img id="product_pic" src="../../image/p2.png"></td>
+          <td>121001</td>
+          <td>椅子</td>
+          <td>CHair</td>
+          <td>CH3242</td>
+          <td>$234</td>
+          <td>Made from Germany</td>
+          <td>.png</td>
+          <td>图片</td>
+          <td>1.2M</td>
+          <td>
+            <a id="edit" href="#">修改</a>
+            |
+            <a id="delete" href="#" onclick="return del(this)">删除</a>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
+
+
+{%include file="$root/templete/common/footer.html"%}
+  </body>
+</html>

@@ -1,0 +1,277 @@
+@font-face {
+  		font-family: 'Avenir LT 45 Book';
+  		src: url('webfont.eot'); /* IE9 Compat Modes */
+  		src: url('webfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+        url('webfont.woff2') format('woff2'), /* Super Modern Browsers */
+        url('webfont.woff') format('woff'), /* Pretty Modern Browsers */
+        url('../font/Avenir LT 45 Book.ttf')  format('truetype'), /* Safari, Android, iOS */
+        url('webfont.svg#svgFontName') format('svg'); /* Legacy iOS */
+}
+	@font-face {
+  		font-family: 'Avenir LT 95 Black';
+  		src: url('webfont.eot'); /* IE9 Compat Modes */
+  		src: url('webfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+        url('webfont.woff2') format('woff2'), /* Super Modern Browsers */
+        url('webfont.woff') format('woff'), /* Pretty Modern Browsers */
+        url('../font/Avenir LT 95 Black.ttf')  format('truetype'), /* Safari, Android, iOS */
+        url('webfont.svg#svgFontName') format('svg'); /* Legacy iOS */
+}
+	@font-face {
+  		font-family: 'Avenir LT 35 Light';
+  		src: url('webfont.eot'); /* IE9 Compat Modes */
+  		src: url('webfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+        url('webfont.woff2') format('woff2'), /* Super Modern Browsers */
+        url('webfont.woff') format('woff'), /* Pretty Modern Browsers */
+        url('../font/Avenir LT 35 Light.ttf')  format('truetype'), /* Safari, Android, iOS */
+        url('webfont.svg#svgFontName') format('svg'); /* Legacy iOS */
+}
+body{
+	margin: 0;
+	position: relative;
+	padding-bottom: 200px;
+    min-height: 100%;
+    min-width: 100%;
+    background-color: #ebebeb;
+    font-family:"Microsoft YaHei",Arial,Helvetica,sans-serif,"宋体";
+}
+
+li{
+	list-style-type:none;
+}
+a{
+	text-decoration: none;
+	color: #343434;
+}
+img{
+	width: 100%;
+	height: 100%;
+}
+.blank_150{
+	width: 100%;
+	height: 150px;
+}
+.blank_100{
+	width: 100%;
+	height: 100px;
+}
+.blank_60{
+	width: 100%;
+	height: 60px;
+}
+#body{
+   background-color: #ebebeb;
+   padding-top: 100px;
+   padding-bottom: 100px;
+}
+#body_dash{
+   background-color: #ebebeb;
+   padding-bottom: 0px;
+}
+#container{
+   width:1280px;
+   padding-bottom: 200px;
+   margin-left: auto;
+   margin-right: auto;
+   border: 0px solid green;
+}
+#admin_main{
+	display: inline-block;
+	vertical-align: top;
+/*	float: right;*/
+	margin-top: 61px;
+	width: 75%;
+	min-width: 960px;
+	padding-left: 40px;
+	padding-right: 40px;
+	position: relative;
+	border: 0px solid grey;
+	border-left: 1px solid #bcbcbc;
+	padding-bottom: 100px;
+}
+#admin_content{
+	border: 0px solid red;
+	min-width: 960px;
+	height:auto;
+	margin-top: 40px;
+}
+
+
+/*导航栏 navigation bar*/
+#navbar{
+	width:100%;
+	min-width: 1000px;
+	height:60px;
+	border:0px solid red;
+	position: fixed;
+	background-color: #fff;
+	border-bottom: 1px solid #ebebeb;
+	z-index: 99;
+}
+#nav_logo{
+	height:34px;
+	width: 280px;
+	padding-top: 10px;
+	margin-left: 20px;
+	display: inline-block;
+	vertical-align: top;
+}
+#nav_logo_pic{
+	width: 100%;
+	height: 100%;
+}
+#nav_sign{
+	width:600px;
+	height:55px;
+	margin-left: 30%;
+	border: 0px solid red;
+	display: inline-block;
+	vertical-align: top;
+}
+.nav{
+	width:20%;
+	height:40px;
+	border: 0px solid red;
+	display: inline-block;
+	vertical-align: top;
+	text-align: center;
+	padding-top: 20px;
+	color: #383838;
+}
+.nav:hover{
+	color: orange;
+}
+.choose{
+	color: #f8a041;
+}
+#nav_signup{
+	width: 100px;
+	height:41px;
+	background-color: #97ccf7;
+	display: inline-block;
+	vertical-align: top;
+	text-align: center;
+	padding-top: 20px;
+	color: #fff;
+}
+#nav_link1{
+  border:0px solid red;
+  width: 600px;
+  display: inline-block;
+  vertical-align: top;
+  float: right;
+}
+#nav_link2{
+  border:0px solid red;
+  width: 600px;
+  display: inline-block;
+  vertical-align: top;
+  float: right;
+}
+#nav_account{
+  display: inline-block;
+  vertical-align: top;
+  margin-top: 10px;
+  margin-left: 20px;
+  width: 40px;
+  height: 40px;
+}
+#accountName{
+  display: inline-block;
+  vertical-align: top;
+  margin-top: 20px;
+  margin-left: 10px;
+  border: 0px solid red;
+}
+
+/*侧边栏 sidebar*/
+
+.admin_sidebar{
+	width:18%;
+	margin-top: 61px;
+	display: inline-block;
+	vertical-align: top;
+	padding-bottom: 50px;
+}
+#userPic{
+	width:100px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 40px;
+}
+#userName{
+	margin-top: 20px;
+	text-align: center;
+	margin-bottom: 10px; 
+	color: #383838;
+}
+#userTitle{
+	text-align: center;
+	font-size: 14px;
+	color: #9b9b9d;
+}
+#admin_sidebar_gapline{
+	height:1px;
+	width:200px;
+	background-color: #bcbcbc;
+	margin-top: 30px;
+	margin-bottom: 30px;
+	margin-left: auto;
+	margin-right: auto;
+}
+#admin_menu{
+	margin-top: 10px;
+}
+
+.admin_button{
+	display: block;
+	border-left:6px solid #ebebeb;
+	height:30px;
+	padding-top: 10px;
+	text-align: center;
+	margin-top: 20px;
+	color: #676769;
+}
+.admin_button:hover{
+	border-left:6px solid #f8a041;
+}
+
+/*底边栏 footer*/
+#bottombar{
+	min-width: 1200px;
+	height:200px;
+	background-color: grey;
+	z-index: 2;
+	position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding-bottom: 1rem;
+}
+.bottom_content{
+	width: 85%;
+	margin-left: auto;
+	margin-right: auto;
+	font-family: 'Avenir LT 45 Book';
+	color: #444444;
+}
+.bottom_link{
+	width: 60%;
+	height:auto;
+	border: 0px solid red;
+	margin-top: 50px;
+	margin-bottom: 50px;
+}
+.bottom_link_line{
+	display: inline-block;
+	vertical-align: top;
+}
+.bottom_list{
+	line-height: 2;
+	font-size: 14px;
+}
+.bottom_blank{
+	width:40px;
+	height:10px;
+	vertical-align: top;
+	display: inline-block;
+}
