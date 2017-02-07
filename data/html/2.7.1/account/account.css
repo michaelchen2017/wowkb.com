@@ -1,0 +1,321 @@
+/*用户*/
+
+
+#admin_label{
+	margin-top: 50px;
+	min-width: 960px;
+	border-bottom: 1px solid #d3d3d3;
+	padding-bottom: 20px;
+	font-size: 14px;
+}
+#label_blank{
+	width:60px;
+	display: inline-block;
+	vertical-align: top;
+}
+#label_choose{
+	border-bottom: 4px solid #f8a041;
+	padding-bottom: 16px;
+	font-size: 14px;
+	color:#383838;
+}
+#label_unchoose{
+	color: #9b9b9d;
+	font-size: 14px;
+}
+#label_unchoose:hover{
+	border-bottom: 4px solid #f8a041;
+	padding-bottom: 16px;
+}
+.admin_project{
+	width:440px;
+	height:180px;
+	border:0px solid green;
+	float: left;
+	margin-right: 30px;
+	margin-bottom: 30px;
+	background-color: #fff;
+	border-right: 1px solid #d3d3d3;
+	border-bottom:1px solid #d3d3d3;
+}
+.admin_project_pic{
+	width: 260px;
+	height:180px;
+	border: 0px solid red;
+	display: inline-block;
+	vertical-align: top;
+}
+.admin_project_intro{
+	width: 130px;
+	height:200px;
+	border: 0px solid red;
+	display: inline-block;
+	vertical-align: top;
+	margin-left: 20px;
+}
+.admin_project_title{
+	font-size: 16px;
+	margin-top: 20px;
+	font-weight: bold;
+	color: #383838;
+}
+.admin_project_designer{
+	font-size: 13px;
+	margin-top: 10px;
+	color: #383838;
+}
+.admin_project_status{
+	font-size: 14px;
+	color: #f8a041;
+	margin-top: 30px;
+}
+.admin_project_update{
+	font-size: 12px;
+	color: grey;
+	margin-top: 32px;
+}
+.admin_add{
+	width:180px;
+	height:180px;
+	border:0px solid green;
+	display: inline-block;
+	vertical-align: top;
+	margin-right: 40px;
+	background-color: #fff;
+	border-right: 1px solid #d3d3d3;
+	border-bottom:1px solid #d3d3d3;
+}
+.admin_add_icon{
+	font-size: 30px;
+	border-radius: 40px;
+	border: 2px solid #d3d3d3;
+	color: #d3d3d3;
+	width:50px;
+	height:40px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 30px;
+	padding-top: 10px;
+	text-align: center;
+}
+.admin_add_icon:hover{
+	border: 2px solid #f8a041;
+	color: #f8a041;
+}
+.admin_add_intro{
+	text-align: center;
+	font-size: 14px;
+	margin-top: 20px;
+	color: grey;
+	line-height: 1.5;
+}
+.admin_collect_intro{
+	width: 130px;
+	height:200px;
+	border: 0px solid red;
+	display: inline-block;
+	vertical-align: top;
+	margin-left: 20px;
+}
+.admin_collect_title{
+	font-size: 14px;
+	margin-top: 16px;
+	color: #383838;
+}
+.admin_collect_designer{
+	font-size: 12px;
+	margin-top: 10px;
+	color: #9b9b9d;
+}
+
+/*收藏*/
+
+.admin_collect{
+	width:240px;
+	height:230px;
+	border:0px solid green;
+	display: inline-block;
+	vertical-align: top;
+	margin-right: 30px;
+	margin-bottom: 30px;
+	background-color: #fff;
+	border-right: 1px solid #d3d3d3;
+	border-bottom:1px solid #d3d3d3;
+}
+.admin_collect_pic{
+	width: 240px;
+	height:160px;
+	border: 0px solid red;
+	display: inline-block;
+	vertical-align: top;
+}
+
+.admin_collect_delete{
+   position: absolute;
+   z-index: 2;
+   width: 48px;
+   height: 20px;
+   margin-left: 180px;
+   margin-top: 30px;
+   border:1px solid #f8a041;
+   background:none;
+   color: #f8a041;
+   border-radius: 4px;
+   text-align: center;
+   padding-top: 6px;
+   font-size: 13px;
+}
+.admin_collect_delete:hover{
+   background-color: #f8a041;
+   color: #fff;
+}
+
+/*设计师*/
+
+#admin_edit_button{
+	width:100px;
+	height:28px;
+	background-color: #959a9e;
+	color: #fff;
+	display: inline-block;
+	vertical-align: top;
+	margin-right: 20px;
+	padding-top: 14px;
+	text-align: center;
+	font-size: 14px;
+}
+#admin_edit_button:hover{
+	background-color: #f8a041;
+}
+#admin_search{
+   background: #ededed url(http://static.tumblr.com/ftv85bp/MIXmud4tx/search-icon.png) no-repeat 9px center;
+   outline:medium;
+   background-color: #fff;
+   border: none;
+   border-bottom: solid 0px grey;
+   padding: 9px 10px 9px 32px;
+   height: 40px;
+   width: 300px;
+}
+#search{
+	display: inline-block;
+	margin-left: 296px;
+	vertical-align: top;
+	margin-top: -8px;
+}
+#productList{
+	margin-top: 20px;
+	background-color: #fff;
+}
+#design_pic{
+	width:160px;
+	height: 120px;
+}
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+th{
+	background-color: #959a9e;
+	color: #fff;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	font-size: 13px;
+}
+td{
+    text-align: left;
+    padding-left: 8px;
+    padding-right: 8px;
+    padding-top: 14px;
+	padding-bottom: 14px;
+	font-size: 13px;
+	color:#383838;
+	background-color: #fff;
+	border-bottom: 1px solid #dddddd;
+}
+tr:nth-child(even) {
+    background-color: #fff;
+    border-bottom: 1px solid #dddddd;
+}
+
+/*上传设计作品*/
+
+.productLink{
+   font-size: 14px;
+   color: #343434;
+   margin-bottom: 10px;
+}
+.topspace{
+	margin-top: 40px;
+}
+.form-style-2{
+	margin-top: 20px;
+    max-width: 600px;
+    padding: 20px 12px 10px 20px;
+    font-size: 14px;
+    color: grey;
+}
+.form-style-2 label{
+    display: block;
+    margin: 0px 0px 15px 0px;
+}
+.form-style-2 label > span{
+    width: 100px;
+    font-weight: bold;
+    float: left;
+    padding-top: 8px;
+    padding-right: 5px;
+}
+.form-style-2 span.required{
+    color:red;
+}
+.form-style-2 .tel-number-field{
+    width: 100px;
+    text-align: center;
+}
+.form-style-2 input.input-field{
+    width: 48%;  
+}
+.form-style-2 input.input-field, 
+.form-style-2 .tel-number-field, 
+.form-style-2 .textarea-field, 
+ .form-style-2 .select-field{
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    border: 1px solid #C2C2C2;
+    box-shadow: 1px 1px 4px #EBEBEB;
+    -moz-box-shadow: 1px 1px 4px #EBEBEB;
+    -webkit-box-shadow: 1px 1px 4px #EBEBEB;
+    padding: 7px;
+    outline: none;
+}
+.form-style-2 .input-field:focus, 
+.form-style-2 .tel-number-field:focus, 
+.form-style-2 .textarea-field:focus,  
+.form-style-2 .select-field:focus{
+    border: 1px solid #0C0;
+}
+.form-style-2 .textarea-field{
+    height:100px;
+    width: 55%;
+}
+.form-style-2 input[type=submit],
+.form-style-2 input[type=button]{
+	cursor: pointer;
+	margin-top: 20px;
+	width: 160px;
+	height:50px;
+    border: none;
+    padding: 8px 15px 8px 15px;
+    background: #f8a041;
+    color: #fff;
+    box-shadow: 1px 1px 4px #DADADA;
+    -moz-box-shadow: 1px 1px 4px #DADADA;
+    -webkit-box-shadow: 1px 1px 4px #DADADA;
+}
+.form-style-2 input[type=submit]:hover,
+.form-style-2 input[type=button]:hover{
+    background: #EA7B00;
+    color: #fff;
+}
