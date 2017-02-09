@@ -1,6 +1,6 @@
 <?php
 //memcache test script
-
+//modify
 $mem = new Memcached();
 $mem->addServer("127.0.0.1", 11211);
  
