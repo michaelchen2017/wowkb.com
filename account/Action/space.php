@@ -2,14 +2,20 @@
 class space extends Action{
 	public $obj_user;
 	public $obj_panos;
+	public $obj_zuopin;
+	
 	
 	function __construct() {
 		parent::__construct();
 	
 		$this->obj_user = load("account_users");
 		$this->obj_panos = load("account_panos");
+		$this->obj_zuopin = load("account_zuopin");
 		$userid = isset($_SESSION['userid'])?$_SESSION['userid']:"";
 		$this->assign("userid", $userid);
+		
+		$user_type = "designer";
+		$this->assign("user_type", $user_type);
 	}
 	
 	
@@ -186,5 +192,144 @@ class space extends Action{
 			}
 		
 	}
+	
+	function ACT_designer_dashboard(){
+		$user_type = "designer";
+		$this->assign("user_type", $user_type);
+	}
+	
+	function ACT_designer_history(){
+		$user_type = "designer";
+		$this->assign("user_type", $user_type);
+	}
+	
+	function ACT_designer_manage(){
+		$user_type = "designer";
+		$this->assign("user_type", $user_type);
+		
+	}
+	
+	function ACT_designer_upload(){
+		$user_type = "designer";
+		$this->assign("user_type", $user_type);
+		
+	}
+	
+	function ACT_zuopin_post(){
+		$user_type = "designer";
+		$this->assign("user_type", $user_type);
+// 		debug::d($_POST); debug::d($_FILES);exit;
+		if(isset($_POST) && !empty($_POST['title'])){
+			$target_dir = DOCUROOT . "/image/material/";
+// 			$target_file = $target_dir . basename($_FILES["file"]["name"]);
+			
+			$imageFileType = pathinfo($_FILES["file"]["name"],PATHINFO_EXTENSION);
+		
+			$imageFileType = strtolower($imageFileType);
+			
+			$file_name = md5($_FILES["file"]["name"]) . '.' . $imageFileType;
+			
+			$target_file = $target_dir . $file_name;
+			$pic_path = "/image/material/" . $file_name;
+			$uploadOk = 1;
+			
+					// Check if file already exists
+					if (file_exists($target_file)) {
+						//echo "Sorry, file already exists.";
+						$uploadOk = 0;
+					}
+					// Check file size
+					if ($_FILES["file"]["size"] > 5000000) {
+						//echo "Sorry, your file is too large.";
+						$uploadOk = 0;
+					}
+					// Allow certain file formats
+					$file_type = "图片";
+					if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
+							&& $imageFileType != "gif"  && $imageFileType != "xlsx" && $imageFileType != "xls") {
+								//echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
+								$uploadOk = 0;
+								$file_type = "非图片";
+							}
+							// Check if $uploadOk is set to 0 by an error
+							if ($uploadOk == 0) {
+								//echo "Sorry, your file was not uploaded.";
+								// if everything is ok, try to upload file
+							} else {
+								if (move_uploaded_file($_FILES["file"]["tmp_name"], $target_file)) {
+									//echo "The file ". basename( $_FILES["fileToUpload"]["name"]). " has been uploaded.";
+			
+								} else {
+									//echo "Sorry, there was an error uploading your file.";
+								}
+							}
+					
+			
+			$res_arr = array(
+					"designer"=> $_POST['designer'],
+					"title"  => $_POST['title'],
+					"description" => $_POST['description'],
+					"size" => $_POST['size'],
+					"pic_path" => $pic_path,
+					"final_sum" => $_POST['final_sum'],
+			);
+// 			debug::d($res_arr);exit;
+			$this->obj_zuopin->insert($res_arr);
+			$res_id = $this->obj_zuopin->getOne("*", array("pic_path"=>$pic_path, "visible"=>1));
+			$pk_id = $res_id['pk_id'];
+			
+			go('/account/space.php?act=zuopin_preview&id='.$pk_id);
+		}
+		
+		else {
+			go("/");
+		}
+	}
+	
+	function ACT_zuopin_modify(){
+// 		debug::d($_POST);exit;
+		if(isset($_POST) && !empty($_POST['title'])){
+			$this->obj_zuopin->Update($_POST, array("pk_id"=>$_POST['pk_id']));
+			go("/account/space.php?act=zuopin_preview&id={$_POST['pk_id']}");
+		}
+		else{
+			go("/");
+		}
+		
+	}
+	
+	function ACT_zuopin_preview(){
+		$user_type = "designer";
+		$this->assign("user_type", $user_type);
+		
+		if(!empty($_GET['id'])){
+			$res = $this->obj_zuopin->getOne("*", array("pk_id"=>$_GET['id'], "visible"=>1));
+			
+			$this->assign("res", $res);
+			$this->assign("id", $_GET['id']);
+		}
+		else{
+			
+		}
+	}
+	
+	function ACT_user_collection(){
+		$user_type = "user";
+		$this->assign("user_type", $user_type);
+	}
+	
+	function ACT_user_dashboard(){
+		$user_type = "user";
+		$this->assign("user_type", $user_type);
+	}
+	
+	function ACT_user_history(){
+		$user_type = "user";
+		$this->assign("user_type", $user_type);
+		
+	}
+	
+	
+	
 	
 }

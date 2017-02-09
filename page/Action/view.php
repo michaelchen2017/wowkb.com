@@ -4,6 +4,7 @@ class view extends Action{
 	public $post_pic_obj;
 	public $post_comments_obj;
 	public $username_obj;
+	public $obj_zuopin;
 	
 	function __construct(){
 		parent::__construct();
@@ -12,6 +13,7 @@ class view extends Action{
 		$this->post_pic_obj = load("page_postPics");
 		$this->post_comments_obj = load("page_postComments");
 		$this->username_obj = load("account_metaUser");
+		$this->obj_zuopin = load("account_zuopin");
 		//handle userid login
 		$userid = isset($_SESSION['userid'])?$_SESSION['userid']:"";
 		$this->assign("userid", $userid);
@@ -43,6 +45,18 @@ class view extends Action{
 			go("/");
 		}
 	}
+	
+	function ACT_design_detail(){
+		$id = $_GET['id'];
+		$res = $this->obj_zuopin->getOne("*", array("pk_id"=>$id, "visible"=>1));
+		$this->assign("res", $res);
+		
+	}
+	
+	function ACT_product_detail(){
+		
+	}
+	
 	function ACT_comments(){
 		if(isset($_POST['submit'])){
 			if(!isset($_SESSION['userid'])){

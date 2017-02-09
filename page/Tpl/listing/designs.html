@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Wow Kitchen & Bath</title>
+  <link rel="shortcut icon" type="image/x-icon" href="/image/favicon.ico">
+  <link rel="stylesheet" type="text/css" href="../../../template/common/css/common.css">
+  <link rel="stylesheet" type="text/css" href="../../page/css/page.css">
+  
+</head>
+<body>
+  
+{%include file="$root/template/common/navbar.html"%}
+
+<div id="body">
+  <div id="container">
+      <div id="designs_container">
+        <!--   <form >
+            <input id="designs_search" type="text" name="designname" value="作品名搜索">
+          </form> -->
+ 
+
+    <div id="admin_content">
+    
+    {%foreach from=$res key=k item=value %} 
+      <a href="/page/view.php?act=design_detail&id={%$value['pk_id']|default:''%}">
+        <div class="designs_project">
+          <div class="designs_project_pic">
+            <img src="{%$value['pic_path']|default:''%}">
+          </div>
+          <div class="admin_collect_intro">
+            <div class="admin_collect_title">{%$value['title']|default:''%}</div>
+            <div class="admin_collect_designer">估价：${%$value['final_sum']|default:''%}</div>
+          </div>
+        </div>
+      </a>
+    {%/foreach%}
+    </div>
+  </div>
+  </div>
+</div>
+
+  {%include file="$root/template/common/footer.html"%}
+</body>
+</html>
+

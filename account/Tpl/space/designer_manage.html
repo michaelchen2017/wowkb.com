@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Wow Kitchen & Bath</title>
+  <link rel="shortcut icon" type="image/x-icon" href="/image/favicon.ico">
+  <link rel="stylesheet" type="text/css" href="../../../template/common/css/common.css">
+  <link rel="stylesheet" type="text/css" href="../../account/css/account.css">
+</head>
+<body>
+{%include file="$root/template/common/navbar.html"%}
+
+<div id="body_dash">
+   {%include file="$root/template/common/sidebar.html"%}
+
+  <div id="admin_main">
+      
+      <div id="admin_content">
+        <a id="admin_edit_button" href="designer_upload.html">上传作品</a>
+        <a id="admin_edit_button" href="../page/products.html">搜索物料</a>
+ 
+        <form id="search">
+          <input id="admin_search" type="text" name="designname" value="作品名搜索">
+        </form>
+
+      <table id="productList">
+        <tr>
+          <th><input id="toggle" type="checkbox"></th>
+          <th>图片</th>
+          <th>系统编号</th>
+          <th>名称</th>
+          <th>空间尺寸</th>
+          <th>内容简介</th>
+          <th></th>
+        </tr>
+        <tr>
+          <td><input id="toggle" type="checkbox"></td>
+          <td><img id="design_pic" src="../../image/t1.jpg"></td>
+          <td>121001</td>
+          <td>美式厨房设计</td>
+          <td>10*10</td>
+          <td>Made from Germany</td>
+          <td>
+            <a id="edit" href="#">修改</a>
+            |
+            <a id="delete" href="#" onclick="return del(this)">删除</a>
+          </td>
+        </tr>
+        <tr>
+          <td><input id="toggle" type="checkbox"></td>
+          <td><img id="design_pic" src="../../image/t2.jpg"></td>
+          <td>121001</td>
+          <td>美式浴室设计</td>
+          <td>8*8</td>
+          <td>Made from Germany</td>
+          <td>
+            <a id="edit" href="#">修改</a>
+            |
+            <a id="delete" href="#" onclick="return del(this)">删除</a>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
+
+{%include file="$root/template/common/footer.html"%}
+  </body>
+</html>

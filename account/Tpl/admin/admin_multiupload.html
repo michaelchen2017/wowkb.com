@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Wow Kitchen & Bath</title>
+  <link rel="shortcut icon" type="image/x-icon" href="/image/favicon.ico">
+  <link rel="stylesheet" type="text/css" href="../../../template/common/css/common.css">
+  <link rel="stylesheet" type="text/css" href="../../account/css/admin.css">
+  
+</head>
+<body>
+{%include file="$root/template/common/navbar.html"%}
+
+<div id="body_dash">
+    {%include file="$root/template/common/sidebar.html"%}
+    
+    <div id="admin_main">
+      <div class="productLink topspace"><a href="admin_manage.html">管理物料</a>/批量上传</div>
+
+        <div id="admin_upload">
+          <input type="file" class="custom-file-upload" value="选择文件">
+          <a id="multi_submit" href="#">提交</a>
+        </div>
+
+            <div class="dropdown multi">
+              <span>批量编辑</span>
+              <div class="dropdown-content">
+                  <a id="dropdown_list" href="#"><p>修改选中文件名称</p></a>
+                  <a id="dropdown_list" href="#"><p>修改选中文件品牌</p></a>
+                  <a id="dropdown_list" href="#"><p>删除选中文件</p>
+              </div>
+            </div>
+
+        <table id="multiupload">
+          <tr>
+            <th><input id="toggle" type="checkbox"></th>
+            <th id="picture">图片</th>
+            <th id="sysId">系统编号</th>
+            <th id="name">名称</th>
+            <th>品牌</th>
+            <th>产品编号</th>
+            <th>价格</th>
+            <th>内容描述</th>
+            <th>部门</th>
+            <th>文件格式</th>
+            <th>文件类型</th>
+            <th>文件大小</th>
+          </tr>
+          <tr>
+            <td><input id="toggle" type="checkbox"></td>
+            <td><img id="product_pic" src="../../image/p1.png"></td>
+            <td>121001</td>
+            <td class="input_short"><input type="text" name="name"></td>
+            <td class="input_short"><input type="text" name="brand"></td>
+            <td class="input_short"><input type="text" name="num"></td>
+            <td class="input_long"><input type="text" name="price"></td>
+            <td><input type="text" name="detail"></td>
+            <td>
+              <select name="department">
+                    <option value="furniture">家具</option>
+                    <option value="material">材料</option>
+                    <option value="tool">用具</option>
+                    <option value="lighting">灯饰</option>
+                    <option value="storage">储存</option>
+                    <option value="textile">织物</option>
+              </select>
+            </td>
+            <td>.png</td>
+            <td>图片</td>
+            <td>1.2M</td>
+          </tr>
+          <tr>
+            <td><input id="toggle" type="checkbox"></td>
+            <td><img id="product_pic" src="../../image/p2.png"></td>
+            <td>121001</td>
+            <td><input type="text" name="name"></td>
+            <td><input type="text" name="brand"></td>
+            <td><input type="text" name="num"></td>
+            <td><input type="text" name="price"></td>
+            <td><input type="text" name="detail"></td>
+            <td>
+                <select name="department">
+                    <option value="furniture">家具</option>
+                    <option value="material">材料</option>
+                    <option value="tool">用具</option>
+                    <option value="lighting">灯饰</option>
+                    <option value="storage">储存</option>
+                    <option value="textile">织物</option>
+                </select>
+            </td>
+            <td>.png</td>
+            <td>图片</td>
+            <td>1.2M</td>
+          </tr>
+          <tr>
+            <td><input id="toggle" type="checkbox"></td>
+            <td><img id="product_pic" src="../../image/p2.png"></td>
+            <td>121001</td>
+            <td><input type="text" name="name"></td>
+            <td><input type="text" name="brand"></td>
+            <td><input type="text" name="num"></td>
+            <td><input type="text" name="price"></td>
+            <td><input type="text" name="detail"></td>
+            <td>
+                <select name="department">
+                    <option value="furniture">家具</option>
+                    <option value="material">材料</option>
+                    <option value="tool">用具</option>
+                    <option value="lighting">灯饰</option>
+                    <option value="storage">储存</option>
+                    <option value="textile">织物</option>
+                </select>
+            </td>
+            <td>.png</td>
+            <td>图片</td>
+            <td>1.2M</td>
+          </tr>
+        </table>
+        <a class="multi_submit_save" href="admin_manage.html">保存</a>
+      </div>
+    </div>
+</div>
+
+ {%include file="$root/template/common/footer.html"%}
+
+  </body>
+</html>

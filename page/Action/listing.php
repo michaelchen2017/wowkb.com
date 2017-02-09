@@ -2,12 +2,15 @@
 class listing extends Action{
 	public $obj_panos;
 	public $obj_posts;
+	public $obj_zuopin;
 	
 	function __construct(){
 		parent::__construct();
 		
 		$this->obj_panos = load("account_panos");
 		$this->obj_posts = load("account_posts");
+		$this->obj_zuopin = load("account_zuopin");
+		
 		
 		//$_SESSION ['UserLevel'] = 6; //模拟管理登录，用于debug
 		if(isset($_SESSION['userid']) && !empty($_SESSION['userid'])){
@@ -26,12 +29,16 @@ class listing extends Action{
 		$tmp = array();
 		$result = $this->obj_panos->getList("*", array("visible"=>1, "order"=>array("pk_id"=>'DESC')), 30);
 		
-		/*
-		foreach($result as $i=>$val){
-			$tmp[$i/3][] = $val;
-		}*/
-		
 		$this->assign("result", $result);
+	}
+	
+	function ACT_designs(){
+		$res = $this->obj_zuopin->getAll("*", array("visible"=>1));
+		$this->assign("res", $res);
+	}
+	
+	function ACT_products(){
+		
 	}
 	
 // 	function ACT_search(){

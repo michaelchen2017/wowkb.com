@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Wow Kitchen & Bath</title>
+  <link rel="shortcut icon" type="image/x-icon" href="/image/favicon.ico">
+  <link rel="stylesheet" type="text/css" href="../../../template/common/css/common.css">
+  <link rel="stylesheet" type="text/css" href="../../account/css/admin.css">
+  
+</head>
+<body>
+{%include file="$root/template/common/navbar.html"%}
+
+<div id="body_dash">
+  
+  {%include file="$root/template/common/sidebar.html"%}
+    
+    <div id="admin_main">
+        <div class="productLink topspace"><a href="admin_manage.html">管理物料</a>/上传单个物料</div>
+        <div class="form-style-2">
+          <form action="/account/admin.php?act=single_upload" method="post" enctype="multipart/form-data">
+            <label for="field2"><span>品牌<span class="required">*</span></span><input type="text" class="input-field" name="brand" value="" /></label>
+            <label><span>产品编号</span><input type="text" class="tel-number-field" name="projno_name" value=""/></label>
+            <label><span>材质</span><input type="text" class="tel-number-field" name="texture" value=""/></label>
+            <label><span>项目规格</span><input type="text" class="tel-number-field" name="size" value=""/></label>
+            <label><span>价格($)<span class="required">*</span></span><input type="text" class="tel-number-field" name="price" value=""/></label>
+           
+            <label for="field4"><span>类别</span><select name="category" class="select-field">
+              <option value="furniture">家具</option>
+              <option value="material">材料</option>
+              <option value="tool">用具</option>
+              <option value="lighting">灯饰</option>
+              <option value="storage">储存</option>
+              <option value="textile">织物</option>
+            </select></label>
+            <label for="field5"><span>内容描述 <span class="required">*</span></span><textarea name="description" class="textarea-field"></textarea></label>
+            <label><span>物品图片:<span class="required">*</span></span><input type="file" name="file"></label>
+            <label><span>&nbsp;</span><input type="submit" name="submit" value="提交"></label>
+             
+          </form>
+        </div>
+      </div>
+  </div>
+
+  {%include file="$root/template/common/footer.html"%}
+
+  </body>
+</html>

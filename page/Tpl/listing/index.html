@@ -1,57 +1,25 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<link rel="stylesheet" type="text/css" href="/css/main.css">
-	<style type="text/css">
-	@font-face {
-  		font-family: 'Avenir LT 45 Book';
-  		src: url('webfont.eot'); /* IE9 Compat Modes */
-  		src: url('webfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-        url('webfont.woff2') format('woff2'), /* Super Modern Browsers */
-        url('webfont.woff') format('woff'), /* Pretty Modern Browsers */
-        url('/font/Avenir LT 45 Book.ttf')  format('truetype'), /* Safari, Android, iOS */
-        url('webfont.svg#svgFontName') format('svg'); /* Legacy iOS */
-}
-	@font-face {
-  		font-family: 'Avenir LT 95 Black';
-  		src: url('webfont.eot'); /* IE9 Compat Modes */
-  		src: url('webfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-        url('webfont.woff2') format('woff2'), /* Super Modern Browsers */
-        url('webfont.woff') format('woff'), /* Pretty Modern Browsers */
-        url('/font/Avenir LT 95 Black.ttf')  format('truetype'), /* Safari, Android, iOS */
-        url('webfont.svg#svgFontName') format('svg'); /* Legacy iOS */
-}
-	@font-face {
-  		font-family: 'Avenir LT 35 Light';
-  		src: url('webfont.eot'); /* IE9 Compat Modes */
-  		src: url('webfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-        url('webfont.woff2') format('woff2'), /* Super Modern Browsers */
-        url('webfont.woff') format('woff'), /* Pretty Modern Browsers */
-        url('/font/Avenir LT 35 Light.ttf')  format('truetype'), /* Safari, Android, iOS */
-        url('webfont.svg#svgFontName') format('svg'); /* Legacy iOS */
-}
-	</style>
+	<title>Wow Kitchen & Bath</title>
+  	<link rel="shortcut icon" type="image/x-icon" href="/image/favicon.ico">
+  	<link rel="stylesheet" type="text/css" href="../../../template/common/css/common.css">
+  	<link rel="stylesheet" type="text/css" href="../../page/css/page.css">
+  
 </head>
 <body>
-	<div id="navbar">
-		<div id="nav_logo">
-			<img id="nav_logo_pic" src="/image/logo.png">
-		</div>
-		<div id="nav_sign">
-			<a href="/account/account.php?act=register"><div id="nav_register">Register</div></a>
-			<a href="/account/account.php?act=login"><div id="nav_signup">Log In</div></a>
-		</div>
-	</div>
+
+{%include file="$root/template/common/navbar.html"%}
 
 	<div id="header">
 		
 		<div id="header_title">
 			<div id="header_titlet">Customize </br>Your </br>Dream Home</div>
 			<div id="header_titlep">Register to get your customized design from our best designers today.</div>
-			<a href="/account/account.php?act=login"><div id="header_titleb">Sign up</div></a>
+			<a href="#"><div id="header_titleb">Sign up</div></a>
 		</div>
 		<div id="header_bg">
-			<img id="header_img" src="/image/header.jpg">
+			<img id="header_img" src="../../image/header.jpg">
 		</div>
 
 	</div>
@@ -68,7 +36,7 @@
 	<section id="service_intro">
 		<div class="service_left">
 			<div class="service_pic">
-				<img class="service_intro_pic" src="/image/p1.jpg">
+				<img class="service_intro_pic" src="../../image/p1.jpg">
 			</div>
 			<div class="service_row_blank"></div>
 			<div class="service_word">
@@ -88,7 +56,7 @@
 			</div>
 			<div class="service_row_blank"></div>
 			<div class="service_pic">
-				<img class="service_intro_pic" src="/image/p2.jpg">
+				<img class="service_intro_pic" src="../../image/p2.jpg">
 			</div>
 		</div>
 
@@ -96,7 +64,7 @@
 
 		<div class="service_left">
 			<div class="service_pic">
-				<img class="service_intro_pic" src="/image/p3.jpg">
+				<img class="service_intro_pic" src="../../image/p3.jpg">
 			</div>
 			<div class="service_row_blank"></div>
 			<div class="service_word">
@@ -109,6 +77,96 @@
 
 	<div class="blank_150"></div>
 
+	<section class="design">
+
+		<div class="design_project">
+			<img class="project_img" src="../../image/project1.png">
+			<div class="project_title">American Style Kitchen
+				<div class="design_main_subtitle">
+            <img class="subtitle_icon1" src="../../image/see.png">
+            <div class="icon_title">234</div>
+            <img class="subtitle_icon2" src="../../image/like.png">
+            <div class="icon_title">12</div>
+          </div>
+			</div>
+		</div>
+
+		<div class="design_project_blank"></div>
+
+		<div class="design_project">
+			<img class="project_img" src="../../image/project2.png">
+			<div class="project_title">Europe Style Kitchen
+				<div class="design_main_subtitle">
+            <img class="subtitle_icon1" src="../../image/see.png">
+            <div class="icon_title">234</div>
+            <img class="subtitle_icon2" src="../../image/like.png">
+            <div class="icon_title">12</div>
+          </div>
+			</div>
+		</div>
+
+		<div class="design_project_blank"></div>
+
+		<div class="design_project">
+		<img class="project_img" src="../../image/project3.png">
+		<div class="project_title">Chinese Style Kitchen
+			<div class="design_main_subtitle">
+            <img class="subtitle_icon1" src="../../image/see.png">
+            <div class="icon_title">234</div>
+            <img class="subtitle_icon2" src="../../image/like.png">
+            <div class="icon_title">12</div>
+          </div>
+		</div>
+	</div>
+
+	</section>
+	<div class="blank_100"></div>
+	<section class="design">
+
+		<div class="design_project">
+			<img class="project_img" src="../../image/t1.jpg">
+			<div class="project_title">American Style Kitchen
+				<div class="design_main_subtitle">
+            <img class="subtitle_icon1" src="../../image/see.png">
+            <div class="icon_title">234</div>
+            <img class="subtitle_icon2" src="../../image/like.png">
+            <div class="icon_title">12</div>
+          </div>
+			</div>
+		</div>
+
+		<div class="design_project_blank"></div>
+
+		<div class="design_project">
+			<img class="project_img" src="../../image/t2.jpg">
+			<div class="project_title">Europe Style Kitchen
+				<div class="design_main_subtitle">
+            <img class="subtitle_icon1" src="../../image/see.png">
+            <div class="icon_title">234</div>
+            <img class="subtitle_icon2" src="../../image/like.png">
+            <div class="icon_title">12</div>
+          </div>
+			</div>
+		</div>
+
+		<div class="design_project_blank"></div>
+
+		<div class="design_project">
+		<img class="project_img" src="../../image/t3.jpg">
+		<div class="project_title">Chinese Style Kitchen
+			<div class="design_main_subtitle">
+            <img class="subtitle_icon1" src="../../image/see.png">
+            <div class="icon_title">234</div>
+            <img class="subtitle_icon2" src="../../image/like.png">
+            <div class="icon_title">12</div>
+          </div>
+		</div>
+	</div>
+
+	</section>
+
+	<div class="blank_150"></div>
+
 	<section id="process_price">
 		<div class="blank_100"></div>
 		<div id="process">
@@ -117,25 +175,25 @@
 			<div id="process_content">
 				<div class="process_step">
 					<div class="process_icon">
-						<img class="process_icon_pic" src="/image/icon1.png">
+						<img class="process_icon_pic" src="../../image/icon1.png">
 					</div>
 					<div class="process_descript">Register free to begin</div>
 				</div>
 				<div class="process_step">
 					<div class="process_icon">
-						<img class="process_icon_pic" src="/image/icon2.png">
+						<img class="process_icon_pic" src="../../image/icon2.png">
 					</div>
 					<div class="process_descript">Find your favourite plan or designer</div>
 				</div>
 				<div class="process_step">
 					<div class="process_icon">
-						<img class="process_icon_pic" src="/image/icon3.png">
+						<img class="process_icon_pic" src="../../image/icon3.png">
 					</div>
 					<div class="process_descript">Tell designers directly about your need</div>
 				</div>
 				<div class="process_step">
 					<div class="process_icon">
-						<img class="process_icon_pic" src="/image/icon4.png">
+						<img class="process_icon_pic" src="../../image/icon4.png">
 					</div>
 					<div class="process_descript">Designer customize the design just for you</div>
 				</div>
@@ -143,100 +201,9 @@
 		</div>
 
 		<div class="blank_100"></div>
-
-		<div id="price">
-			<div class="price_box">
-				<div class="price_box_title">Consutling Service</div>
-				<div class="price_box_price1">Free</div>
-				<div class="price_box_content">
-					<ul class="price_box_list">
-						<li>Project Analysis</li>
-						<li>Budget Planning</li>
-						<li>Floor Plan</li>
-						<li>Space Layout Design</li>
-						<li>Product Purchase Consulting</li>
-						<li>Construction Services Consulting</li>
-					</ul>
-				</div>
-				<div class="price_box_button">Start</div>
-			</div>
-
-			<div class="price_box_blank"></div>
-
-			<div class="price_box">
-				<div class="price_box_title">Designer Service</div>
-				<div class="price_box_price1"><span id="price_little">Start from </span>$1/sf</div>
-				<div class="price_box_content">
-					<ul class="price_box_list">
-						<li>Home Measurement Services</li>
-						<li>Floor Plan</li>
-						<li>Construction Plan</li>
-						<li>Planar Perspective Plan</li>
-						<li>360 Degree Panorama</li>
-						<li>VR Scene graph</li>
-					</ul>
-				</div>
-				<div class="price_box_button">Satrt</div>
-			</div>
-
-			<div class="price_box_blank"></div>
-
-			<div class="price_box">
-				<div class="price_box_title">Private Personalized Service</div>
-				<div class="price_box_price2">Based on service</div>
-				<div class="price_box_content">
-					<ul class="price_box_list">
-						<li>Home Measurement Services</li>
-						<li>Floor Plan</li>
-						<li>Construction plan</li>
-						<li>360 degree Panorama</li>
-						<li>Supplier Sourcing Services</li>
-						<li>Construction Service</li>
-					</ul>
-				</div>
-				<div class="price_box_button">Start</div>
-			</div>
-
-		</div>
-
-		<div class="blank_100"></div>
-
 	</section>
 
-	<div id="bottombar">
-		<div class="bottom_content">
-			<div class="bottom_link">
-				<div class="bottom_link_line">
-					<ul class="bottom_list">
-						<li>Company</li>
-						<li>Help</li>
-						<li>Media</li>
-					</ul>
-				</div>
-
-				<div class="bottom_blank"></div>
-
-				<div class="bottom_link_line">
-					<ul class="bottom_list">
-						<li>Cooperation</li>
-						<li>Term of Service</li>
-						<li>Privacy and Security</li>
-					</ul>
-				</div>
-
-				<div class="bottom_blank"></div>
-
-				<div class="bottom_link_line">
-					<ul class="bottom_list">
-						<li>Hiring</li>
-						<li>App</li>
-						<li>Contact</li>
-					</ul>
-				</div>
-			</div>
-			<div class="bottom_share"></div>
-		</div>
-	</div>
+{%include file="$root/template/common/footer.html"%}
 </body>
 </html>
 
