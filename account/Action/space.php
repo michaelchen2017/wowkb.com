@@ -268,6 +268,7 @@ class space extends Action{
 			$res_arr = array(
 					"designer"=> $_POST['designer'],
 					"title"  => $_POST['title'],
+					"company" => "null",
 					"description" => $_POST['description'],
 					"size" => $_POST['size'],
 					"pic_path" => $pic_path,
