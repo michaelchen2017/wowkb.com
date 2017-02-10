@@ -207,6 +207,10 @@
 	margin-top: 20px;
 	background-color: #fff;
 }
+#select_product_pic{
+	width: 80px;
+	height: 60px;
+}
 #design_pic{
 	width:160px;
 	height: 120px;
@@ -232,6 +236,7 @@ td{
 	color:#383838;
 	background-color: #fff;
 	border-bottom: 1px solid #dddddd;
+	text-align: center;
 }
 tr:nth-child(even) {
     background-color: #fff;
@@ -318,4 +323,18 @@ tr:nth-child(even) {
 .form-style-2 input[type=button]:hover{
     background: #EA7B00;
     color: #fff;
+}
+#select_product_title{
+	margin-top: 20px;
+	margin-bottom: 20px;
+	color: orange;
+}
+#selected{
+	width: 120px;
+	padding: 16px;
+	background-color: orange;
+	margin-top: 60px;
+/*	margin-bottom: 20px;*/
+	color: #fff;
+	text-align: center;
 }

@@ -68,17 +68,19 @@ img{
 	height: 60px;
 }
 #body{
+   min-height: 800px;
    background-color: #ebebeb;
    padding-top: 100px;
    padding-bottom: 100px;
+   border: 0px solid red;
 }
 #body_dash{
    background-color: #ebebeb;
-   padding-bottom: 0px;
+
 }
 #container{
    width:1280px;
-   padding-bottom: 200px;
+/*   padding-bottom: 200px;*/
    margin-left: auto;
    margin-right: auto;
    border: 0px solid green;
@@ -111,6 +113,7 @@ img{
 	height:60px;
 	border:0px solid red;
 	position: fixed;
+	top: 0;
 	background-color: #fff;
 	border-bottom: 1px solid #ebebeb;
 	z-index: 99;
@@ -247,13 +250,14 @@ img{
 #bottombar{
 	min-width: 1200px;
 	height:200px;
-	background-color: grey;
+/*	background-color: grey;*/
+    border-top: 1px solid #d5d5d5;
 	z-index: 2;
 	position: absolute;
     right: 0;
     bottom: 0;
     left: 0;
-    padding-bottom: 1rem;
+/*    padding-bottom: 1rem;*/
 }
 .bottom_content{
 	width: 85%;
