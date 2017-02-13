@@ -70,14 +70,47 @@ class view extends Action{
 			$zuopin_materials[$i] = $product;
 		}
 		
-// 		debug::d($res);
-// 		debug::d($zuopin_materials);
-// 		exit;
 		
 		$this->assign("res", $res);
 		$this->assign("zuopin_materials", $zuopin_materials);
 		
 		
+	}
+	
+	function ACT_download(){
+		if(isset($_GET['id']) && !empty($_GET['id'])){
+			$res = $this->obj_zuopin->getOne("*", array("pk_id"=>$_GET['id'], "visible"=>1));
+			$file_path = $res['pic_path'];
+			$fullPath = DOCUROOT . $file_path;
+		}
+		else {
+			go("/");
+		}
+		
+		if ($fd = fopen ($fullPath, "r")) {
+			$fsize = filesize($fullPath);
+			$path_parts = pathinfo($fullPath);
+			$ext = strtolower($path_parts["extension"]);
+			switch ($ext) {
+				case "pdf":
+					header("Content-type: application/pdf");
+					header("Content-Disposition: attachment; filename=\"".$path_parts["basename"]."\""); // use 'attachment' to force a file download
+					break;
+					// add more headers for other content types here
+				default;
+				header("Content-type: application/octet-stream");
+				header("Content-Disposition: filename=\"".$path_parts["basename"]."\"");
+				break;
+			}
+			header("Content-length: $fsize");
+			header("Cache-control: private"); //use this to open files directly
+			while(!feof($fd)) {
+				$buffer = fread($fd, 2048);
+				echo $buffer;
+			}
+		}
+		fclose ($fd);
+		exit;
 	}
 	
 	function ACT_product_detail(){
