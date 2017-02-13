@@ -74,7 +74,6 @@ class view extends Action{
 		$this->assign("res", $res);
 		$this->assign("zuopin_materials", $zuopin_materials);
 		
-		
 	}
 	
 	function ACT_download(){
