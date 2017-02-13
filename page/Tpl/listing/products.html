@@ -64,22 +64,22 @@
 
       <div class="mainArea">
           <div class="row">
-              
+              {%foreach from=$res key=i item=value%}
               <div class="single">
                 <div class="productPic">
                   <button id="heart">收藏</button>
-                  <a href="product_detail.html">
-                  <img src="../../image/p1.png"></a>
+                  <a href="/page/view.php?act=product_detail&id={%$value['item_id']|default:''%}">
+                  <img src="{%$value['pic_path']|default:''%}"></a>
                 </div>
                 <a href="product_detail.html">
                 <div class="productIntro">
-                  <div class="productName">厨房高脚旋转椅</div>
-                  <div class="productBrand">By Create & Barrel</div>
-                  <div class="productPrice">$127</div>
+                  <div class="productName">{%$value['description']|default:''%}</div>
+                  <div class="productBrand">{%$value['brand']|default:''%}</div>
+                  <div class="productPrice">${%$value['price']|default:''%}</div>
                 </div></a>
               </div>
-
-              <div class="single_rowgap"></div>
+              {%/foreach%}
+              
               <div class="single">
                 <div class="productPic">
                   <button id="heart">收藏</button>
