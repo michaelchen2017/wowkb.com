@@ -5,6 +5,9 @@ class view extends Action{
 	public $post_comments_obj;
 	public $username_obj;
 	public $obj_zuopin;
+	public $obj_zuopin_material;
+	public $obj_product;
+	public $obj_product_zuopins;
 	
 	function __construct(){
 		parent::__construct();
@@ -14,6 +17,10 @@ class view extends Action{
 		$this->post_comments_obj = load("page_postComments");
 		$this->username_obj = load("account_metaUser");
 		$this->obj_zuopin = load("account_zuopin");
+		$this->obj_zuopin_material = load("account_zuopin_material");
+		
+		$this->obj_product = load("account_material");
+		$this->obj_product_zuopins = load("account_zuopin_material");
 		//handle userid login
 		$userid = isset($_SESSION['userid'])?$_SESSION['userid']:"";
 		$this->assign("userid", $userid);
@@ -48,12 +55,53 @@ class view extends Action{
 	
 	function ACT_design_detail(){
 		$id = $_GET['id'];
+		if(empty($id))
+		{
+			go("/");
+		}
 		$res = $this->obj_zuopin->getOne("*", array("pk_id"=>$id, "visible"=>1));
+		
+		$zuopin_material_ids = $this->obj_zuopin_material->getAll("*", array("fk_zid" => $id, "visible"=>1));
+		
+		$zuopin_materials = array();
+		
+		foreach ($zuopin_material_ids as $i => $val){
+			$product = $this->obj_product->getOne("*", array("item_id"=>$val['fk_item_id'], "visible"=>1));
+			$zuopin_materials[$i] = $product;
+		}
+		
+// 		debug::d($res);
+// 		debug::d($zuopin_materials);
+// 		exit;
+		
 		$this->assign("res", $res);
+		$this->assign("zuopin_materials", $zuopin_materials);
+		
 		
 	}
 	
 	function ACT_product_detail(){
+		$id = $_GET['id'];
+		if(empty($id)){
+			go("/");
+		}
+		
+		$res = $this->obj_product->getOne("*", array("item_id"=>$id, "visible"=>1));
+		$product_zuopin_ids = $this->obj_product_zuopins->getAll("*", array("fk_item_id"=>$res['item_id'], "visible"=>1));
+		
+		$product_zuopins = array();
+		foreach ($product_zuopin_ids as $i => $val){
+			$zuopin = $this->obj_zuopin->getOne("*", array("pk_id"=>$val["fk_zid"], "visible"=>1));
+			$product_zuopins[$i] = $zuopin;
+			
+		}
+		
+// 		debug::d($res);
+// 		debug::d($product_zuopins);
+// 		exit;
+		
+		$this->assign("res", $res);
+		$this->assign("product_zuopins", $product_zuopins);
 		
 	}
 	

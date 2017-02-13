@@ -3,7 +3,8 @@ class space extends Action{
 	public $obj_user;
 	public $obj_panos;
 	public $obj_zuopin;
-	
+	public $obj_zuopin_materials;
+	public $obj_materials;
 	
 	function __construct() {
 		parent::__construct();
@@ -11,6 +12,9 @@ class space extends Action{
 		$this->obj_user = load("account_users");
 		$this->obj_panos = load("account_panos");
 		$this->obj_zuopin = load("account_zuopin");
+		$this->obj_materials = load("account_material");
+		$this->obj_zuopin_materials = load("account_zuopin_material");
+		
 		$userid = isset($_SESSION['userid'])?$_SESSION['userid']:"";
 		$this->assign("userid", $userid);
 		
@@ -26,6 +30,7 @@ class space extends Action{
 				$flag = false;
 				go("/");
 			}
+		
 			$this->assign("flag", $flag);
 			
 			$userid = $_GET['id'];
@@ -218,11 +223,10 @@ class space extends Action{
 	function ACT_zuopin_post(){
 		$user_type = "designer";
 		$this->assign("user_type", $user_type);
-// 		debug::d($_POST); debug::d($_FILES);exit;
+
 		if(isset($_POST) && !empty($_POST['title'])){
 			$target_dir = DOCUROOT . "/image/material/";
-// 			$target_file = $target_dir . basename($_FILES["file"]["name"]);
-			
+
 			$imageFileType = pathinfo($_FILES["file"]["name"],PATHINFO_EXTENSION);
 		
 			$imageFileType = strtolower($imageFileType);
@@ -242,7 +246,7 @@ class space extends Action{
 					if ($_FILES["file"]["size"] > 5000000) {
 						//echo "Sorry, your file is too large.";
 						$uploadOk = 0;
-					}
+					} 
 					// Allow certain file formats
 					$file_type = "图片";
 					if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
@@ -280,16 +284,48 @@ class space extends Action{
 					"final_sum" => $_POST['final_sum'],
 			);
 // 			debug::d($res_arr);exit;
-			$this->obj_zuopin->insert($res_arr);
-			$res_id = $this->obj_zuopin->getOne("*", array("pic_path"=>$pic_path, "visible"=>1));
-			$pk_id = $res_id['pk_id'];
+			$pk_id = $this->obj_zuopin->insert($res_arr);
+// 			debug::d($resid);exit;
+// 			$res_id = $this->obj_zuopin->getOne("*", array("pic_path"=>$pic_path, "visible"=>1));
+// 			$pk_id = $res_id['pk_id'];
 			
-			go('/account/space.php?act=zuopin_preview&id='.$pk_id);
+// 			go('/account/space.php?act=zuopin_preview&id='.$pk_id);
+			go("/account/space.php?act=designer_upload_select&id=".$pk_id);
 		}
 		
 		else {
 			go("/");
 		}
+	}
+	
+	function ACT_designer_upload_select(){
+		if(isset($_GET['id']) && empty($_GET['id'])){
+			go("/");
+		}
+		$res = $this->obj_materials->getAll("*", array("visible"=>1));
+		$pk_id = $_GET['id'];
+		
+		$this->assign("res", $res);
+		$this->assign("pk_id", $pk_id);
+		
+		
+	}
+	
+	function ACT_designer_upload_select_process(){
+// 		if(isset($_GET['id']) && empty($_GET['id'])){
+// 			go("/");
+// 		}
+		$pk_id = $_POST['pk_id'];
+		foreach ($_POST['check_list'] as $selected){
+			$post_arr = array(
+				"fk_item_id" => $selected,
+				"fk_zid" => $pk_id
+			);
+			
+			$this->obj_zuopin_materials->insert($post_arr);
+		}
+		
+		go('/account/space.php?act=zuopin_preview&id='.$pk_id);
 	}
 	
 	function ACT_zuopin_modify(){

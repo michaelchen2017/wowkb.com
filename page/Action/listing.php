@@ -3,6 +3,7 @@ class listing extends Action{
 	public $obj_panos;
 	public $obj_posts;
 	public $obj_zuopin;
+	public $obj_products;
 	
 	function __construct(){
 		parent::__construct();
@@ -10,6 +11,7 @@ class listing extends Action{
 		$this->obj_panos = load("account_panos");
 		$this->obj_posts = load("account_posts");
 		$this->obj_zuopin = load("account_zuopin");
+		$this->obj_products = load("account_material");
 		
 		
 		//$_SESSION ['UserLevel'] = 6; //模拟管理登录，用于debug
@@ -38,7 +40,8 @@ class listing extends Action{
 	}
 	
 	function ACT_products(){
-		
+		$res = $this->obj_products->getAll("*", array("visible"=>1) );
+		$this->assign("res", $res);
 	}
 	
 // 	function ACT_search(){

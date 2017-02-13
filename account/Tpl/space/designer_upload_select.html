@@ -2,7 +2,7 @@
 <html>
 <head>
   <title>Wow Kitchen & Bath</title>
-  <link rel="shortcut icon" type="image/x-icon" href="image/favicon.ico">
+  <link rel="shortcut icon" type="image/x-icon" href="/image/favicon.ico">
   <link rel="stylesheet" type="text/css" href="../../../template/common/css/common.css">
   <link rel="stylesheet" type="text/css" href="../../account/css/account.css">
 </head>
@@ -17,7 +17,9 @@
     <div id="admin_main">
         <div class="productLink topspace"><a href="designer_manage.html">管理作品</a>/<a href="designer_upload.html">上传设计作品</a>/选择使用物料</div>
         <div id="select_product_title">请选择设计作品中使用到的物料</div>
+        <form action="/account/space.php?act=designer_upload_select_process" method="post">
         <table id="productList">
+      
         <tr>
           <th><input id="toggle" type="checkbox"></th>
           <th>图片</th>
@@ -27,107 +29,25 @@
           <th>价格</th>
           <th>内容描述</th>
         </tr>
+         
+         
+         {%foreach from=$res key=k item=value %} 
         <tr>
-          <td><input id="toggle" type="checkbox"></td>
-          <td><img id="select_product_pic" src="../../image/p1.png"></td>
-          <td>椅子</td>
-          <td>CHair</td>
-          <td>CH3242</td>
-          <td>$234</td>
-          <td>Made from Germany</td>
+          <td><input id="toggle" type="checkbox" name="check_list[]" value="{%$value['item_id']|default:''%}"></td>
+          <td><img id="select_product_pic" src="{%$value['pic_path']|default:''%}"></td>
+          <td>{%$value['category']|default:''%}</td>
+          <td>{%$value['brand']|default:''%}</td>
+          <td>{%$value['projno_name']|default:''%}</td>
+          <td>${%$value['price']|default:''%}</td>
+          <td>{%$value['description']|default:''%}</td>
         </tr>
-        <tr>
-          <td><input id="toggle" type="checkbox"></td>
-          <td><img id="select_product_pic" src="../../image/p2.png"></td>
-          <td>椅子</td>
-          <td>CHair</td>
-          <td>CH3242</td>
-          <td>$234</td>
-          <td>Made from Germany</td>
-        </tr>
-        <tr>
-          <td><input id="toggle" type="checkbox"></td>
-          <td><img id="select_product_pic" src="../../image/p2.png"></td>
-          <td>椅子</td>
-          <td>CHair</td>
-          <td>CH3242</td>
-          <td>$234</td>
-          <td>Made from Germany</td>
-        </tr>
-        <tr>
-          <td><input id="toggle" type="checkbox"></td>
-          <td><img id="select_product_pic" src="../../image/p2.png"></td>
-          <td>椅子</td>
-          <td>CHair</td>
-          <td>CH3242</td>
-          <td>$234</td>
-          <td>Made from Germany</td>
-        </tr>
-        <tr>
-          <td><input id="toggle" type="checkbox"></td>
-          <td><img id="select_product_pic" src="../../image/p2.png"></td>
-          <td>椅子</td>
-          <td>CHair</td>
-          <td>CH3242</td>
-          <td>$234</td>
-          <td>Made from Germany</td>
-        </tr>
-        <tr>
-          <td><input id="toggle" type="checkbox"></td>
-          <td><img id="select_product_pic" src="../../image/p2.png"></td>
-          <td>椅子</td>
-          <td>CHair</td>
-          <td>CH3242</td>
-          <td>$234</td>
-          <td>Made from Germany</td>
-        </tr>
-        <tr>
-          <td><input id="toggle" type="checkbox"></td>
-          <td><img id="select_product_pic" src="../../image/p2.png"></td>
-          <td>椅子</td>
-          <td>CHair</td>
-          <td>CH3242</td>
-          <td>$234</td>
-          <td>Made from Germany</td>
-        </tr>
-        <tr>
-          <td><input id="toggle" type="checkbox"></td>
-          <td><img id="select_product_pic" src="../../image/p2.png"></td>
-          <td>椅子</td>
-          <td>CHair</td>
-          <td>CH3242</td>
-          <td>$234</td>
-          <td>Made from Germany</td>
-        </tr>
-        <tr>
-          <td><input id="toggle" type="checkbox"></td>
-          <td><img id="select_product_pic" src="../../image/p2.png"></td>
-          <td>椅子</td>
-          <td>CHair</td>
-          <td>CH3242</td>
-          <td>$234</td>
-          <td>Made from Germany</td>
-        </tr>
-        <tr>
-          <td><input id="toggle" type="checkbox"></td>
-          <td><img id="select_product_pic" src="../../image/p2.png"></td>
-          <td>椅子</td>
-          <td>CHair</td>
-          <td>CH3242</td>
-          <td>$234</td>
-          <td>Made from Germany</td>
-        </tr>
-        <tr>
-          <td><input id="toggle" type="checkbox"></td>
-          <td><img id="select_product_pic" src="../../image/p2.png"></td>
-          <td>椅子</td>
-          <td>CHair</td>
-          <td>CH3242</td>
-          <td>$234</td>
-          <td>Made from Germany</td>
-        </tr>
+        {%/foreach%}
+        <input type="hidden" name="pk_id" value="{%$pk_id|default:''%}">
+        <input type="submit" name="submit" value="提交">
+       
       </table>
-      <a href="#"><div id="selected" href="#">提交</div></a>
+       </form>
+      <!-- <a href="#"><div id="selected" href="#">提交</div></a> -->
     </div>
     
   </div>

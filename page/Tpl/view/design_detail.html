@@ -29,31 +29,13 @@
     <div id="design_related">
       <div id="related_name">相关物料</div>
       <div id="related_content">
+       {%foreach from=$zuopin_materials key=k item=value %} 
         <div class="related_content_project">
-          <div id="related_pic"><img src="../../image/t1.jpg"></div>
-          <div id="related_title">xx橱柜</div>
-          <div id="related_price">$125</div>
+          <div id="related_pic"><a href="/page/view.php?act=product_detail&id={%$value['item_id']|default:''%}" ><img src="{%$value['pic_path']|default:''%}"></a></div>
+          <div id="related_title">{%$value['brand']|default:''%}</div>
+          <div id="related_price">${%$value['price']|default:''%}</div>
         </div>
-        <div class="related_content_project">
-          <div id="related_pic"><img src="../../image/t2.jpg"></div>
-          <div id="related_title">XXX水槽</div>
-          <div id="related_price">$125</div>
-        </div>
-        <div class="related_content_project">
-          <div id="related_pic"><img src="../../image/t3.jpg"></div>
-          <div id="related_title">XXX冰箱</div>
-          <div id="related_price">$125</div>
-        </div>
-        <div class="related_content_project">
-          <div id="related_pic"><img src="../../image/p1.png"></div>
-          <div id="related_title">XXX门板</div>
-          <div id="related_price">$125</div>
-        </div>
-        <div class="related_content_project">
-          <div id="related_pic"><img src="../../image/p2.png"></div>
-          <div id="related_title">XXX浴室</div>
-          <div id="related_price">$125</div>
-        </div>      
+        {%/foreach%}   
       </div>
     </div>
 
@@ -81,6 +63,7 @@
          <div class="sub_gapline"></div>
         
            <button class="buyButton">预估报价：${%$res['final_sum']|default:''%}</button>
+           <a id="collect" href="#">下载素材</a>
         </div>
       </div>
   </div>

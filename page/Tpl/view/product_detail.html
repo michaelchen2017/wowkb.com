@@ -20,39 +20,21 @@
               <a href="products.html">产品</a>/
               厨房高脚旋转椅
             </div>
-              <img src="../../image/p1.png">
+              <img src="{%$res['pic_path']|default:''%}">
       </div>
     </div>
 
     <div id="design_related">
       <div id="related_name">相关设计作品</div>
       <div id="related_content">
+      {%foreach from=$product_zuopins key=k item=value %} 
         <div class="related_content_project">
-          <div id="related_pic"><img src="../../image/t1.jpg"></div>
-          <div id="related_title">xx美式厨房</div>
-          <div id="related_price">$125</div>
+          <div id="related_pic"><a href="/page/view.php?act=design_detail&id={%$value['pk_id']|default:''%}" ><img src="{%$value['pic_path']|default:''%}"></a></div>
+          <div id="related_title">{%$value['title']|default:''%}</div>
+          <div id="related_price">${%$value['price']|default:''%}</div>
         </div>
-        <div class="related_content_project">
-          <div id="related_pic"><img src="../../image/t2.jpg"></div>
-          <div id="related_title">XXX欧式浴室</div>
-          <div id="related_price">$125</div>
-        </div>
-        <div class="related_content_project">
-          <div id="related_pic"><img src="../../image/t3.jpg"></div>
-          <div id="related_title">XXX欧式厨房</div>
-          <div id="related_price">$125</div>
-        </div>
-        <div class="related_content_project">
-          <div id="related_pic"><img src="../../image/p1.png"></div>
-          <div id="related_title">XXX美式厨房</div>
-          <div id="related_price">$125</div>
-        </div>
-        <div class="related_content_project">
-          <div id="related_pic"><img src="../../image/p2.png"></div>
-          <div id="related_title">XXX美式浴室</div>
-          <div id="related_price">$125</div>
-        </div>
-        
+       
+       {%/foreach%}
       </div>
     </div>
     
@@ -62,10 +44,10 @@
       <div class="sidebar_right">
         <div class="design_sub_content">       
           <div class="design_sub_intro">
-              <div class="productName_detail">厨房高脚旋转椅</div>
-              <div class="productBrand_detail">By Create & Barrel</div>
+              <div class="productName_detail">{%$res['brand']|default:''%}</div>
+              <div class="productBrand_detail">{%$res['designer']|default:''%}</div>
               
-              <div class="productPrice_detail">$127</div>
+              <div class="productPrice_detail">${%$res['price']|default:''%}</div>
               <div class="productStock">in stock</div>
           </div>
          <button class="buyButton">加入购物车</button>
@@ -76,8 +58,7 @@
          <div class="sub_gapline"></div>
          <div class="productIntro_detail">
               产品详情：</br></br>
-              具有良好的性能，木质材料，座椅按照人体工程学，十分舒适。适合厨房、吧台使用。</br>
-              产品编号: CH1224535
+              {%$res['description']|default:''%}
          </div>
       </div>
   </div>
