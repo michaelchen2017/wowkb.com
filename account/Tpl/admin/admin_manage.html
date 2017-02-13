@@ -18,14 +18,14 @@
       <div id="admin_content">
         <a id="admin_edit_button" href="/account/admin.php?act=admin_singleupload">单个上传</a>
         <a id="admin_edit_button" href="/account/admin.php?act=admin_multiupload">批量上传</a>
-        <div class="dropdown">
+     <!--    <div class="dropdown">
           <span>批量编辑</span>
           <div class="dropdown-content">
             <a id="dropdown_list" href="#"><p>修改选中文件名称</p></a>
             <a id="dropdown_list" href="#"><p>修改选中文件品牌</p></a>
             <a id="dropdown_list" href="#"><p>删除选中文件</p></a>
           </div>
-        </div>
+        </div> -->
         <form id="search">
           <input id="admin_search" type="text" name="productname" value="产品名称/项目编号检索">
         </form>
@@ -45,42 +45,28 @@
           <th>文件大小</th>
           <th></th>
         </tr>
+        {%foreach from=$res key=i item=value%}
         <tr>
           <td><input id="toggle" type="checkbox"></td>
-          <td><img id="product_pic" src="../../image/p1.png"></td>
-          <td>121001</td>
-          <td>椅子</td>
-          <td>CHair</td>
-          <td>CH3242</td>
-          <td>$234</td>
-          <td>Made from Germany</td>
-          <td>.png</td>
+          <td><img id="product_pic" src="{%$value['pic_path']|default:''%}"></td>
+          <td>{%$value['item_id']|default:''%}</td>
+          <td>{%$value['category']|default:''%}</td>
+          <td>{%$value['brand']|default:''%}</td>
+          <td>{%$value['projno_name']|default:''%}</td>
+          <td>${%$value['price']|default:''%}</td>
+          <td>{%$value['description']|default:''%}</td>
+          <td>{%$value['file_format']|default:''%}</td>
           <td>图片</td>
-          <td>1.2M</td>
+          <td>{%$value['file_size']|default:''%}</td>
           <td>
-            <a id="edit" href="#">修改</a>
+            <a id="edit" href="/account/admin.php?act=preview&id={%$value['item_id']|default:''%}">修改</a>
             |
-            <a id="delete" href="#" onclick="return del(this)">删除</a>
-          </td>
+            <a id="delete" href="/account/admin.php?act=material_delete&id={%$value['item_id']|default:''%}">删除</a>
+            
+<!--             <input name="del" type="button" id="del" onclick="self.location.href='?act=tpl_del_dynamic_field&amp;sid=20'" value="删除">
+ -->          </td>
         </tr>
-        <tr>
-          <td><input id="toggle" type="checkbox"></td>
-          <td><img id="product_pic" src="../../image/p2.png"></td>
-          <td>121001</td>
-          <td>椅子</td>
-          <td>CHair</td>
-          <td>CH3242</td>
-          <td>$234</td>
-          <td>Made from Germany</td>
-          <td>.png</td>
-          <td>图片</td>
-          <td>1.2M</td>
-          <td>
-            <a id="edit" href="#">修改</a>
-            |
-            <a id="delete" href="#" onclick="return del(this)">删除</a>
-          </td>
-        </tr>
+       {%/foreach%}
       </table>
     </div>
   </div>
