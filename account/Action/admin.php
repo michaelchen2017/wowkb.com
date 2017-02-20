@@ -110,28 +110,40 @@ class admin extends Action{
 						}
 					}
 					$reader = new SpreadsheetReader($target_file);
-		
+
 					foreach ($reader as $i=>$row){
+						
 						$item_id = time() . "_" . $row[2] . "_" . rand(1, 1000);
-						if($i > 7){
+						if($i > 1 && is_numeric($row[0])){
 							$res = array(
 		
 									"item_id"=> $item_id,
 									"created_time"=>time(),
 									"brand"=>$row[1],
-									"projno_name"=>$row[2],
-									"texture"=>$row[3],
-									"size" => $row[4],
-									"description" => $row[6],
-									"price" => $row[7],
+									"project_no"=>$row[2],
+									"name"=>$row[3],
+									"category" => $row[4],
+									"texture" => $row[5],
+									"style" => $row[6],
+									"colour" => $row[7],
+									"w" => $row[8],
+									"h" => $row[9],
+									"d" => $row[10],
+									"weight" => $row[11],
+									"description" => $row[12],
+									"retail_price" => $row[13],
+									"discount_price" => $row[14],
+									"discount_proportion" => $row[15],
+									"stock" => $row[16],
+									"unit" => $row[17]
 		
 							);
-		
+							
 							$this->obj_material->insert($res);
-							go("/admin/admin.php?act=multi_pics");
+							
 						}
 					}
-		
+					go("/admin/admin.php?act=multi_pics");
 						
 		}
 		

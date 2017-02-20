@@ -30,17 +30,18 @@ class account extends Action{
 			)
 		 */
 		if(isset($_POST['register-submit'])){
+			$email = strtolower($_POST['email']);
 			$user_register_info = array(
 					"reg_time" => times::getTime(),
 					"username" => $_POST['username'],
-					"email" => $_POST['email'],
+					"email" => $email,
 					"pswd" => $_POST['password'],
 					"tel" => isset($_POST['gender'])?$_POST['gender']:"",
 					"ip" => http::getIP(),
 					);
 			
 			//debug::d($user_register_info);exit;
-			$if_exist = $this->obj_user->getOne("*", array("email"=>$_POST['email']));
+			$if_exist = $this->obj_user->getOne("*", array("email"=>$email));
 			if(!empty($if_exist)){
 				$error_msg = "该邮件已经注册！请选择其他邮箱，谢谢！";
 				$this->assign("error_msg", $error_msg);
@@ -109,4 +110,65 @@ class account extends Action{
 	function ACT_reset(){
 		
 	}
+	
+// 	function ACT_test(){
+// 		$recipient_mail = "chenzixing2009@gmail.com";
+// 		$recipient = "michael & ginger";
+		
+// 		if($this->sendmail($recipient_mail, $recipient)){
+// 			$res = "mail sent successfully!";
+// 			$this->assign("res", $res);
+// 		}
+// 		else{
+// 			$res = "mail sent unsuccessfully!";
+// 			$this->assign("res", $res);
+// 		}
+// 	}
+	
+	function sendmail($recipient_mail, $recipient){
+		require DOCUROOT . '/phpmailer/PHPMailerAutoload.php';
+		
+		$mail = new PHPMailer;
+		
+		// $mail->SMTPDebug = 3;                               // Enable verbose debug output
+		
+		$mail->isSMTP();                                      // Set mailer to use SMTP
+		$mail->Host = 'smtp.gmail.com';  // Specify main and backup SMTP servers
+		$mail->SMTPAuth = true;                               // Enable SMTP authentication
+		$mail->Username = 'wowjob2017@gmail.com';                 // SMTP username
+		$mail->Password = 'Abc1234567';                           // SMTP password
+		$mail->SMTPSecure = 'tls';                            // Enable TLS encryption, `ssl` also accepted
+		$mail->Port = 587;                                    // TCP port to connect to
+		
+		$mail->setFrom('michael@wowkb.com', 'wowkb admin');
+		// $mail->addAddress('joe@example.net', 'Joe User');     // Add a recipient
+		$mail->addAddress($recipient_mail);               // Name is optional
+		
+		
+		$mail->isHTML(true);                                  // Set email format to HTML
+		
+		// $mail->SMTPOptions = array(
+		// 		'ssl' => array(
+		// 				'verify_peer' => false,
+		// 				'verify_peer_name' => false,
+		// 				'allow_self_signed' => true
+		// 		)
+		// );
+		
+		$mail->Subject = 'Here is the subject: wowkb.com02' . $recipient;
+		$mail->Body    = 'This is the HTML message body <b>in bold!</b>';
+		$mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
+		
+		if(!$mail->send()) {
+			echo 'Message could not be sent.';
+			echo 'Mailer Error: ' . $mail->ErrorInfo;
+			return false;
+		} else {
+			echo 'Message has been sent';
+			
+			return true;
+		}
+	}
+	
+	
 }
