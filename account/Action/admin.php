@@ -136,11 +136,11 @@ class admin extends Action{
 									"discount_proportion" => str_replace('%', '', $row[15]) / 100,
 									"stock" => $row[16],
 									"unit" => $row[17],
-									"price" => "",
-									"file_type" => "",
-									"file_format" => "",
-									"file_size" => "",
-									"pic_path" => "",
+									"price" => "0",
+									"file_type" => "0",
+									"file_format" => "0",
+									"file_size" => "0",
+									"pic_path" => "0",
 		
 							);
 							
