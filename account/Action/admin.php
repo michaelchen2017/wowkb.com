@@ -148,7 +148,7 @@ class admin extends Action{
 							
 						}
 					}
-					go("/admin/admin.php?act=multi_pics");
+					go("/account/admin.php?act=multi_pics");
 						
 		}
 		
@@ -226,7 +226,7 @@ class admin extends Action{
 								);
 	
 								$this->obj_material->update($update_pic, array("item_id"=>$res_pic['item_id'], "visible"=>1));
-								go("/admin/admin.php?act=multi_preview");
+								go("/account/admin.php?act=multi_preview");
 									
 							} else {
 								//echo "Sorry, there was an error uploading your file.";
