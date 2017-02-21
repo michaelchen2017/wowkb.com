@@ -161,16 +161,17 @@ class admin extends Action{
 	function ACT_multipics_process(){
 	
 		if(isset($_POST) && !empty($_POST['submit'])){
-			// 			debug::d($_FILES["files"]["name"]); exit;
+// 						debug::d($_FILES["files"]["name"]); exit;
 			foreach ($_FILES["files"]["name"] as $i => $value){
 				// 						        debug::d($_FILES["files"]["name"]);exit;
 				$file_extension = pathinfo($value,PATHINFO_EXTENSION);
 				$target_dir = DOCUROOT . "/upload/images/";
 	
 				$files = explode(".", $_FILES["files"]["name"][$i]);
+				debug::d($files);
 	
-				$res_pic = $this->obj_material->getOne("*", array("projno_name"=>$files[0], "visible"=>1, "status"=>"pending"));
-				// 				debug::d($res_pic);exit;
+				$res_pic = $this->obj_material->getOne("*", array("project_no"=>$files[0], "visible"=>1, "status"=>"pending"));
+// 							debug::d($res_pic);exit;
 				if(!isset($res_pic) || empty($res_pic['item_id'])){
 					continue;
 				}
@@ -226,7 +227,7 @@ class admin extends Action{
 								);
 	
 								$this->obj_material->update($update_pic, array("item_id"=>$res_pic['item_id'], "visible"=>1));
-								go("/account/admin.php?act=multi_preview");
+								
 									
 							} else {
 								//echo "Sorry, there was an error uploading your file.";
@@ -235,8 +236,16 @@ class admin extends Action{
 						//go("/account/space.php?id={$_POST['userid']}");
 							
 			}//foreach
+			go("/account/admin.php?act=multi_preview");
 		}
 	}
+	
+	function ACT_multi_preview(){
+		$res = $this->obj_material->getList("*", array("status"=>"pending", "visible"=>1, "order"=>array("created_time"=>'DESC')));
+		// 		debug::d($res);exit;
+		$this->assign("res", $res);
+	}
+	
 	
 	function ACT_admin_singleupload(){
 		$user_type = "admin";
