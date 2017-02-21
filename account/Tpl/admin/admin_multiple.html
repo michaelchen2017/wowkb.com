@@ -2,12 +2,24 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Wow Kitchen & Bath</title>
+<link rel="shortcut icon" type="image/x-icon" href="/image/favicon.ico">
+<link rel="stylesheet" type="text/css" href="../../../template/common/css/common.css">
+<link rel="stylesheet" type="text/css" href="../../account/css/admin.css">
 </head>
 <body>
-<form method="post" action="/account/admin.php?act=admin_multiupload" enctype="multipart/form-data">
-<input type="file" id="file" name="file"  />
-<input type="submit" name="submit" value="提交">
-</form>
+{%include file="$root/template/common/navbar.html"%}
+<div id="body_dash">
+    {%include file="$root/template/common/sidebar.html"%}
+    <div id="admin_main">
+      <div class="productLink topspace"><a href="admin_manage.html">管理物料</a>/批量上传</div>
+        <div id="admin_upload">
+			<form method="post" action="/account/admin.php?act=admin_multiupload" enctype="multipart/form-data">
+				<input type="file" class="custom-file-upload" id="file" name="file" />
+				<input type="submit" id="multi_submit" name="submit" value="提交">
+			</form>
+		</div>
+	</div>
+</div>
 </body>
 </html>

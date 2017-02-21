@@ -58,7 +58,7 @@ li{
 }
 a{
 	text-decoration: none !important;
-	color: #343434 !important;
+	color: #343434;
 }
 img{
 	width: 100%;
@@ -354,4 +354,18 @@ img{
 .page_display{
 	display: inline-block;
 	vertical-align: top;
+	border: 0px solid red;
+	background-color: #a6ceed;
+	padding: 8px;
+	margin: 6px;
+	color: #fff !important;
+}
+.page_display_choose{
+	display: inline-block;
+	vertical-align: top;
+	border: 0px solid red;
+	background-color: #499ad8;
+	padding: 8px;
+	margin: 6px;
+	color: #fff !important;
 }

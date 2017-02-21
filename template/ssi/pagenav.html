@@ -5,12 +5,12 @@
 			<!--Prev-->
 			{%if $pagenav.prevgroup!=''%}
 			<li class="page_display">
-				<a href="{%$pagenav.prevgroup%}" title="Prev {%$pagenav.group%} page"><span style="font-family:Tahoma"><<</span></a>
+				<a href="{%$pagenav.prevgroup%}" title="Prev {%$pagenav.group%} page"><span style="color:#fff"><<</span></a>
 			</li>
 			{%/if%} 
 			{%if $pagenav.prevpage!=''%}
 			<li class="page_display">
-				<a href="{%$pagenav.prevpage%}" class="tishilink" title="Prev"><span style="font-family:Tahoma">上一页</span></a>
+				<a href="{%$pagenav.prevpage%}" class="tishilink" title="Prev"><span style="color:#fff">上一页</span></a>
 			</li>
 			{%/if%} 
 	
@@ -18,11 +18,11 @@
 			{%foreach from=$pagenav.eachpage item=vol%}
 			{%if $vol[1]!=""%}
 			<li class="page_display">
-				<a href="{%$vol[1]%}" class="tishilink">{%$vol[0]%}</a>
+				<a href="{%$vol[1]%}" class="tishilink"><span style="color:#fff">{%$vol[0]%}</span></a>
 			</li>
 			{%else%}
-			<li class="page_display">
-				<span><strong style="color:black">{%$vol[0]%}</strong></span>
+			<li class="page_display_choose">
+				<span><strong>{%$vol[0]%}</strong></span>
 			</li>
 			{%/if%}
 		{%/foreach%}
@@ -30,12 +30,12 @@
 	<!--Next-->
 		{%if $pagenav.nextpage!=''%}
 			<li class="page_display">
-				<a href="{%$pagenav.nextpage%}" class="tishilink" title="Next"><span style="font-family:Tahoma">下一页</span></a>
+				<a href="{%$pagenav.nextpage%}" class="tishilink" title="Next"><span style="color:#fff">下一页</span></a>
 			</li>
 		{%/if%}
 		{%if $pagenav.nextgroup!=''%}
 			<li class="page_display">
-				<a href="{%$pagenav.nextgroup%}" class="tishilink" title="Next {%$pagenav.group%} Page"><span style="font-family:Tahoma">>></span></a>
+				<a href="{%$pagenav.nextgroup%}" class="tishilink" title="Next {%$pagenav.group%} Page"><span style="color:#fff">>></span></a>
 			</li>
 		{%/if%}
 		{%/if%}

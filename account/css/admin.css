@@ -1,3 +1,4 @@
+
 .admin_total{
 	background-color: #fff;
 	width: 260px;
@@ -59,12 +60,12 @@
    border: none;
    border-bottom: solid 0px grey;
    padding: 9px 10px 9px 32px;
-   height: 40px;
+   height: 42px;
    width: 300px;
 }
 #search{
 	display: inline-block;
-	margin-left: 296px;
+	margin-left: 10px;
 	vertical-align: top;
 	margin-top: -8px;
 }
@@ -104,12 +105,14 @@ th{
 	color: #fff;
 	padding-top: 20px;
 	padding-bottom: 20px;
-	font-size: 13px;
+	font-size: 14px;
+	min-width: 80px;
 }
 td{
     text-align: left;
-    padding-left: 8px;
-    padding-right: 8px;
+    padding-left: 10px;
+    text-align: center;
+    padding-right: 10px;
     padding-top: 14px;
 	padding-bottom: 14px;
 	font-size: 13px;
@@ -128,6 +131,10 @@ tr:nth-child(even) {
 #product_pic{
 	width:60px;
 	height: 60px;
+}
+.product_pic{
+	width:50px;
+	height: 70px;
 }
 
 /*单个上传*/
@@ -214,30 +221,22 @@ tr:nth-child(even) {
 	display: inline-block;
 	vertical-align: top;
 	width:100px;
-	height:30px;
+	height:44px;
 	background-color: #f8a041;
 	color: #fff;
-	display: inline-block;
-	vertical-align: top;
+	border: none !important;
 	margin-right: 20px;
 	margin-left: 0;
 	margin-top: 1px;
-	padding-top: 14px;
 	text-align: center;
 	font-size: 14px;
 }
 .multi{
 	margin-top: 31px;
-	height: 30px;
+	height: 32px;
 }
 #multiupload{
 	margin-top: 40px;
-}
-.input_short{
-	width: 30px;
-}
-.input_long{
-	width: 60px;
 }
 .multi_submit_save{
 	display: inline-block;
@@ -245,13 +244,31 @@ tr:nth-child(even) {
 	width:100px;
 	height:30px;
 	background-color: #f8a041;
-	color: #fff;
+	color: #fff !important;
 	display: inline-block;
 	vertical-align: top;
 	margin-right: 20px;
 	margin-left: 0;
 	margin-top: 20px;
 	padding-top: 14px;
+	text-align: center;
+	font-size: 14px;
+}
+.multi_preview_submit{
+	display: inline-block;
+	vertical-align: top;
+	width:100px;
+	height:46px;
+	border: none;
+	background-color: #f8a041;
+	color: #fff !important;
+	display: inline-block;
+	vertical-align: top;
+	margin-right: 20px;
+	margin-left: 0;
+	margin-top: 20px;
+	padding-top: 14px;
+	padding-bottom: 12px;
 	text-align: center;
 	font-size: 14px;
 }
@@ -269,7 +286,7 @@ tr:nth-child(even) {
     border: none;
     padding: 8px 15px 8px 15px;
     background: #FF8500;
-    color: #fff;
+    color: #fff !important;
     box-shadow: 1px 1px 4px #DADADA;
     -moz-box-shadow: 1px 1px 4px #DADADA;
     -webkit-box-shadow: 1px 1px 4px #DADADA;
@@ -296,4 +313,23 @@ tr:nth-child(even) {
         display: inline-block;
         margin-bottom: 5px;
     }
+}
+
+#multi_pic_submit{
+	display: inline-block;
+	vertical-align: top;
+	width:100px;
+	height:44px;
+	background-color: #f8a041;
+	color: #fff;
+	border: none !important;
+	display: inline-block;
+	vertical-align: top;
+	margin-right: 20px;
+	margin-left: 0;
+	margin-top: 1px;
+	padding-top: 14px;
+	padding-bottom: 12px;
+	text-align: center;
+	font-size: 14px;
 }

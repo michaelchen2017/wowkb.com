@@ -45,9 +45,9 @@
             </tr>
             {%foreach from=$res key=k item=result %} 
             <tr>
-                <td><img  id="pic_path" src="{%$result['pic_path']|default:''%}"></td>
+                <td><img  id="pic_path" class="product_pic" src="{%$result['pic_path']|default:''%}"></td>
                 <td>{%$result['item_id']|default:''%}</td>
-                <td><input type="hidden" name="item_id" value="{%$result['item_id']|default:''%}"></td>
+                <!-- <td><input type="hidden" name="item_id" value="{%$result['item_id']|default:''%}"></td> -->
                 <td><input type="text" name="brand" value="{%$result['brand']|default:''%}"></td>
                 <td><input type="text" name="num" value="{%$value['project_no']|default:''%}"></td>
                 <td>Creme Maple Glazed</td>
@@ -69,7 +69,7 @@
             </tr>
             {%/foreach%}
         </table>
-          {%include file="$root/template/ssi/pagenav.html"%}
+            {%include file="$root/template/ssi/pagenav.html"%}
         <input class="multi_preview_submit" type="submit" name="submit" value="提交">
     </form>
   </div>
