@@ -5,7 +5,6 @@
   <link rel="shortcut icon" type="image/x-icon" href="/image/favicon.ico">
   <link rel="stylesheet" type="text/css" href="../../../template/common/css/common.css">
   <link rel="stylesheet" type="text/css" href="../../account/css/admin.css">
-  
 </head>
 <body>
 {%include file="$root/template/common/navbar.html"%}
@@ -18,12 +17,11 @@
 
         <div id="admin_upload">
           <form method="post" action="/account/admin.php?act=admin_multiupload" enctype="multipart/form-data">
-			<input type="file" id="file" name="file"  />
-			<input type="submit" name="submit" value="提交">
+            <input type="file" id="file" class="custom-file-upload" value="选择文件">
+            <input id="multi_submit" type="submit" name="submit" value="提交">
           </form>
         </div>
-        
-        
+
             <div class="dropdown multi">
               <span>批量编辑</span>
               <div class="dropdown-content">
@@ -36,87 +34,54 @@
         <table id="multiupload">
           <tr>
             <th><input id="toggle" type="checkbox"></th>
-            <th id="picture">图片</th>
-            <th id="sysId">系统编号</th>
-            <th id="name">名称</th>
+            <th>系统编号</th>
             <th>品牌</th>
-            <th>产品编号</th>
-            <th>价格</th>
+            <th>编号</th>
+            <th>名称</th>
+            <th>品类</th>
+            <th>材质</th>
+            <th>款式</th>
+            <th>颜色</th>
+            <th>宽高深</th>
+            <th>重量</th>
             <th>内容描述</th>
-            <th>部门</th>
+            <th>零售价格</th>
+            <th>折扣价格</th>
+            <th>折扣比例</th>
+            <th>库存</th>
+            <th>单位</th>
             <th>文件格式</th>
             <th>文件类型</th>
             <th>文件大小</th>
+            <th></th>
           </tr>
+          {%foreach from=$res key=i item=value%}
           <tr>
             <td><input id="toggle" type="checkbox"></td>
-            <td><img id="product_pic" src="../../image/p1.png"></td>
-            <td>121001</td>
-            <td class="input_short"><input type="text" name="name"></td>
-            <td class="input_short"><input type="text" name="brand"></td>
-            <td class="input_short"><input type="text" name="num"></td>
-            <td class="input_long"><input type="text" name="price"></td>
-            <td><input type="text" name="detail"></td>
-            <td>
-              <select name="department">
-                    <option value="furniture">家具</option>
-                    <option value="material">材料</option>
-                    <option value="tool">用具</option>
-                    <option value="lighting">灯饰</option>
-                    <option value="storage">储存</option>
-                    <option value="textile">织物</option>
-              </select>
-            </td>
-            <td>.png</td>
-            <td>图片</td>
-            <td>1.2M</td>
+            <td><img id="product_pic" src="{%$value['pic_path']|default:''%}"></td>
+            <td>{%$value['item_id']|default:''%}</td>
+            <td>{%$value['brand']|default:''%}</td>
+            <td>{%$value['project_no']|default:''%}</td>
+            <td>{%$value['category']|default:''%}</td>
+            <td>Base Carbinet</td>
+            <td>Wood</td>
+            <td>A7</td>
+            <td>白色</td>
+            <td>w9 h34-1/2 d24</td>
+            <td>37</td>
+            <td>{%$value['description']|default:''%}</td>
+            <td>${%$value['retail_price']|default:''%}</td>
+            <td>$114</td>
+            <td>49%</td>
+            <td>100</td>
+            <td>Pieces</td>
+            <td>{%$value['file_format']|default:''%}</td>
+            <td>{%$result['file_type']|default:''%}</td>
+            <td>{%$value['file_size']|default:''%}</td>
+            <td><a id="edit" href="/account/admin.php?act=preview&id={%$value['item_id']|default:''%}">修改</a></td>
           </tr>
-          <tr>
-            <td><input id="toggle" type="checkbox"></td>
-            <td><img id="product_pic" src="../../image/p2.png"></td>
-            <td>121001</td>
-            <td><input type="text" name="name"></td>
-            <td><input type="text" name="brand"></td>
-            <td><input type="text" name="num"></td>
-            <td><input type="text" name="price"></td>
-            <td><input type="text" name="detail"></td>
-            <td>
-                <select name="department">
-                    <option value="furniture">家具</option>
-                    <option value="material">材料</option>
-                    <option value="tool">用具</option>
-                    <option value="lighting">灯饰</option>
-                    <option value="storage">储存</option>
-                    <option value="textile">织物</option>
-                </select>
-            </td>
-            <td>.png</td>
-            <td>图片</td>
-            <td>1.2M</td>
-          </tr>
-          <tr>
-            <td><input id="toggle" type="checkbox"></td>
-            <td><img id="product_pic" src="../../image/p2.png"></td>
-            <td>121001</td>
-            <td><input type="text" name="name"></td>
-            <td><input type="text" name="brand"></td>
-            <td><input type="text" name="num"></td>
-            <td><input type="text" name="price"></td>
-            <td><input type="text" name="detail"></td>
-            <td>
-                <select name="department">
-                    <option value="furniture">家具</option>
-                    <option value="material">材料</option>
-                    <option value="tool">用具</option>
-                    <option value="lighting">灯饰</option>
-                    <option value="storage">储存</option>
-                    <option value="textile">织物</option>
-                </select>
-            </td>
-            <td>.png</td>
-            <td>图片</td>
-            <td>1.2M</td>
-          </tr>
+          {%/foreach%}
+
         </table>
         <a class="multi_submit_save" href="admin_manage.html">保存</a>
       </div>

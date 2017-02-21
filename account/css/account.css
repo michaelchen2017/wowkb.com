@@ -1,6 +1,20 @@
 /*用户*/
 
-
+#dashboard_message{
+	background-color: red;
+	color: #fff;
+	width: 20px;
+	height: 10px;
+	border-radius: 50px;
+	position: absolute;
+	margin-left: 428px;
+	margin-top: -10px;
+	z-index: 999;
+	text-align: center;
+	padding-top: 2px;
+	padding-bottom: 8px;
+	font-size: 12px;
+}
 #admin_label{
 	margin-top: 50px;
 	min-width: 960px;

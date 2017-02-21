@@ -34,13 +34,22 @@
         url('../font/msyh.ttf')  format('truetype'), /* Safari, Android, iOS */
         url('webfont.svg#svgFontName') format('svg'); /* Legacy iOS */
 }
+@font-face {
+  		font-family: 'NotoSansHans-Bold';
+  		src: url('webfont.eot'); /* IE9 Compat Modes */
+  		src: url('webfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+        url('webfont.woff2') format('woff2'), /* Super Modern Browsers */
+        url('webfont.woff') format('woff'), /* Pretty Modern Browsers */
+        url('../font/NotoSansHans-Bold.otf')  format('truetype'), /* Safari, Android, iOS */
+        url('webfont.svg#svgFontName') format('svg'); /* Legacy iOS */
+}
 body{
 	margin: 0;
 	position: relative;
 	padding-bottom: 200px;
     min-height: 100%;
     min-width: 100%;
-    background-color: #ebebeb;
+    background-color: #ebebeb !important;
     font-family:"Microsoft YaHei",Arial,Helvetica,sans-serif,"宋体";
 }
 
@@ -48,8 +57,8 @@ li{
 	list-style-type:none;
 }
 a{
-	text-decoration: none;
-	color: #343434;
+	text-decoration: none !important;
+	color: #343434 !important;
 }
 img{
 	width: 100%;
@@ -70,7 +79,7 @@ img{
 #body{
    min-height: 800px;
    background-color: #ebebeb;
-   padding-top: 100px;
+   padding-top: 80px;
    padding-bottom: 100px;
    border: 0px solid red;
 }
@@ -88,6 +97,7 @@ img{
 	vertical-align: top;
 	margin-top: 61px;
 	min-width: 960px;
+	min-height: 600px;
 	margin-left: 220px;
 	padding-left: 40px;
 	padding-right: 40px;
@@ -107,13 +117,20 @@ img{
 #navbar{
 	width:100%;
 	min-width: 1000px;
-	height:60px;
-/*	border:1px solid red;*/
+	height:60px !important;
 	position: fixed;
 	top: 0;
-	background-color: #fff;
-	border-bottom: 1px solid #ebebeb;
+	border-bottom: 1px solid #d5d5d5;
 	z-index: 99;
+}
+#nav_bg{
+	background-color:#fff;
+	width: 100%;
+	height: 60px;
+	position: fixed;
+	top: 0;
+	z-index: -9;
+	opacity: 0.96;
 }
 #nav_logo{
 	height:34px;
@@ -141,20 +158,11 @@ img{
 	width: 100%;
 	height: 100%;
 }
-#nav_sign{
-	width:600px;
-	height:55px;
-	margin-left: 30%;
-	border: 0px solid red;
-	display: inline-block;
-	vertical-align: top;
-}
 .nav{
-/*	width:20%;*/
-	padding-left: 30px;
-	padding-right: 30px;
+	padding-left: 20px !important;
+	padding-right: 20px !important;
 	height:40px;
-	font-size: 15px;
+	font-size: 15px !important;
 	border: 0px solid red;
 	display: inline-block;
 	vertical-align: top;
@@ -170,20 +178,21 @@ img{
 }
 #nav_signup{
 	width: 100px;
-	height:41px;
-	background-color: #97ccf7;
+	background-color: orange;
 	display: inline-block;
 	vertical-align: top;
 	text-align: center;
-	padding-top: 20px;
+	padding-top: 20px !important;
+	padding-bottom: 20px !important;
 	color: #fff;
-	font-size: 15px;
+	font-size: 15px !important;
 }
 #nav_link1{
   border:0px solid red;
   display: inline-block;
   vertical-align: top;
   float: right;
+  padding-right: 40px;
 }
 #nav_link2{
   border:0px solid red;
@@ -208,6 +217,21 @@ img{
 }
 
 /*侧边栏 sidebar*/
+#sidebar_message{
+	background-color: red;
+	color: #fff;
+	width: 20px;
+	height: 10px;
+	border-radius: 50px;
+	position: absolute;
+	margin-left: 148px;
+	margin-top: 0px;
+	z-index: 999;
+	text-align: center;
+	padding-top: 2px;
+	padding-bottom: 8px;
+	font-size: 12px;
+}
 
 .admin_sidebar{
 	width:220px;
@@ -266,7 +290,7 @@ img{
 #bottombar{
 	min-width: 1200px;
 	height:200px;
-/*	background-color: grey;*/
+	background-color: #ebebeb;
     border-top: 1px solid #d5d5d5;
 	z-index: 2;
 	position: absolute;
@@ -283,23 +307,51 @@ img{
 	color: #444444;
 }
 .bottom_link{
-	width: 60%;
+	width: 96%;
 	height:auto;
 	border: 0px solid red;
-	margin-top: 50px;
+	margin-top: 40px;
 	margin-bottom: 50px;
 }
 .bottom_link_line{
+	margin-top: 16px;
+	border: 0px solid red;
 	display: inline-block;
 	vertical-align: top;
 }
 .bottom_list{
-	line-height: 2;
+	line-height: 2.5;
 	font-size: 14px;
 }
+#footer_logo{
+	display: inline-block;
+	vertical-align: top;
+	height: 120px;
+	width: 400px;
+}
+#footer_partner{
+	display: block;
+}
 .bottom_blank{
-	width:40px;
+	width:50%;
 	height:10px;
 	vertical-align: top;
 	display: inline-block;
+}
+
+/*页码*/
+#page_body{
+	margin-top: 10px;
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+	right: 0;
+	left: 0;
+}
+#page_all{
+	font-size: 14px;
+}
+.page_display{
+	display: inline-block;
+	vertical-align: top;
 }

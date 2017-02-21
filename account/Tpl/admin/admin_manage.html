@@ -5,7 +5,6 @@
   <link rel="shortcut icon" type="image/x-icon" href="/image/favicon.ico">
   <link rel="stylesheet" type="text/css" href="../../../template/common/css/common.css">
   <link rel="stylesheet" type="text/css" href="../../account/css/admin.css">
-  
 </head>
 <body>
 {%include file="$root/template/common/navbar.html"%}
@@ -18,7 +17,7 @@
       <div id="admin_content">
         <a id="admin_edit_button" href="/account/admin.php?act=admin_singleupload">单个上传</a>
         <a id="admin_edit_button" href="/account/admin.php?act=admin_multiupload">批量上传</a>
-     <!--    <div class="dropdown">
+<!--         <div class="dropdown">
           <span>批量编辑</span>
           <div class="dropdown-content">
             <a id="dropdown_list" href="#"><p>修改选中文件名称</p></a>
@@ -35,11 +34,21 @@
           <th><input id="toggle" type="checkbox"></th>
           <th>图片</th>
           <th>系统编号</th>
-          <th>名称</th>
           <th>品牌</th>
-          <th>产品编号</th>
-          <th>价格</th>
+          <th>编号</th>
+          <th>名称</th>
+          <th>品类</th>
+          <th>材质</th>
+          <th>款式</th>
+          <th>颜色</th>
+          <th>宽高深</th>
+          <th>重量</th>
           <th>内容描述</th>
+          <th>零售价格</th>
+          <th>折扣价格</th>
+          <th>折扣比例</th>
+          <th>库存</th>
+          <th>单位</th>
           <th>文件格式</th>
           <th>文件类型</th>
           <th>文件大小</th>
@@ -49,24 +58,33 @@
         <tr>
           <td><input id="toggle" type="checkbox"></td>
           <td><a href="/account/admin.php?act=preview&id={%$value['item_id']%}"><img id="product_pic" src="{%$value['pic_path']|default:''%}"></a></td>
-          <td>{%$value['item_id']|default:''%}</td>
-          <td>{%$value['category']|default:''%}</td>
+          <th>{%$value['item_id']|default:''%}</th>
           <td>{%$value['brand']|default:''%}</td>
           <td>{%$value['project_no']|default:''%}</td>
-          <td>${%$value['retail_price']|default:''%}</td>
+          <td>{%$value['category']|default:''%}</td>
+          <td>Base Carbinet</td>
+          <td>Wood</td>
+          <td>A7</td>
+          <td>白色</td>
+          <td>9 34-1/2 24</td>
+          <td>37</td>
           <td>{%$value['description']|default:''%}</td>
+          <td>${%$value['retail_price']|default:''%}</td>
+          <td>$114</td>
+          <td>49%</td>
+          <td>100</td>
+          <td>Pieces</td>
           <td>{%$value['file_format']|default:''%}</td>
-          <td>图片</td>
+          <td>{%$result['file_type']|default:''%}</td>
           <td>{%$value['file_size']|default:''%}</td>
           <td>
             <a id="edit" href="/account/admin.php?act=preview&id={%$value['item_id']|default:''%}">修改</a>
-            |
+            </br>
             <a id="delete" href="/account/admin.php?act=material_delete&id={%$value['item_id']|default:''%}">删除</a>
-            
-<!--             <input name="del" type="button" id="del" onclick="self.location.href='?act=tpl_del_dynamic_field&amp;sid=20'" value="删除">
- -->          </td>
+          </td>
         </tr>
-       {%/foreach%}
+        {%/foreach%}
+
       </table>
       {%include file="$root/template/ssi/pagenav.html"%}
     </div>

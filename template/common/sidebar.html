@@ -1,6 +1,5 @@
 {%if $user_type == 'user'%}
 <!-- 用户后台sidebar -->
-
 <div id="user" class="admin_sidebar">
     <div id="userPic">
       <img src="/image/head.png">
@@ -11,16 +10,18 @@
     <div id="admin_sidebar_gapline"></div>
 
     <div id="admin_menu">
-      <a class="admin_button choose" href="../account/user_dashboard.html">定制项目</a>
+      <a class="admin_button choose" href="../account/user_dashboard.html"><div id="sidebar_message">12</div>定制项目</a>
       <a class="admin_button" href="#">我的订单</a>
       <a class="admin_button" href="../account/user_collection.html">我的收藏</a>
+      <a class="admin_button" href="#">申请认证</a>
+      <a class="admin_button" href="#">个人信息</a>
     </div>    
 </div>
 {%elseif $user_type == 'designer'%}
 <!-- 设计师后台sidebar -->
 <div id="designer" class="admin_sidebar">
     <div id="userPic">
-      <img src="../../image/head.png">
+      <img src="/image/head.png">
     </div>
     <div id="userName">Sam</div>
     <div id="userTitle">设计师</div>
@@ -28,15 +29,19 @@
     <div id="admin_sidebar_gapline"></div>
 
     <div id="admin_menu">
-      <a class="admin_button choose" href="../account/designer_dashboard.html">定制项目</a>
+      <a class="admin_button choose" href="../account/designer_dashboard.html"><div id="sidebar_message">12</div>定制项目</a>
+      <a class="admin_button" href="../account/designer_manage.html"><div id="sidebar_message">12</div>系统消息</a>
       <a class="admin_button" href="../account/designer_manage.html">我的作品</a>
+      <a class="admin_button" href="../account/designer_manage.html">检索物料</a>
+      <a class="admin_button" href="../account/designer_manage.html">我的收藏</a>
+      <a class="admin_button" href="../account/designer_manage.html">个人信息</a>
     </div>    
 </div>
 {%elseif $user_type == 'admin'%}
 <!-- 管理员后台sidebar -->
 <div id="admin" class="admin_sidebar">
     <div id="userPic">
-      <img src="../../image/head.png">
+      <img src="/image/head.png">
     </div>
     <div id="userName">Sarah</div>
     <div id="userTitle">管理员</div>
@@ -44,8 +49,11 @@
     <div id="admin_sidebar_gapline"></div>
 
     <div id="admin_menu">
-      <a class="admin_button choose" href="/account/admin.php?act=admin_dashboard">物料状态</a>
+      <a class="admin_button choose" href="/account/admin.php?act=admin_dashboard">网站状态</a>
       <a class="admin_button" href="/account/admin.php?act=admin_manage">管理物料</a>
+      <a class="admin_button" href="../account/designer_manage.html"><div id="sidebar_message">12</div>认证申请</a>
+      <a class="admin_button" href="../account/designer_manage.html">权限管理</a>
+      <a class="admin_button" href="../account/designer_manage.html">个人信息</a>
     </div>    
 </div>
 {%/if%}

@@ -2,15 +2,21 @@
 <html>
 <head>
   <title>Wow Kitchen & Bath</title>
-  <link rel="shortcut icon" type="image/x-icon" href="/image/favicon.ico">
+  <link rel="shortcut icon" type="image/x-icon" href="../../../image/favicon.ico">
   <link rel="stylesheet" type="text/css" href="../../../template/common/css/common.css">
   <link rel="stylesheet" type="text/css" href="../../page/css/page.css">
-  
-  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
   {%include file="$root/template/common/navbar.html"%}
-  
+
+<div id="showArea">
+    <button id="showButton">现在购买</button>
+    <div id="showBox">全网的价格对比呈现将保证每一位顾客最低的消费价格</div>
+    <img id="showArea_pic" src="../../image/ad2.png">
+</div>
 
 <div id="body">
   <div id="container">
@@ -22,167 +28,185 @@
       </div>
       
       <div class="sidebar_gapline"></div>
+
+      <div id="accordion" role="tablist" aria-multiselectable="true">
+          <div class="panel panel-default">
+              <div class="panel-heading" role="tab" id="headingOne">
+                  <div class="panel-title">
+                      <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">按类别选择
+                      </a>
+                  </div>
+              </div>
+              <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                  <ul id="catogory_list">
+                      <li class="secondList">全部规格</li>
+                      <li>厨房</li>
+                      <li>浴室</li>
+                      <li>卫生间</li>
+                      <li>卧室</li>
+                      <li>客厅</li>
+                  </ul>
+              </div>
+          </div>
+          <div class="panel panel-default">
+              <div class="panel-heading" role="tab" id="headingTwo">
+                  <div class="panel-title">
+                      <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">按品牌选择
+                      </a>
+                  </div>
+              </div>
+              <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                  <ul id="catogory_list">
+                      <li class="secondList">全部规格</li>
+                      <li>Branks</li>
+                      <li>ikea</li>
+                      <li>pinpai</li>
+                      <li>wowkb</li>
+                      <li>JK</li>
+                  </ul>
+              </div>
+          </div>
+          <div class="panel panel-default">
+              <div class="panel-heading" role="tab" id="headingThree">
+                  <div class="panel-title">
+                      <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">按规格选择
+                      </a>
+                  </div>
+              </div>
+          <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+              <ul id="catogory_list">
+                  <li class="secondList">全部规格</li>
+                  <li>10*10</li>
+                  <li>8*8</li>
+                  <li>10*16</li>
+                  <li>8*12</li>
+                  <li>18*20</li>
+              </ul>
+          </div>
+          </div>
+      </div>
       
-      <ul id="selectBy">
-        <li class="firstList">按类别选择</li>
-        <li class="secondList">全部产品</li>
-        <li class="thirdList">厨房</li>
-        <li class="thirdList">浴室</li>
-        <li class="thirdList">家具</li>
-        <li class="thirdList">灯具</li>
-        <li class="thirdList">储存</li>
-        <li class="thirdList">饰品</li>
-      </ul>
-      <div class="sidebar_gapline"></div>
-      <ul id="selectBy">
-        <li class="firstList">按品牌选择</li>
-        <li class="secondList">全部品牌</li>
-        <li class="thirdList">A Brand</li>
-        <li class="thirdList">BC Brand</li>
-        <li class="thirdList">D Brand</li>
-        <li class="thirdList">EFG Brand</li>
-        <li class="thirdList">HI Brand</li>
-      </ul>
-      <div class="sidebar_gapline"></div>
-      <ul id="selectBy">
-        <li class="firstList">按价格选择</li>
-        <li class="secondList">全部价格</li>
-        <li class="thirdList">低于$100</li>
-        <li class="thirdList">$100~$200</li>
-        <li class="thirdList">$200~$300</li>
-        <li class="thirdList">$300~$400</li>
-        <li class="thirdList">$400~$500</li>
-      </ul>
-    </div>
+    </div><!-- sidebar -->
     
     <div id="mainContent">
-      <div id="adArea">
-        <button id="adButton">现在购买</button>
-        <div id="adBox">全网的价格对比呈现将保证每一位顾客最低的消费价格</div>
-        <img src="../../../image/ad2.png">
-      </div>
 
       <div class="mainArea">
-          <div class="row">
-              {%foreach from=$res key=i item=value%}
+      {%foreach from=$res key=i item=value%}         
               <div class="single">
                 <div class="productPic">
                   <button id="heart">收藏</button>
                   <a href="/page/view.php?act=product_detail&id={%$value['item_id']|default:''%}">
                   <img src="{%$value['pic_path']|default:''%}"></a>
                 </div>
-                <a href="product_detail.html">
+                <a href="/page/view.php?act=product_detail&id={%$value['item_id']|default:''%}">
                 <div class="productIntro">
-                  <div class="productName">{%$value['description']|default:''%}</div>
-                  <div class="productBrand">{%$value['brand']|default:''%}</div>
-                  <div class="productPrice">${%$value['price']|default:''%}</div>
+                  <div class="product_name">{%$value['description']|default:''%}(<span id="size">10*10厨房一套十件</span>)</div>
+                  <div class="product_brand">{%$value['brand']|default:''%}</div>
+                  <div class="product_price">${%$value['price']|default:''%}</div>
                 </div></a>
               </div>
               {%/foreach%}
-              
+       
               <div class="single">
                 <div class="productPic">
                   <button id="heart">收藏</button>
                   <img src="../../image/p2.png">
                 </div>
                 <div class="productIntro">
-                  <div class="productName">厨房高脚旋转椅</div>
-                  <div class="productBrand">By Create & Barrel</div>
-                  <div class="productPrice">$127</div>
+                  <div class="product_name">厨房高脚旋转椅</div>
+                  <div class="product_brand">By Create & Barrel</div>
+                  <div class="product_price">$127</div>
                 </div>
               </div>
-              <div class="single_rowgap"></div>
+
               <div class="single">
                 <div class="productPic">
                   <button id="heart">收藏</button>
                   <img src="../../image/p3.png">
                 </div>
                 <div class="productIntro">
-                  <div class="productName">厨房高脚旋转椅</div>
-                  <div class="productBrand">By Create & Barrel</div>
-                  <div class="productPrice">$127</div>
+                  <div class="product_name">厨房高脚旋转椅</div>
+                  <div class="product_brand">By Create & Barrel</div>
+                  <div class="product_price">$127</div>
                 </div>
               </div>
-          <div>
-          <div class="row_gapline"></div>
-          <div class="row">
+   
               <div class="single">
                 <div class="productPic">
                   <button id="heart">收藏</button>
                   <img src="../../image/p4.png">
                 </div>
                 <div class="productIntro">
-                  <div class="productName">厨房高脚旋转椅</div>
-                  <div class="productBrand">By Create & Barrel</div>
-                  <div class="productPrice">$127</div>
+                  <div class="product_name">厨房高脚旋转椅</div>
+                  <div class="product_brand">By Create & Barrel</div>
+                  <div class="product_price">$127</div>
                 </div>
               </div>
-              <div class="single_rowgap"></div>
+   
               <div class="single">
                 <div class="productPic">
                   <button id="heart">收藏</button>
                   <img src="../../image/p5.png">
                 </div>
                 <div class="productIntro">
-                  <div class="productName">厨房高脚旋转椅</div>
-                  <div class="productBrand">By Create & Barrel</div>
-                  <div class="productPrice">$127</div>
+                  <div class="product_name">厨房高脚旋转椅</div>
+                  <div class="product_brand">By Create & Barrel</div>
+                  <div class="product_price">$127</div>
                 </div>
               </div>
-              <div class="single_rowgap"></div>
+       
               <div class="single">
                 <div class="productPic">
                   <button id="heart">收藏</button>
                   <img src="../../image/p6.png">
                 </div>
                 <div class="productIntro">
-                  <div class="productName">厨房高脚旋转椅</div>
-                  <div class="productBrand">By Create & Barrel</div>
-                  <div class="productPrice">$127</div>
+                  <div class="product_name">厨房高脚旋转椅</div>
+                  <div class="product_brand">By Create & Barrel</div>
+                  <div class="product_price">$127</div>
                 </div>
               </div>
-          <div>
-          <div class="row_gapline"></div>
-          <div class="row">
+
               <div class="single">
                 <div class="productPic">
                   <button id="heart">收藏</button>
                   <img src="../../image/p1.png">
                 </div>
                 <div class="productIntro">
-                  <div class="productName">厨房高脚旋转椅</div>
-                  <div class="productBrand">By Create & Barrel</div>
-                  <div class="productPrice">$127</div>
+                  <div class="product_name">厨房高脚旋转椅</div>
+                  <div class="product_brand">By Create & Barrel</div>
+                  <div class="product_price">$127</div>
                 </div>
               </div>
-              <div class="single_rowgap"></div>
+    
               <div class="single">
                 <div class="productPic">
                   <button id="heart">收藏</button>
                   <img src="../../image/p2.png">
                 </div>
                 <div class="productIntro">
-                  <div class="productName">厨房高脚旋转椅</div>
-                  <div class="productBrand">By Create & Barrel</div>
-                  <div class="productPrice">$127</div>
+                  <div class="product_name">厨房高脚旋转椅</div>
+                  <div class="product_brand">By Create & Barrel</div>
+                  <div class="product_price">$127</div>
                 </div>
               </div>
-              <div class="single_rowgap"></div>
+      
               <div class="single">
                 <div class="productPic">
                   <button id="heart">收藏</button>
                   <img src="../../image/p3.png">
                 </div>
                 <div class="productIntro">
-                  <div class="productName">厨房高脚旋转椅</div>
-                  <div class="productBrand">By Create & Barrel</div>
-                  <div class="productPrice">$127</div>
+                  <div class="product_name">厨房高脚旋转椅</div>
+                  <div class="product_brand">By Create & Barrel</div>
+                  <div class="product_price">$127</div>
                 </div>
-              </div>
-          <div>
-      </div>
-    </div>
-  </div>
+              </div>   
+         </div>
+   <!--       <div id="show_more">显示更多</div> -->
+    </div> <!-- mainContent -->
+    
+  </div> <!-- container -->
 </div>
 
   
