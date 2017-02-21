@@ -48,12 +48,12 @@
         {%foreach from=$res key=i item=value%}
         <tr>
           <td><input id="toggle" type="checkbox"></td>
-          <td><img id="product_pic" src="{%$value['pic_path']|default:''%}"></td>
+          <td><a href="/account/admin.php?act=preview&id={%$value['item_id']%}"><img id="product_pic" src="{%$value['pic_path']|default:''%}"></a></td>
           <td>{%$value['item_id']|default:''%}</td>
           <td>{%$value['category']|default:''%}</td>
           <td>{%$value['brand']|default:''%}</td>
-          <td>{%$value['projno_name']|default:''%}</td>
-          <td>${%$value['price']|default:''%}</td>
+          <td>{%$value['project_no']|default:''%}</td>
+          <td>${%$value['retail_price']|default:''%}</td>
           <td>{%$value['description']|default:''%}</td>
           <td>{%$value['file_format']|default:''%}</td>
           <td>图片</td>
