@@ -35,7 +35,7 @@ class admin extends Action{
 		$user_type = "admin";
 		$this->assign("user_type", $user_type);
 		
-		$res = $this->obj_material->getList("*", array("visible"=>1));
+		$res = $this->obj_material->getList("*", array("visible"=>1), 5);
 		$this->assign("res", $res);
 		
 		
