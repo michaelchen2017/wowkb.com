@@ -9,6 +9,8 @@ class admin extends Action{
 	
 	function __construct() {
 		parent::__construct();
+		$user_type = "admin";
+		$this->assign("user_type", $user_type);
 	
 		$userid = isset($_SESSION['userid'])?$_SESSION['userid']:"";
 		$this->assign("userid", $userid);
@@ -241,7 +243,7 @@ class admin extends Action{
 	}
 	
 	function ACT_multi_preview(){
-		$res = $this->obj_material->getList("*", array("status"=>"pending", "visible"=>1, "order"=>array("created_time"=>'DESC')));
+		$res = $this->obj_material->getList("*", array("status"=>"pending", "visible"=>1, "order"=>array("created_time"=>'DESC')), 5);
 		// 		debug::d($res);exit;
 		$this->assign("res", $res);
 	}
