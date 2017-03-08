@@ -9,7 +9,7 @@
 }
 @font-face {
   		font-family: 'Avenir LT 95 Black';
-  		src: url('webfont.eot'); /* IE9 Compat Modes */
+  		src: url('webfont.eotx'); /* IE9 Compat Modes */
   		src: url('webfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
         url('webfont.woff2') format('woff2'), /* Super Modern Browsers */
         url('webfont.woff') format('woff'), /* Pretty Modern Browsers */
@@ -43,14 +43,52 @@
         url('../font/NotoSansHans-Bold.otf')  format('truetype'), /* Safari, Android, iOS */
         url('webfont.svg#svgFontName') format('svg'); /* Legacy iOS */
 }
+@font-face {
+  		font-family: 'NotoSansHans-Regular';
+  		src: url('webfont.eot'); /* IE9 Compat Modes */
+  		src: url('webfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+        url('webfont.woff2') format('woff2'), /* Super Modern Browsers */
+        url('webfont.woff') format('woff'), /* Pretty Modern Browsers */
+        url('../font/NotoSansHans-Regular.otf')  format('truetype'), /* Safari, Android, iOS */
+        url('webfont.svg#svgFontName') format('svg'); /* Legacy iOS */
+}
+@font-face {
+  		font-family: 'NotoSansHans-Light';
+  		src: url('webfont.eot'); /* IE9 Compat Modes */
+  		src: url('webfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+        url('webfont.woff2') format('woff2'), /* Super Modern Browsers */
+        url('webfont.woff') format('woff'), /* Pretty Modern Browsers */
+        url('../font/NotoSansHans-Light.otf')  format('truetype'), /* Safari, Android, iOS */
+        url('webfont.svg#svgFontName') format('svg'); /* Legacy iOS */
+}
+@font-face {
+      font-family: 'Hanyi';
+      src: url('webfont.eot'); /* IE9 Compat Modes */
+      src: url('webfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+        url('webfont.woff2') format('woff2'), /* Super Modern Browsers */
+        url('webfont.woff') format('woff'), /* Pretty Modern Browsers */
+        url('../font/hanyi.ttf')  format('truetype'), /* Safari, Android, iOS */
+        url('webfont.svg#svgFontName') format('svg'); /* Legacy iOS */
+}
+@font-face {
+      font-family: 'Hanyi';
+      src: url('webfont.eot'); /* IE9 Compat Modes */
+      src: url('webfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+        url('webfont.woff2') format('woff2'), /* Super Modern Browsers */
+        url('webfont.woff') format('woff'), /* Pretty Modern Browsers */
+        url('../font/dongqingW3.otf')  format('truetype'), /* Safari, Android, iOS */
+        url('webfont.svg#svgFontName') format('svg'); /* Legacy iOS */
+}
+html{
+  margin: 0;
+}
 body{
 	margin: 0;
 	position: relative;
 	padding-bottom: 200px;
-    min-height: 100%;
-    min-width: 100%;
-    background-color: #ebebeb !important;
-    font-family:"Microsoft YaHei",Arial,Helvetica,sans-serif,"宋体";
+  width: 100%;
+  background-color: #ebebeb !important;
+  font-family:"Hanyi",Arial,Helvetica,sans-serif,"宋体";
 }
 
 li{
@@ -61,8 +99,35 @@ a{
 	color: #343434;
 }
 img{
-	width: 100%;
-	height: 100%;
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+button:focus{
+  outline: 0;
+}
+input{
+  outline: 0;
+}
+textarea:focus,
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="datetime"]:focus,
+input[type="datetime-local"]:focus,
+input[type="date"]:focus,
+input[type="month"]:focus,
+input[type="time"]:focus,
+input[type="week"]:focus,
+input[type="number"]:focus,
+input[type="email"]:focus,
+input[type="url"]:focus,
+input[type="search"]:focus,
+input[type="tel"]:focus,
+input[type="color"]:focus,
+.uneditable-input:focus {   
+  border-color: rgba(126, 239, 104, 0.8);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(126, 239, 104, 0.6);
+  outline: 0 none;
 }
 .blank_150{
 	width: 100%;
@@ -77,10 +142,11 @@ img{
 	height: 60px;
 }
 #body{
-   min-height: 800px;
+   min-height: 100vh;
+   width: 100%;
    background-color: #ebebeb;
    padding-top: 80px;
-   padding-bottom: 100px;
+   padding-bottom: 50px;
    border: 0px solid red;
 }
 #body_dash{
@@ -95,7 +161,7 @@ img{
 #admin_main{
 	display: inline-block;
 	vertical-align: top;
-	margin-top: 61px;
+	margin-top: 52px;
 	min-width: 960px;
 	min-height: 600px;
 	margin-left: 220px;
@@ -117,46 +183,29 @@ img{
 #navbar{
 	width:100%;
 	min-width: 1000px;
-	height:60px !important;
+	height:52px !important;
 	position: fixed;
 	top: 0;
-	border-bottom: 1px solid #d5d5d5;
 	z-index: 99;
 }
 #nav_bg{
-	background-color:#fff;
+	background-color:#000;
 	width: 100%;
-	height: 60px;
+	height: 52px;
 	position: fixed;
 	top: 0;
 	z-index: -9;
-	opacity: 0.96;
+	opacity: 1;
+	display: block;
+
 }
 #nav_logo{
-	height:34px;
-	width: 280px;
-	padding-top: 10px;
-	margin-left: 20px;
+	width: 136px;
+	padding-top: 12px;
+	margin-left: 30px;
 	display: inline-block;
 	vertical-align: top;
-}
-#nav_logo1{
-	height:60px;
-	width: 94px;
-	margin-left: 40px;
-	display: inline-block;
-	vertical-align: top;
-}
-#nav_logo3{
-	height:60px;
-	width: 156px;
-	margin-left: 40px;
-	display: inline-block;
-	vertical-align: top;
-}
-#nav_logo_pic{
-	width: 100%;
-	height: 100%;
+	border: 0px solid red;
 }
 .nav{
 	padding-left: 20px !important;
@@ -167,8 +216,9 @@ img{
 	display: inline-block;
 	vertical-align: top;
 	text-align: center;
-	padding-top: 20px;
-	color: #383838;
+	padding-top: 16px;
+	color: #fff;
+
 }
 .nav:hover{
 	color: orange;
@@ -176,16 +226,18 @@ img{
 .choose{
 	color: #f8a041;
 }
-#nav_signup{
+#nav_sign_signin{
 	width: 100px;
-	background-color: orange;
+	border-radius: 50px;
+	margin-top: 10px;
 	display: inline-block;
 	vertical-align: top;
 	text-align: center;
-	padding-top: 20px !important;
-	padding-bottom: 20px !important;
-	color: #fff;
-	font-size: 15px !important;
+	border: 1px solid orange;
+	padding-top: 6px;
+	padding-bottom: 6px;
+	color: orange;
+	font-size: 15px;
 }
 #nav_link1{
   border:0px solid red;
@@ -218,21 +270,31 @@ img{
 
 /*侧边栏 sidebar*/
 #sidebar_message{
-	background-color: red;
+	background-color: #e20909;
 	color: #fff;
-	width: 20px;
-	height: 10px;
+	width: 22px;
+	height: 12px;
 	border-radius: 50px;
 	position: absolute;
-	margin-left: 148px;
+	margin-left: 156px;
 	margin-top: 0px;
-	z-index: 999;
+	z-index: 90;
 	text-align: center;
 	padding-top: 2px;
 	padding-bottom: 8px;
 	font-size: 12px;
 }
-
+#sidebar_reddot{
+	background-color: #e20909;
+	color: #fff;
+	width: 8px;
+	height: 8px;
+	border-radius: 50px;
+	position: absolute;
+	margin-left: 140px;
+	margin-top: 0px;
+	z-index: 90;
+}
 .admin_sidebar{
 	width:220px;
 	margin-top: 61px;
@@ -288,15 +350,14 @@ img{
 
 /*底边栏 footer*/
 #bottombar{
-	min-width: 1200px;
 	height:200px;
 	background-color: #ebebeb;
-    border-top: 1px solid #d5d5d5;
+  border-top: 1px solid #d5d5d5;
 	z-index: 2;
 	position: absolute;
-    right: 0;
-    bottom: 0;
-    left: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
 /*    padding-bottom: 1rem;*/
 }
 .bottom_content{
@@ -369,3 +430,56 @@ img{
 	margin: 6px;
 	color: #fff !important;
 }
+
+/*系统消息*/
+#system_message{
+	border-radius:6px;
+	width: 100%;
+	height: 88px;
+	border: 1px solid #d5d5d5;
+	background-color: #fff;
+	margin-bottom: 12px;
+}
+#message_pic{
+	width: 80px;
+	height: 60px;
+	margin-top: 14px;
+	margin-left: 16px;
+	display: inline-block;
+	vertical-align: top;
+}
+#message_main{
+	border: 0px solid red;
+	display: inline-block;
+	vertical-align: top;
+	width: 400px;
+	margin-top: 16px;
+	margin-left: 20px;
+}
+#message_time{
+	font-size: 14px;
+	color: #afafaf;
+}
+#message_content{
+	font-size: 15px;
+	margin-top: 12px;
+}
+#message_gapline{
+	width: 100%;
+	height: 1px;
+	background-color: #d5d5d5;
+	margin-top: 40px;
+}
+#message_gapline_title{
+	font-size: 12px;
+	color: #bababa;
+	text-align: center;
+	margin-top:-10px;
+	width: 80px;
+	margin-left: auto;
+	margin-right: auto;
+	background-color: #ebebeb;
+	border: 0px solid red;
+	margin-bottom: 30px; 
+}
+

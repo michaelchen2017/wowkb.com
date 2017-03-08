@@ -1,96 +1,83 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Wow Kitchen & Bath</title>
-  	<link rel="shortcut icon" type="image/x-icon" href="/image/favicon.ico">
-  	<link rel="stylesheet" type="text/css" href="../../../template/common/css/common.css">
-  	<link rel="stylesheet" type="text/css" href="../../page/css/page.css">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<title>Wow Kitchen & Bath</title>
+<link rel="shortcut icon" type="image/x-icon" href="/image/favicon.ico">
+<link rel="stylesheet" type="text/css" href="../../../template/common/css/common.css">
+<link rel="stylesheet" type="text/css" href="../../page/css/page.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="/js/navbar.js"></script>
 </head>
 <body>
 
 {%include file="$root/template/common/navbar.html"%}
 
 
-<div id="header">		
+<div id="header">	
+<div id="hero">
+    	<div class="header">
+     		<div id="header_title">在线定制您的橱柜</div>
+    	</div>
+    	<div id="header_button">开始定制</div>
+    	<div id="header_step">
+    		<div id="header_step_each">
+    			<div id="header_step_pic">
+    				<!-- <img src="../../image/icon1.png"> -->
+    				<div id="header_step_num">1</div>
+    			</div>
+    			<div id="header_step_intro">
+    				<div id="header_step_t">查找作品</div>
+    				<div id="header_step_p">丰富的产品与设计作品可供在线选择</div>
+    			</div>
+    		</div>
+    		<div id="header_step_each">
+    			<div id="header_step_pic">
+    				<!-- <img src="../../image/icon2.png"> -->
+    				<div id="header_step_num">2</div>
+    			</div>
+    			<div id="header_step_intro">
+    				<div id="header_step_t">选择设计师</div>
+    				<div id="header_step_p">每一位设计师都有自己的专业与风格，选择最适合您的设计师</div>
+    			</div>
+    		</div>
+    		<div id="header_step_each">
+    			<div id="header_step_pic">
+    				<!-- <img src="../../image/icon3.png"> -->
+    				<div id="header_step_num">3</div>
+    			</div>
+    			<div id="header_step_intro">
+    				<div id="header_step_t">交流想法</div>
+    				<div id="header_step_p">告诉设计师您的想法，包括房屋结构、尺寸、功能、风格、预算</div>
+    			</div>
+    		</div>
+    		<div id="header_step_each">
+    			<div id="header_step_pic">
+    				<!-- <img src="../../image/icon4.png"> -->
+    				<div id="header_step_num">4</div>
+    			</div>
+    			<div id="header_step_intro">
+    				<div id="header_step_t">开始定制</div>
+    				<div id="header_step_p">一对一的专属定制，确保每一个细节</div>
+    			</div>
+    		</div>
+    		<div id="header_step_each">
+    			<div id="header_step_pic">
+    				<!-- <img src="../../image/icon1.png"> -->
+    				<div id="header_step_num">5</div>
+    			</div>
+    			<div id="header_step_intro">
+    				<div id="header_step_t">定制完成</div>
+    				<div id="header_step_p">享受您的定制服务、与朋友分享您的快乐</div>
+    			</div>
+    		</div>
+    	</div>
+    	<div id="header_step_bg"></div>
+    	<div id="header_bg"></div>
+    </div>	
 
-	<div id="myCarousel" class="carousel slide" data-ride="carousel">
-    <!-- Indicators -->
-    <ol class="carousel-indicators">
-      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-      <li data-target="#myCarousel" data-slide-to="1"></li>
-      <li data-target="#myCarousel" data-slide-to="2"></li>
-      <li data-target="#myCarousel" data-slide-to="3"></li>
-      <li data-target="#myCarousel" data-slide-to="4"></li>
-    </ol>
-
-    <!-- Wrapper for slides -->
-    <div class="carousel-inner header_box" role="listbox">
-
-      <div class="item active">
-        <a href="#"><img src="../../image/header.jpg" alt="Chania"></a>
-        <div id="header_title">
-        	<div id="header_step"><span id="header_slogan">在线定制您的橱柜</span>第一步</div>
-            <div id="header_titlet">查找您喜欢的作品</div>
-            <div id="header_titlep">丰富的产品与设计作品可供在线选择</div>
-            <a href="/account/account.php?act=register"><div id="header_titleb">注册</div></a>
-        </div>
-      </div>
-
-      <div class="item">
-        <a href="#"><img src="../../image/t2.jpg" alt="Chania"></a>
-        <div id="header_title">
-        	<div id="header_step"><span id="header_slogan">在线定制您的橱柜</span>第二步</div>
-            <div id="header_titlet">选择您满意的设计师</div>
-            <div id="header_titlep">每一位设计师都有自己的专业与风格，选择最适合您的设计师</div>
-            <a href="/account/account.php?act=register"><div id="header_titleb">注册</div></a>
-        </div>
-      </div>
-    
-      <div class="item">
-        <a href="#"><img src="../../image/t3.jpg" alt="Flower"></a>
-        <div id="header_title">
-        	<div id="header_step"><span id="header_slogan">在线定制您的橱柜</span>第三步</div>
-            <div id="header_titlet">在线交流您的想法</div>
-            <div id="header_titlep">告诉设计师您的想法，包括房屋的结构、尺寸、功能、风格、预算、时间</div>
-            <a href="/account/account.php?act=register"><div id="header_titleb">注册</div></a>
-        </div>
-      </div>
-
-      <div class="item">
-        <a href="#"><img src="../../image/t1.jpg" alt="Flower"></a>
-        <div id="header_title">
-        	<div id="header_step"><span id="header_slogan">在线定制您的橱柜</span>第四步</div>
-            <div id="header_titlet">开始您的定制服务</div>
-            <div id="header_titlep">一对一的专属定制，确保每一个细节</div>
-            <a href="/account/account.php?act=register"><div id="header_titleb">注册</div></a>
-        </div>
-      </div>
-
-      <div class="item">
-        <a href="#"><img src="../../image/t1.jpg" alt="Flower"></a>
-        <div id="header_title">
-        	<div id="header_step"><span id="header_slogan">在线定制您的橱柜</span>第五步</div>
-            <div id="header_titlet">定制完成</div>
-            <div id="header_titlep">享受您的定制服务、并与朋友分享您的快乐</div>
-            <a href="/account/account.php?act=register"><div id="header_titleb">注册</div></a>
-        </div>
-      </div>
-  
-    </div>
-
-    <!-- Left and right controls -->
-    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
-      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-      <span class="sr-only">Previous</span>
-    </a>
-    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
-      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-      <span class="sr-only">Next</span>
-    </a>
-  </div>
+	
 </div><!-- header -->
 
 

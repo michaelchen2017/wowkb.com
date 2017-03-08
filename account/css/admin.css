@@ -68,6 +68,34 @@
 	margin-left: 10px;
 	vertical-align: top;
 	margin-top: -8px;
+	height: 42px;
+}
+.dropdown_table {
+    position: relative;
+    display: inline-block;
+}
+.dropdown_table_content {
+    display: none;
+    position: absolute;
+    background-color: #fff;
+    border: 1px solid #ebebeb;
+    min-width: 480px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    padding: 12px 16px;
+    z-index: 1;
+}
+.dropdown_content_row{
+	text-align: left;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+.dropdown_content_each{
+	display: inline-block;
+	vertical-align: top;
+	margin-left: 16px;
+}
+.dropdown_table:hover .dropdown_table_content {
+    display: block;
 }
 .dropdown {
 	width:100px;
@@ -85,6 +113,7 @@
 .dropdown-content {
   	display: none;
   	position: absolute;
+  	z-index: 9;
   	background-color: #f9f9f9;
   	min-width: 160px;
   	box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
@@ -110,6 +139,7 @@ th{
 }
 td{
     text-align: left;
+    min-width: 90px;
     padding-left: 10px;
     text-align: center;
     padding-right: 10px;
@@ -124,6 +154,9 @@ tr:nth-child(even) {
     background-color: #fff;
     border-bottom: 1px solid #dddddd;
 }
+#rrr{
+	background-color: red;
+}
 #productList{
 	margin-top: 20px;
 	background-color: #fff;
@@ -133,8 +166,11 @@ tr:nth-child(even) {
 	height: 60px;
 }
 .product_pic{
-	width:50px;
-	height: 70px;
+	width:60px;
+	height: 60px;
+}
+.cell_style{
+	min-width: 300px;
 }
 
 /*单个上传*/
@@ -236,7 +272,11 @@ tr:nth-child(even) {
 	height: 32px;
 }
 #multiupload{
-	margin-top: 40px;
+	margin-top: 40px;	
+}
+#table_flow{
+	width: 960px;
+	overflow-x:scroll;
 }
 .multi_submit_save{
 	display: inline-block;

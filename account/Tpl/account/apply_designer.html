@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Wow Kitchen & Bath</title>
+  <link rel="shortcut icon" type="image/x-icon" href="image/favicon.ico">
+  <link rel="stylesheet" type="text/css" href="../../../template/common/css/common.css">
+   <link rel="stylesheet" type="text/css" href="../../../supplier/css/supplier.css">
+
+</head>
+<body>
+  
+<!-- {%include file="$root/template/common/navbar.html"%} -->
+<div id="navbar">
+  <div id="nav_logo">
+      <img id="nav_logo_pic" src="../../image/logo4.png">
+  </div>
+  
+  <div id="nav_link1">
+      <a href="designs.html"><div class="nav">设计</div></a>
+      <a href="../page/materials.html"><div class="nav choose">物料</div></a>
+      <a href="../page/products.html"><div class="nav">物料录入</div></a>
+      <a href="../page/products.html"><div class="nav">作品录入</div></a>
+      <a href="#"><div class="nav">注册</div></a>
+      <a href="#"><div id="nav_sign_signin">登陆</div></a>
+     <!--  <a href="#"><div class="nav">购物车(0)</div></a> -->
+  </div>
+  <div id="nav_bg"></div>
+</div>
+
+  <div id="body">
+  <div id="supplier_main">
+        <div class="application">
+          <form action="" method="post" enctype="multipart/form-data">
+            <div class="sub_form_title">申请认证成为合作设计师
+              <div class="sub_form_gapline"></div>
+            </div>
+            <table class="apply_form">
+              <tr>
+                <td><span>姓名<span class="required">*</span></span></td>
+                <td><input type="text" class="input-field" name="title" value="" /></td>
+              </tr>
+              <tr>
+                <td><span>邮件<span class="required">*</span></span></td>
+                <td><input type="text" class="input-field" name="size" value="" /></td>
+              </tr>
+              <tr>
+                <td><span>电话<span class="required">*</span></span></td>
+                <td><input type="text" class="input-field" name="size" value="" /></td>
+              </tr>
+              <tr>
+                <td><span>地址<span class="required">*</span></span></td>
+                <td><input type="text" class="input-field input_address" name="size" value="address#1" onblur="if (this.value == '') {this.value = 'address#1';}"onfocus="if (this.value == 'address#1') {this.value = '';}"/></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td><input type="text" class="input-field input_address" name="size" value="address#2" onblur="if (this.value == '') {this.value = 'address#2';}"onfocus="if (this.value == 'address#2') {this.value = '';}"/></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td><select>
+                    <option value="">State</option>
+                    <option value="saab">Az</option>
+                    <option value="mercedes">CA</option>
+                    <option value="audi">Audi</option>
+                  </select>
+                  <input type="text" class="short_input" name="size" value="city" onblur="if (this.value == '') {this.value = 'city';}"onfocus="if (this.value == 'city') {this.value = '';}"/>
+                  <input type="text" class="short_input" name="size" value="zip code" onblur="if (this.value == '') {this.value = 'zip code';}"onfocus="if (this.value == 'zip code') {this.value = '';}"/></td>
+              </tr>
+              <tr>
+                <td><span>您想销售的物料<span class="required">*</span></span></td>
+                <td><input type="text" class="input-field" name="size" value="" /></td>
+              </tr>
+              <tr>
+                <td><span>您使用的设计软件<span class="required">*</span></span></td>
+                <td><select>
+                    <option value="">请选择</option>
+                    <option value="saab">2020</option>
+                    <option value="mercedes">3dmax</option>
+                    <option value="audi">Maya</option>
+                    <option value="audi">其他</option>
+                  </select></td>
+              </tr>
+              <tr>
+                <td><span>您的专业认证资质<span class="required">*</span></span></td>
+                <td><input type="file" name="designpicture" class="add_new_file"></td>
+              </tr>
+              <tr>
+                <td colspan="2"><input class="agree_check" type="checkbox"><span class="agreement"><a href="#agreenment_window">同意我们的合作条款</a></span></td>
+              </tr>
+            </table>
+              <input type="submit" value="下一步" class="apply_button"/>
+          </form>
+        </div>           
+    </div>
+  </div><!-- body -->
+
+  <div id="agreenment_window" class="overlay">
+  <div class="popup">
+    <h2>Agreement</h2>
+    <a class="close" href="#">&times;</a>
+    <div class="content">
+      Thank to pop me out of that button, but now i'm done so you can close this window.
+      Thank to pop me out of that button, but now i'm done so you can close this window.
+      Thank to pop me out of that button, but now i'm done so you can close this window.
+      Thank to pop me out of that button, but now i'm done so you can close this window.
+    </div>
+  </div>
+</div>
+
+
+{%include file="$root/template/common/footer.html"%}
+  </body>
+</html>

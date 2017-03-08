@@ -20,6 +20,7 @@
   
 
     <form  method="post" action="/account/admin.php?act=single_modify">
+      <div id="table_flow">
       <table id="multiupload">
         <tr>
           <th><input id="toggle" type="checkbox"></th>
@@ -49,9 +50,9 @@
           <td><input id="toggle" type="checkbox"></td>
           <td><img  id="pic_path" class="product_pic" src="{%$res['pic_path']|default:''%}"></td>
           <td>{%$res['item_id']|default:''%}</td>
-          <input type="hidden" name="item_id" value="{%$res['item_id']|default:''%}">
-          <td><input type="text" name="brand" value="{%$res['brand']|default:''%}"></td>
-          <td><input type="text" name="project_no" value="{%$res['project_no']|default:''%}"></td>
+          <input size="10" type="hidden" name="item_id" value="{%$res['item_id']|default:''%}">
+          <td><input size="10" type="text" name="brand" value="{%$res['brand']|default:''%}"></td>
+          <td><input size="10" type="text" name="project_no" value="{%$res['project_no']|default:''%}"></td>
           <td>Creme Maple Glazed</td>
           <td>Base Carbinet</td>
           <td>Wood</td>
@@ -59,8 +60,8 @@
           <td>白色</td>
           <td>w9 h34-1/2 d24</td>
           <td>37</td>
-          <td><input type="text" name="description" value="{%$res['description']|default:''%}"></td>
-          <td><input type="text" name="price" value="{%$res['retail_price']|default:''%}"></td>         
+          <td><input size="20" type="text" name="description" value="{%$res['description']|default:''%}"></td>
+          <td><input size="10" type="text" name="price" value="{%$res['retail_price']|default:''%}"></td>         
           <td>$114</td>
           <td>49%</td>
           <td>100</td>
@@ -70,6 +71,7 @@
           <td>{%$res['file_size']|default:''%} M</td>
         </tr> 
       </table>
+    </div>
       <input class="multi_preview_submit" type="submit" name="submit" value="保存"> 
 </form>
  </div>

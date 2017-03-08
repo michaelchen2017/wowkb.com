@@ -20,6 +20,7 @@
     </div>
 
     <form  method="post" action="/account/admin.php?act=single_modify">
+        <div id="table_flow">
         <table id="multiupload">
             <tr>
                 <th>图片</th>
@@ -33,7 +34,7 @@
                 <th>颜色</th>
                 <th>宽高深</th>
                 <th>重量</th>
-                <th>内容描述</th>
+                <th class="cell_style">内容描述</th>
                 <th>零售价格</th>
                 <th>折扣价格</th>
                 <th>折扣比例</th>
@@ -43,13 +44,13 @@
                 <th>文件类型</th>
                 <th>文件大小</th>
             </tr>
-            {%foreach from=$res key=k item=result %} 
+             {%foreach from=$res key=k item=result %} 
             <tr>
                 <td><img  id="pic_path" class="product_pic" src="{%$result['pic_path']|default:''%}"></td>
                 <td>{%$result['item_id']|default:''%}</td>
-                <!-- <td><input type="hidden" name="item_id" value="{%$result['item_id']|default:''%}"></td> -->
-                <td><input type="text" name="brand" value="{%$result['brand']|default:''%}"></td>
-                <td><input type="text" name="num" value="{%$value['project_no']|default:''%}"></td>
+                <input size="10" type="hidden" name="item_id" value="{%$result['item_id']|default:''%}">
+                <td><input size="10" type="text" name="brand" value="{%$result['brand']|default:''%}"></td>
+                <td><input size="10" type="text" name="num" value="{%$value['project_no']|default:''%}"></td>
                 <td>Creme Maple Glazed</td>
                 <td>Base Carbinet</td>
                 <td>Wood</td>
@@ -57,8 +58,8 @@
                 <td>白色</td>
                 <td>w9 h34-1/2 d24</td>
                 <td>37</td>
-                <td><input type="text" name="description" value="{%$result['description']|default:''%}"></td>
-                <td><input type="text" name="price" value="${%$value['retail_price']|default:''%}"></td>
+                <td class="cell_style"><input size="20" type="text" name="description" value="{%$result['description']|default:''%}"></td>
+                <td><input size="10" type="text" name="price" value="${%$value['retail_price']|default:''%}"></td>
                 <td>$114</td>
                 <td>49%</td>
                 <td>100</td>
@@ -67,8 +68,9 @@
                 <td>{%$result['file_type']|default:''%}</td>
                 <td>{%$result['file_size']|default:''%} M</td>
             </tr>
-            {%/foreach%}
+           {%/foreach%} 
         </table>
+    </div>
             {%include file="$root/template/ssi/pagenav.html"%}
         <input class="multi_preview_submit" type="submit" name="submit" value="提交">
     </form>

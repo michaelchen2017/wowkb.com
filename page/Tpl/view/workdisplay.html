@@ -2,13 +2,14 @@
 <html>
 <head>
   <title>Wow Kitchen & Bath</title>
-  <link rel="shortcut icon" type="image/x-icon" href="../../../image/favicon.ico">
+  <link rel="shortcut icon" type="image/x-icon" href="image/favicon.ico">
   <link rel="stylesheet" type="text/css" href="../../../template/common/css/common.css">
   <link rel="stylesheet" type="text/css" href="../../../template/common/css/chat.css">
   <link rel="stylesheet" type="text/css" href="../../page/css/page.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
 </head>
 <body>
   {%include file="$root/template/common/navbar.html"%}
@@ -182,9 +183,218 @@
     </div>
   </div>
 </div><!-- chat_rightmain -->
-
 </div><!-- chat_box -->
 
+
+<div id="chatbox">
+  <div id="chat_nav">
+    <div id="chat_title">聊天（2）</div>
+    <a href="#"><div id="chat_original">&#8593</div></a>
+    <a href="#"><div id="chat_compact">&#8211</div></a>
+    <a href="#"><div id="chat_close">&#10005</div></a> 
+  </div>
+
+  <div id="chat_main">
+<!-- 左边的聊天内容 -->
+    <div class="chat_chat chat_left">
+      <!-- 头像 -->
+      <div class="chat_pic">
+        <img src="../../image/head.png">
+      </div>
+
+      <div class="chat_content content_left">
+        <!-- 聊天框及内容 -->
+        <div class="chat_content_message">
+          <i class="arrow-left"></i>
+          <!-- 聊天发送的图片 -->
+          <div class="chat_content_pic">
+            <img src="../../image/t1.jpg">
+          </div>
+          <!-- 聊天发送的文字 -->
+          <div class="chat_content_word">Hello!!!heloo worldf sfsfbsdkjfbskjb sfsfbsdkjfbskjb sfsfbsdkjfbskjb
+          </div>     
+        </div>
+        <!-- 用户名及时间 -->
+        <div class="chat_info info_left">XXX at 03/15/2017 12:09pm</div>
+      </div>     
+    </div><!-- chat_left -->
+
+
+<!-- 右边的聊天内容 -->
+    <div class="chat_chat chat_right">
+
+      <div class="chat_content content_right">
+        <!-- 聊天框及内容 -->
+        <div class="chat_content_message message_right">
+          <i class="arrow-right"></i>
+          <!-- 聊天发送的图片 -->
+          <div class="chat_content_pic">
+            <img src="../../image/t1.jpg">
+          </div>
+          <!-- 聊天发送的文字 -->
+          <div class="chat_content_word">
+            ddd
+          </div>     
+        </div>
+        <!-- 用户名及时间 -->
+        <div class="chat_info info_right">XXX at 03/15/2017 12:09pm</div>
+      </div>
+
+      <div class="chat_pic">
+        <img src="../../image/head.png">
+      </div>
+    </div><!-- chat_right -->
+
+  </div><!-- chat_main -->
+    
+  <div class="chat_footer">
+    <textarea class="chat_textarea" placeholder="Type a message..." rows="1" cols="42" name="message"></textarea>
+    <div id="chat_button">
+      <a href=""><div class="chat_add_pic">添加图片</div></a>
+      <div id="chat_key">Ctrl+Enter</div>
+      <a href=""><div id="chat_send">发送</div></a>
+    </div>
+  </div>
+</div>
+
+
+<!-- 上传新作品弹出窗口 -->
+<div id="customized_design_add_new">
+  <div id="add_new_topbar">
+    <div id="add_new_window_name">上传新的定制作品</div>
+    <a href="#"><div id="add_new_close">&#10005</div></a>
+  </div>
+  <!-- 上传新作品第一步 -->
+  <div class="add_new_main" id="addNew_firstStep">
+      <div class="add_new_form">
+          <form action="" method="post" enctype="multipart/form-data">
+            <div class="sub_form_title">第一步 填写作品信息
+              <div class="sub_form_gapline"></div>
+            </div>
+            <table class="apply_form">
+              <tr>
+                <td><span>作品名称<span class="required">*</span></span></td>
+                <td><input type="text" class="input-field" name="title" value="" /></td>
+              </tr>
+              <tr>
+                <td><span>空间尺寸<span class="required">*</span></span></td>
+                <td><input type="text" class="input-field" name="size" value="" /></td>
+              </tr>
+              <tr>
+                <td><span>内容简介<span class="required">*</span></span></td>
+                <td><textarea name="description" class="textarea-field"></textarea></td>
+              </tr>
+              <tr>
+                <td><span>设计图片<span class="required">*</span></span></td>
+                <td><input type="file" name="designpicture" class="add_new_file"></td>
+              </tr>
+              <tr>
+                <td><span>物料清单</span></td>
+                <td><input type="file" name="designpicture" class="add_new_file"></td>
+              </tr>              
+            </table>
+            <input class="add_new_button" id="add_new_next_step" value="下一步">
+            <!-- <a href="#" class="add_new_button" id="add_new_next_step">下一步</a> -->
+          </form>
+        </div>
+      </div>
+<!-- 上传新作品第二步 -->
+  <div class="add_new_main" id="addNew_secondStep">
+      <div class="add_new_form">
+          <form action="" method="post" enctype="multipart/form-data">
+            <div class="sub_form_title">第二步 关联物料
+              <div class="sub_form_gapline"></div>
+            </div>
+      
+        <div id="select_design_product">
+          <img id="select_design_product" src="../../image/t2.jpg"/>
+        </div>
+        <table id="productList">
+        <tr>
+          <th>编号</th>
+          <th>产品编号</th>
+          <th>图片</th>
+          <th>名称</th>
+          <th>品牌</th>
+          <th>品类</th> 
+          <th>款式</th>     
+          <th>价格</th>
+          <th>编辑</th>
+        </tr>
+        <tr>
+          <td>1</td>
+          <td><input type="text" class="input_product_num"></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td>添加</br>删除</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>CH3242</td>
+          <td><img id="select_product_pic" src="../../image/p1.png"></td>
+          <td>椅子</td>
+          <td>CHair</td>
+          <td>B-09R</td>
+          <td>A7</td>
+          <td>$234</td>
+          <td>添加</br>删除</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>CH3242</td>
+          <td><img id="select_product_pic" src="../../image/p2.png"></td>
+          <td>椅子</td>
+          <td>CHair</td>
+          <td>B-09R</td>
+          <td>A7</td>
+          <td>$234</td>
+          <td>添加</br>删除</td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td>CH3242</td>
+          <td><img id="select_product_pic" src="../../image/p2.png"></td>
+          <td>椅子</td>
+          <td>CHair</td>
+          <td>B-09R</td>
+          <td>A7</td>
+          <td>$234</td>
+          <td>添加</br>删除</td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <td>CH3242</td>
+          <td><img id="select_product_pic" src="../../image/p2.png"></td>
+          <td>椅子</td>
+          <td>CHair</td>
+          <td>B-09R</td>
+          <td>A7</td>
+          <td>$234</td>
+          <td>添加</br>删除</td>
+        </tr>
+        <tr>
+          <td>6</td>
+          <td>CH3242</td>
+          <td><img id="select_product_pic" src="../../image/p2.png"></td>
+          <td>椅子</td>
+          <td>CHair</td>
+          <td>B-09R</td>
+          <td>A7</td>
+          <td>$234</td>
+          <td>添加</br>删除</td>
+        </tr>
+      </table>
+
+            <input type="submit" class="add_new_button" value="完成">
+          </form>
+        </div>     
+    </div>
+  </div>
+</div>
 
 
 <div id="body">
@@ -192,33 +402,17 @@
     <div id="design_left">
     <div class="design_main">
       <div class="design_main_content">
-            <div class="design_main_title">{%$res['title']|default:''%}</div>
+          <div class="design_main_title">{%$res['title']|default:''%}</div>
           <div class="design_sub_icon">
-            <img class="sub_icon1" src="../..//image/see.png">
-            <div class="icon_title">239</div>
-            <img class="sub_icon2" src="../../image/like.png">
-            <div class="icon_title">120</div>
-          </div>
-          <a href="#"><div id="collect">加入收藏</div></a>  
+            <div id="customize_add_new">上传定制作品</div>
+          </div> 
 <!--             <a href="#"><div class="design_main_button">查看细节</div></a> -->
-              <img id="design_main_pic_img" src="{%$res['pic_path']|default:''%}">
+          <div id="design_main_pic">
+            <img id="design_main_pic_img" src="../../image/t1.jpg">
+          </div>     
               <div class="productIntro_detail">
-                设计详情：</br></br>
                 {%$res['description']|default:''%}
               </div>
-      </div>
-    </div>
-
-    <div id="design_related">
-      <div id="related_name">相关设计作品</div>
-      <div id="related_content">
-        {%foreach from=$product_zuopins key=k item=value %}
-        <div class="related_content_project">
-          <div id="related_pic"><img src="../../image/t1.jpg"></div>
-          <div id="related_title">%$value['title']|default:''%}</div>
-          <div id="related_price">XXX设计师</div>
-        </div>
-        {%/foreach%}     
       </div>
     </div>
 
@@ -227,32 +421,33 @@
 
 
   <div id="side_right">
-    <div class="sidebar_right">
+      <div class="sidebar_right">
         <div id="designer_float">
-          <div class="design_sub_content">
-            <div class="design_sub_pic">
-              <img src="/image/head.png">
+            <div class="design_sub_content">
+                <div class="design_sub_pic">
+                  <img src="../../image/head.png">
+                </div>
+                <div class="design_main_designer_intro">
+                    <div class="design_main_designer">设计师XXX</div>
+                    <div class="design_sidebar_button">
+                        <a href="#"><div id="sidebar_chat">在线交流</div></a>
+                        <a href="#"><div id="sidebar_follow">关注设计师</div></a>
+                    </div>
+                </div>
             </div>
-            <div class="design_main_designer_intro">
-              <div class="design_main_designer">设计师XXX</div>
-              <div class="design_sidebar_button">
-                  <div id="sidebar_chat">在线交流</div>
-                  <div id="sidebar_follow">关注设计师</div>
-              </div>
-            </div>                         
         </div>
-      </div>
-      <div id="sidebar_right_price">预估报价：${%$res['final_sum']|default:''%}</div> 
-      <a href="#"><div id="collect">加入收藏</div></a>    
-      <div class="sidebar_gapline"></div>
-      <button class="buyButton">开始定制</button>
-    </div><!-- sidebar_right -->
+        <div id="sidebar_right_price">总价格：${%$res['final_sum']|default:''%}</div>    
+        <div class="sidebar_gapline"></div>
+        <button class="buyButton">确认定制</button>
+        <div id="material_list">查看物料清单</div> 
+      
+      </div><!-- sidebar_right -->
 
       <div id="sidebar_use_product">
         <div id="sidebar_use_title">设计使用到的产品</div>
   <div id="sidebar_use_content">
-  
-  <div id="myCarousel" class="carousel slide" data-ride="carousel">
+
+  <div id="myCarousel" class="carousel slide" >
 
     <!-- Wrapper for slides -->
     <div class="carousel-inner use_product" role="listbox">
@@ -320,31 +515,15 @@
     </a>
   </div>
       </div><!-- sidebar_use_content -->
-  </div>
+  </div><!-- sidebar_use_product -->
 
-      <div class="sidebar_related">
-
-          <div id="related_name_side">相关产品</div>
-
-          <div id="related_content_side">
-
-            {%foreach from=$zuopin_materials key=k item=value %}
-            <div id="related_project_side">
-              <a href="/page/view.php?act=product_detail&id={%$value['item_id']|default:''%}"><img id="related_project_pic" src="{%$value['pic_path']|default:''%}"></a>
-              <div class="related_project_name">{%$value['brand']|default:''%}</div>
-              <div class="related_project_brand">By wowkb</div>
-              <div class="related_project_designer">${%$value['price']|default:''%}</div>
-            </div>
-            {%/foreach%}
-          </div>
-      </div>
     </div><!-- side_right -->
   </div><!-- container -->
 </div><!-- body -->
 
 {%include file="$root/template/common/footer.html"%}
 
-<script type="text/javascript">
+  <script type="text/javascript">
 
 $('#myCarousel').carousel('pause')
 
@@ -371,9 +550,7 @@ $('#myCarousel').carousel('pause')
     original.style.display = "none";
     compact.style.display="inline-block";
   }
-
-
-var user1= document.getElementById('user1');
+  var user1= document.getElementById('user1');
 var user2= document.getElementById('user2');
 var chat_user1=document.getElementById('chat_user1');
 var chat_user2=document.getElementById('chat_user2');
@@ -386,7 +563,27 @@ user2.onclick = function(){
   chat_user2.style.display = "inline-block";
   chat_user1.style.display = "none";
 }
-  </script>
 
+  var addNew = document.getElementById('customize_add_new');
+  var addNew_close = document.getElementById('add_new_close');
+  var addNew_window = document.getElementById('customized_design_add_new');
+  customize_add_new.onclick= function(){
+    addNew_window.style.display = "block";
+  }
+  add_new_close.onclick = function(){
+    addNew_window.style.display = "none";
+  }
+
+
+  var next = document.getElementById('add_new_next_step');
+  var addNew_step1 = document.getElementById('addNew_firstStep')
+  var addNew_step2 = document.getElementById('addNew_secondStep')
+
+  next.onclick = function(){
+    addNew_step2.style.display = "block";
+    addNew_step1.style.display = "none"; 
+    addNew_window.style.display = "block";
+  }
+  </script>
 </body>
 </html>
