@@ -2,28 +2,25 @@
 <html>
 <head>
   <title>Wow Kitchen & Bath</title>
-  <link rel="shortcut icon" type="image/x-icon" href="/image/favicon.ico">
+  <link rel="shortcut icon" type="image/x-icon" href="image/favicon.ico">
   <link rel="stylesheet" type="text/css" href="../../../template/common/css/common.css">
   <link rel="stylesheet" type="text/css" href="../../account/css/account.css">
-  
 </head>
 <body>
 {%include file="$root/template/common/navbar.html"%}
 
+
 <div id="body_dash">
     {%include file="$root/template/common/sidebar.html"%}
     
-    <div id="admin_main">
-        <div class="productLink topspace"><a href="designer_manage.html">管理作品</a>/上传设计作品</div>
+<div id="admin_main">
+    <div class="productLink topspace"><a href="designer_manage.html">管理作品</a>/上传设计作品</div>
         <div class="form-style-2">
-          <form action="/account/space.php?act=zuopin_post" method="post" enctype="multipart/form-data">
-            <label for="field1"><span>作品名称<span class="required">*</span></span><input type="text" class="input-field" name="title" value="" /></label>
-            <label for="field2"><span>空间尺寸<span class="required">*</span></span><input type="text" class="input-field" name="size" value="" /></label>
-            <label for="field2"><span>设计师<span class="required">*</span></span><input type="text" class="input-field" name="designer" value="" /></label>
-            <label for="field2"><span>估价<span class="required">*</span></span><input type="text" class="input-field" name="final_sum" value="" /></label>
-            <label for="field5"><span>内容简介 <span class="required">*</span></span><textarea name="description" class="textarea-field"></textarea></label>
-           <label><span>设计图片<span class="required">*</span></span><input type="file" name="file"></label> 
-           
+          <form action="" method="post" enctype="multipart/form-data">
+            <label for="field1"><span>作品名称<span class="required">*</span></span><input type="text" class="input-field" name="designname" value="" /></label>
+            <label for="field2"><span>空间尺寸<span class="required">*</span></span><input type="text" class="input-field" name="designsize" value="" /></label>
+            <label for="field5"><span>内容简介 <span class="required">*</span></span><textarea name="designdetail" class="textarea-field"></textarea></label>
+            <label><span>设计图片<span class="required">*</span></span><input type="file" name="designpicture"></label>
             <label><span>&nbsp;</span><input type="submit" value="提交"/></label>
           </form>
         </div>
@@ -31,6 +28,7 @@
   </div>
 
 {%include file="$root/template/common/footer.html"%}
+
  
   </body>
 </html>

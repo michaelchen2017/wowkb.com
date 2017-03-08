@@ -2,7 +2,7 @@
 <html>
 <head>
   <title>Wow Kitchen & Bath</title>
-  <link rel="shortcut icon" type="image/x-icon" href="/image/favicon.ico">
+  <link rel="shortcut icon" type="image/x-icon" href="image/favicon.ico">
   <link rel="stylesheet" type="text/css" href="../../../template/common/css/common.css">
   <link rel="stylesheet" type="text/css" href="../../account/css/account.css">
 </head>
@@ -10,13 +10,13 @@
 {%include file="$root/template/common/navbar.html"%}
 
 <div id="body_dash">
-   {%include file="$root/template/common/sidebar.html"%}
+   {%include file="$root/templete/common/sidebar.html"%}
 
   <div id="admin_main">
       
       <div id="admin_content">
-        <a id="admin_edit_button" href="/account/space.php?act=designer_upload">上传作品</a>
-        <a id="admin_edit_button" href="/page/listing.php?act=products">搜索物料</a>
+        <a id="admin_edit_button" href="designer_upload.html">上传作品</a>
+        <a id="admin_edit_button" href="../page/products.html">搜索物料</a>
  
         <form id="search">
           <input id="admin_search" type="text" name="designname" value="作品名搜索">
@@ -29,7 +29,7 @@
           <th>系统编号</th>
           <th>名称</th>
           <th>空间尺寸</th>
-          <th>内容简介</th>
+          <th>预估报价</th>
           <th></th>
         </tr>
         <tr>
@@ -38,7 +38,7 @@
           <td>121001</td>
           <td>美式厨房设计</td>
           <td>10*10</td>
-          <td>Made from Germany</td>
+          <td>$9999</td>
           <td>
             <a id="edit" href="#">修改</a>
             |
@@ -51,7 +51,7 @@
           <td>121001</td>
           <td>美式浴室设计</td>
           <td>8*8</td>
-          <td>Made from Germany</td>
+          <td>$9999</td>
           <td>
             <a id="edit" href="#">修改</a>
             |

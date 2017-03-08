@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Wow Kitchen & Bath</title>
+  <link rel="shortcut icon" type="image/x-icon" href="image/favicon.ico">
+  <link rel="stylesheet" type="text/css" href="../../../template/common/css/common.css">
+  <link rel="stylesheet" type="text/css" href="../../account/css/admin.css">
+</head>
+<body>
+{%include file="$root/template/common/navbar.html"%}
+
+<div id="body_dash">
+    {%include file="$root/template/common/sidebar.html"%}
+
+  <div id="admin_main">
+      
+    <div id="admin_content">
+       
+
+      <table id="productList">
+        <tr>
+          <th>订单编号</th>
+          <th>下单时间</th>
+          <th>名称</th>
+          <th>数量</th>
+          <th>总价</th>
+          <th>订单状态</th>
+        </tr> 
+        <tr>
+          <td><a href="supplier_order_detail.html"><span class="order_num">JK1213141441</span></a></td>
+          <td>2017.03.09</td>
+          <td>美式12*10橱柜全套</td>
+          <td>42</td>
+          <td>$29999</td>
+          <td>已付款</td>
+        </tr>
+        <tr>
+          <td><a class="order_num" href="">JK1213141441</a></td>
+          <td>2017.03.21</td>
+          <td>欧式8*12橱柜全套</td>
+          <td>42</td>
+          <td>$29999</td>
+          <td>已出货</td>
+        </tr>
+        <tr>
+          <td><a class="order_num" href="">JK1213141441</a></td>
+          <td>2017.03.21</td>
+          <td>美式10*10橱柜全套</td>
+          <td>42</td>
+          <td>$29999</td>
+          <td>已完成</td>
+        </tr>
+        <tr>
+          <td><a class="order_num" href="">JK1213141441</a></td>
+          <td>2017.03.21</td>
+          <td>美式12*16橱柜全套</td>
+          <td>42</td>
+          <td>$29999</td>
+          <td>申请退换</td>
+        </tr>
+      
+     </table>
+    </div>
+  </div>
+</div>
+
+{%include file="$root/template/common/footer.html"%}
+
+  </body>
+</html>

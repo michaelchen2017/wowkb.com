@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Wow Kitchen & Bath</title>
+  <link rel="shortcut icon" type="image/x-icon" href="image/favicon.ico">
+  <link rel="stylesheet" type="text/css" href="../../../template/common/css/common.css">
+  <link rel="stylesheet" type="text/css" href="../../account/css/account.css">
+</head>
+<body>
+{%include file="$root/template/common/navbar.html"%}
+
+<div id="body_dash">
+   {%include file="$root/templete/common/sidebar.html"%}
+
+
+  <div id="admin_main">
+      
+      <div id="admin_content">
+ 
+        <form id="designer_search">
+          <input id="admin_search" type="text" name="productname" value="">
+        </form>
+
+      <table id="productList">
+        <tr>
+          <th>图片</th>
+          <th>产品编号</th>
+          <th>名称</th>
+          <th>品牌</th>
+          <th>品类</th>
+          <th>材质</th>
+          <th>款式</th>
+          <th>颜色</th>
+          <th>尺寸</th>
+          <th id="description">描述</th>
+          <th>零售价格</th>
+        </tr>
+        <tr>
+          <td><img id="product_pic" src="../../image/p1.png"></td>
+          <td>B09-R</td>
+          <td>Creme Maple Glazed</td>
+          <td>JK</td>
+          <td>BASE CABINET</td>
+          <td>Wood</td>
+          <td>A7</td>
+          <td>Creme Maple</td>
+          <td>W9 H34 D24</td>
+          <td>BASE CABINET WITH ONE DOOR,ONE DRAWER;1 DRWER;1 DOOR;1 ADG.SHELF</td>
+          <td>$239.14</td>
+        </tr>
+        <tr>
+          <td><img id="product_pic" src="../../image/p2.png"></td>
+          <td>B09-R</td>
+          <td>Creme Maple Glazed</td>
+          <td>JK</td>
+          <td>BASE CABINET</td>
+          <td>Wood</td>
+          <td>A7</td>
+          <td>Creme Maple</td>
+          <td>W9 H34 D24</td>
+          <td>BASE CABINET WITH ONE DOOR,ONE DRAWER;1 DRWER;1 DOOR;1 ADG.SHELF</td>
+          <td>$239.14</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
+
+{%include file="$root/template/common/footer.html"%}
+  </body>
+</html>

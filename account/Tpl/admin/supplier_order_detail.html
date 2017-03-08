@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Wow Kitchen & Bath</title>
+  <link rel="shortcut icon" type="image/x-icon" href="image/favicon.ico">
+  <link rel="stylesheet" type="text/css" href="../../../template/common/css/common.css">
+  <link rel="stylesheet" type="text/css" href="../../account/css/admin.css">
+</head>
+<body>
+{%include file="$root/template/common/navbar.html"%}
+
+<div id="body_dash">
+    {%include file="$root/template/common/sidebar.html"%}
+
+  <div id="admin_main">
+      
+    <div id="admin_content">
+      <a href="supplier_order.html"><div id="order_back">返回</div></a>
+      <div id="order_info">
+        <div id="order_number">Order Number:JK1132101244</div>     
+      </div>
+      <div id="order_operation">
+        <a href="#"><div id="order_button1">打印订单</div></a>
+        <a href="#"><div id="order_button2">确认发货</div></a>
+      </div>
+
+      <table id="productList">
+        <tr>
+          <th>图片</th>
+          <th>名称</th>
+          <th>编号</th>
+          <th>款式</th>
+          <th>颜色</th>
+          <th>单价</th>
+          <th>数量</th>
+        </tr> 
+        <tr>
+          <td><img id="product_pic" src="../../image/p2.png"></td>
+          <td>Creme Maple Glazed</td>
+          <td>B-09R</td>
+          <td>A7</td>
+          <td>白色</td>
+          <td>$999</td>
+          <td>8</td>
+        </tr>
+        <tr>
+          <td><img id="product_pic" src="../../image/p3.png"></td>
+          <td>Creme Maple Glazed</td>
+          <td>B-09R</td>
+          <td>A7</td>
+          <td>白色</td>
+          <td>$888</td>
+          <td>2</td>
+        </tr>
+        <tr>
+          <td><img id="product_pic" src="../../image/p4.png"></td>
+          <td>Creme Maple Glazed</td>
+          <td>B-09R</td>
+          <td>A7</td>
+          <td>白色</td>
+          <td>$777</td>
+          <td>4</td>
+        </tr>
+        <tr>
+          <td><img id="product_pic" src="../../image/p5.png"></td>
+          <td>Creme Maple Glazed</td>
+          <td>B-09R</td>
+          <td>A7</td>
+          <td>白色</td>
+          <td>$299</td>
+          <td>6</td>
+        </tr>     
+     </table>
+     <table class="order_total">
+      <tr>
+        <td>Subtotal:</td>
+        <td>$99999</td>
+      </tr>
+      <tr>
+        <td>Tax:</td>
+        <td>$99</td>
+      </tr>
+      <tr>
+        <td>Total:</td>
+        <td>$99999</td>
+      </tr>
+      <tr>
+        <td colspan=2><div id="order_address">Mr. XXXX XXXX,</br>
+          1111 XXXX street,</br>
+          San Jose,</br>
+          CA 95131</div></td>
+      </tr>
+     </table>
+    </div>
+  </div>
+</div>
+
+{%include file="$root/template/common/footer.html"%}
+
+  </body>
+</html>
