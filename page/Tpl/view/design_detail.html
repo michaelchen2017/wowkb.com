@@ -5,11 +5,17 @@
   <link rel="shortcut icon" type="image/x-icon" href="../../../image/favicon.ico">
   <link rel="stylesheet" type="text/css" href="../../../template/common/css/common.css">
   <link rel="stylesheet" type="text/css" href="../../../template/common/css/chat.css">
-  <link rel="stylesheet" type="text/css" href="../../page/css/page.css">
+  <link rel="stylesheet" type="text/css" href="../../css/page.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
+<script type="text/javascript">
+$(document).ready(function(){
+  // pause   
+      $("#myCarousel").carousel('pause');
+});
+</script>
 <body>
   {%include file="$root/template/common/navbar.html"%}
 
@@ -346,7 +352,10 @@
 
 <script type="text/javascript">
 
-$('#myCarousel').carousel('pause')
+$(document).ready(function(){
+  // pause   
+      $("#myCarousel").carousel('pause');
+});
 
   var chat = document.getElementById('chatbox');
   var button = document.getElementById('sidebar_chat');
