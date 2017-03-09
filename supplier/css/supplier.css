@@ -1,0 +1,809 @@
+#header{
+  height: 100vh;
+  border: 0px solid blue;
+}
+#header_title { 
+  position: absolute;
+  text-align: center;
+  left: 0;
+  right: 0;
+  top: 26vh;
+  font-size:56px;
+  margin-left: auto;
+  margin-right: auto;
+  z-index: 999;
+  color: #fff;
+  border: 0px solid red;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, .6);
+}
+#hero{
+  height:100vh;
+  position:relative;
+  width:100vw;
+}
+.item{
+  border: 0px solid red;
+  height: 100vh;
+}
+#header_titlep{
+  font-size:18px;
+}
+#header_button{
+  font-size: 16px;
+  color: #fff;
+  padding: 8px;
+  border-radius: 50px;
+  position:absolute;
+  z-index: 2;
+  margin-top: 40px;
+  text-align:center;
+  border: 1px solid #f78b07;
+  background-color: #f78b07;
+  width: 180px;
+  height: 42px;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  text-shadow:none;
+}
+#header_button:hover{
+  background-color: #db7100;
+  border: 1px solid #db7100;
+}
+#supplier_header_show{
+  width: 360px;
+  height: 200px;
+  background-color: rgba(0,0,0,0.88);
+  position: absolute;
+  z-index: 99;
+  left: 6%;
+  top: 24%;
+  padding: 30px;
+}
+#header_show_title{
+  font-size: 22px;
+  color: #fff;
+}
+#header_show_des{
+  font-size: 14px;
+  color: #777777;
+  margin-top: 10px;
+}
+.supplier_menu{
+  width: 100%;
+  height: 70px;
+  background-color: #000;
+  text-align: center;
+}
+.supplier_menu_button{
+  font-size: 16px;
+  display: inline-block;
+  vertical-align: top;
+  width: 15%;
+  height: 70px;
+  padding-top: 24px;
+  margin: 0;
+  border: 0px solid red;
+  color: #777777;
+  cursor: pointer;
+}
+.supplier_menu_button:hover{
+  background-color: #383838;
+  color: #fff;
+}
+.supplier_menu_choose{
+  background-color: #383838;
+  color: #fff;
+}
+.supplier_intro{
+  width: 60%;
+  border: 0px solid red;
+  margin-left: 5%;
+  font-size: 16px;
+  font-family: 'Avenir LT 45 Book';
+  line-height: 1.8;
+  display: inline-block;
+  vertical-align: top;
+}
+.supplier_intro h3{
+  font-family: 'Avenir LT 95 Black';
+}
+.supplier_logo{
+  display: inline-block;
+  vertical-align: top;
+  border: 1px solid red;
+  text-align: center;
+  margin-top: 60px;
+  margin-left: 100px;
+}
+.index_design{
+  margin-top: 80px;
+  padding-bottom: 100px;
+  border: 0px solid red;
+  text-align: center;
+  width: fit-content;
+}
+#index_subtitle{
+  border-bottom: 1px solid #d5d5d5;
+  width: 88%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  padding-left: 20px;
+  text-align: left;
+}
+#subtitle_t{
+   font-size: 18px;
+   display: inline-block;
+   text-align: left;
+}
+#subtitle_more{
+  font-size: 14px;
+  display: inline-block;
+  vertical-align: bottom;
+  color: #5d5d5d;
+  width: 80px;
+  margin-top: 2px;
+  text-align: center;
+}
+#subtitle_more:hover{
+  color: orange;
+}
+.design_project{
+  width:372px;
+  height:330px;
+  margin: 12px;
+  border: 1px solid #d5d5d5;
+  background-color: #fff;
+  display: inline-block;
+  vertical-align: top;
+  text-align: left;
+}
+.design_project_blank{
+  width:50px;
+  height:50px;
+  display: inline-block;
+  vertical-align: top;
+}
+.project_img{
+  width: 372px;
+  height:256px;
+}
+.project_title{
+  font-family: 'Avenir LT 45 Book';
+  font-size: 16px;
+  padding-left: 16px;
+  padding-top: 12px;
+  width: 100%;
+  border: 0px solid red;
+  color: #383838;
+}
+.project_designer{
+  font-size: 13px;
+  display: inline-block;
+  vertical-align: top;
+  border: 0px solid red;
+  padding-top: 8px;
+  padding-left:16px;
+  color: #707070;
+}
+.design_main_subtitle{
+  position: absolute;
+  border: 0px solid red;
+/*  height:40px;*/
+  display: inline-block;
+  vertical-align: top;
+  margin-left: 162px;
+  margin-top: -8px;
+}
+.subtitle_icon1{
+  width: 18px;
+  height:11px;
+  display: inline-block;
+  vertical-align: top;
+  margin-top: 20px;
+}
+.subtitle_icon2{
+  width: 14px;
+  height:12px;
+  margin-left: 20px;
+  margin-top: 20px;
+  display: inline-block;
+  vertical-align: top;
+}
+.icon_title{
+  display: inline-block;
+  vertical-align: top;
+  font-family: 'Avenir LT 45 Book';
+  font-size: 14px;
+  margin-top: 19px;
+  color: #707070;
+}
+.designs_icon{
+  position: absolute;
+  border: 0px solid red;
+  height:40px;
+  display: inline-block;
+  vertical-align: top;
+  margin-left: 22px;
+  margin-top: 28px;
+}
+
+
+/*物料商申请*/
+.application{
+  background-color: #fff;
+  padding-top: 20px;
+  padding-left: 80px;
+  padding-bottom: 60px;
+  padding-right: 80px;
+  width: 600px;
+  border-radius: 4px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.apply_form{
+  margin-top: 40px;
+    font-size: 15px;
+    color: grey;
+    display: block;
+    margin-left: 24px;
+}
+.required{
+  color: red;
+}
+.sub_form_title{
+  margin-top: 60px;
+  color: orange;
+}
+.sub_form_gapline{
+  border-bottom: 1px solid #d5d5d5;
+}
+.apply_form td{
+  padding-left: 10px;
+  height: 50px;
+  border: 0px solid red;
+  text-align: left;
+  color: #4c4c4c;
+}
+.apply_form tr:nth-child(even){
+  border: 0px solid red;
+}
+.apply_form input{
+  width: 400px;
+  height: 32px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #d5d5d5;
+}
+.apply_form input:focus{
+  box-shadow: none;
+  border: 1px solid grey;
+}
+.apply_form textarea{
+  width: 400px;
+  box-shadow: none;
+  border: 1px solid #d5d5d5;
+  height: 100px;
+  resize: none;
+  margin-bottom: 20px;
+}
+.apply_form textarea:focus{
+  border: 1px solid grey;
+}
+.quote{
+  color: #bababa;
+  font: 12px;
+}
+.apply_form input[type=checkbox]{
+  position: absolute;
+}
+.apply_form .agreement{
+  text-align: left;
+  margin-left: 0;
+  position: absolute;
+  margin-left: 30px;
+  margin-top: 14px;
+}
+.apply_button{
+  height: 50px;
+  width: 120px;
+  background-color: orange;
+  border: none;
+  color: #fff;
+  margin-left: 30px;
+  margin-top: 60px;
+  font-size: 15px;
+}
+.apply_form .short_input{
+  width: 146px;
+  margin-left: 16px;
+}
+.apply_form .short_input[value="zip code"] { 
+  color: #b5b5b5; 
+  padding-left: 6px;
+  font-style: oblique;
+}
+.apply_form .short_input[value="city"] { 
+  color: #b5b5b5; 
+  padding-left: 6px;
+  font-style: oblique;
+}
+.apply_form .input-field[value="address#1"] { 
+  color: #b5b5b5; 
+  padding-left: 6px;
+  font-style: oblique;
+}
+.apply_form .input-field[value="address#2"] { 
+  color: #b5b5b5; 
+  padding-left: 6px;
+  font-style: oblique;
+}
+.apply_form select:focus{
+  box-shadow: none;
+}
+.apply_form .input_address{
+  width: 396px;
+}
+.apply_form .input_bottom{
+  border: 1px solid #d5d5d5;
+  width: 500px;
+  height: 180px;
+}
+.apply_form .input_sign{
+  width: 200px;
+}
+.form_title_sign{
+  font-size: 14px;
+  line-height: 2;
+}
+.apply_step{
+  font-size: 14px;
+  color: orange;
+  margin-top: 20px;
+}
+/*供应商主页*/
+#supplier_showArea{
+   width: 100%;
+   position:relative;
+   min-width: 1200px;
+   margin-top: 52px;
+}
+#showArea_pic{
+  width: 100%;
+  height: 100%;
+}
+#mainarea_topbar{
+  width: 100%;
+  height: 40px;
+  border: 0px solid #d5d5d5;
+  margin-top: -16px;
+  margin-right: 20px;
+  text-align: right;
+  padding-top: 10px;
+}
+.mainarea_topbar_button{
+  display: inline-block;
+  vertical-align: top;
+  padding: 6px;
+  width: 60px;
+  border-right: 0px solid #d5d5d5;
+  text-align: center;
+  color: #383838;
+  font-size: 14px;
+}
+.mainarea_topbar_button:hover{
+  color: orange;
+}
+#supplier_main{
+  width: 88%;
+  margin-left: auto;
+  margin-right: auto;
+  border: 0px solid green;
+}
+#supplier_main_content{
+  background-color: #fff;
+  margin-left: auto;
+  margin-right: auto;
+  padding-bottom: 40px;
+  border: 0px solid red;
+}
+#supplier_main_content_grey{
+  margin-left: auto;
+  margin-right: auto;
+  padding-bottom: 40px;
+  border: 0px solid red;
+}
+#top_menu{
+  border-bottom: 1px solid #d5d5d5;
+  margin-top: -42px;
+  margin-bottom: 40px;
+  text-align: center;
+}
+.top_menu_button{
+  display: inline-block;
+  vertical-align: top;
+  margin-left: 20px;
+  margin-right: 20px;
+  padding-bottom: 6px;
+  font-size: 16px;
+  height: 30px;
+  color: #9b9b9b;
+}
+.select{
+  border-bottom: 4px solid orange;
+  color: #383838;
+}
+.mainArea{
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  border: 0px solid green;
+}
+.designs_project{
+  width:272px;
+  height: 260px;
+  border: 1px solid #d5d5d5;
+  background-color: #fff;
+  display: inline-block;
+  vertical-align: top;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  text-align: left;
+}
+.designs_project_pic{
+  width: 272px;
+}
+.admin_collect_intro{
+  width: 130px;
+  height:200px;
+  border: 0px solid red;
+  display: inline-block;
+  vertical-align: top;
+  text-align: left;
+  margin-left: 12px;
+}
+.admin_collect_title{
+  font-size: 14px;
+  margin-top: 12px;
+  color: #383838;
+  text-align: left;
+}
+.admin_collect_designer{
+  font-size: 14px;
+  margin-top: 6px;
+  color: orange;
+  text-align: left;
+}
+.designs_icon{
+  position: absolute;
+  border: 0px solid red;
+  height:40px;
+  display: inline-block;
+  vertical-align: top;
+  margin-left: 14px;
+  margin-top: 24px;
+  text-align: left;
+}
+.subtitle_icon1{
+  width: 18px;
+  height:11px;
+  display: inline-block;
+  vertical-align: top;
+  margin-top: 20px;
+}
+.subtitle_icon2{
+  width: 14px;
+  height:12px;
+  margin-left: 20px;
+  margin-top: 20px;
+  display: inline-block;
+  vertical-align: top;
+}
+.icon_title{
+  display: inline-block;
+  vertical-align: top;
+  font-family: 'Avenir LT 45 Book';
+  font-size: 14px;
+  margin-top: 19px;
+  color: #707070;
+}
+.styled-select {
+   background: url(http://i62.tinypic.com/15xvbd5.png) no-repeat 96% 0;
+   height: 29px;
+   overflow: hidden;
+   width: 240px;
+}
+
+.styled-select select {
+   background: transparent;
+   border: none;
+   font-size: 14px;
+   height: 29px;
+   padding: 5px; /* If you add too much padding here, the options won't show in IE */
+   width: 268px;
+}
+
+.styled-select.slate {
+   background: url(http://i62.tinypic.com/2e3ybe1.jpg) no-repeat right center;
+   height: 34px;
+   width: 240px;
+}
+
+.styled-select.slate select {
+   border: 1px solid #ccc;
+   font-size: 16px;
+   height: 34px;
+   width: 268px;
+}
+.single{
+   width:280px;
+   display: inline-block;
+   vertical-align: top;
+   margin:  20px 4px 30px 4px;
+   border: 0px solid red;
+}
+.productPic{
+   height: 350px;
+   width: 210px;
+   margin-left: auto;
+   margin-right: auto;
+   text-align: center;
+   border: 0px solid red;
+}
+#heart{
+   position: absolute;
+   z-index: 2;
+   width: 40px;
+   height: 40px;
+   margin-left: 88px;
+   margin-top: 20px;
+   border:1px solid #ff9f05;
+   background:none;
+   color: #ff9f05;
+   border-radius: 40px;
+   text-align: center;
+   padding-top: 2px;
+   font-size: 30px;
+}
+#heart:hover,#heart:checked{
+   background-color: #ff9f05;
+   color: #fff;
+}
+.productIntro{
+   margin-left: 10px;
+   margin-right: 10px;
+   margin-top: 10px;
+   border-top: 1px solid #d5d5d5;
+}
+.product_name{
+  margin-left: 6px;
+   font-size: 15px;
+   margin-top: 6px;
+   color: #383838;
+}
+.product_brand{
+    margin-left: 6px;
+   font-size: 14px !important;
+   margin-top: 0px;
+   font-family: 'Avenir LT 45 Book';
+   color: #757575;
+}
+.product_price{
+    margin-left: 6px;
+   font-size: 18px;
+   margin-top: 10px;
+   color: orange;
+   font-family: 'Avenir LT 45 Book';
+}
+
+.dropdown-menu{
+  position: relative;
+  border: 0px solid #d5d5d5;
+  height: 22px;
+  font-size: 14px;
+  padding: 12px;
+  width: 80px;
+  color: #999999;
+  text-align: center;
+  display: inline-block;
+  margin: 0;
+}
+.dropdown-menu:hover{
+  background-color: #d5d5d5;
+  color: #fff;
+}
+.dropdown-menu .dropdown_sub{
+  background-color: #fff;
+  box-shadow: 0 0 18px rgba(0,0,0,.2);
+  width: 120px;
+  line-height: 3rem;
+  margin-left: 0;
+  text-align: center;
+}
+.dropdown-menu .dropdown_sub li a{
+  margin-left: -40px;
+}
+.dropdown-menu .dropdown_sub li a:hover{
+  color: orange;
+}
+.dropdown-menu > ul {
+  position: absolute;
+  z-index: 3;
+  visibility: hidden;
+  transition: visibility 0.5s;
+  opacity: 0;
+}
+.dropdown-menu > span:focus ~ ul {
+  visibility: visible;
+   opacity: 1;
+}
+.dropdown-menu > div {
+  background-color: rgba(0, 0, 0, 0);
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: none;
+}
+
+.dropdown-menu > span:focus ~ div {
+  display: block;
+}
+.dropdown-menu > span {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.dropdown-menu > span,
+.dropdown-menu > div {
+  cursor: pointer;
+  outline: 0;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+#dropdown_topbar{
+  width: 100%;
+  border-bottom: 1px solid #d5d5d5;
+  margin-bottom: 20px;
+}
+.overlay{
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.7);
+  transition: opacity 500ms;
+  visibility: hidden;
+  opacity: 0;
+}
+.overlay:target {
+  visibility: visible;
+  opacity: 1;
+}
+.popup {
+  margin: 70px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 5px;
+  width: 30%;
+  position: relative;
+  transition: all 1s ease-in-out;
+}
+.popup h2 {
+  margin-top: 0;
+  color: #333;
+  font-family: Tahoma, Arial, sans-serif;
+}
+.popup .close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  transition: all 200ms;
+  font-size: 30px;
+  font-weight: bold;
+  text-decoration: none;
+  color: #333;
+}
+.popup .close:hover {
+  color: #06D85F;
+}
+.popup .content {
+  max-height: 30%;
+  overflow: auto;
+}
+
+@media screen and (max-width: 700px){
+  .box{
+    width: 70%;
+  }
+  .popup{
+    width: 70%;
+  }
+}
+.service_panel{
+  background-color: #fff;
+  margin-left: auto;
+  margin-right: auto;
+  width: 880%;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 4px;
+}
+.showroom_panel{
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  border: 0px solid green;
+
+}
+.showroom_map{
+  width: 100%;
+  height: 300px;
+  border: 0px solid blue;
+  background-color: #d5d5d5;
+}
+.showroom_list{
+  width: 100%;
+  height: 100px;
+  background-color: #fff;
+  margin-top: 20px;
+  padding-top: 16px;
+  padding-bottom: 20px;
+  padding-left: 40px;
+    border-radius: 4px;
+}
+.showroom_num{
+  display: inline-block;
+  vertical-align: top;
+  border: 1px solid orange;
+  color: orange;
+  border-radius: 20px;
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  margin-top: 10px;
+  padding-top: 4px;
+}
+.showroom_info{
+  display: inline-block;
+  vertical-align: top;
+  margin-left: 20px;
+}
+.showroom_distance{
+  display: inline-block;
+  vertical-align: top;
+  float: right;
+  margin-right: 60px;
+  margin-top: 10px;
+}
+.search_top{
+  width: 82%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+  border-bottom: 1px solid #d5d5d5;
+  padding-bottom: 20px;
+}
+.search_img{
+  width: 120px;
+  display: inline-block;
+  vertical-align: top;
+}
+.search_img_info{
+  display: inline-block;
+  vertical-align: top;
+  margin-left: 40px;
+}
+.search_back{
+  margin-left: 9%;
+  color: #383838;
+}
+
+

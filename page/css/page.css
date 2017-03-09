@@ -1161,12 +1161,9 @@
   margin-left: auto;
   margin-right: auto;
   padding-top: 20px;
-  padding-left: 40px;
 }
 .add_new_form{
-  padding-left: 60px;
   padding-bottom: 60px;
-  padding-right: 80px;
   width: 540px;
   margin-left: 80px;
   border: 0px solid red;
@@ -1285,4 +1282,44 @@
 #addNew_secondStep{
   display: none;
 }
-
+#select_design_product{
+  border: 0px solid red;
+  width: 360px;
+  height: 270px;
+}
+#productList{
+  margin-top: 20px;
+  background-color: #fff;
+}
+#productList table {
+    border-collapse: collapse;
+    width: 100%;
+}
+#productList th{
+  background-color: #959a9e;
+  color: #fff;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  font-size: 13px;
+  min-width: 60px;
+  text-align: center;
+}
+#productList td{
+    text-align: left;
+    padding-left: 8px;
+    padding-right: 8px;
+    padding-top: 14px;
+  padding-bottom: 14px;
+  font-size: 13px;
+  color:#383838;
+  background-color: #fff;
+  border-bottom: 1px solid #dddddd;
+  text-align: center;
+}
+#productList tr:nth-child(even) {
+    background-color: #fff;
+    border-bottom: 1px solid #dddddd;
+}
+#productList input{
+  width: 100px;
+}

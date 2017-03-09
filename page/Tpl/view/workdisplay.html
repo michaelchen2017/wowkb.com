@@ -6,184 +6,13 @@
   <link rel="stylesheet" type="text/css" href="../../../template/common/css/common.css">
   <link rel="stylesheet" type="text/css" href="../../../template/common/css/chat.css">
   <link rel="stylesheet" type="text/css" href="../../page/css/page.css">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 </head>
 <body>
   {%include file="$root/template/common/navbar.html"%}
-
-
-<div id="chatbox">
-  <div id="chat_nav">
-    <div id="chat_title">聊天（2）</div>
-    <a href="#"><div id="chat_original">&#8593</div></a>
-    <a href="#"><div id="chat_compact">&#8211</div></a>
-    <a href="#"><div id="chat_close">&#10005</div></a> 
-  </div>
-
-  <div id="chat_sidebar">
-    <ul class="chat_sidebar_main">
-      <li id="user1">
-        <div class="chat_sidebar_pic">
-          <img src="../../image/head.png">
-        </div>
-        <div class="chat_sidebar_name">
-          <strong>user1111</strong>
-        </div>
-      </li>
-      <li class="chat_choose" id="user2">
-        <div class="chat_sidebar_pic">
-          <img src="../../image/head.png">
-        </div>
-        <div class="chat_sidebar_name">
-          user222
-        </div>
-      </li>
-      <li id="user3">
-        <div class="chat_sidebar_pic">
-          <img src="../../image/head.png">
-        </div>
-        <div class="chat_sidebar_name">
-          user333
-        </div>
-      </li>
-    </ul>
-  </div>
-
-<!-- user1 -->
-<div class="chat_rightmain" id="chat_user1">
-  <div id="chat_main">
-<!-- 左边的聊天内容 -->
-    <div class="chat_chat chat_left">
-      <!-- 头像 -->
-      <div class="chat_pic">
-        <img src="../../image/head.png">
-      </div>
-
-      <div class="chat_content content_left">
-        <!-- 聊天框及内容 -->
-        <div class="chat_content_message">
-          <i class="arrow-left"></i>
-          <!-- 聊天发送的图片 -->
-          <div class="chat_content_pic">
-            <img src="../../image/t2.jpg">
-          </div>
-          <!-- 聊天发送的文字 -->
-          <div class="chat_content_word">Hello!!user11111sfbsdkjfbskjb sfsfbsdkjfbskjb sfsfbsdkjfbskjb
-          </div>     
-        </div>
-        <!-- 用户名及时间 -->
-        <div class="chat_info info_left">XXX at 03/15/2017 12:09pm</div>
-      </div>     
-    </div><!-- chat_left -->
-
-
-<!-- 右边的聊天内容 -->
-    <div class="chat_chat chat_right">
-
-      <div class="chat_content content_right">
-        <!-- 聊天框及内容 -->
-        <div class="chat_content_message message_right">
-          <i class="arrow-right"></i>
-          <!-- 聊天发送的图片 -->
-          <div class="chat_content_pic">
-            <img src="../../image/t2.jpg">
-          </div>
-          <!-- 聊天发送的文字 -->
-          <div class="chat_content_word">
-            ddd
-          </div>     
-        </div>
-        <!-- 用户名及时间 -->
-        <div class="chat_info info_right">XXX at 03/15/2017 12:09pm</div>
-      </div>
-
-      <div class="chat_pic">
-        <img src="../../image/head.png">
-      </div>
-    </div><!-- chat_right -->
-
-  </div><!-- chat_main -->
-
-  <div class="chat_footer">
-    <textarea class="chat_textarea" placeholder="Type a message..." rows="1" cols="42" name="message"></textarea>
-    <div id="chat_button">
-      <a href=""><div class="chat_add_pic">添加图片</div></a>
-      <div id="chat_key">Ctrl+Enter</div>
-      <a href=""><div id="chat_send">发送</div></a>
-    </div>
-  </div>
-</div><!-- chat_rightmain -->
-
-
-<!-- user2 -->
-<div class="chat_rightmain" id="chat_user2">
-  <div id="chat_main">
-<!-- 左边的聊天内容 -->
-    <div class="chat_chat chat_left">
-      <!-- 头像 -->
-      <div class="chat_pic">
-        <img src="../../image/head.png">
-      </div>
-
-      <div class="chat_content content_left">
-        <!-- 聊天框及内容 -->
-        <div class="chat_content_message">
-          <i class="arrow-left"></i>
-          <!-- 聊天发送的图片 -->
-          <div class="chat_content_pic">
-            <img src="../../image/t1.jpg">
-          </div>
-          <!-- 聊天发送的文字 -->
-          <div class="chat_content_word">Hello!!!user2 
-          22222 worldf sfsfbsdkjfbskjb sfsfbsdkjfbskjb sfsfbsdkjfbskjb
-          </div>     
-        </div>
-        <!-- 用户名及时间 -->
-        <div class="chat_info info_left">XXX at 03/15/2017 12:09pm</div>
-      </div>     
-    </div><!-- chat_left -->
-
-
-<!-- 右边的聊天内容 -->
-    <div class="chat_chat chat_right">
-
-      <div class="chat_content content_right">
-        <!-- 聊天框及内容 -->
-        <div class="chat_content_message message_right">
-          <i class="arrow-right"></i>
-          <!-- 聊天发送的图片 -->
-          <div class="chat_content_pic">
-            <img src="../../image/t1.jpg">
-          </div>
-          <!-- 聊天发送的文字 -->
-          <div class="chat_content_word">
-            ddd
-          </div>     
-        </div>
-        <!-- 用户名及时间 -->
-        <div class="chat_info info_right">XXX at 03/15/2017 12:09pm</div>
-      </div>
-
-      <div class="chat_pic">
-        <img src="../../image/head.png">
-      </div>
-    </div><!-- chat_right -->
-
-  </div><!-- chat_main -->
-
-  <div class="chat_footer">
-    <textarea class="chat_textarea" placeholder="Type a message..." rows="1" cols="42" name="message"></textarea>
-    <div id="chat_button">
-      <a href=""><div class="chat_add_pic">添加图片</div></a>
-      <div id="chat_key">Ctrl+Enter</div>
-      <a href=""><div id="chat_send">发送</div></a>
-    </div>
-  </div>
-</div><!-- chat_rightmain -->
-</div><!-- chat_box -->
 
 
 <div id="chatbox">
@@ -402,7 +231,7 @@
     <div id="design_left">
     <div class="design_main">
       <div class="design_main_content">
-          <div class="design_main_title">{%$res['title']|default:''%}</div>
+          <div class="design_main_title">美式生机盎然厨房设计</div>
           <div class="design_sub_icon">
             <div id="customize_add_new">上传定制作品</div>
           </div> 
@@ -411,7 +240,9 @@
             <img id="design_main_pic_img" src="../../image/t1.jpg">
           </div>     
               <div class="productIntro_detail">
-                {%$res['description']|default:''%}
+                采用高端木质材料，外观简洁大方，美式风格.采用高端木质材料，外观简洁大方，美式风格
+                采用高端木质材料，外观简洁大方，美式风格.采用高端木质材料，外观简洁大方，美式风格
+                采用高端木质材料，外观简洁大方，美式风格
               </div>
       </div>
     </div>
@@ -436,7 +267,7 @@
                 </div>
             </div>
         </div>
-        <div id="sidebar_right_price">总价格：${%$res['final_sum']|default:''%}</div>    
+        <div id="sidebar_right_price">总价格：$2999</div>    
         <div class="sidebar_gapline"></div>
         <button class="buyButton">确认定制</button>
         <div id="material_list">查看物料清单</div> 
@@ -550,20 +381,6 @@ $('#myCarousel').carousel('pause')
     original.style.display = "none";
     compact.style.display="inline-block";
   }
-  var user1= document.getElementById('user1');
-var user2= document.getElementById('user2');
-var chat_user1=document.getElementById('chat_user1');
-var chat_user2=document.getElementById('chat_user2');
-
-user1.onclick = function(){
-  chat_user1.style.display = "inline-block";
-  chat_user2.style.display = "none";
-}
-user2.onclick = function(){
-  chat_user2.style.display = "inline-block";
-  chat_user1.style.display = "none";
-}
-
   var addNew = document.getElementById('customize_add_new');
   var addNew_close = document.getElementById('add_new_close');
   var addNew_window = document.getElementById('customized_design_add_new');

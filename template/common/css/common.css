@@ -83,9 +83,9 @@ html{
   margin: 0;
 }
 body{
-	margin: 0;
-	position: relative;
-	padding-bottom: 200px;
+  margin: 0;
+  position: relative;
+  padding-bottom: 200px;
   width: 100%;
   background-color: #ebebeb !important;
   font-family:"Hanyi",Arial,Helvetica,sans-serif,"宋体";
@@ -186,7 +186,7 @@ input[type="color"]:focus,
 	height:52px !important;
 	position: fixed;
 	top: 0;
-	z-index: 99;
+	z-index: 999;
 }
 #nav_bg{
 	background-color:#000;

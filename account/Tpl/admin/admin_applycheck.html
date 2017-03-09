@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Wow Kitchen & Bath</title>
+  <link rel="shortcut icon" type="image/x-icon" href="image/favicon.ico">
+  <link rel="stylesheet" type="text/css" href="../../../template/common/css/common.css">
+  <link rel="stylesheet" type="text/css" href="../../account/css/admin.css">
+</head>
+<body>
+{%include file="$root/template/common/navbar.html"%}
+
+<div id="body_dash">
+    {%include file="$root/template/common/sidebar.html"%}
+
+
+  <div id="admin_main">      
+      <div id="admin_content">
+        <div id="applycheck_title">物料商认证申请</div>
+        <table id="applycheck">
+          <tr>
+            <th>公司名称</th>
+            <th>认证信息</th>
+            <th>公司信息</th>
+            <th>支付信息</th>
+            <th>服务政策</th>
+            <th>媒体信息</th>
+            <th class="pub_td"></th>
+            <th></th>
+          </tr>
+          <tr>
+            <td>Grand JK</td>
+            <td><a href="#" class="wait_check">待审核</a></td>
+            <td>未上传</td>
+            <td>未上传</td>
+            <td>未上传</td>
+            <td>未上传</td>
+            <td><div class="pub_button">发布主页</div></td>
+            <td>取消发布</td>
+          </tr>
+          <tr>
+            <td>wowkb</td>
+            <td><a href="#" class="pass_check">已通过</a></td>
+            <td><a href="#" class="wait_check">待审核</a></td>
+            <td>未上传</td>
+            <td><a href="#" class="wait_check">待审核</a></td>
+            <td>未上传</td>
+            <td><div class="pub_button">发布主页</div></td>
+            <td>取消发布</td>
+          </tr>
+        </table>
+
+        <div id="applycheck_title">设计师认证申请</div>
+        <table id="applycheck">
+          <tr>
+            <th>姓名</th>
+            <th>认证信息</th>
+            <th>作品</th>
+            <th class="pub_td"></th>
+            <th></th>
+          </tr>
+          <tr>
+            <td>Grand JK</td>
+            <td><a href="#" class="wait_check">待审核</a></td>
+            <td><a href="#" class="wait_check">待审核</a></td>
+            <td><div class="pub_button">通过认证</div></td>
+            <td>取消认证</td>
+          </tr>
+          <tr>
+            <td>wowkb</td>
+            <td><a href="#" class="pass_check">已通过</a></td>
+            <td><a href="#" class="wait_check">待审核</a></td>
+            <td><div class="pub_button">通过认证</div></td>
+            <td>取消认证</td>
+          </tr>
+        </table>
+
+    </div>
+  </div>
+</div>
+
+
+{%include file="$root/template/common/footer.html"%}
+  </body>
+</html>

@@ -7,11 +7,12 @@
 	padding-left: 20px;
 	font-size: 14px;
 	color: grey;
+	margin: 15px;
 	border-right:1px solid #d3d3d3;
 	border-bottom: 1px solid #d3d3d3;
 }
 .admin_total_num{
-	margin-top: 54px;
+	margin-top: 36px;
 	margin-bottom: 100px;
 	margin-left: -20px;
 	font-size: 56px;
@@ -28,6 +29,7 @@
 	padding-left: 20px;
 	font-size: 14px;
 	color: grey;
+	margin: 15px;
 	border-right:1px solid #d3d3d3;
 	border-bottom: 1px solid #d3d3d3;
 }
@@ -129,7 +131,7 @@ table {
     border-collapse: collapse;
     width: 100%;
 }
-th{
+#productList th{
 	background-color: #959a9e;
 	color: #fff;
 	padding-top: 20px;
@@ -137,7 +139,7 @@ th{
 	font-size: 14px;
 	min-width: 80px;
 }
-td{
+#productList td{
     text-align: left;
     min-width: 90px;
     padding-left: 10px;
@@ -154,16 +156,17 @@ tr:nth-child(even) {
     background-color: #fff;
     border-bottom: 1px solid #dddddd;
 }
-#rrr{
-	background-color: red;
-}
 #productList{
 	margin-top: 20px;
 	background-color: #fff;
+	text-align: center;
 }
 #product_pic{
-	width:60px;
+	width: 60px;
 	height: 60px;
+	border: 0px solid red;
+	margin-left: auto;
+	margin-right: auto;
 }
 .product_pic{
 	width:60px;
@@ -204,11 +207,11 @@ tr:nth-child(even) {
     color:red;
 }
 .form-style-2 .tel-number-field{
-    width: 100px;
+    width: 240px;
     text-align: center;
 }
 .form-style-2 input.input-field{
-    width: 48%;  
+    width: 240px;  
 }
 .form-style-2 input.input-field, 
 .form-style-2 .tel-number-field, 
@@ -223,16 +226,20 @@ tr:nth-child(even) {
     -webkit-box-shadow: 1px 1px 4px #EBEBEB;
     padding: 7px;
     outline: none;
+
 }
 .form-style-2 .input-field:focus, 
 .form-style-2 .tel-number-field:focus, 
 .form-style-2 .textarea-field:focus,  
 .form-style-2 .select-field:focus{
-    border: 1px solid #0C0;
+    border: none;
+    box-shadow: none;
+    border: 1px solid #777777;
 }
 .form-style-2 .textarea-field{
     height:100px;
-    width: 55%;
+    width: 240px;
+    resize:none;
 }
 .form-style-2 input[type=submit],
 .form-style-2 input[type=button]{
@@ -373,3 +380,349 @@ tr:nth-child(even) {
 	text-align: center;
 	font-size: 14px;
 }
+.required{
+	color: red;
+}
+#productList .order_num{
+	color: #ff8505;
+}
+#order_info{
+	display: inline-block;
+	vertical-align: top;
+	border: 0px solid red;
+}
+#order_number{
+	color: #ff8505;
+	font-size: 14px;
+}
+#order_address{
+	font-size: 14px;
+	color: #3c3c3c;
+	margin-top: 16px;
+	display: block;
+	border-top: 1px solid #c5c5c5;
+	line-height: 1.8rem;
+	padding-top: 16px;
+	padding-bottom: 10px
+}
+#order_operation{
+	display: inline-block;
+	vertical-align: top;
+	border: 0px solid red;
+	position: absolute;
+	margin-left: 494px;
+	margin-top: -20px;
+	width: 260px;
+}
+#order_button1{
+	display: inline-block;
+	vertical-align: top;
+	width: 100px;
+	height: 38px;
+	padding-top: 14px;
+	text-align: center;
+	color: #ff8505;
+	margin-left: 20px;
+}
+#order_button2{
+	display: inline-block;
+	vertical-align: top;
+	width: 100px;
+	height: 38px;
+	background-color: #ff8505;
+	padding-top: 14px;
+	text-align: center;
+	color: #fff;
+	margin-left: 20px;
+}
+.order_total{
+	border: 0px solid red;
+	width: 240px;
+	font-size: 14px;
+	float: right;
+	margin-top: 20px;
+	line-height: 1.8rem;
+	border-bottom: 1px solid #d5d5d5;
+}
+.order_total td{
+	border: 0px solid red;
+	background-color: #ebebeb;
+	color: #3c3c3c;
+}
+.order_total tr:nth-child(even){
+	border: 0px solid red;
+}
+#order_back{
+	margin-bottom: 40px;
+	color: #a8a8a8;
+}
+
+/*物料商填写信息*/
+#admin_label{
+	margin-top: 50px;
+	min-width: 960px;
+	border-bottom: 1px solid #d3d3d3;
+	padding-bottom: 16px;
+	font-size: 14px;
+}
+#label_blank{
+	width:60px;
+	display: inline-block;
+	vertical-align: top;
+}
+.label_choose{
+	border-bottom: 4px solid #f8a041;
+	padding-bottom: 16px;
+	font-size: 14px;
+	color:#383838;
+}
+.label_top{
+	color: #9b9b9d;
+	font-size: 14px;
+}
+.label_top:hover{
+	border-bottom: 4px solid #f8a041;
+	padding-bottom: 16px;
+}
+
+.profile_form .pic_button{
+	outline: none;
+	border: 0px solid red;
+	height: 32px;
+	color: #fff;
+	display: inline-block;
+	vertical-align: top;
+	width: 72px;
+	background-color: #afafaf;
+	cursor: pointer;
+}
+.profile_form .pic_button:hover{
+	background-color: #777777;
+}
+.profile_form .pic_upload{
+	width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
+}
+.pic_upload + label {
+    font-size: 12px;
+    padding-top: 2px;
+    padding-left: 10px;
+    padding-right: 10px;
+    color: white;
+    height: 30px;
+    background-color: #afafaf;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.pic_upload:focus + label,
+.pic_upload + label:hover {
+    background-color: #777777;
+}
+.profile_form td{
+	text-align: left;
+	background-color: #ebebeb;
+	border: 0px solid red;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+.profile_form tr:nth-child(even) {
+    background-color: #ebebeb;
+    border-bottom: 0px solid #dddddd;
+}
+.profile_form .input-field{
+	width: 240px;
+	height: 28px;
+	border: 1px solid #d5d5d5;
+}
+.profile_form .input_address{
+	width: 236px;
+	height: 28px;
+	border: 1px solid #d5d5d5;
+}
+.profile_form .short_input{
+	width: 76px;
+	height:28px;
+	margin-left: 6px;
+	border: 1px solid #d5d5d5;
+}
+.profile_form .short_input[value="zip code"] { 
+	color: #b5b5b5; 
+	padding-left: 6px;
+	font-style: oblique;
+}
+.profile_form .short_input[value="city"] { 
+	color: #b5b5b5; 
+	padding-left: 6px;
+	font-style: oblique;
+}
+.profile_form .input-field[value="address#1"] { 
+	color: #b5b5b5; 
+	padding-left: 6px;
+	font-style: oblique;
+}
+.profile_form .input-field[value="address#2"] { 
+	color: #b5b5b5; 
+	padding-left: 6px;
+	font-style: oblique;
+}
+.profile_form .supplier_info_textarea{
+	width: 240px;
+	resize: none;
+	border: 1px solid #d5d5d5;
+	height: 100px;
+}
+.profile_form .form_label{
+	width: 120px;
+	font-size: 14px;
+}
+.profile_form .input-field:focus{
+	box-shadow: none;
+	border: 1px solid #999999;
+}
+.profile_form .short_input:focus{
+	box-shadow: none;
+	border: 1px solid #999999;
+}
+.profile_submit{
+	width: 120px;
+	height: 48px;
+	background-color: orange;
+	border: none;
+	color: #fff;
+	margin-top: 30px;
+}
+#type_counter{
+	font-size: 12px;
+	color: #afafaf;
+}
+.profile_pic{
+	display: block;
+	width: 200px;
+	height: 200px;
+	border: 1px dashed #999999;
+}
+#supplier_info_pay{
+	display: none;
+}
+#supplier_info_service{
+	display: none;
+}
+#supplier_info_media{
+	display: none;
+}
+.supplier_dashboard{
+	width: 100%;
+	height: 100px;
+	margin-top: 20px;
+	border: 0px solid red;
+}
+#applycheck .wait_check{
+	color: orange;
+}
+#applycheck .pass_check{
+	color: green;
+}
+#applycheck {
+    border-collapse: collapse;
+    width: 100%;
+}
+#applycheck th{
+	background-color: #959a9e;
+	color: #fff;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	font-size: 13px;
+}
+#applycheck td{
+    text-align: left;
+    padding-left: 8px;
+    padding-right: 8px;
+    padding-top: 14px;
+	padding-bottom: 14px;
+	font-size: 13px;
+	color:#777777;
+	background-color: #fff;
+	border-bottom: 1px solid #dddddd;
+	text-align: center;
+}
+#applycheck tr:nth-child(even) {
+    background-color: #fff;
+    border-bottom: 1px solid #dddddd;
+}
+#applycheck .pub_button{
+	width: 100px;
+	height: 30px;
+	background-color: orange;
+	margin-left: auto;
+	margin-right: auto;
+	padding-top: 10px;
+	color: #fff;
+	border-radius: 6px;
+}
+.applycheck .applycheck_label{
+	min-width: 100px;
+}
+.applycheck .applycheck_content{
+	width: 300px;
+}
+.applycheck .applycheck_des{
+	width: 600px;
+}
+.applycheck{
+	max-width: 600px;
+}
+.applycheck td{
+	background-color:#fff;
+	color: #383838;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	font-size: 14px;
+	padding-left: 20px;
+	border: 1px solid #dddddd;
+}
+.applycheck tr:nth-child(even) {
+    background-color: #fff;
+    border-bottom: 1px solid #dddddd;
+}
+.apply_check_button{
+	display: inline-block;
+	vertical-align: top;
+	width: 100px;
+	height: 20px;
+	background-color:orange;
+	padding: 10px;
+	text-align: center;
+	font-size: 14px;
+	margin-top: 20px;
+	color: #fff;
+	margin-right: 20px;
+	border: 1px solid orange;
+}
+.apply_check_unpass{
+	display: inline-block;
+	vertical-align: top;
+	width: 100px;
+	height: 20px;
+	border: 1px solid red;
+	padding: 10px;
+	text-align: center;
+	font-size: 14px;
+	margin-top: 20px;
+	color: red;
+	margin-right: 20px;
+}
+#applycheck_title{
+	margin-top: 30px;
+	margin-bottom: 10px;
+	color: #777777;
+
+}
+.pub_td{
+	width: 100px;
+}
+

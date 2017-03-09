@@ -1,0 +1,129 @@
+#single_window{
+	width: 84%;
+	min-width: 600px;
+	min-height: 400px;
+	margin-left: auto;
+	margin-right: auto;
+	background-color: #fff;
+	border-radius: 4px;
+	padding-bottom: 80px;
+	padding-left: 30px;
+	padding-right: 30px;
+}
+#single_window_title{
+	font-size: 18px;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+	padding-top: 36px;
+}
+#single_window_content{
+	width: 90%;
+	min-height: 400px;
+	border: 1px solid #d5d5d5;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 30px;
+	overflow-y:scroll;
+	padding: 10px;
+	font-size: 14px;
+}
+#single_window_table{
+	border: 1px solid #d5d5d5;
+	width: 90%;
+	min-width: 550px;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+	margin-top: 30px;
+	margin-bottom: 30px;
+}
+
+#single_window_main{
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 60px;
+	margin-bottom: 60px;
+}
+#single_window_text{
+	width: 80%;
+/*	min-width: 550px;*/
+	height: 42vh;
+	margin-left: 10%;
+	margin-right:10%;
+	margin-top: 30px;
+	margin-bottom: 40px;
+	resize: none;
+	border: 1px solid #d5d5d5;
+}
+#single_window_text:focus{
+	box-shadow: none;
+	border: 1px solid #8c8c8c;
+}
+#single_window_select{
+	margin-left: 5%;
+	margin-top: 10px;
+}
+#single_window_button{
+	float: right;
+	margin-right: 5%;
+	background-color: orange;
+	padding: 12px;
+	width: 120px;
+	color: #fff;
+	text-align: center;
+}
+#single_window_table table {
+    border-collapse: collapse;
+    width: 100%;
+    text-align: center;
+    margin-right: auto;
+    margin-left: auto;
+}
+#productList th{	
+	color: #383838;
+	font-size: 16px;
+	text-align: center;
+	padding: 10px;
+	border-bottom:1px solid #d5d5d5;
+}
+#productList td{
+    text-align: center;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 14px;
+	padding-bottom: 14px;
+	font-size: 13px;
+	color:orange;
+	background-color: #fff;
+	border-bottom: 1px solid #dddddd;
+}
+tr:nth-child(even) {
+    background-color: #fff;
+    border-bottom: 1px solid #dddddd;
+}
+#productList input[type=checkbox]{
+	position: absolute;
+
+}
+#product_pic{
+	width: 80px;
+	height: 80px;
+	margin-left: auto;
+	margin-right: auto;
+}
+.return_finish{
+	margin-left: auto;
+	margin-right: auto;
+	float: center;
+	background-color: orange;
+	padding: 12px;
+	width: 120px;
+	color: #fff;
+	text-align: center;
+}
+#productList .order_num{
+	color: orange !important;
+}
+
