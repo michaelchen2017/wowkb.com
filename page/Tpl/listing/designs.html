@@ -14,21 +14,19 @@
 {%include file="$root/template/common/navbar.html"%}
 
 <div id="showArea">
-    <button id="showButton">现在购买</button>
-    <div id="showBox">全网的价格对比呈现将保证每一位顾客最低的消费价格</div>
+  <div id="search_slogan">所见即所得</div>
+    <div id="showBox">
+        <form>
+            <input id="search_input" type="text" placeholder="" required>
+            <input id="search_button" type="button" value="搜索">
+        </form>
+    </div>
     <img id="showArea_pic" src="../../image/ad2.png">
 </div>
 
 <div id="body">
   <div id="container">
     <div id="sidebar">
-      <div id="productSearch">
-        <form>
-          <input type="search" placeholder="Search">
-        </form>
-      </div>
-      
-      <div class="sidebar_gapline"></div>
 
       <div id="accordion" role="tablist" aria-multiselectable="true">
           <div class="panel panel-default">
@@ -40,7 +38,7 @@
               </div>
               <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
                   <ul id="catogory_list">
-                      <li class="secondList">全部规格</li>
+                      <li class="secondList">全部类别</li>
                       <li>厨房</li>
                       <li>浴室</li>
                       <li>卫生间</li>
@@ -58,7 +56,7 @@
               </div>
               <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
                   <ul id="catogory_list">
-                      <li class="secondList">全部规格</li>
+                      <li class="secondList">全部品牌</li>
                       <li>Branks</li>
                       <li>ikea</li>
                       <li>pinpai</li>
@@ -89,6 +87,13 @@
     </div><!-- sidebar -->
 
     <div id="mainContent">
+      <div id="mainarea_topbar">
+        <div class="mainarea_topbar_button">好评</div>
+        <div class="mainarea_topbar_button">精选</div>
+        <div class="mainarea_topbar_button">热门</div>
+        <div class="mainarea_topbar_button">关注量</div>
+      </div>
+
 
       <div class="mainArea">  
 
