@@ -101,6 +101,7 @@ class account extends Action{
 	}
 	
 	function ACT_logout(){
+		
 		if(isset($_SESSION['userid'])){
 			unset($_SESSION['userid']);
 			go("/");
