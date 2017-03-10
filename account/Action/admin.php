@@ -164,7 +164,9 @@ class admin extends Action{
 	
 		if(isset($_POST) && !empty($_POST['submit'])){
 // 						debug::d($_FILES["files"]["name"]); exit;
-			$target_dir = DOCUROOT . "/upload/images/".time()."/";
+			$pic_path_base ="/upload/images/".time()."/";
+			$target_dir = DOCUROOT . $pic_path_base;
+			
 			//mkdir("/path/to/my/dir", 0777);
 			mkdir($target_dir, 0777);
 			foreach ($_FILES["files"]["name"] as $i => $value){
@@ -184,7 +186,7 @@ class admin extends Action{
 				$new_file_name = $res_pic['item_id'] . '.' .  $file_extension;
 				$target_file = $target_dir . $new_file_name;
 					
-				$pic_path = $target_dir . $new_file_name;
+				$pic_path = $pic_path_base . $new_file_name;
 				$uploadOk = 1;
 					
 				// Check if image file is a actual image or fake image
