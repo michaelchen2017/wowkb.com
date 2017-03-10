@@ -177,7 +177,7 @@ class admin extends Action{
 				$files = explode(".", $_FILES["files"]["name"][$i]);
 // 				debug::d($files);
 	
-				$res_pic = $this->obj_material->getOne("*", array("project_no"=>$files[0], "visible"=>1, "status"=>"pending"));
+				$res_pic = $this->obj_material->getOne("*", array("project_no"=>$files[0], "visible"=>1, "status"=>"pending", "pic_path"=>"0"));
 // 							debug::d($res_pic);exit;
 				if(!isset($res_pic) || empty($res_pic['item_id'])){
 					continue;
