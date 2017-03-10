@@ -167,7 +167,7 @@ class admin extends Action{
 			foreach ($_FILES["files"]["name"] as $i => $value){
 				// 						        debug::d($_FILES["files"]["name"]);exit;
 				$file_extension = pathinfo($value,PATHINFO_EXTENSION);
-				$target_dir = DOCUROOT . "/upload/images/".time();
+				$target_dir = DOCUROOT . "/upload/images/".time()."/";
 				//mkdir("/path/to/my/dir", 0777);
 				mkdir($target_dir, 0777);
 	
