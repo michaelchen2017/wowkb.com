@@ -13,6 +13,9 @@ class admin extends Action{
 		$this->assign("user_type", $user_type);
 	
 		$userid = isset($_SESSION['userid'])?$_SESSION['userid']:"";
+		if(empty($userid)){
+			go("/");
+		}
 		$this->assign("userid", $userid);
 		
 		$this->obj_material = load("account_material");
