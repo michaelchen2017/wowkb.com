@@ -16,8 +16,8 @@ class listing extends Action{
 		
 		//$_SESSION ['UserLevel'] = 6; //模拟管理登录，用于debug
 		if(isset($_SESSION['userid']) && !empty($_SESSION['userid'])){
-			$userid_res = $this->obj_panos->getOne("*", array("pk_uid"=>$_SESSION['userid'], "visible"=>1));
-			$_SESSION ['UserLevel'] = $userid_res['userlevel'];
+// 			$userid_res = $this->obj_panos->getOne("*", array("pk_uid"=>$_SESSION['userid'], "visible"=>1));
+// 			$_SESSION ['UserLevel'] = $userid_res['userlevel'];
 			$this->assign("userid", $_SESSION['userid']);
 		}else{
 			$userid = 0;
