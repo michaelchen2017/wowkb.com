@@ -164,12 +164,13 @@ class admin extends Action{
 	
 		if(isset($_POST) && !empty($_POST['submit'])){
 // 						debug::d($_FILES["files"]["name"]); exit;
+			$target_dir = DOCUROOT . "/upload/images/".time()."/";
+			//mkdir("/path/to/my/dir", 0777);
+			mkdir($target_dir, 0777);
 			foreach ($_FILES["files"]["name"] as $i => $value){
 				// 						        debug::d($_FILES["files"]["name"]);exit;
 				$file_extension = pathinfo($value,PATHINFO_EXTENSION);
-				$target_dir = DOCUROOT . "/upload/images/".time()."/";
-				//mkdir("/path/to/my/dir", 0777);
-				mkdir($target_dir, 0777);
+				
 	
 				$files = explode(".", $_FILES["files"]["name"][$i]);
 // 				debug::d($files);
