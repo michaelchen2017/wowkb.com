@@ -40,7 +40,7 @@ class listing extends Action{
 	}
 	
 	function ACT_products(){
-		$res = $this->obj_products->getAll("*", array("visible"=>1) );
+		$res = $this->obj_products->getList("*", array("visible"=>1) , 50);
 		$this->assign("res", $res);
 	}
 	
