@@ -167,10 +167,12 @@ class admin extends Action{
 			foreach ($_FILES["files"]["name"] as $i => $value){
 				// 						        debug::d($_FILES["files"]["name"]);exit;
 				$file_extension = pathinfo($value,PATHINFO_EXTENSION);
-				$target_dir = DOCUROOT . "/upload/images/";
+				$target_dir = DOCUROOT . "/upload/images/".time();
+				//mkdir("/path/to/my/dir", 0777);
+				mkdir($target_dir, 0777);
 	
 				$files = explode(".", $_FILES["files"]["name"][$i]);
-				debug::d($files);
+// 				debug::d($files);
 	
 				$res_pic = $this->obj_material->getOne("*", array("project_no"=>$files[0], "visible"=>1, "status"=>"pending"));
 // 							debug::d($res_pic);exit;
@@ -181,7 +183,7 @@ class admin extends Action{
 				$new_file_name = $res_pic['item_id'] . '.' .  $file_extension;
 				$target_file = $target_dir . $new_file_name;
 					
-				$pic_path = "/upload/images/" . $new_file_name;
+				$pic_path = $target_dir . $new_file_name;
 				$uploadOk = 1;
 					
 				// Check if image file is a actual image or fake image
