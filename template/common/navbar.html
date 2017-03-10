@@ -7,12 +7,13 @@
   <div id="nav_link1">
       <a href="/page/listing.php?act=designs"><div class="nav">设计</div></a>
       <a href="/page/listing.php?act=products"><div class="nav">物料</div></a>
-      <a href="/account/admin.php?act=admin_manage"><div class="nav">物料录入</div></a>
-      <a href="/account/space.php?act=designer_upload"><div class="nav choose">作品录入</div></a>
+      
       {%if empty($userid)%}
       <a href="/account/account.php?act=register"><div class="nav">注册</div></a>
       <a href="/account/account.php?act=login"><div id="nav_sign_signin">登陆</div></a>
       {%else%}
+      <a href="/account/admin.php?act=admin_manage"><div class="nav">物料录入</div></a>
+      <a href="/account/space.php?act=designer_upload"><div class="nav choose">作品录入</div></a>
       <a href="/account/account.php?act=logout"><div class="nav">登出</div></a>
       {%/if%}
   </div>
