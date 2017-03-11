@@ -14,7 +14,6 @@
 {%include file="$root/template/common/navbar.html"%}
 
 <div id="showArea">
-  <div id="search_slogan">所见即所得</div>
     <div id="showBox">
         <form>
             <input id="search_input" type="text" placeholder="" required>
@@ -101,7 +100,7 @@
       <a href="/page/view.php?act=design_detail&id={%$value['pk_id']|default:''%}">
         <div class="designs_project">
           <div class="designs_project_pic">
-            <img src="{%$value['pic_path']|default:''%}">
+            <img class="designs_project_pic" src="{%$value['pic_path']|default:''%}">
           </div>
           <div class="admin_collect_intro">
             <div class="admin_collect_title">{%$value['title']|default:''%}</div>

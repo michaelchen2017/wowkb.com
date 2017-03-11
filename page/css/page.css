@@ -2,7 +2,7 @@
 
 /*动态头图*/
 #hero{
-  background-image:url(../image/header8.jpg);
+  background-image:url(/image/header_pic.jpg);
   background-size:cover;
   position:relative;
   height:100vh;
@@ -31,17 +31,14 @@
   text-align: center;
   left: 0;
   right: 0;
-  top: 26vh;
-  font-size:56px;
+  margin-top: 16%;
+  font-size:5rem;
   margin-left: auto;
   margin-right: auto;
   z-index: 999;
   color: #fff;
   border: 0px solid red;
   text-shadow: 0 2px 4px rgba(0, 0, 0, .6);
-}
-#header_titlet{
-  
 }
 #header_titlep{
   font-size:18px;
@@ -53,7 +50,7 @@
   border-radius: 50px;
   position:absolute;
   z-index: 2;
-  margin-top: 40px;
+  margin-top: 24%;
   text-align:center;
   border: 1px solid #f78b07;
   background-color: #f78b07;
@@ -64,6 +61,7 @@
   margin-left: auto;
   margin-right: auto;
   text-shadow:none;
+  cursor: pointer;
 }
 #header_button:hover{
   background-color: #db7100;
@@ -92,11 +90,10 @@
 }
 .header_step_each{
   border: 0px solid yellow;
-  width: 272px;
+  width: 18%;
   display: inline-block;
   vertical-align: top;
-  height: 90px;
-  cursor: pointer;
+  padding-bottom: 10px;
 }
 #header_step_pic{
   width: 36px;
@@ -108,20 +105,14 @@
   display: inline-block;
   vertical-align: top;
   border: 0px solid red;
-  width: 200px;
   margin-left: 0px;
+  text-align: center;
 }
 #header_step_t{
   font-size: 14px;
-  text-align: left;
+  text-align: center;
   color: #fff;
-  font-family: 'NotoSansHans-Light';
-}
-#header_step_p{
-  font-size: 14px;
-  text-align: left;
-  color: #c6c6c6;
-  margin-top: 10px;
+  margin-top: 4px;
   font-family: 'NotoSansHans-Light';
 }
 
@@ -144,13 +135,19 @@
   margin-right: auto;
   margin-bottom: 20px;
   padding-bottom: 10px;
-  padding-left: 20px;
+  padding-left: 16px;
   text-align: left;
 }
 #subtitle_t{
    font-size: 18px;
    display: inline-block;
    text-align: left;
+}
+#subtitle_p{
+   font-size: 14px;
+   display: inline-block;
+   text-align: left;
+   color: #777777;
 }
 #subtitle_more{
   font-size: 14px;
@@ -246,6 +243,26 @@
   margin-left: 22px;
   margin-top: 28px;
 }
+.supplier_title{
+  width: 100%;
+  min-height: 200px;
+  text-align: center;
+}
+.index_logo li{
+  display: inline-block;
+  vertical-align: top;
+  margin:30px;
+}
+.index_logo li div{
+  display:table-cell; 
+  width:160px; 
+  height:160px; 
+  text-align:center; 
+  vertical-align:middle;
+}
+.index_logo li div img{
+  vertical-align:middle;
+}
 
 
 /*物料检索页面*/
@@ -306,12 +323,13 @@
 #showArea_pic{
   width: 100%;
   min-width: 1280px;
+  height: 200px;
 }
 #showBox{
    position: absolute;
    margin-left: auto;
    margin-right: auto;
-   margin-top:80px;
+   margin-top:90px;
    z-index: 2;
    right: 0;
    left: 0;
@@ -353,9 +371,9 @@
 }
 #search_input {
   width: 600px;
-  height: 40px;
+  height: 34px;
   padding:8px 15px;
-  opacity: 0.66;
+  opacity: 0.7;
   background-color:#fff;
   border:0px solid #dbdbdb;
   border-radius: 40px 0 0 40px;
@@ -371,6 +389,8 @@
 }
 #search_input:focus{
   opacity: 1;
+  box-shadow: none;
+  outline: none;
 }
 #index_search_input:focus{
   opacity: 1;
@@ -378,12 +398,12 @@
 }
 #search_button {
   width: 100px;
-  height: 40px;
+  height: 35px;
   position:relative;
   padding:6px 15px;
   left:-8px;
-  border:2px solid #4296dd;
-  background-color:#4296dd;
+  border:2px solid #ed8b23;
+  background-color:#ed8b23;
   color:#fafafa;
   border-radius: 0 40px 40px 0
 }
@@ -410,8 +430,8 @@
   color:#fff;
 }
 #search_button:hover  {
-  background-color:#4296dd;
-  border:2px solid #4296dd;
+  background-color:#e27400;
+  border:2px solid #e27400;
   color:#fff;
 }
 #search_result{
@@ -448,6 +468,28 @@
     display: inline-block;
     font-size: 16px;
     vertical-align: top;
+}
+#mainarea_topbar{
+  width: 100%;
+  height: 40px;
+  border: 0px solid #d5d5d5;
+  margin-top: -16px;
+  margin-right: 20px;
+  text-align: right;
+  padding-top: 10px;
+}
+.mainarea_topbar_button{
+  display: inline-block;
+  vertical-align: top;
+  padding: 6px;
+  width: 60px;
+  border-right: 0px solid #d5d5d5;
+  text-align: center;
+  color: #383838;
+  font-size: 14px;
+}
+.mainarea_topbar_button:hover{
+  color: orange;
 }
 .single{
    width:300px;

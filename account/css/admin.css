@@ -281,6 +281,31 @@ tr:nth-child(even) {
 #multiupload{
 	margin-top: 40px;	
 }
+#multiupload th{
+	background-color: #959a9e;
+	color: #fff;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	font-size: 14px;
+	min-width: 80px;
+}
+#multiupload td{
+    text-align: left;
+    min-width: 90px;
+    padding-left: 10px;
+    text-align: center;
+    padding-right: 10px;
+    padding-top: 14px;
+	padding-bottom: 14px;
+	font-size: 13px;
+	color:#383838;
+	background-color: #fff;
+	border-bottom: 1px solid #dddddd;
+}
+#multiupload tr:nth-child(even) {
+    background-color: #fff;
+    border-bottom: 1px solid #dddddd;
+}
 #table_flow{
 	width: 960px;
 	overflow-x:scroll;

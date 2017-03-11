@@ -1,90 +1,81 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Wow Kitchen & Bath</title>
-<link rel="shortcut icon" type="image/x-icon" href="/image/favicon.ico">
-<link rel="stylesheet" type="text/css" href="../../../template/common/css/common.css">
-<link rel="stylesheet" type="text/css" href="../../page/css/page.css">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<script src="/js/navbar.js"></script>
+	<title>Wow Kitchen & Bath</title>
+	<link rel="shortcut icon" type="image/x-icon" href="../../image/favicon.ico">
+  <link rel="stylesheet" type="text/css" href="/template/common/css/common.css">
+  <link rel="stylesheet" type="text/css" href="/page/css/page.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="../../js/navbar.js"></script>
 </head>
 <body>
 
 {%include file="$root/template/common/navbar.html"%}
 
+<div id="header">
 
-<div id="header">	
-<div id="hero">
+	<div id="hero">
     	<div class="header">
      		<div id="header_title">在线定制您的橱柜</div>
     	</div>
     	<div id="header_button">开始定制</div>
     	<div id="header_step">
-    		<div id="header_step_each">
+    		<div class="header_step_each" id="firstStep">
     			<div id="header_step_pic">
     				<!-- <img src="../../image/icon1.png"> -->
     				<div id="header_step_num">1</div>
     			</div>
     			<div id="header_step_intro">
     				<div id="header_step_t">查找作品</div>
-    				<div id="header_step_p">丰富的产品与设计作品可供在线选择</div>
     			</div>
     		</div>
-    		<div id="header_step_each">
+    		<div class="header_step_each" id="twoStep">
     			<div id="header_step_pic">
     				<!-- <img src="../../image/icon2.png"> -->
     				<div id="header_step_num">2</div>
     			</div>
     			<div id="header_step_intro">
     				<div id="header_step_t">选择设计师</div>
-    				<div id="header_step_p">每一位设计师都有自己的专业与风格，选择最适合您的设计师</div>
     			</div>
     		</div>
-    		<div id="header_step_each">
+    		<div class="header_step_each" id="threeStep">
     			<div id="header_step_pic">
     				<!-- <img src="../../image/icon3.png"> -->
     				<div id="header_step_num">3</div>
     			</div>
     			<div id="header_step_intro">
     				<div id="header_step_t">交流想法</div>
-    				<div id="header_step_p">告诉设计师您的想法，包括房屋结构、尺寸、功能、风格、预算</div>
     			</div>
     		</div>
-    		<div id="header_step_each">
+    		<div class="header_step_each" id="fourStep">
     			<div id="header_step_pic">
     				<!-- <img src="../../image/icon4.png"> -->
     				<div id="header_step_num">4</div>
     			</div>
     			<div id="header_step_intro">
     				<div id="header_step_t">开始定制</div>
-    				<div id="header_step_p">一对一的专属定制，确保每一个细节</div>
     			</div>
     		</div>
-    		<div id="header_step_each">
+    		<div class="header_step_each" id="fiveStep">
     			<div id="header_step_pic">
     				<!-- <img src="../../image/icon1.png"> -->
     				<div id="header_step_num">5</div>
     			</div>
     			<div id="header_step_intro">
     				<div id="header_step_t">定制完成</div>
-    				<div id="header_step_p">享受您的定制服务、与朋友分享您的快乐</div>
     			</div>
     		</div>
-    	</div>
-    	<div id="header_step_bg"></div>
+    	</div><!-- header_step -->
     	<div id="header_bg"></div>
-    </div>	
-
-	
+    </div><!-- hero -->
 </div><!-- header -->
 
 
 <div id="body_white">
 
 	<div class="index_design">
-
 		<div id="index_subtitle">
 			<div id="subtitle_t">优秀设计</div>
 			<div id="subtitle_p">专业的设计，所见即所得</div>
@@ -93,7 +84,7 @@
 
 	<a href="#">
 		<div class="design_project">
-			<img class="project_img" src="../../image/project1.png">
+			<img class="project_img" src="/image/project1.png">
 			<div class="project_title">XX美式厨房设计</div>
 			<div class="project_designer">设计师：XXX</div>
 			<div class="design_main_subtitle">
@@ -106,7 +97,7 @@
 	</a>
 
 		<div class="design_project">
-			<img class="project_img" src="../../image/project2.png">
+			<img class="project_img" src="/image/project2.png">
 			<div class="project_title">XX美式厨房设计</div>
 			<div class="project_designer">设计师：XXX</div>
 			<div class="design_main_subtitle">
@@ -117,10 +108,8 @@
           	</div>		
 		</div>
 
-	
-
 		<div class="design_project">
-			<img class="project_img" src="../../image/project3.png">
+			<img class="project_img" src="/image/project3.png">
 			<div class="project_title">XX美式厨房设计</div>
 			<div class="project_designer">设计师：XXX</div>
 			<div class="design_main_subtitle">
@@ -202,98 +191,38 @@
            		<div class="icon_title">12</div>
           	</div>		
 		</div>
-	</div><!-- design -->
+	</div><!-- index design -->
 
-	<div id="index_product">
+  <div class="index_supplier">
+    <div id="index_subtitle">
+      <div id="subtitle_t">优秀供应商</div>
+      <div id="subtitle_p">专业的设计，所见即所得</div>
+      <a href="#"></a><div id="subtitle_more">更多</div></a>
+    </div>
 
-		<div id="index_subtitle">
-			<div id="subtitle_t">产品</div>
-			<div id="subtitle_p">发现最好的产品</div>
-			<a href="#"></a><div id="subtitle_more">更多</div></a>
-		</div>
+    <div class="supplier_title">
+      <ul class="index_logo fix">
+        <li>
+          <a href=""><div><img src="/image/grandjk.jpg" /></div></a>
+        </li>
+        <li>
+          <a href=""><div><img src="/image/indexlogo2.png" /></div></a>
+        </li>
+        <li>
+          <a href=""><div><img src="/image/grandjk.jpg" /></div></a>
+        </li>
+        <li>
+          <a href=""><div><img src="/image/indexlogo2.png" /></div></a>
+        </li>
+        <li>
+          <a href=""><div><img src="../../image/indexlogo2.png" /></div></a>
+        </li>
+      </ul>
+    </div>
 
-		<div id="product_project">
-			<div id="product_pro_img">
-				<img src="../../image/p1.png">
-			</div> 
-			<div id="pro_name">XX橱柜一套</div>
-			<div id="pro_brand">By Create and Barrel</div>
-			<div id="pro_price">$9999</div>
-		</div>
-		<div id="product_project">
-			<div id="product_pro_img">
-				<img src="../../image/p2.png">
-			</div> 
-			<div id="pro_name">XX橱柜一套</div>
-			<div id="pro_brand">By Create and Barrel</div>
-			<div id="pro_price">$9999</div>
-		</div>
-		<div id="product_project">
-			<div id="product_pro_img">
-				<img src="../../image/p3.png">
-			</div> 
-			<div id="pro_name">XX橱柜一套</div>
-			<div id="pro_brand">By Create and Barrel</div>
-			<div id="pro_price">$9999</div>
-		</div>
-		<div id="product_project">
-			<div id="product_pro_img">
-				<img src="../../image/p4.png">
-			</div> 
-			<div id="pro_name">XX橱柜一套</div>
-			<div id="pro_brand">By Create and Barrel</div>
-			<div id="pro_price">$9999</div>
-		</div>
-		<div id="product_project">
-			<div id="product_pro_img">
-				<img src="../../image/p4.png">
-			</div> 
-			<div id="pro_name">XX橱柜一套</div>
-			<div id="pro_brand">By Create and Barrel</div>
-			<div id="pro_price">$9999</div>
-		</div>
-		<div id="product_project">
-			<div id="product_pro_img">
-				<img src="../../image/p3.png">
-			</div> 
-			<div id="pro_name">XX橱柜一套</div>
-			<div id="pro_brand">By Create and Barrel</div>
-			<div id="pro_price">$9999</div>
-		</div>
-		<div id="product_project">
-			<div id="product_pro_img">
-				<img src="../../image/p2.png">
-			</div> 
-			<div id="pro_name">XX橱柜一套</div>
-			<div id="pro_brand">By Create and Barrel</div>
-			<div id="pro_price">$9999</div>
-		</div>
-		<div id="product_project">
-			<div id="product_pro_img">
-				<img src="../../image/p1.png">
-			</div> 
-			<div id="pro_name">XX橱柜一套</div>
-			<div id="pro_brand">By Create and Barrel</div>
-			<div id="pro_price">$9999</div>
-		</div>
-		<div id="product_project">
-			<div id="product_pro_img">
-				<img src="../../image/p4.png">
-			</div> 
-			<div id="pro_name">XX橱柜一套</div>
-			<div id="pro_brand">By Create and Barrel</div>
-			<div id="pro_price">$9999</div>
-		</div>
-		<div id="product_project">
-			<div id="product_pro_img">
-				<img src="../../image/p5.png">
-			</div> 
-			<div id="pro_name">XX橱柜一套</div>
-			<div id="pro_brand">By Create and Barrel</div>
-			<div id="pro_price">$9999</div>
-		</div>
-	</div>
-</div>
+  </div>
+
+</div><!-- body white -->
 
 {%include file="$root/template/common/footer.html"%}
 
