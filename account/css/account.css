@@ -27,6 +27,20 @@
 	display: inline-block;
 	vertical-align: top;
 }
+.label_top{
+	color: #9b9b9d;
+	font-size: 14px;
+}
+.label_top:hover{
+	border-bottom: 4px solid #f8a041;
+	padding-bottom: 16px;
+}
+.label_choose{
+	border-bottom: 4px solid #f8a041;
+	padding-bottom: 16px;
+	font-size: 14px;
+	color:#383838;
+}
 #label_choose{
 	border-bottom: 4px solid #f8a041;
 	padding-bottom: 16px;
@@ -546,6 +560,18 @@ tr:nth-child(even) {
 	width: 200px;
 	height: 200px;
 	border: 1px dashed #999999;
+}
+.profile_form .supplier_info_textarea{
+	width: 240px;
+	resize: none;
+	border: 1px solid #d5d5d5;
+	height: 100px;
+}
+#designer_info_pay{
+	display: none;
+}
+#designer_info_media{
+	display: none;
 }
 
 /*订单

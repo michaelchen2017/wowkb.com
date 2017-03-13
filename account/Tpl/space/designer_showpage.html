@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Wow Kitchen & Bath</title>
+  <link rel="shortcut icon" type="image/x-icon" href="image/favicon.ico">
+  <link rel="stylesheet" type="text/css" href="/template/common/css/common.css">
+  <link rel="stylesheet" type="text/css" href="/account/css/account.css">
+  <script type="text/javascript" src="/js/cropper.js"></script>
+</head>
+<body>
+{%include file="$root/template/common/navbar.html"%}
+
+<div id="body_dash">
+    {%include file="$root/template/common/sidebar.html"%}
+
+  <div id="admin_main">
+    <div id="admin_label">
+          <a class="label_top label_choose" id="info_basic" href="#">基本信息</a>
+          <div id="label_blank"></div>
+          <a class="label_top" id="info_pay" href="#">支付信息</a>
+          <div id="label_blank"></div>
+          <a class="label_top" id="info_media" href="#">媒体</a>
+      </div>
+      
+    <div id="admin_content">
+
+<!-- 销售人员基本信息 -->
+      <div id="designer_info_basic">
+       <form action="" method="post" enctype="multipart/form-data" role="form">
+            <table class="profile_form">
+              <tr>
+                <td class="form_label">头像</td>
+                <td><canvas id="testCanvas" width="240" height="240" style="border: 1px solid #afafaf;" >Your browser does not support canvas.</canvas></td>
+              </tr>
+              <tr>
+                <td class="form_label"></td>
+                <td>
+                  <input type="file" name="file" id="fileInput" onchange="handleFileSelect()" class="pic_upload"/><label for="fileInput"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="17" viewBox="0 0 20 17"><path d="M10 0l-5.2 4.9h3.3v5.1h3.8v-5.1h3.3l-5.2-4.9zm9.3 11.5l-3.2-2.1h-2l3.4 2.6h-3.5c-.1 0-.2.1-.2.1l-.8 2.3h-6l-.8-2.2c-.1-.1-.1-.2-.2-.2h-3.6l3.4-2.6h-2l-3.2 2.1c-.4.3-.7 1-.6 1.5l.6 3.1c.1.5.7.9 1.2.9h16.3c.6 0 1.1-.4 1.3-.9l.6-3.1c.1-.5-.2-1.2-.7-1.5z"/></svg> <span>选择图片</span></label>
+                  <input type="button" onclick="cropper.startCropping()" value="裁剪" class="pic_button"/>
+                  <input type="button" onclick="cropper.getCroppedImageSrc()" value="确定" class="pic_button"/>
+                </td>
+              </tr>
+              <tr>
+                <td class="form_label"><span>联系电话</span></td>
+                <td><input type="text" class="input-field" name="title" value="" /></td>
+              </tr>
+              <tr>
+                <td class="form_label"><span>联系邮箱</span></td>
+                <td><input type="text" class="input-field" name="size" value="" /></td>
+              </tr>
+              <tr>
+                <td class="form_label"><span>联系地址</span></td>
+                <td><input type="text" class="input-field input_address" name="size" value="address#1" onblur="if (this.value == '') {this.value = 'address#1';}"onfocus="if (this.value == 'address#1') {this.value = '';}"/></td>
+              </tr>
+              <tr>
+                <td class="form_label"></td>
+                <td><input type="text" class="input-field input_address" name="size" value="address#2" onblur="if (this.value == '') {this.value = 'address#2';}"onfocus="if (this.value == 'address#2') {this.value = '';}"/></td>
+              </tr>
+              <tr>
+                <td class="form_label"></td>
+                <td><select>
+                    <option value="">State</option>
+                    <option value="saab">Az</option>
+                    <option value="mercedes">CA</option>
+                    <option value="audi">Audi</option>
+                  </select>
+                  <input type="text" class="short_input" name="size" value="city" onblur="if (this.value == '') {this.value = 'city';}"onfocus="if (this.value == 'city') {this.value = '';}"/>
+                  <input type="text" class="short_input" name="size" value="zip code" onblur="if (this.value == '') {this.value = 'zip code';}"onfocus="if (this.value == 'zip code') {this.value = '';}"/></td>
+              </tr>
+              <tr>
+                <td class="form_label"><span>详细介绍</span></td>
+                <td><textarea maxlength="300" id="status" name="status" class="input-field supplier_info_textarea" onkeydown='countChar("status","counter");' onkeyup='countChar("status","counter");'></textarea></br><div id="type_counter">可以输入
+
+<span id="counter">300</span>字<br/></div></td>
+              </tr>           
+            </table>
+            <input type="submit" class="profile_submit" value="提交">          
+          </form>
+        </div>
+
+<!-- 销售人员支付信息 -->
+      <div id="designer_info_pay">
+       <form action="" method="post" enctype="multipart/form-data" role="form">
+            <table class="profile_form">
+              <tr>
+                <td class="form_label"><span>银行名称</span></td>
+                <td><input type="text" class="input-field" name="title" value="" /></td>
+              </tr>
+              <tr>
+                <td class="form_label"><span>银行地址</span></td>
+                <td><input type="text" class="input-field input_address" name="size" value="address#1" onblur="if (this.value == '') {this.value = 'address#1';}"onfocus="if (this.value == 'address#1') {this.value = '';}"/></td>
+              </tr>
+              <tr>
+                <td class="form_label"></td>
+                <td><input type="text" class="input-field input_address" name="size" value="address#2" onblur="if (this.value == '') {this.value = 'address#2';}"onfocus="if (this.value == 'address#2') {this.value = '';}"/></td>
+              </tr>
+              <tr>
+                <td class="form_label"></td>
+                <td><select>
+                    <option value="">State</option>
+                    <option value="saab">Az</option>
+                    <option value="mercedes">CA</option>
+                    <option value="audi">Audi</option>
+                  </select>
+                  <input type="text" class="short_input" name="size" value="city" onblur="if (this.value == '') {this.value = 'city';}"onfocus="if (this.value == 'city') {this.value = '';}"/>
+                  <input type="text" class="short_input" name="size" value="zip code" onblur="if (this.value == '') {this.value = 'zip code';}"onfocus="if (this.value == 'zip code') {this.value = '';}"/></td>
+              </tr>
+              <tr>
+                <td class="form_label"><span>银行电话</span></td>
+                <td><input type="text" class="input-field" name="size" value="" /></td>
+              </tr>
+              <tr>
+                <td class="form_label"><span>账户名称</span></td>
+                <td><input type="text" class="input-field" name="size" value="" /></td>
+              </tr>
+              <tr>
+                <td class="form_label"><span>编号ABA/Routing#</span></td>
+                <td><input type="text" class="input-field" name="size" value="" /></td>
+              </tr>
+              <tr>
+                <td class="form_label"><span>账号</span></td>
+                <td><input type="text" class="input-field" name="size" value="" /></td>
+              </tr>         
+            </table>
+            <input type="submit" class="profile_submit" value="提交">          
+          </form>
+        </div>
+
+<!-- 媒体 -->
+      <div id="designer_info_media">
+       <form action="" method="post" enctype="multipart/form-data" role="form">
+            <table class="profile_form">
+              <tr>
+                <td class="form_label"><span>Facebook</span></td>
+                <td><input type="text" class="input-field" name="size" value="" /></td>
+              </tr>
+              <tr>
+                <td class="form_label"><span>Twitter</span></td>
+                <td><input type="text" class="input-field" name="size" value="" /></td>
+              </tr>
+              <tr>
+                <td class="form_label"><span>Linkedin</span></td>
+                <td><input type="text" class="input-field" name="size" value="" /></td>
+              </tr>
+              <tr>
+                <td class="form_label"><span>Other</span></td>
+                <td><input type="text" class="input-field" name="size" value="" /></td>
+              </tr>        
+            </table>
+            <input type="submit" class="profile_submit" value="提交">          
+          </form>
+        </div>
+
+      
+    </div>
+  </div>
+</div>
+
+{%include file="$root/template/common/footer.html"%}
+<script type="text/javascript">
+      cropper.start(document.getElementById("testCanvas"), 1); // initialize cropper by providing it with a target canvas and a XY ratio (height = width * ratio)
+            
+      function handleFileSelect() {
+        // this function will be called when the file input below is changed
+        var file = document.getElementById("fileInput").files[0];  // get a reference to the selected file
+        
+        var reader = new FileReader(); // create a file reader
+        // set an onload function to show the image in cropper once it has been loaded
+        reader.onload = function(event) {
+          var data = event.target.result; // the "data url" of the image
+          cropper.showImage(data); // hand this to cropper, it will be displayed
+        };
+        
+        reader.readAsDataURL(file); // this loads the file as a data url calling the function above once done
+      }
+      
+    </script>
+    <script language="javascript"> 
+function countChar(textareaName,spanName) 
+{ 
+document.getElementById(spanName).innerHTML = 300 - document.getElementById(textareaName).value.length; 
+} 
+</script>
+<script type="text/javascript">
+var basic = document.getElementById('info_basic');
+var pay = document.getElementById('info_pay');
+var media = document.getElementById('info_media');
+
+var content_basic = document.getElementById('designer_info_basic')
+var content_pay = document.getElementById('designer_info_pay')
+var content_media = document.getElementById('designer_info_media')
+
+basic.onclick = function(){
+  basic.className = "label_choose";
+  pay.className = "label_top";
+  media.className = "label_top";
+  content_basic.style.display = "block";
+  content_pay.style.display = "none";
+  content_media.style.display = "none";
+}
+pay.onclick = function(){
+  pay.className = "label_choose";
+  basic.className = "label_top";
+  media.className = "label_top";
+  content_pay.style.display = "block";
+  content_basic.style.display = "none";
+  content_media.style.display = "none";
+}
+media.onclick = function(){
+  media.className = "label_choose";
+  pay.className = "label_top";
+  basic.className = "label_top";
+  content_media.style.display = "block";
+  content_pay.style.display = "none";
+  content_basic.style.display = "none";
+}
+
+</script>
+
+  </body>
+</html>
