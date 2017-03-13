@@ -31,7 +31,7 @@
         <div class="related_content_project">
           <div id="related_pic"><a href="/page/view.php?act=design_detail&id={%$value['pk_id']|default:''%}" ><img src="{%$value['pic_path']|default:''%}"></a></div>
           <div id="related_title">{%$value['title']|default:''%}</div>
-          <div id="related_price">${%$value['price']|default:''%}</div>
+          <div id="related_price">${%$value['retail_price']|default:''%}</div>
         </div>
        
        {%/foreach%}
