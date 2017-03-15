@@ -20,8 +20,9 @@ class space extends Action{
 			go("/");
 		}
 		$this->assign("userid", $userid);
+		$user_type_arr = $this->obj_user->getOne("*", array("uid"=>$userid, "visible"=>1));
+		$user_type = $user_type_arr['account_type'];
 		
-		$user_type = "designer";
 		$this->assign("user_type", $user_type);
 	}
 	
@@ -371,8 +372,7 @@ class space extends Action{
 	}
 	
 	function ACT_user_history(){
-		$user_type = "user";
-		$this->assign("user_type", $user_type);
+		
 		
 	}
 	

@@ -38,6 +38,7 @@ class account extends Action{
 					"pswd" => $_POST['password'],
 					"tel" => isset($_POST['gender'])?$_POST['gender']:"",
 					"ip" => http::getIP(),
+					"account_type"=>"user",
 					);
 			
 			//debug::d($user_register_info);exit;
