@@ -3,6 +3,7 @@ class listing extends Action{
 	public $obj_panos;
 	public $obj_posts;
 	public $obj_zuopin;
+	public $obj_user;
 	public $obj_products;
 	
 	function __construct(){
@@ -11,14 +12,19 @@ class listing extends Action{
 		$this->obj_panos = load("account_panos");
 		$this->obj_posts = load("account_posts");
 		$this->obj_zuopin = load("account_zuopin");
+		$this->obj_user = load("account_users");
 		$this->obj_products = load("account_material");
 		
 		
 		//$_SESSION ['UserLevel'] = 6; //模拟管理登录，用于debug
 		if(isset($_SESSION['userid']) && !empty($_SESSION['userid'])){
-// 			$userid_res = $this->obj_panos->getOne("*", array("pk_uid"=>$_SESSION['userid'], "visible"=>1));
-// 			$_SESSION ['UserLevel'] = $userid_res['userlevel'];
+			
 			$this->assign("userid", $_SESSION['userid']);
+			$userid = $_SESSION['userid'];
+			$user_type_arr = $this->obj_user->getOne("*", array("uid"=>$userid, "visible"=>1));
+			$user_type = $user_type_arr['account_type'];
+			
+			$this->assign("user_type", $user_type);
 		}else{
 			$userid = 0;
 			unset($_SESSION ['UserLevel']);

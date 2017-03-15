@@ -9,8 +9,8 @@ class admin extends Action{
 	
 	function __construct() {
 		parent::__construct();
-		$user_type = "admin";
-		$this->assign("user_type", $user_type);
+// 		$user_type = "admin";
+// 		$this->assign("user_type", $user_type);
 	
 		$userid = isset($_SESSION['userid'])?$_SESSION['userid']:"";
 		if(empty($userid)){
@@ -20,6 +20,11 @@ class admin extends Action{
 		
 		$this->obj_material = load("account_material");
 		$this->obj_user = load("account_users");
+		
+		$user_type_arr = $this->obj_user->getOne("*", array("uid"=>$userid, "visible"=>1));
+		$user_type = $user_type_arr['account_type'];
+			
+		$this->assign("user_type", $user_type);
 		
 		if(!isset($_SESSION ['UserLevel']) || $_SESSION ['UserLevel'] != 6){
 // 			go("/");
@@ -41,8 +46,8 @@ class admin extends Action{
 	}
 	
 	function ACT_admin_manage(){
-		$user_type = "admin";
-		$this->assign("user_type", $user_type);
+// 		$user_type = "admin";
+// 		$this->assign("user_type", $user_type);
 		
 		$res = $this->obj_material->getList("*", array("visible"=>1), 5);
 		$this->assign("res", $res);
@@ -67,8 +72,8 @@ class admin extends Action{
 	}
 	
 	function ACT_admin_multiupload(){
-		$user_type = "admin";
-		$this->assign("user_type", $user_type);
+// 		$user_type = "admin";
+// 		$this->assign("user_type", $user_type);
 		
 		if(isset($_POST) && !empty($_POST['submit'])){
 		
@@ -262,8 +267,8 @@ class admin extends Action{
 	
 	
 	function ACT_admin_singleupload(){
-		$user_type = "admin";
-		$this->assign("user_type", $user_type);
+// 		$user_type = "admin";
+// 		$this->assign("user_type", $user_type);
 		
 		
 	}
