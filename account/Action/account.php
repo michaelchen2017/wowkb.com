@@ -112,6 +112,35 @@ class account extends Action{
 		
 	}
 	
+	function ACT_forget_pwd(){
+		
+	}
+	
+	function ACT_forget_pwd_process(){
+		if(isset($_POST) && !empty($_POST['email'])){
+			$email = trim($_POST['email']);
+			$pwd_arr = $this->obj_user->getOne("*", array("email"=>$email, "visible"=>1));
+			
+			if(isset($pwd_arr) && !empty($pwd_arr))
+			{
+				$recipient = $pwd_arr['pswd'];
+				if($this->sendmail($email, $recipient)){
+					go("/account/account.php?act=login");
+				}
+				else{
+					go("/");
+				}
+			}
+			else{
+				go("/");
+			}
+		}
+		else{
+			go("/");
+		}
+			
+	}
+	
 // 	function ACT_test(){
 // 		$recipient_mail = "chenzixing2009@gmail.com";
 // 		$recipient = "michael & ginger";
@@ -156,9 +185,9 @@ class account extends Action{
 		// 		)
 		// );
 		
-		$mail->Subject = 'Here is the subject: wowkb.com02' . $recipient;
-		$mail->Body    = 'This is the HTML message body <b>in bold!</b>';
-		$mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
+		$mail->Subject = 'Your password in wowkb.com : ' . $recipient;
+		$mail->Body    = 'Your password in wowkb.com : ' . $recipient;;
+		$mail->AltBody = 'Your password in wowkb.com : ' . $recipient;;
 		
 		if(!$mail->send()) {
 			echo 'Message could not be sent.';
