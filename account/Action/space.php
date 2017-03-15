@@ -16,6 +16,9 @@ class space extends Action{
 		$this->obj_zuopin_materials = load("account_zuopin_material");
 		
 		$userid = isset($_SESSION['userid'])?$_SESSION['userid']:"";
+		if(empty($userid)){
+			go("/");
+		}
 		$this->assign("userid", $userid);
 		
 		$user_type = "designer";
