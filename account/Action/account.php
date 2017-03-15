@@ -40,6 +40,8 @@ class account extends Action{
 					"tel" => isset($_POST['gender'])?$_POST['gender']:"",
 					"ip" => http::getIP(),
 					"account_type"=>"user",
+					"isdesigner" => 0,
+					"status" => 1,
 					"level" => 0,
 					);
 			
