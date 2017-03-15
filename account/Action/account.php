@@ -33,12 +33,14 @@ class account extends Action{
 			$email = strtolower($_POST['email']);
 			$user_register_info = array(
 					"reg_time" => times::getTime(),
+					"login_time" => times::getTime(),
 					"username" => $_POST['username'],
 					"email" => $email,
 					"pswd" => $_POST['password'],
 					"tel" => isset($_POST['gender'])?$_POST['gender']:"",
 					"ip" => http::getIP(),
 					"account_type"=>"user",
+					"level" => 0,
 					);
 			
 			//debug::d($user_register_info);exit;
