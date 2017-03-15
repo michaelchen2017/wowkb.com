@@ -32,8 +32,12 @@ class admin extends Action{
 	}
 	
 	function ACT_admin_dashboard(){
-		$user_type = "admin";
-		$this->assign("user_type", $user_type);
+		$res = $this->obj_material->getAll("*", array("visible"=>1));
+		$count = count($res);
+		
+		$this->assign("count", $count);
+		
+		
 	}
 	
 	function ACT_admin_manage(){

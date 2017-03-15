@@ -363,6 +363,8 @@ class space extends Action{
 	function ACT_user_dashboard(){
 		$user_type = "user";
 		$this->assign("user_type", $user_type);
+		
+		
 	}
 	
 	function ACT_user_history(){
