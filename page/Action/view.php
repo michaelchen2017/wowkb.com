@@ -8,6 +8,7 @@ class view extends Action{
 	public $obj_zuopin_material;
 	public $obj_product;
 	public $obj_product_zuopins;
+	public $obj_user;
 	
 	function __construct(){
 		parent::__construct();
@@ -18,12 +19,19 @@ class view extends Action{
 		$this->username_obj = load("account_metaUser");
 		$this->obj_zuopin = load("account_zuopin");
 		$this->obj_zuopin_material = load("account_zuopin_material");
+		$this->obj_user = load("account_users");
 		
 		$this->obj_product = load("account_material");
 		$this->obj_product_zuopins = load("account_zuopin_material");
 		//handle userid login
 		$userid = isset($_SESSION['userid'])?$_SESSION['userid']:"";
 		$this->assign("userid", $userid);
+		
+		
+		$user_type_arr = $this->obj_user->getOne("*", array("uid"=>$userid, "visible"=>1));
+		$user_type = $user_type_arr['account_type'];
+		
+		$this->assign("user_type", $user_type);
 	}
 	
 	function ACT_index(){

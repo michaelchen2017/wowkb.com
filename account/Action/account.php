@@ -205,5 +205,13 @@ class account extends Action{
 		}
 	}
 	
+	function ACT_apply_supplier(){
+		
+	}
+	
+	function ACT_apply_designer(){
+		
+	}
+	
 	
 }
