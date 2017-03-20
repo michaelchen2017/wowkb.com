@@ -191,8 +191,8 @@ class account extends Action{
 		// );
 		
 		$mail->Subject = 'Your password in wowkb.com : ' . $recipient;
-		$mail->Body    = 'Your password in wowkb.com : ' . $recipient;;
-		$mail->AltBody = 'Your password in wowkb.com : ' . $recipient;;
+		$mail->Body    = 'Your password in wowkb.com : ' . $recipient;
+		$mail->AltBody = 'Your password in wowkb.com : ' . $recipient;
 		
 		if(!$mail->send()) {
 			echo 'Message could not be sent.';

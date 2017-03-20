@@ -136,9 +136,6 @@ class view extends Action{
 			
 		}
 		
-// 		debug::d($res);
-// 		debug::d($product_zuopins);
-// 		exit;
 		
 		$this->assign("res", $res);
 		$this->assign("product_zuopins", $product_zuopins);
