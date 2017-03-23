@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Wow Kitchen & Bath</title>
+  <link rel="shortcut icon" type="image/x-icon" href="image/favicon.ico">
+  <link rel="stylesheet" type="text/css" href="/template/common/css/common_temp.css">
+  <link rel="stylesheet" type="text/css" href="/prewowkb/css/prepage.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div id="navbar">
+  <div id="nav_logo">
+      <img id="nav_logo_pic" src="/image/logo4.png">
+  </div>
+  
+  <div id="nav_link1">
+      <a href="/prewowkb/Tpl/index.html"><div class="nav">主页</div></a>
+      <a href="/prewowkb/Tpl/designer.html"><div class="nav">设计</div></a>
+      <a href="/prewowkb/Tpl/productsupplier.html"><div class="nav">产品</div></a>
+      <a href="/prewowkb/Tpl/service.html"><div class="nav">服务</div></a>
+      <a href="/prewowkb/Tpl/about.html"><div class="nav choose">关于我们</div></a>
+      <a href="/prewowkb/Tpl/begincustomize.html"><div class="nav">开始定制</div></a>
+      <a href=""><div class="nav">注册</div></a>
+      <a href=""><div id="nav_sign_signin">登陆</div></a>
+  </div>
+  <div id="nav_bg"></div>
+</div>
+
+<a class="back_top" href="#">&#8679;</a>
+
+<div id="showArea">
+  <div class="page_intro_up">
+    <h2>关于我们</h2>
+  </div>
+  <div class="pageheader_bg"></div>
+    <img id="showArea_pic" class="pageheader" src="/image/pageheader.png">   
+</div>
+
+<div id="body">
+  <div class="aboutus_intro">
+    <h3>欢迎来到WOWKB</h3>
+    <p>
+    WOWKB是一个装修定制方案共享平台，通过房主与设计师、物料商、施工承包商共享与协作，来完成繁琐的装修定制服务。
+    装修工作是繁琐的，我们正在将它变得简单；WOWKB平台有很多的装修设计方案，真实的设计作品与产品信息，准确的装修预算与价格，您可以在线选择喜欢的设计方案，找到并联系您的设计师、产品销售顾问、施工承包商，与他们交流想法与灵感，告诉他们您的需求，并将您 的需求汇总成您自己的装修设计方案，我们相信装修工作是简单、轻松和愉快的，我们希望能给您全新的服务体验。
+    </p>
+  </div>
+  <div class="aboutus_gapline"></div>
+  <div id="map"></div>
+  <div class="contact_info">
+    <h4>联系我们</h4>
+    <p>
+      customerservice@wowkb.com</br>
+      97 E Brokaw Road,</br>
+      San Jose, CA 95112
+    </p>
+  </div>
+  <div class="aboutus_gapline"></div>
+  <div class="contact_info">
+    <h4>加入我们</h4>
+    <p></br>
+      产品</br>
+      后端软件工程师</br>
+      前端软件工程师</br>
+      UI/UX 设计师</br>
+      3D算法工程师</br>
+      3D通才</br></br>
+
+      市场</br>
+      营销总监</br>
+      商务专员</br>
+      媒体运营</br>
+      客户体验研究员</br></br>
+
+      运营</br>
+      首席执行总监</br>
+      财务总监</br>
+      人资经理</br>
+    </p>
+  </div>
+
+
+<div class="bottom_space"></div>
+</div>
+<script>
+      function initMap() {
+        // Create a map object and specify the DOM element for display.
+        var map = new google.maps.Map(document.getElementById('map'), {
+          center: {lat: 37.37545, lng: -121.91640},
+          scrollwheel: false,
+          zoom: 12
+        });
+        marker = new google.maps.Marker({
+          map: map,
+          draggable: true,
+          animation: google.maps.Animation.DROP,
+          position: {lat: 37.37545, lng: -121.91640}
+        });
+        marker.addListener('click', toggleBounce);
+      }
+      function toggleBounce() {
+        if (marker.getAnimation() !== null) {
+          marker.setAnimation(null);
+        } else {
+        marker.setAnimation(google.maps.Animation.BOUNCE);
+  }
+}
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCAr7z43-TMU2Ezj3wT5m2S_FTzFnlWiGE&callback=initMap"
+    async defer></script>
+</body>
+</html>
+

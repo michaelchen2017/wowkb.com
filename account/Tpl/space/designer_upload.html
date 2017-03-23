@@ -3,8 +3,8 @@
 <head>
   <title>Wow Kitchen & Bath</title>
   <link rel="shortcut icon" type="image/x-icon" href="image/favicon.ico">
-  <link rel="stylesheet" type="text/css" href="../../../template/common/css/common.css">
-  <link rel="stylesheet" type="text/css" href="../../account/css/account.css">
+  <link rel="stylesheet" type="text/css" href="/template/common/css/common.css">
+  <link rel="stylesheet" type="text/css" href="/account/css/account.css">
 </head>
 <body>
 {%include file="$root/template/common/navbar.html"%}
@@ -14,14 +14,53 @@
     {%include file="$root/template/common/sidebar.html"%}
     
 <div id="admin_main">
-    <div class="productLink topspace"><a href="designer_manage.html">管理作品</a>/上传设计作品</div>
+    <div class="productLink topspace"><a href="designer_manage.html">管理作品</a>/上传设计作品/第一步：填写作品信息</div>
         <div class="form-style-2">
           <form action="" method="post" enctype="multipart/form-data">
-            <label for="field1"><span>作品名称<span class="required">*</span></span><input type="text" class="input-field" name="designname" value="" /></label>
-            <label for="field2"><span>空间尺寸<span class="required">*</span></span><input type="text" class="input-field" name="designsize" value="" /></label>
-            <label for="field5"><span>内容简介 <span class="required">*</span></span><textarea name="designdetail" class="textarea-field"></textarea></label>
-            <label><span>设计图片<span class="required">*</span></span><input type="file" name="designpicture"></label>
-            <label><span>&nbsp;</span><input type="submit" value="提交"/></label>
+            <label for="field1">
+              <span>作品名称<span class="required">*</span></span><input type="text" class="input-field" name="designname" value="" />
+            </label>
+            <label for="field1">
+              <span>作品类别<span class="required">*</span></span>
+            <select id="mySelect1" onchange="myFunction()">
+                <option value="customize">家居产品定制</option>
+                <option value="renew">室内翻新改造</option>
+                <option value="addroom">房屋加建改建</option>
+            </select>
+            </label>
+            <label for="field2">
+              <span>作品报价<span class="required">*</span></span><input type="text" class="input-field" name="" value="" />
+            </label>
+            <label for="field2">
+              <span>空间尺寸<span class="required">*</span></span><input type="text" class="input-field" name="designsize" value="" />
+            </label>
+            <label for="field2">
+              <span>材质<span class="required">*</span></span><input type="text" class="input-field" name="designsize" value="" />
+            </label>
+            <label for="field2">
+              <span>内部处理<span class="required">*</span></span><input type="text" class="input-field" name="designsize" value="" />
+            </label>
+            <label for="field2">
+              <span>颜色<span class="required">*</span></span><input type="text" class="input-field" name="designsize" value="" />
+            </label>
+            <label for="field2">
+              <span>应用<span class="required">*</span></span><input type="text" class="input-field" name="designsize" value="" />
+            </label>
+            <label for="field2">
+              <span>作品标签<span class="required">*</span></span><input type="text" class="input-field design_label" name="" value="标签之间逗号分隔，比如：橱柜，台面，地板..." />
+            </label>
+            <label>
+              <span>设计图片<span class="required">*</span></span><input type="file" name="designpicture">
+            </label>
+            <label for="field5">
+              <span>内容简介 <span class="required">*</span></span><textarea name="designdetail" class="textarea-field"></textarea>
+            </label>          
+            <label>
+              <span>使用物料</span><input type="file" name="">
+            </label>
+            <label>
+              <span>&nbsp;</span><input type="submit" value="提交"/>
+            </label>
           </form>
         </div>
       </div>
