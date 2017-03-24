@@ -14,50 +14,50 @@
     {%include file="$root/template/common/sidebar.html"%}
     
 <div id="admin_main">
-    <div class="productLink topspace"><a href="designer_manage.html">管理作品</a>/上传设计作品/第一步：填写作品信息</div>
+    <div class="productLink topspace"><a href="">管理作品</a>/上传设计作品/第一步：填写作品信息</div>
         <div class="form-style-2">
-          <form action="" method="post" enctype="multipart/form-data">
+          <form action="/account/space.php?act=designer_upload_process" method="post" enctype="multipart/form-data">
             <label for="field1">
-              <span>作品名称<span class="required">*</span></span><input type="text" class="input-field" name="designname" value="" />
+              <span>作品名称<span class="required">*</span></span><input type="text" class="input-field" name="name" value="" />
             </label>
             <label for="field1">
               <span>作品类别<span class="required">*</span></span>
-            <select id="mySelect1" onchange="myFunction()">
-                <option value="customize">家居产品定制</option>
-                <option value="renew">室内翻新改造</option>
-                <option value="addroom">房屋加建改建</option>
+            <select name="category" id="mySelect1" onchange="myFunction()">
+                <option value="家居产品定制">家居产品定制</option>
+                <option value="室内翻新改造">室内翻新改造</option>
+                <option value="房屋加建改建">房屋加建改建</option>
             </select>
             </label>
             <label for="field2">
-              <span>作品报价<span class="required">*</span></span><input type="text" class="input-field" name="" value="" />
+              <span>作品报价<span class="required">*</span></span><input type="text" class="input-field" name="price" value="" />
             </label>
             <label for="field2">
-              <span>空间尺寸<span class="required">*</span></span><input type="text" class="input-field" name="designsize" value="" />
+              <span>空间尺寸<span class="required">*</span></span><input type="text" class="input-field" name="size" value="" />
             </label>
             <label for="field2">
-              <span>材质<span class="required">*</span></span><input type="text" class="input-field" name="designsize" value="" />
+              <span>材质<span class="required">*</span></span><input type="text" class="input-field" name="texture" value="" />
             </label>
             <label for="field2">
-              <span>内部处理<span class="required">*</span></span><input type="text" class="input-field" name="designsize" value="" />
+              <span>内部处理<span class="required">*</span></span><input type="text" class="input-field" name="interior" value="" />
             </label>
             <label for="field2">
-              <span>颜色<span class="required">*</span></span><input type="text" class="input-field" name="designsize" value="" />
+              <span>颜色<span class="required">*</span></span><input type="text" class="input-field" name="color" value="" />
             </label>
             <label for="field2">
-              <span>应用<span class="required">*</span></span><input type="text" class="input-field" name="designsize" value="" />
+              <span>应用<span class="required">*</span></span><input type="text" class="input-field" name="application" value="" />
             </label>
             <label for="field2">
-              <span>作品标签<span class="required">*</span></span><input type="text" class="input-field design_label" name="" value="标签之间逗号分隔，比如：橱柜，台面，地板..." />
+              <span>作品标签<span class="required">*</span></span><input type="text" class="input-field design_label" name="tags" value="标签之间逗号分隔，比如：橱柜，台面，地板..." />
             </label>
             <label>
-              <span>设计图片<span class="required">*</span></span><input type="file" name="designpicture">
+              <span>设计图片<span class="required">*</span></span><input type="file" name="file">
             </label>
             <label for="field5">
-              <span>内容简介 <span class="required">*</span></span><textarea name="designdetail" class="textarea-field"></textarea>
+              <span>内容简介 <span class="required">*</span></span><textarea name="intro" class="textarea-field"></textarea>
             </label>          
-            <label>
+            <!-- <label>
               <span>使用物料</span><input type="file" name="">
-            </label>
+            </label> -->
             <label>
               <span>&nbsp;</span><input type="submit" value="提交"/>
             </label>

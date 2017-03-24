@@ -267,9 +267,7 @@ class admin extends Action{
 	
 	
 	function ACT_admin_singleupload(){
-// 		$user_type = "admin";
-// 		$this->assign("user_type", $user_type);
-		
+
 		
 	}
 	

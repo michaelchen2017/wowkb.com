@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Wowkb</title>
+<link rel="shortcut icon" type="image/x-icon" href="/image/favicon.ico">
+<link rel="stylesheet" type="text/css" href="/template/common/css/common.css">
+<link rel="stylesheet" type="text/css" href="/account/css/admin.css">
+</head>
+<body>
+
+{%include file="$root/template/common/navbar.html"%}
+
+<div id="body_dash">
+	{%include file="$root/template/common/sidebar.html"%}
+
+	<div id="admin_main">
+
+	  <div class="productLink topspace">批量上传图片</div>
+
+		<div id="admin_upload">
+		  <form  action="/account/space.php?act=addpics_process" enctype="multipart/form-data"  method="post">
+		   <input type="hidden" name="id" value="{%$id%}">
+			<input type="file" id="file" name="files[]"  class="custom-file-upload" multiple="multiple"/>
+			<input id="multi_pic_submit" type="submit" name="submit" value="提交">
+		  </form>
+		</div>
+	</div>
+</div>
+{%include file="$root/template/common/footer.html"%}
+</body>
+</html>

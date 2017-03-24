@@ -5,6 +5,8 @@ class space extends Action{
 	public $obj_zuopin;
 	public $obj_zuopin_materials;
 	public $obj_materials;
+	public $obj_tmp_zuopin;
+	public $obj_tmp_zuopin_wuliao_pics;
 	
 	function __construct() {
 		parent::__construct();
@@ -14,6 +16,9 @@ class space extends Action{
 		$this->obj_zuopin = load("account_zuopin");
 		$this->obj_materials = load("account_material");
 		$this->obj_zuopin_materials = load("account_zuopin_material");
+		
+		$this->obj_tmp_zuopin = load("account_tmp_zuopin");
+		$this->obj_tmp_zuopin_wuliao_pics = load("account_tmp_zuopin_wuliao_pics");
 		
 		$userid = isset($_SESSION['userid'])?$_SESSION['userid']:"";
 		if(empty($userid)){
@@ -219,8 +224,191 @@ class space extends Action{
 	}
 	
 	function ACT_designer_upload(){
-		$user_type = "designer";
-		$this->assign("user_type", $user_type);
+	
+	}
+	
+	function ACT_designer_upload_process(){
+//  		debug::d($_POST);
+//  		debug::d($_FILES);
+//  		exit;
+
+		if(!empty($_POST['name'])){
+		
+			if(!empty($_POST['name'])){
+				$item_id = time() . "_" . $_POST['name'] . "_" . rand(1, 1000);
+		
+		
+				$target_dir = DOCUROOT . "/image/material/";
+				$target_file = $target_dir . basename($_FILES["file"]["name"]);
+		
+				$imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
+				$imageFileType = strtolower($imageFileType);
+		
+				$file_name = $item_id . '.' . $imageFileType;
+		
+				$target_file = $target_dir . $file_name;
+				$pic_path = "/image/material/" . $file_name;
+				$uploadOk = 1;
+				
+						if (file_exists($target_file)) {
+							//echo "Sorry, file already exists.";
+							$uploadOk = 0;
+						}
+						// Check file size
+						if ($_FILES["file"]["size"] > 5000000) {
+							//echo "Sorry, your file is too large.";
+							$uploadOk = 0;
+						}
+						// Allow certain file formats
+						$file_type = "图片";
+						if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
+								&& $imageFileType != "gif"  && $imageFileType != "xlsx" && $imageFileType != "xls") {
+									//echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
+									$uploadOk = 0;
+									$file_type = "非图片";
+								}
+								// Check if $uploadOk is set to 0 by an error
+								if ($uploadOk == 0) {
+									//echo "Sorry, your file was not uploaded.";
+									// if everything is ok, try to upload file
+								} else {
+									if (move_uploaded_file($_FILES["file"]["tmp_name"], $target_file)) {
+										//echo "The file ". basename( $_FILES["fileToUpload"]["name"]). " has been uploaded.";
+		
+									} else {
+										//echo "Sorry, there was an error uploading your file.";
+									}
+								}
+							
+								$res = array(
+											
+										"name"=>$_POST['name'],
+										"category"=>$_POST['category'],
+										"price"=>$_POST['price'],
+										"size"=>$_POST['size'],
+										"texture"=>$_POST['texture'],
+										"interior"=>$_POST['interior'],
+										"color"=>$_POST['color'],
+										"application"=>$_POST['application'],
+										"tags"=>$_POST['tags'],
+										"pic_path"=>$pic_path,
+										"intro"=>$_POST['intro'],
+										
+								);
+// 								debug::d($res);exit;
+//                                 var_dump($this->obj_tmp_zuopin);exit;
+								$id = $this->obj_tmp_zuopin->insert($res);
+// 								go("/account/space.php?act=index&id={$userid}");
+								go("/account/space.php?act=addpics&id={$id}");
+					}
+		
+				}
+// 				else
+// 				{
+// 					echo "empty";
+// 					go("/account/admin.php?act=admin_singleupload");
+// 				}
+		
+		
+	}
+	function ACT_addpics(){
+		if(isset($_GET) && !empty($_GET['id'])){
+			$this->assign("id", $_GET['id']);
+		}
+		else{
+			go("/");
+		}
+	}
+	
+	function ACT_addpics_process(){
+// 		debug::d($_POST);
+// 		debug::d($_FILES);
+// 		exit;
+// 		debug::d($_GET['id']);exit;
+		if(isset($_POST) && !empty($_POST['id'])){
+			if(isset($_POST) && !empty($_POST['submit'])){
+				// 						debug::d($_FILES["files"]["name"]); exit;
+				$pic_path_base ="/upload/images/".time()."/";
+				$target_dir = DOCUROOT . $pic_path_base;
+					
+				//mkdir("/path/to/my/dir", 0777);
+				mkdir($target_dir, 0777);
+				foreach ($_FILES["files"]["name"] as $i => $value){
+					// 						        debug::d($_FILES["files"]["name"]);exit;
+					$file_extension = pathinfo($value,PATHINFO_EXTENSION);
+			
+			
+					$files = explode(".", $_FILES["files"]["name"][$i]);
+					// 				debug::d($files);
+					$file_name = md5($fi[0]) . rand(1,1000);
+					$new_file_name = $file_name . $file_extension;
+					
+					$pic_path = $pic_path_base . $new_file_name;
+					$target_file = $target_dir . $new_file_name;
+					
+					$uploadOk = 1;
+						
+					// Check if image file is a actual image or fake image
+						
+					$check = getimagesize($_FILES["files"]["tmp_name"][$i]);
+					if($check !== false) {
+						//echo "File is an image - " . $check["mime"] . ".";
+						$uploadOk = 1;
+					} else {
+						//echo "File is not an image.";
+						$uploadOk = 0;
+					}
+						
+					// Check if file already exists
+// 					if (file_exists($target_file)) {
+// 						//echo "Sorry, file already exists.";
+// 						$uploadOk = 0;
+// 					}
+			
+					// Allow certain file formats
+					$file_type = "图片";
+					$file_extension = strtolower($file_extension);
+					if($file_extension != "jpg" && $file_extension != "png" && $file_extension != "jpeg"
+							&& $file_extension != "gif") {
+								//echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
+								$uploadOk = 0;
+								$file_type = "非图片";
+							}
+							// Check if $uploadOk is set to 0 by an error
+								
+								
+							if ($uploadOk == 0) {
+								//echo "Sorry, your file was not uploaded.";
+								// if everything is ok, try to upload file
+							}
+							else {
+								if (move_uploaded_file($_FILES["files"]["tmp_name"][$i], $target_file)) {
+										
+									$pics = array(
+											"fk_id" => $_POST['id'],
+											"pic_path" => $pic_path,
+											
+									);
+									
+									$this->obj_tmp_zuopin_wuliao_pics->insert($pics);
+									
+										
+								} else {
+									//echo "Sorry, there was an error uploading your file.";
+								}
+							}
+							//go("/account/space.php?id={$_POST['userid']}");
+								
+				}//foreach
+// 				go("/account/admin.php?act=multi_preview");
+
+				go("/account/space.php?act=user_dashboard");
+			}
+		}
+		else{
+			go("/");
+		}
+		
 		
 	}
 	

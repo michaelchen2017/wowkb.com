@@ -5,7 +5,9 @@
   <link rel="shortcut icon" type="image/x-icon" href="image/favicon.ico">
   <link rel="stylesheet" type="text/css" href="/template/common/css/common_temp.css">
   <link rel="stylesheet" type="text/css" href="/prewowkb/css/prepage.css">
-
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
 <div id="navbar">
@@ -18,7 +20,7 @@
       <a href="/prewowkb/Tpl/designer.html"><div class="nav">设计</div></a>
       <a href="/prewowkb/Tpl/productsupplier.html"><div class="nav">产品</div></a>
       <a href="/prewowkb/Tpl/service.html"><div class="nav">服务</div></a>
-      <a href="/prewowkb/Tpl/about.html"><div class="nav">关于我们</div></a>
+      <a href="/prewowkb/account.php?act=about"><div class="nav">关于我们</div></a>
       <a href="/prewowkb/Tpl/begincustomize.html"><div class="nav">开始定制</div></a>
       <a href=""><div class="nav">注册</div></a>
       <a href=""><div id="nav_sign_signin">登陆</div></a>
@@ -27,39 +29,39 @@
 </div>
 
 
-
 <div class="content_form">
-    <form action="" method="post" enctype="multipart/form-data">
-            <div class="form_title">申请成为WOWKB施工商</div>
-            <table id="customize">
-              <tr>
-                <td><span>名称<span class="required">*</span></span></td>
-                <td><input type="text"/></td>
-              </tr>
-              <tr>
-                <td><span>邮箱<span class="required">*</span></span></td>
-                <td><input type="text"/></td>
-              </tr>
-              <tr>
-                <td><span>电话<span class="required">*</span></span></td>
-                <td><input type="text"/></td>
-              </tr>
-              <tr>
-                <td><span>网站</span></td>
-                <td><input type="text"/></td>
-              </tr>
-              <tr>
-                <td><span>地址<span class="required">*</span></span></td>
-                <td><input type="text" class="input-field input_address" value="address#1" onblur="if (this.value == '') {this.value = 'address#1';}"onfocus="if (this.value == 'address#1') {this.value = '';}"/></td>
-              </tr>
-              <tr>
-                <td></td>
-                <td><input type="text" class="input-field input_address" value="address#2" onblur="if (this.value == '') {this.value = 'address#2';}"onfocus="if (this.value == 'address#2') {this.value = '';}"/></td>
-              </tr>
-              <tr>
-                <td></td>
-                <td><select>
-                    <option value="AL">Alabama</option>
+  <form action="/prewowkb/account.php?act=form_customize_process" method="post" enctype="multipart/form-data">
+  <div class="form_title">预约定制服务</div>
+  <table id="customize">
+    <tr>
+      <td>服务类型</td>
+      <td colspan="2">
+        <select id="mySelect1" name="service_type" onchange="myFunction()">
+            <option value="caseA">套餐A</option>
+            <option value="caseB">套餐B</option>
+            <option value="caseC">套餐C</option>
+      </select>
+    </td>
+    <td>   
+    </td>
+    </tr>
+    <tr>
+      <td>姓名</td>
+      <td colspan="2"><input type="text" name="name"></td>
+    </tr>
+    <tr>
+      <td>联系电话</td>
+      <td colspan="2"><input type="text" name="tel"></td>
+    </tr>
+    <tr>
+      <td>邮箱</td>
+      <td colspan="2"><input type="text" name="email"></td>
+    </tr>
+    <tr>
+      <td>区域</td>
+      <td colspan="2">
+        <select id="mySelect1" name="region" onchange="myFunction()">
+            <option value="AL">Alabama</option>
             <option value="AK">Alaska</option>
             <option value="AZ">Arizona</option>
             <option value="AR">Arkansas</option>
@@ -110,23 +112,24 @@
             <option value="WV">West Virginia</option>
             <option value="WI">Wisconsin</option>
             <option value="WY">Wyoming</option>
-                  </select>
-                  <input type="text" class="short_input" value="city" onblur="if (this.value == '') {this.value = 'city';}"onfocus="if (this.value == 'city') {this.value = '';}"/>
-                  <input type="text" class="short_input" value="zip code" onblur="if (this.value == '') {this.value = 'zip code';}"onfocus="if (this.value == 'zip code') {this.value = '';}"/></td>
-              </tr> 
-              <tr>
-                <td><span>专业认证资质<span class="required">*</span></span></td>
-                <td><input type="file" name="designpicture" class="add_new_file"></td>
-              </tr>
-              <tr>
-                <td colspan="2"><input class="agree_check" type="checkbox"><span><a class="agreement" href="#agreenment_window">同意我们的合作条款</a></span></td>
-              </tr>
-            </table>
-              <input class="submit_button" type="submit" value="提交"> 
-    </form>          
+      </select>
+    </td>
+    <td>   
+    </td>
+    </tr>
+    <tr>
+      <td>街道</td>
+      <td colspan="2"><input type="text" name="addr"></td>
+    </tr>
+    <tr>
+      <td colspan="2"><input class="agree_check" type="checkbox"><span class="agreement"><a href="#agreenment_window">同意我们的合作条款</a></span></td>
+      </tr>
+  </table>
+  <input class="submit_button" type="submit" value="提交"> 
+</form>
 </div>
 
-  <div id="agreenment_window" class="overlay">
+<div id="agreenment_window" class="overlay">
   <div class="popup">
     <h2>Agreement</h2>
     <a class="close" href="#">&times;</a>
@@ -138,6 +141,5 @@
     </div>
   </div>
 </div>
-
-  </body>
+</body>
 </html>

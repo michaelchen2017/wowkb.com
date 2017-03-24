@@ -6,7 +6,7 @@ include 'inc.comm.php';
 // //  $filename = DOCUROOT."/plugins/home/{$_SERVER["HTTP_HOST"]}.php";
 // //  if(file_exists($filename)) include $filename;
 
-define( 'AppName', "page" );
+define( 'AppName', "prewowkb" );
 // $files = DOCUROOT . "/data/test/test.jpg";
 // $cmd = DOCUROOT . "/krpano-1.19-pr8/krpanotools makepano -config=" .DOCUROOT ."/krpano-1.19-pr8/templates/normal.config -panotype=sphere -hfov=360  ".$files;
 
@@ -19,7 +19,7 @@ define( 'AppName', "page" );
 
 $app = new Factory();
 $app->sess=true;
-$app->run("listing");
+$app->run("account");
 // debug::d($app);exit;
 
 ?>	

@@ -18,7 +18,7 @@
       <a href="/prewowkb/Tpl/designer.html"><div class="nav">设计</div></a>
       <a href="/prewowkb/Tpl/productsupplier.html"><div class="nav">产品</div></a>
       <a href="/prewowkb/Tpl/service.html"><div class="nav">服务</div></a>
-      <a href="/prewowkb/Tpl/about.html"><div class="nav">关于我们</div></a>
+      <a href="/prewowkb/account.php?act=about"><div class="nav">关于我们</div></a>
       <a href="/prewowkb/Tpl/begincustomize.html"><div class="nav">开始定制</div></a>
       <a href=""><div class="nav">注册</div></a>
       <a href=""><div id="nav_sign_signin">登陆</div></a>
@@ -29,28 +29,32 @@
 
 
 <div class="content_form">
-    <form action="" method="post" enctype="multipart/form-data">
-            <div class="form_title">申请成为WOWKB供应商</div>
+    <form action="/prewowkb/account.php?act=form_apply_designer_process" method="post" enctype="multipart/form-data">
+            <div class="form_title">申请成为WOWKB设计师</div>
             <table id="customize">
               <tr>
-                <td><span>名称<span class="required">*</span></span></td>
-                <td><input type="text" class="input-field" name="title" value="" /></td>
+                <td><span>姓名<span class="required">*</span></span></td>
+                <td><input type="text" name="name"/></td>
               </tr>
               <tr>
-                <td><span>网站<span class="required">*</span></span></td>
-                <td><input type="text" class="input-field" name="size" value="" /></td>
+                <td><span>邮箱<span class="required">*</span></span></td>
+                <td><input type="text" name="email"/></td>
+              </tr>
+              <tr>
+                <td><span>电话<span class="required">*</span></span></td>
+                <td><input type="text" name="tel"/></td>
               </tr>
               <tr>
                 <td><span>地址<span class="required">*</span></span></td>
-                <td><input type="text" class="input-field input_address" value="address#1" onblur="if (this.value == '') {this.value = 'address#1';}"onfocus="if (this.value == 'address#1') {this.value = '';}"/></td>
+                <td><input type="text" name="addr1" class="input-field input_address" value="" onblur="if (this.value == '') {this.value = 'address#1';}"onfocus="if (this.value == 'address#1') {this.value = '';}"/></td>
               </tr>
               <tr>
                 <td></td>
-                <td><input type="text" class="input-field input_address" value="address#2" onblur="if (this.value == '') {this.value = 'address#2';}"onfocus="if (this.value == 'address#2') {this.value = '';}"/></td>
+                <td><input type="text" name="addr2" class="input-field input_address" value="" onblur="if (this.value == '') {this.value = 'address#2';}"onfocus="if (this.value == 'address#2') {this.value = '';}"/></td>
               </tr>
               <tr>
                 <td></td>
-                <td><select>
+                <td><select name="state">
                     <option value="AL">Alabama</option>
             <option value="AK">Alaska</option>
             <option value="AZ">Arizona</option>
@@ -103,18 +107,47 @@
             <option value="WI">Wisconsin</option>
             <option value="WY">Wyoming</option>
                   </select>
-                  <input type="text" class="short_input" value="city" onblur="if (this.value == '') {this.value = 'city';}"onfocus="if (this.value == 'city') {this.value = '';}"/>
-                  <input type="text" class="short_input" value="zip code" onblur="if (this.value == '') {this.value = 'zip code';}"onfocus="if (this.value == 'zip code') {this.value = '';}"/></td>
+                  <input type="text" class="short_input" name="city" value="city" onblur="if (this.value == '') {this.value = 'city';}"onfocus="if (this.value == 'city') {this.value = '';}"/>
+                  <input type="text" class="short_input" name="zipcode"  value="zip code" onblur="if (this.value == '') {this.value = 'zip code';}"onfocus="if (this.value == 'zip code') {this.value = '';}"/></td>
               </tr>
               <tr>
-                <td><span>公司描述</span></td>
-                <td><textarea name="description" class="textarea-field"></textarea></td>
+                <td><span>代理品牌<span class="required">*</span></span></td>
+                <td><input type="text" name="proxy_brands"/></td>
+              </tr>
+              <tr>
+                <td><span>使用设计软件<span class="required">*</span></span></td>
+                <td><select name="used_software">
+                    <option value="">请选择</option>
+                    <option value="saab">2020</option>
+                    <option value="mercedes">3dmax</option>
+                    <option value="audi">Maya</option>
+                    <option value="audi">其他</option>
+                  </select></td>
+              </tr>
+              <tr>
+                <td><span>专业认证资质<span class="required">*</span></span></td>
+                <td><input type="file" name="file" class="add_new_file"></td>
+              </tr>
+              <tr>
+                <td colspan="2"><input class="agree_check" type="checkbox"><span><a class="agreement" href="#agreenment_window">同意我们的合作条款</a></span></td>
               </tr>
             </table>
               <input class="submit_button" type="submit" value="提交"> 
     </form>          
 </div>
 
+  <div id="agreenment_window" class="overlay">
+  <div class="popup">
+    <h2>Agreement</h2>
+    <a class="close" href="#">&times;</a>
+    <div class="content">
+      Thank to pop me out of that button, but now i'm done so you can close this window.
+      Thank to pop me out of that button, but now i'm done so you can close this window.
+      Thank to pop me out of that button, but now i'm done so you can close this window.
+      Thank to pop me out of that button, but now i'm done so you can close this window.
+    </div>
+  </div>
+</div>
 
   </body>
 </html>
