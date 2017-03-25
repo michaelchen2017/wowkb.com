@@ -17,7 +17,10 @@ class account extends Action{
 	
 	
 	function ACT_index(){
+		$obj_tmp_zuopins = load("account_tmp_zuopin");
+		$res = $obj_tmp_zuopins->getList("*", array("visible"=>1), 12);
 		
+		$this->assign("res", $res);
 	}
 	
 	function ACT_form_apply_designer(){

@@ -36,161 +36,20 @@
 <div id="body">
   <div class="index_project_title">家居产品定制</div>
   <div class="temp_mainArea">   
-      <a href="design_detail.html">
+  {%foreach from=$res  key=i  item=value %}
+      <a href="/prewowkb/account.php?act=design_detail&id={%$value['pk_id']|default:''%}">
         <div class="designs_project">
           <div class="designs_project_pic">
-            <img class="designs_project_pic" src="/image/customize/A7/design.jpg">
+            <img class="designs_project_pic" src="{%$value['pic_path']|default:''%}">
           </div>
-          <div class="design_project_price">$9999-$19,999</div>
+          <div class="design_project_price">{%$value['price']|default:''%}</div>
           <div class="admin_collect_intro">
-            <div class="admin_collect_title">美式红色枫木橱柜</div>
-            <div class="project_labels"><span class="designs_project_label">橱柜</span></div>
+            <div class="admin_collect_title">{%$value['name']|default:''%}</div>
+            <div class="project_labels"><span class="designs_project_label">{%$value['tags']|default:''%}</span></div>
           </div>
         </div>
       </a>
-       
-              <a href="design_detail.html">
-        <div class="designs_project">
-          <div class="designs_project_pic">
-            <img class="designs_project_pic" src="/image/customize/CO66/design.jpg">
-          </div>
-          <div class="design_project_price">$9999-$19,999</div>
-          <div class="admin_collect_intro">
-            <div class="admin_collect_title">美式红色枫木橱柜</div>
-            <div class="project_labels"><span class="designs_project_label">橱柜</span></div>
-          </div>
-        </div>
-      </a>
-
-              <a href="design_detail.html">
-        <div class="designs_project">
-          <div class="designs_project_pic">
-            <img class="designs_project_pic" src="/image/customize/J5/design.jpg">
-          </div>
-          <div class="design_project_price">$9999-$19,999</div>
-          <div class="admin_collect_intro">
-            <div class="admin_collect_title">美式红色枫木橱柜</div>
-            <div class="project_labels"><span class="designs_project_label">橱柜</span></div>
-          </div>
-        </div>
-      </a>
-   
-              <a href="design_detail.html">
-        <div class="designs_project">
-          <div class="designs_project_pic">
-            <img class="designs_project_pic" src="/image/customize/K3/design.jpg">
-          </div>
-          <div class="design_project_price">$9999-$19,999</div>
-          <div class="admin_collect_intro">
-            <div class="admin_collect_title">美式红色枫木橱柜</div>
-            <div class="project_labels"><span class="designs_project_label">橱柜</span></div>
-          </div>
-        </div>
-      </a>
-
-      <a href="design_detail.html">
-        <div class="designs_project">
-          <div class="designs_project_pic">
-            <img class="designs_project_pic" src="/image/customize/K8/design.jpg">
-          </div>
-          <div class="design_project_price">$9999-$19,999</div>
-          <div class="admin_collect_intro">
-            <div class="admin_collect_title">美式红色枫木橱柜</div>
-            <div class="project_labels"><span class="designs_project_label">橱柜</span></div>
-          </div>
-        </div>
-      </a>
-
-      <a href="design_detail.html">
-        <div class="designs_project">
-          <div class="designs_project_pic">
-            <img class="designs_project_pic" src="/image/customize/K10/design.jpg">
-          </div>
-          <div class="design_project_price">$9999-$19,999</div>
-          <div class="admin_collect_intro">
-            <div class="admin_collect_title">美式红色枫木橱柜</div>
-            <div class="project_labels"><span class="designs_project_label">橱柜</span></div>
-          </div>
-        </div>
-      </a>
-
-      <a href="design_detail.html">
-        <div class="designs_project">
-          <div class="designs_project_pic">
-            <img class="designs_project_pic" src="/image/customize/M01/design.jpg">
-          </div>
-          <div class="design_project_price">$9999-$19,999</div>
-          <div class="admin_collect_intro">
-            <div class="admin_collect_title">美式红色枫木橱柜</div>
-            <div class="project_labels"><span class="designs_project_label">橱柜</span></div>
-          </div>
-        </div>
-      </a>
-
-      <a href="design_detail.html">
-        <div class="designs_project">
-          <div class="designs_project_pic">
-            <img class="designs_project_pic" src="/image/customize/S1/design.jpg">
-          </div>
-          <div class="design_project_price">$9999-$19,999</div>
-          <div class="admin_collect_intro">
-            <div class="admin_collect_title">美式红色枫木橱柜</div>
-            <div class="project_labels"><span class="designs_project_label">橱柜</span></div>
-          </div>
-        </div>
-      </a>
-
-      <a href="design_detail.html">
-        <div class="designs_project">
-          <div class="designs_project_pic">
-            <img class="designs_project_pic" src="/image/customize/S2/design.jpg">
-          </div>
-          <div class="design_project_price">$9999-$19,999</div>
-          <div class="admin_collect_intro">
-            <div class="admin_collect_title">美式红色枫木橱柜</div>
-            <div class="project_labels"><span class="designs_project_label">橱柜</span></div>
-          </div>
-        </div>
-      </a>
-
-      <a href="design_detail.html">
-        <div class="designs_project">
-          <div class="designs_project_pic">
-            <img class="designs_project_pic" src="/image/customize/S8/design.jpg">
-          </div>
-          <div class="design_project_price">$9999-$19,999</div>
-          <div class="admin_collect_intro">
-            <div class="admin_collect_title">美式红色枫木橱柜</div>
-            <div class="project_labels"><span class="designs_project_label">橱柜</span></div>
-          </div>
-        </div>
-      </a>
-
-      <a href="design_detail.html">
-        <div class="designs_project">
-          <div class="designs_project_pic">
-            <img class="designs_project_pic" src="/image/customize/K3/design.jpg">
-          </div>
-          <div class="design_project_price">$9999-$19,999</div>
-          <div class="admin_collect_intro">
-            <div class="admin_collect_title">美式红色枫木橱柜</div>
-            <div class="project_labels"><span class="designs_project_label">橱柜</span></div>
-          </div>
-        </div>
-      </a>
-
-      <a href="design_detail.html">
-        <div class="designs_project">
-          <div class="designs_project_pic">
-            <img class="designs_project_pic" src="/image/customize/CO66/design.jpg">
-          </div>
-          <div class="design_project_price">$9999-$19,999</div>
-          <div class="admin_collect_intro">
-            <div class="admin_collect_title">美式红色枫木橱柜</div>
-            <div class="project_labels"><span class="designs_project_label">橱柜</span></div>
-          </div>
-        </div>
-      </a>
+   {%/foreach%}    
     </div>
 
 <!-- 
