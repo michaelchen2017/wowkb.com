@@ -22,8 +22,12 @@
       <a href="/prewowkb/account.php?act=service"><div class="nav choose">服务</div></a>
       <a href="/prewowkb/account.php?act=about"><div class="nav">关于我们</div></a>
       <a href="/prewowkb/account.php?act=begincustomize"><div class="nav">开始定制</div></a>
+       {%if empty($userid)%}
       <a href="/account/account.php?act=register"><div class="nav">注册</div></a>
       <a href="/account/account.php?act=login"><div id="nav_sign_signin">登陆</div></a>
+      {%else%}
+      <a href="/account/space.php?act=user_dashboard"><div class="nav">我的后台账户</div></a>
+      {%/if%}
   </div>
   <div id="nav_bg"></div>
 </div>

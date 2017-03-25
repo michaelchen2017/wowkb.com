@@ -13,6 +13,8 @@ class account extends Action{
 		$this->obj_tmp_constructor = load("prewowkb_tmp_apply_constructor");
 		$this->obj_tmp_supplier = load("prewowkb_tmp_apply_supplier");
 		$this->obj_tmp_customize = load("prewowkb_tmp_customize_service");
+		$userid = isset($_SESSION['userid'])?$_SESSION['userid']:"";
+		$this->assign("userid", $userid);
 	}
 	
 	
