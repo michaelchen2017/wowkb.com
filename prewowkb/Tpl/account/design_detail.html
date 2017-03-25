@@ -36,51 +36,26 @@
     <div id="design_left">
     <div class="design_main">
       <div class="design_main_content">
-            <div class="design_project_title">美式生机盎然厨房设计</div>
-              <img id="design_main_pic_img" src="/image/customize/A7/design.jpg">
+            <div class="design_project_title">{%$res['name']|default:''%}</div>
+              <img id="design_main_pic_img" src="{%$res['pic_path']|default:''%}">
               <div class="project_intro_detail">
-                采用高端木质材料，外观简洁大方，美式风格.采用高端木质材料，外观简洁大方，美式风格
-                采用高端木质材料，外观简洁大方，美式风格.采用高端木质材料，外观简洁大方，美式风格
-                采用高端木质材料，外观简洁大方，美式风格
+                {%$res['intro']|default:''%}
               </div>
-
-              <!-- <img id="design_main_pic_img" src="../../image/t1.jpg">
-              <div class="project_intro_detail">
-                采用高端木质材料，外观简洁大方，美式风格.采用高端木质材料，外观简洁大方，美式风格
-                采用高端木质材料，外观简洁大方，美式风格.采用高端木质材料，外观简洁大方，美式风格
-                采用高端木质材料，外观简洁大方，美式风格
-              </div> -->
       </div>
     </div>
 
     <div id="design_related">
       <div id="related_name">相关设计作品</div>
       <div id="related_content">
+      {%foreach from=$other_relative_zuopins key=i item=value %}
         <div class="related_content_project">
-          <div id="related_pic"><img src="/image/t1.jpg"></div>
-          <div id="related_title">xx美式厨房设计</div>
+        <a href="/prewowkb/account.php?act=design_detail&id={%$value['pk_id']|default:''%}">
+          <div id="related_pic"><img src="{%$value['pic_path']|default:''%}"></div>
+          <div id="related_title">{%$value['name']|default:''%}</div>
           <div id="related_price">XXX设计师</div>
+         </a>
         </div>
-        <div class="related_content_project">
-          <div id="related_pic"><img src="/image/t2.jpg"></div>
-          <div id="related_title">XXX欧式浴室设计</div>
-          <div id="related_price">XXX设计师</div>
-        </div>
-        <div class="related_content_project">
-          <div id="related_pic"><img src="/image/t3.jpg"></div>
-          <div id="related_title">XXX美式浴室设计</div>
-          <div id="related_price">xxx设计师</div>
-        </div>
-        <div class="related_content_project">
-          <div id="related_pic"><img src="/image/t1.jpg"></div>
-          <div id="related_title">XXX欧式厨房设计</div>
-          <div id="related_price">XXX设计师</div>
-        </div>
-        <div class="related_content_project">
-          <div id="related_pic"><img src="/image/t2.jpg"></div>
-          <div id="related_title">XXX美式厨房设计</div>
-          <div id="related_price">XXX设计师</div>
-        </div>      
+       {%/foreach%}    
       </div>
     </div>
 
@@ -98,8 +73,8 @@
         </div>
         <div class="project_detail_labels"><span class="designs_project_label">橱柜</span><span class="designs_project_label">台面</span><span class="designs_project_label">地板</span><span class="designs_project_label">墙砖</span></div>
         <div class="sidebar_gapline"></div>
-        <div id="sidebar_right_price">预算：$2999 - $10,000</div>   
-        <button class="buyButton">开始定制</button>
+        <div id="sidebar_right_price">预算：${%$res['price']|default:''%}</div>   
+        <a href="/prewowkb/account.php?act=begincustomize"><button class="buyButton">开始定制</button></a>
       
       </div><!-- sidebar_right -->
 
@@ -117,41 +92,17 @@
             <img src="/image/customize/A7/material.jpg" alt="chair">
           </div></a>
           <a href="#"><div id="sidebar_use_name">XX白色橱柜</div></a>
-          <div id="sidebar_use_num">1/5</div>
+          <!-- <div id="sidebar_use_num">1/5</div> -->
       </div>
-
+	{%foreach from=$pics key=i item=value%}
       <div class="item">
         <div id="sidebar_use_pic">
-            <img src="/image/p2.png" alt="chair">
+            <img src="{%$value['pic_path']|default:''%}" alt="chair">
           </div>
-          <div id="sidebar_use_name">XX白色橱柜</div>
-          <div id="sidebar_use_num">2/5</div>
+          <!-- <div id="sidebar_use_name">XX白色橱柜</div> -->
+        <!--   <div id="sidebar_use_num">2/5</div> -->
       </div>
-    
-      <div class="item">
-        <div id="sidebar_use_pic">
-            <img src="/image/p3.png" alt="chair">
-          </div>
-          <div id="sidebar_use_name">XX白色橱柜</div>
-          <div id="sidebar_use_num">3/5</div>
-      </div>
-
-      <div class="item">
-        <div id="sidebar_use_pic">
-            <img src="/image/p4.png" alt="chair">
-          </div>
-          <div id="sidebar_use_name">XX白色橱柜</div>
-          <div id="sidebar_use_num">4/5</div>
-      </div>
-
-      <div class="item">
-        <div id="sidebar_use_pic">
-            <img src="/image/p5.png" alt="chair">
-          </div>
-          <div id="sidebar_use_name">XX白色橱柜</div>
-          <div id="sidebar_use_num">5/5</div>
-      </div>
-  
+  	{%/foreach %}
     </div>
 
     <!-- Left and right controls -->

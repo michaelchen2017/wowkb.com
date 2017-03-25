@@ -335,8 +335,25 @@ class account extends Action{
 		
 	}
 	
-	function ACT_design_project(){
+	function ACT_design_detail(){
+		if(isset($_GET) && !empty($_GET['id'])){
+			$obj_tmp_zuopin = load("account_tmp_zuopin");
+			$obj_tmp_zuopin_wuliao = load("account_tmp_zuopin_wuliao_pics");
+			
+			$res = $obj_tmp_zuopin->getOne("*", array("pk_id"=>$_GET['id'], "visible"=>1));
+			$pics = $obj_tmp_zuopin_wuliao->getAll(array("pic_path"), array("fk_id"=>$_GET['id'], "visible"=>1));
+			//$res['category']
+			$other_relative_zuopins = $obj_tmp_zuopin->getList("*", array("category"=>$res['category'], "visible"=>1), 6);
+			foreach ($other_relative_zuopins as $i=>$value){
+				if($value['pk_id'] == $_GET['id']){
+					unset($other_relative_zuopins[$i]);
+				}
+			}
 		
+			$this->assign("res", $res);
+			$this->assign("pics", $pics);
+			$this->assign("other_relative_zuopins", $other_relative_zuopins);
+		}
 	}
 }
 	
