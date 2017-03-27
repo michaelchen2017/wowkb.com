@@ -15,7 +15,7 @@
   <div id="admin_main">
       
       <div id="admin_content">
-        <a id="admin_edit_button" href="designer_upload.html">上传作品</a>
+        <a id="admin_edit_button" href="/account/space.php?act=designer_upload">上传作品</a>
         <a id="admin_edit_button" href="../page/products.html">搜索物料</a>
  
         <form id="search">
@@ -32,32 +32,21 @@
           <th>预估报价</th>
           <th></th>
         </tr>
+        {%foreach from=$res key=i item=value%}
         <tr>
           <td><input id="toggle" type="checkbox"></td>
-          <td><img id="design_pic" src="../../image/t1.jpg"></td>
-          <td>121001</td>
-          <td>美式厨房设计</td>
-          <td>10*10</td>
-          <td>$9999</td>
+          <td><img id="design_pic" src="{%$value['pic_path']|default:''%}"></td>
+          <td>{%$value['pk_id']|default:''%}</td>
+          <td>{%$value['name']|default:''%}</td>
+          <td>{%$value['size']|default:''%}</td>
+          <td>{%$value['price']|default:''%}</td>
           <td>
             <a id="edit" href="#">修改</a>
             |
-            <a id="delete" href="#" onclick="return del(this)">删除</a>
+            <a id="delete" href="/account/space.php?act=zuopin_delete&id={%$value['pk_id']|default:''%}" >删除</a>
           </td>
         </tr>
-        <tr>
-          <td><input id="toggle" type="checkbox"></td>
-          <td><img id="design_pic" src="../../image/t2.jpg"></td>
-          <td>121001</td>
-          <td>美式浴室设计</td>
-          <td>8*8</td>
-          <td>$9999</td>
-          <td>
-            <a id="edit" href="#">修改</a>
-            |
-            <a id="delete" href="#" onclick="return del(this)">删除</a>
-          </td>
-        </tr>
+       {%/foreach%}
       </table>
     </div>
   </div>

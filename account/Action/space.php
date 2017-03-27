@@ -218,9 +218,22 @@ class space extends Action{
 	}
 	
 	function ACT_designer_manage(){
-		$user_type = "designer";
-		$this->assign("user_type", $user_type);
+		if(!empty($_SESSION['userid'])){
+			$res = $this->obj_tmp_zuopin->getAll("*", array("fk_uid"=>$_SESSION['userid'], "visible"=>1));
+		}
+		else{
+			$res = array();
+		}
+		$this->assign("res", $res);
 		
+	}
+	
+	function ACT_zuopin_delete(){
+		
+		if(isset($_GET) && !empty($_GET['id'])){
+			$this->obj_tmp_zuopin->update(array("visible"=>0), array("pk_id"=>$_GET['id']));
+			go("/account/space.php?act=designer_manage");
+		}
 	}
 	
 	function ACT_designer_upload(){
