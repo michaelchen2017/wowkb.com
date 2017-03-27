@@ -293,6 +293,7 @@ class space extends Action{
 										"tags"=>$_POST['tags'],
 										"pic_path"=>$pic_path,
 										"intro"=>$_POST['intro'],
+										"fk_uid"=> $_SESSION['userid'],
 										
 								);
 // 								debug::d($res);exit;
