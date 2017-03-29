@@ -4,7 +4,7 @@
   		src: url('webfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
         url('webfont.woff2') format('woff2'), /* Super Modern Browsers */
         url('webfont.woff') format('woff'), /* Pretty Modern Browsers */
-        url('/template/common/font/Hiragino Sans GB W3.otf')  format('truetype'), /* Safari, Android, iOS */
+        url('../font/Hiragino Sans GB W3.otf')  format('truetype'), /* Safari, Android, iOS */
         url('webfont.svg#svgFontName') format('svg'); /* Legacy iOS */
 }
 @font-face {
@@ -13,7 +13,7 @@
       src: url('webfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
         url('webfont.woff2') format('woff2'), /* Super Modern Browsers */
         url('webfont.woff') format('woff'), /* Pretty Modern Browsers */
-        url('/template/common/font/dongqingW3.otf')  format('truetype'), /* Safari, Android, iOS */
+        url('../font/dongqingW3.otf')  format('truetype'), /* Safari, Android, iOS */
         url('webfont.svg#svgFontName') format('svg'); /* Legacy iOS */
 }
 @font-face {
@@ -22,10 +22,46 @@
       src: url('webfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
         url('webfont.woff2') format('woff2'), /* Super Modern Browsers */
         url('webfont.woff') format('woff'), /* Pretty Modern Browsers */
-        url('/template/common/font/PingFang ExtraLight.ttf')  format('truetype'), /* Safari, Android, iOS */
+        url('../font/PingFang ExtraLight.ttf')  format('truetype'), /* Safari, Android, iOS */
+        url('webfont.svg#svgFontName') format('svg'); /* Legacy iOS */
+}
+@font-face {
+  		font-family: 'Avenir LT 95 Black';
+  		src: url('webfont.eotx'); /* IE9 Compat Modes */
+  		src: url('webfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+        url('webfont.woff2') format('woff2'), /* Super Modern Browsers */
+        url('webfont.woff') format('woff'), /* Pretty Modern Browsers */
+        url('../font/Avenir LT 95 Black.ttf')  format('truetype'), /* Safari, Android, iOS */
+        url('webfont.svg#svgFontName') format('svg'); /* Legacy iOS */
+}
+@font-face {
+  		font-family: 'Avenir LT 35 Light';
+  		src: url('webfont.eot'); /* IE9 Compat Modes */
+  		src: url('webfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+        url('webfont.woff2') format('woff2'), /* Super Modern Browsers */
+        url('webfont.woff') format('woff'), /* Pretty Modern Browsers */
+        url('../font/Avenir LT 35 Light.ttf')  format('truetype'), /* Safari, Android, iOS */
+        url('webfont.svg#svgFontName') format('svg'); /* Legacy iOS */
+}
+@font-face {
+      font-family: 'Hero Light';
+      src: url('webfont.eot'); /* IE9 Compat Modes */
+      src: url('webfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+        url('webfont.woff2') format('woff2'), /* Super Modern Browsers */
+        url('webfont.woff') format('woff'), /* Pretty Modern Browsers */
+        url('../font/Hero Light.otf')  format('truetype'), /* Safari, Android, iOS */
         url('webfont.svg#svgFontName') format('svg'); /* Legacy iOS */
 }
 
+@font-face {
+  		font-family: 'mixolydian Light';
+  		src: url('webfont.eot'); /* IE9 Compat Modes */
+  		src: url('webfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+        url('webfont.woff2') format('woff2'), /* Super Modern Browsers */
+        url('webfont.woff') format('woff'), /* Pretty Modern Browsers */
+        url('../font/mixolydian titling ul.ttf')  format('truetype'), /* Safari, Android, iOS */
+        url('webfont.svg#svgFontName') format('svg'); /* Legacy iOS */
+}
 body{
   margin: 0;
   position: relative;
@@ -95,8 +131,8 @@ a:visited{
 	border: 0px solid red;
 }
 .nav{
-	padding-left: 30px !important;
-	padding-right: 30px !important;
+	padding-left: 20px !important;
+	padding-right: 20px !important;
 	height:40px;
 	font-size: 15px !important;
 	border: 0px solid red;
