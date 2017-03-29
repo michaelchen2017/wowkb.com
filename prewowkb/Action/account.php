@@ -244,6 +244,7 @@ class account extends Action{
 			$res = array(
 			
 							"name"=>$_POST['name'],
+							"brand"=>$_POST['brand'],
 							"company_type"=>$company_type,
 							"country_of_origin"=> $_POST['country_of_origin'],
 							"city_of_origin" => $_POST['city_of_origin'],
