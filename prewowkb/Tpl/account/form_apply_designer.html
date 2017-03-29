@@ -30,11 +30,11 @@
               <tr>
                 <td>设计领域</td>
                 <td>
-                  <label class="checkbox-inline"><input name="" type="checkbox" id="inlineCheckbox1" value="" />家具设计</label> 
-                  <label class="checkbox-inline"><input name="" type="checkbox" id="inlineCheckbox1" value="" />空间规划</label> 
-                  <label class="checkbox-inline"><input name="" type="checkbox" id="inlineCheckbox1" value="" />室内装修</label> 
-                  <label class="checkbox-inline"><input name="" type="checkbox" id="inlineCheckbox1" value="" />建筑</label> 
-                  <label class="checkbox-inline"><input name="" type="checkbox" id="inlineCheckbox1" value="" />景观</label>
+                  <label class="checkbox-inline"><input name="design_fields[]" type="checkbox" id="inlineCheckbox1" value="家具设计" />家具设计</label> 
+                  <label class="checkbox-inline"><input name="design_fields[]" type="checkbox" id="inlineCheckbox1" value="空间规划" />空间规划</label> 
+                  <label class="checkbox-inline"><input name="design_fields[]" type="checkbox" id="inlineCheckbox1" value="室内装修" />室内装修</label> 
+                  <label class="checkbox-inline"><input name="design_fields[]" type="checkbox" id="inlineCheckbox1" value="建筑" />建筑</label> 
+                  <label class="checkbox-inline"><input name="design_fields[]" type="checkbox" id="inlineCheckbox1" value="景观" />景观</label>
                 </td>
               </tr>
               <tr>
@@ -51,28 +51,29 @@
               </tr>
               <tr>
                 <td>擅长软件</td>
-                <td><label class="checkbox-inline"><input name="" type="checkbox" id="inlineCheckbox1" value="" />AutoCAD</label> 
-                <label class="checkbox-inline"><input name="" type="checkbox" id="inlineCheckbox1" value="" />REVIT</label> 
-                <label class="checkbox-inline"><input name="" type="checkbox" id="inlineCheckbox1" value="" />3DS MAX</label> 
-                <label class="checkbox-inline"><input name="" type="checkbox" id="inlineCheckbox1" value="" />2020 Design</label>
-                <label class="checkbox-inline"><input name="" type="checkbox" id="inlineCheckbox1" value="" />SketchUP</label> 
-                <label class="checkbox-inline"><input name="" type="checkbox" id="inlineCheckbox1" value="" />Photoshop</label> 
-                <label class="checkbox-inline"><input name="" type="checkbox" id="inlineCheckbox1" value="" />Indesign</label> 
-                <label class="checkbox-inline"><input name="" type="checkbox" id="inlineCheckbox1" value="" />Illustrator</label>
-                <label class="checkbox-inline"><input name="" type="checkbox" id="inlineCheckbox1" value="" />VERY</label> 
-                <label class="checkbox-inline"><input name="" type="checkbox" id="inlineCheckbox1" value="" />Redshift</label> 
-                <label class="checkbox-inline"><input name="" type="checkbox" id="inlineCheckbox1" value="" />ArchiCAD</label> 
-                <label class="checkbox-inline"><input name="" type="checkbox" id="inlineCheckbox1" value="" />Vectorworks</label>
-                <label class="checkbox-inline"><input name="" type="checkbox" id="inlineCheckbox1" value="" />其他</label>   
+                <td>
+                <label class="checkbox-inline"><input name="software_list[]" type="checkbox" id="inlineCheckbox1" value="AutoCAD" />AutoCAD</label> 
+                <label class="checkbox-inline"><input name="software_list[]" type="checkbox" id="inlineCheckbox1" value="REVIT" />REVIT</label> 
+                <label class="checkbox-inline"><input name="software_list[]" type="checkbox" id="inlineCheckbox1" value="3DS MAX" />3DS MAX</label> 
+                <label class="checkbox-inline"><input name="software_list[]" type="checkbox" id="inlineCheckbox1" value="2020 Design" />2020 Design</label>
+                <label class="checkbox-inline"><input name="software_list[]" type="checkbox" id="inlineCheckbox1" value="SketchUP" />SketchUP</label> 
+                <label class="checkbox-inline"><input name="software_list[]" type="checkbox" id="inlineCheckbox1" value="Photoshop" />Photoshop</label> 
+                <label class="checkbox-inline"><input name="software_list[]" type="checkbox" id="inlineCheckbox1" value="Indesign" />Indesign</label> 
+                <label class="checkbox-inline"><input name="software_list[]" type="checkbox" id="inlineCheckbox1" value="Illustrator" />Illustrator</label>
+                <label class="checkbox-inline"><input name="software_list[]" type="checkbox" id="inlineCheckbox1" value="VERY" />VERY</label> 
+                <label class="checkbox-inline"><input name="software_list[]" type="checkbox" id="inlineCheckbox1" value="Redshift" />Redshift</label> 
+                <label class="checkbox-inline"><input name="software_list[]" type="checkbox" id="inlineCheckbox1" value="ArchiCAD" />ArchiCAD</label> 
+                <label class="checkbox-inline"><input name="software_list[]" type="checkbox" id="inlineCheckbox1" value="Vectorworks" />Vectorworks</label>
+                <label class="checkbox-inline"><input name="software_list[]" type="checkbox" id="inlineCheckbox1" value="其他" />其他</label>   
               </td>
               </tr>
               <tr>
                 <td><span>其他</span></td>
-                <td><input type="text" name="" value="如果有其他擅长软件请填写" onblur="if (this.value == '') {this.value = '如果有其他擅长软件请填写';}"onfocus="if (this.value == '如果有其他擅长软件请填写') {this.value = '';}"/></td>
+                <td><input type="text" name="others" value="如果有其他擅长软件请填写" onblur="if (this.value == '') {this.value = '如果有其他擅长软件请填写';}"onfocus="if (this.value == '如果有其他擅长软件请填写') {this.value = '';}"/></td>
               </tr>
               <tr>
                 <td><span>服务报价<span class="required">*</span></span></td>
-                <td><input type="text" name="" value="您希望的服务价格：美元/小时" onblur="if (this.value == '') {this.value = '您希望的服务价格：美元/小时';}"onfocus="if (this.value == '您希望的服务价格：美元/小时') {this.value = '';}"//></td>
+                <td><input type="text" name="price" value="您希望的服务价格：美元/小时" onblur="if (this.value == '') {this.value = '您希望的服务价格：美元/小时';}"onfocus="if (this.value == '您希望的服务价格：美元/小时') {this.value = '';}"//></td>
               </tr>
               
               <tr>

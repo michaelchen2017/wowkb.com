@@ -30,70 +30,121 @@ class account extends Action{
 	}
 	
 	function ACT_form_apply_designer_process(){
+// 		debug::d($_POST);exit;
 
 		if(isset($_POST) && !empty($_POST['name'])){
-			$item_id = time() . "_" . md5($_POST['name']) . "_" . rand(1, 1000);
-			
-			
-			$target_dir = DOCUROOT . "/image/material/";
-			$target_file = $target_dir . basename($_FILES["file"]["name"]);
-			
-			$imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
-			$imageFileType = strtolower($imageFileType);
-			
-			$file_name = $item_id . '.' . $imageFileType;
-			
-			$target_file = $target_dir . $file_name;
-			$pic_path = "/image/material/" . $file_name;
-			$uploadOk = 1;
-			
-			
-			// Check file size
-			if ($_FILES["file"]["size"] > 5000000) {
-				//echo "Sorry, your file is too large.";
-				$uploadOk = 0;
-			}
-			// Allow certain file formats
-			$file_type = "图片";
-			if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
-					&& $imageFileType != "gif"  && $imageFileType != "xlsx" && $imageFileType != "xls") {
-						//echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
-						$uploadOk = 0;
-						$file_type = "非图片";
+			$designfields = "";
+			if(!empty($_POST['design_fields'])){
+				foreach ($_POST['design_fields'] as $val){
+					if(!empty($designfields)){
+						$designfields = $designfields . "," . $val;
 					}
-					// Check if $uploadOk is set to 0 by an error
-					if ($uploadOk == 0) {
-						//echo "Sorry, your file was not uploaded.";
-						// if everything is ok, try to upload file
-					} else {
-						if (move_uploaded_file($_FILES["file"]["tmp_name"], $target_file)) {
-							//echo "The file ". basename( $_FILES["fileToUpload"]["name"]). " has been uploaded.";
+					else {
+						$designfields = $val;
+					}
+				}
+			}
 			
-						} else {
-							//echo "Sorry, there was an error uploading your file.";
+			
+				$softwarelist = "";
+				if(!empty($_POST['software_list'])){
+					foreach ($_POST['software_list'] as $val){
+						if(!empty($softwarelist)){
+							$softwarelist = $softwarelist . "," . $val;
+						}
+						else {
+							$softwarelist = $val;
 						}
 					}
-						
-					$res = array(
-								
-							"name"=>$_POST['name'],
-							"email"=>$_POST['email'],
-							"tel"=>$_POST['tel'],
-							"address"=>trim($_POST['addr1']) . trim($_POST['addr2']),
-							"state"=>$_POST['state'],
-							"city"=>$_POST['city'],
-							"zipcode"=>$_POST['zipcode'],
-							"proxy_brands"=>$_POST['proxy_brands'],
-							"used_software"=>$_POST['used_software'],
-							"certificate"=>$pic_path
+				}
+			
+			
+			$res = array(
+					"name"=>$_POST['name'],
+					"design_fields" => $designfields,
+					"used_software" => $softwarelist,
+					"school" => $_POST['school'],
+					"major" => $_POST['major'],
+					"others" => $_POST['others'],
+					"price" => $_POST['price'],
+					"website" => $_POST['website'],
+					"email"=>$_POST['email'],
+					"tel"=>$_POST['tel'],
+					"address"=>trim($_POST['addr1']) . trim($_POST['addr2']),
+					"state"=>$_POST['state'],
+					"city"=>$_POST['city'],
+					"zipcode"=>$_POST['zipcode'],
+			
+			);
 				
-					);
-													//debug::d($res);exit;
-// 				var_dump($this->obj_tmp_designer);exit;
-				$this->obj_tmp_designer->insert($res);
+			$this->obj_tmp_designer->insert($res);
+			go("/");
+				
+// 			$item_id = time() . "_" . md5($_POST['name']) . "_" . rand(1, 1000);
+			
+			
+// 			$target_dir = DOCUROOT . "/image/material/";
+// 			$target_file = $target_dir . basename($_FILES["file"]["name"]);
+			
+// 			$imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
+// 			$imageFileType = strtolower($imageFileType);
+			
+// 			$file_name = $item_id . '.' . $imageFileType;
+			
+// 			$target_file = $target_dir . $file_name;
+// 			$pic_path = "/image/material/" . $file_name;
+// 			$uploadOk = 1;
+			
+			
+// 			// Check file size
+// 			if ($_FILES["file"]["size"] > 5000000) {
+// 				//echo "Sorry, your file is too large.";
+// 				$uploadOk = 0;
+// 			}
+// 			// Allow certain file formats
+// 			$file_type = "图片";
+// 			if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
+// 					&& $imageFileType != "gif"  && $imageFileType != "xlsx" && $imageFileType != "xls") {
+// 						//echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
+// 						$uploadOk = 0;
+// 						$file_type = "非图片";
+// 					}
+// 					// Check if $uploadOk is set to 0 by an error
+// 					if ($uploadOk == 0) {
+// 						//echo "Sorry, your file was not uploaded.";
+// 						// if everything is ok, try to upload file
+// 					} else {
+// 						if (move_uploaded_file($_FILES["file"]["tmp_name"], $target_file)) {
+// 							//echo "The file ". basename( $_FILES["fileToUpload"]["name"]). " has been uploaded.";
+			
+// 						} else {
+// 							//echo "Sorry, there was an error uploading your file.";
+// 						}
+// 					}
+						
+// 					$res = array(
+								
+// 							"name"=>$_POST['name'],
+// 							"design_fields" => $designfields,
+// 							"used_software" => $softwarelist,
+// 							"school" => $_POST['school'],
+// 							"major" => $_POST['major'],
+// 							"others" => $_POST['others'],
+// 							"price" => $_POST['price'],
+// 							"website" => $_POST['website'],
+// 							"email"=>$_POST['email'],
+// 							"tel"=>$_POST['tel'],
+// 							"address"=>trim($_POST['addr1']) . trim($_POST['addr2']),
+// 							"state"=>$_POST['state'],
+// 							"city"=>$_POST['city'],
+// 							"zipcode"=>$_POST['zipcode'],
+				
+// 					);
+													
+// 					$this->obj_tmp_designer->insert($res);
 
-					// go("/account/space.php?act=index&id={$userid}");
-					go("/");
+// 					// go("/account/space.php?act=index&id={$userid}");
+// 					go("/");
 			
 		}else{
 			go("/");
