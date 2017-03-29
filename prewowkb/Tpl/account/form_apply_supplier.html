@@ -37,15 +37,15 @@
               <tr>
                 <td>公司分类<span class="required">*</span></td>
                 <td>
-                  <label class="checkbox-inline"><input name="" type="checkbox" id="inlineCheckbox1" value="" />生产制造</label> 
-                  <label class="checkbox-inline"><input name="" type="checkbox" id="inlineCheckbox1" value="" />仓储批发</label> 
-                  <label class="checkbox-inline"><input name="" type="checkbox" id="inlineCheckbox1" value="" />零售</label> 
+                  <label class="checkbox-inline"><input name="company_type[]" type="checkbox" id="inlineCheckbox1" value="生产制造" />生产制造</label> 
+                  <label class="checkbox-inline"><input name="company_type[]" type="checkbox" id="inlineCheckbox1" value="仓储批发" />仓储批发</label> 
+                  <label class="checkbox-inline"><input name="company_type[]" type="checkbox" id="inlineCheckbox1" value="零售" />零售</label> 
                 </td>
               </tr>
               <tr>
                 <td><span>产品产地<span class="required">*</span></span></td>
                 <td>
-                  <select name="country">
+                  <select name="country_of_origin">
                         <option>选择国家</option>
                         <optgroup label="North America">
                             <option value="US">United States</option>
@@ -297,19 +297,19 @@
               </tr>
               <tr>
                 <td></td>
-                <td><input type="text" class="input-field input_address" value="城市" onblur="if (this.value == '') {this.value = '城市';}"onfocus="if (this.value == '城市') {this.value = '';}"/></td>
+                <td><input type="text" class="input-field input_address" name="city_of_origin" value="城市" onblur="if (this.value == '') {this.value = '城市';}"onfocus="if (this.value == '城市') {this.value = '';}"/></td>
               </tr>
               <tr>
                 <td><span>产品品类<span class="required">*</span></span></td>
-                <td><input type="text" class="input-field" name="" value="例如:橱柜,地板,台面..." onblur="if (this.value == '') {this.value = '例如:橱柜,地板,台面...';}"onfocus="if (this.value == '例如:橱柜,地板,台面...') {this.value = '';}" /></td>
+                <td><input type="text" class="input-field" name="type_of_product" value="例如:橱柜,地板,台面..." onblur="if (this.value == '') {this.value = '例如:橱柜,地板,台面...';}"onfocus="if (this.value == '例如:橱柜,地板,台面...') {this.value = '';}" /></td>
               </tr>
               <tr>
                 <td><span>销售区域范围<span class="required">*</span></span></td>
-                <td><input type="text" class="input-field" name="" value="例如:北美,湾区..." onblur="if (this.value == '') {this.value = '例如:北美,湾区...';}"onfocus="if (this.value == '例如:北美,湾区...') {this.value = '';}" /></td>
+                <td><input type="text" class="input-field" name="sales_region" value="例如:北美,湾区..." onblur="if (this.value == '') {this.value = '例如:北美,湾区...';}"onfocus="if (this.value == '例如:北美,湾区...') {this.value = '';}" /></td>
               </tr>
               <tr>
                 <td><span>销售网点数量<span class="required">*</span></span></td>
-                <td><input type="text" class="input-field" name="" value="填写数字" onblur="if (this.value == '') {this.value = '填写数字';}"onfocus="if (this.value == '填写数字') {this.value = '';}" /></td>
+                <td><input type="text" class="input-field" name="num_of_sales_network" value="填写数字" onblur="if (this.value == '') {this.value = '填写数字';}"onfocus="if (this.value == '填写数字') {this.value = '';}" /></td>
               </tr>
               <tr>
                 <td><span>公司网站<span class="required">*</span></span></td>
@@ -317,7 +317,7 @@
               </tr>
               <tr>
                 <td><span>联系人<span class="required">*</span></span></td>
-                <td><input type="text" class="input-field" name="" value="" /></td>
+                <td><input type="text" class="input-field" name="person_to_contact" value="" /></td>
               </tr>
               <tr>
                 <td><span>联系电话<span class="required">*</span></span></td>
@@ -396,7 +396,7 @@
               </tr>
               <tr>
                 <td><span>生产/仓储/零售门店</br>地址<span class="required">*</span></span></td>
-                <td><input type="text" class="input-field input_address" value="address" onblur="if (this.value == '') {this.value = 'address';}"onfocus="if (this.value == 'address') {this.value = '';}"/></td>
+                <td><input type="text" class="input-field input_address"  name="retail_address" value="" onblur="if (this.value == '') {this.value = 'address';}"onfocus="if (this.value == 'address') {this.value = '';}"/></td>
               </tr>
               <tr>
                 <td><span>公司描述</span></td>
