@@ -157,67 +157,115 @@ class account extends Action{
 	}
 	
 	function ACT_form_apply_constructor_process(){
-		if(isset($_POST) && !empty($_POST['name'])){
-			$item_id = time() . "_" . md5($_POST['name']) . "_" . rand(1, 1000);
-				
-				
-			$target_dir = DOCUROOT . "/image/material/";
-			$target_file = $target_dir . basename($_FILES["file"]["name"]);
-				
-			$imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
-			$imageFileType = strtolower($imageFileType);
-				
-			$file_name = $item_id . '.' . $imageFileType;
-				
-			$target_file = $target_dir . $file_name;
-			$pic_path = "/image/material/" . $file_name;
-			$uploadOk = 1;
-				
-				
-			// Check file size
-			if ($_FILES["file"]["size"] > 5000000) {
-				//echo "Sorry, your file is too large.";
-				$uploadOk = 0;
+		if(isset($_POST)){
+// 			debug::d($_POST);exit;
+			$service_regions = "";
+			$services = "";
+			if(!empty($_POST['service_regions'])){
+				foreach ($_POST['service_regions'] as $val){
+					if(!empty($service_regions)){
+						$service_regions = $service_regions . "," .$val;
+					}
+					else{
+						$service_regions = $val;
+					}
+				}
 			}
-			// Allow certain file formats
-			$file_type = "图片";
-			if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
-					&& $imageFileType != "gif"  && $imageFileType != "xlsx" && $imageFileType != "xls") {
-						//echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
-						$uploadOk = 0;
-						$file_type = "非图片";
+			
+			if(!empty($_POST['services'])){
+				foreach ($_POST['services'] as $val){
+					if(!empty($services)){
+						$services = $services . "," .$val;
 					}
-					// Check if $uploadOk is set to 0 by an error
-					if ($uploadOk == 0) {
-						//echo "Sorry, your file was not uploaded.";
-						// if everything is ok, try to upload file
-					} else {
-						if (move_uploaded_file($_FILES["file"]["tmp_name"], $target_file)) {
-							//echo "The file ". basename( $_FILES["fileToUpload"]["name"]). " has been uploaded.";
-								
-						} else {
-							//echo "Sorry, there was an error uploading your file.";
-						}
+					else{
+						$services = $val;
 					}
-		
-					$res = array(
-		
-							"name"=>$_POST['name'],
-							"email"=>$_POST['email'],
-							"tel"=>$_POST['tel'],
-							"address"=>trim($_POST['addr1']) . trim($_POST['addr2']),
-							"state"=>$_POST['state'],
-							"city"=>$_POST['city'],
-							"zipcode"=>$_POST['zipcode'],
-							"website"=>$_POST['website'],
-							"certificate"=>$pic_path
-		
-					);
+				}
+			}
+			
+			
+			$res = array(
+			
+										"name"=>$_POST['name'],
+										"brand"=>$_POST['brand'],
+										"service_regions"=>$service_regions,
+										"services"=>$services,
+										"person_to_contact"=>$_POST['person_to_contact'],
+										"email"=>$_POST['email'],
+										"tel"=>$_POST['tel'],
+										"website"=>$_POST['website'],
+										"address"=>trim($_POST['addr1']) . trim($_POST['addr2']),
+										"state"=>$_POST['state'],
+										"city"=>$_POST['city'],
+										"zipcode"=>$_POST['zipcode'],
+										"intro"=>$_POST['intro'],
+									
+			
+						);
+// 			debug::d($res);exit;
+								$this->obj_tmp_constructor->insert($res);
+								go("/");
+			
+// 			$item_id = time() . "_" . md5($_POST['name']) . "_" . rand(1, 1000);
 				
-					$this->obj_tmp_constructor->insert($res);
+				
+// 			$target_dir = DOCUROOT . "/image/material/";
+// 			$target_file = $target_dir . basename($_FILES["file"]["name"]);
+				
+// 			$imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
+// 			$imageFileType = strtolower($imageFileType);
+				
+// 			$file_name = $item_id . '.' . $imageFileType;
+				
+// 			$target_file = $target_dir . $file_name;
+// 			$pic_path = "/image/material/" . $file_name;
+// 			$uploadOk = 1;
+				
+				
+// 			// Check file size
+// 			if ($_FILES["file"]["size"] > 5000000) {
+// 				//echo "Sorry, your file is too large.";
+// 				$uploadOk = 0;
+// 			}
+// 			// Allow certain file formats
+// 			$file_type = "图片";
+// 			if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
+// 					&& $imageFileType != "gif"  && $imageFileType != "xlsx" && $imageFileType != "xls") {
+// 						//echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
+// 						$uploadOk = 0;
+// 						$file_type = "非图片";
+// 					}
+// 					// Check if $uploadOk is set to 0 by an error
+// 					if ($uploadOk == 0) {
+// 						//echo "Sorry, your file was not uploaded.";
+// 						// if everything is ok, try to upload file
+// 					} else {
+// 						if (move_uploaded_file($_FILES["file"]["tmp_name"], $target_file)) {
+// 							//echo "The file ". basename( $_FILES["fileToUpload"]["name"]). " has been uploaded.";
+								
+// 						} else {
+// 							//echo "Sorry, there was an error uploading your file.";
+// 						}
+// 					}
 		
-					// go("/account/space.php?act=index&id={$userid}");
-					go("/");
+// 					$res = array(
+		
+// 							"name"=>$_POST['name'],
+// 							"email"=>$_POST['email'],
+// 							"tel"=>$_POST['tel'],
+// 							"address"=>trim($_POST['addr1']) . trim($_POST['addr2']),
+// 							"state"=>$_POST['state'],
+// 							"city"=>$_POST['city'],
+// 							"zipcode"=>$_POST['zipcode'],
+// 							"website"=>$_POST['website'],
+// 							"certificate"=>$pic_path
+		
+// 					);
+				
+// 					$this->obj_tmp_constructor->insert($res);
+		
+// 					// go("/account/space.php?act=index&id={$userid}");
+// 					go("/");
 						
 		}else{
 			go("/");
@@ -263,7 +311,7 @@ class account extends Action{
 							"intro"=>$_POST['intro'],
 			
 						);
-// 			debug::d($res);exit;
+//  			debug::d($res);exit;
 			$this->obj_tmp_supplier->insert($res);
 			go("/");
 			
