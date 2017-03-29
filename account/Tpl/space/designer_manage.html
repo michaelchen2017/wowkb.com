@@ -35,13 +35,13 @@
         {%foreach from=$res key=i item=value%}
         <tr>
           <td><input id="toggle" type="checkbox"></td>
-          <td><img id="design_pic" src="{%$value['pic_path']|default:''%}"></td>
+          <td><a href="/account/space.php?act=zuopin_modify&id={%$value['pk_id']|default:''%}"><img id="design_pic" src="{%$value['pic_path']|default:''%}"></a></td>
           <td>{%$value['pk_id']|default:''%}</td>
           <td>{%$value['name']|default:''%}</td>
           <td>{%$value['size']|default:''%}</td>
           <td>{%$value['price']|default:''%}</td>
           <td>
-            <a id="edit" href="#">修改</a>
+            <a id="edit" href="/account/space.php?act=zuopin_modify&id={%$value['pk_id']|default:''%}">修改</a>
             |
             <a id="delete" href="/account/space.php?act=zuopin_delete&id={%$value['pk_id']|default:''%}" >删除</a>
           </td>

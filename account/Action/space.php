@@ -228,11 +228,46 @@ class space extends Action{
 		
 	}
 	
+	function ACT_zuopin_modify(){
+		$res = array();
+		  
+		if(isset($_GET) && !empty($_GET['id'])){
+			$res = $this->obj_tmp_zuopin->getOne("*", array("pk_id"=>$_GET['id'], "visible"=>1));
+		}
+		
+		$this->assign("res", $res);
+	}
+	
+	function ACT_zuopin_modify_process(){
+// 		debug::d($_POST);exit;
+		$res_post = array();
+		
+		if(isset($_POST)){
+			$res_post = array(
+					"name"=>$_POST['name'],
+					"category"=>$_POST['category'],
+					"price"=>$_POST['price'],
+					"size"=>$_POST['size'],
+					"texture"=>$_POST['texture'],
+					"interior"=>$_POST['interior'],
+					"color"=>$_POST['color'],
+					"application"=>$_POST['application'],
+					"intro"=>$_POST['intro'],	
+			);
+			
+			$this->obj_tmp_zuopin->update($res_post, array("pk_id"=>$_POST['pk_id']));
+		}
+		go("/account/space.php?act=designer_manage");
+		
+	}
+	
 	function ACT_zuopin_delete(){
 		
 		if(isset($_GET) && !empty($_GET['id'])){
 			$this->obj_tmp_zuopin->update(array("visible"=>0), array("pk_id"=>$_GET['id']));
 			go("/account/space.php?act=designer_manage");
+		}else{
+			go("/");
 		}
 	}
 	
@@ -534,17 +569,17 @@ class space extends Action{
 		go('/account/space.php?act=zuopin_preview&id='.$pk_id);
 	}
 	
-	function ACT_zuopin_modify(){
-// 		debug::d($_POST);exit;
-		if(isset($_POST) && !empty($_POST['title'])){
-			$this->obj_zuopin->Update($_POST, array("pk_id"=>$_POST['pk_id']));
-			go("/account/space.php?act=zuopin_preview&id={$_POST['pk_id']}");
-		}
-		else{
-			go("/");
-		}
+// 	function ACT_zuopin_modify(){
+// // 		debug::d($_POST);exit;
+// 		if(isset($_POST) && !empty($_POST['title'])){
+// 			$this->obj_zuopin->Update($_POST, array("pk_id"=>$_POST['pk_id']));
+// 			go("/account/space.php?act=zuopin_preview&id={$_POST['pk_id']}");
+// 		}
+// 		else{
+// 			go("/");
+// 		}
 		
-	}
+// 	}
 	
 	function ACT_zuopin_preview(){
 		$user_type = "designer";
