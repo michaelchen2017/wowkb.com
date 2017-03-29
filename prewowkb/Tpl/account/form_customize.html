@@ -10,27 +10,7 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-<div id="navbar">
-  <div id="nav_logo">
-      <img id="nav_logo_pic" src="/image/logo4.png">
-  </div>
-  
-  <div id="nav_link1">
-      <a href="/"><div class="nav">主页</div></a>
-      <a href="/prewowkb/account.php?act=designer"><div class="nav">设计</div></a>
-      <a href="/prewowkb/account.php?act=productsupplier"><div class="nav">产品</div></a>
-      <a href="/prewowkb/account.php?act=service"><div class="nav">服务</div></a>
-      <a href="/prewowkb/account.php?act=about"><div class="nav">关于我们</div></a>
-      <a href="/prewowkb/account.php?act=begincustomize"><div class="nav">开始定制</div></a>
-       {%if empty($userid)%}
-      <a href="/account/account.php?act=register"><div class="nav">注册</div></a>
-      <a href="/account/account.php?act=login"><div id="nav_sign_signin">登陆</div></a>
-      {%else%}
-      <a href="/account/space.php?act=user_dashboard"><div class="nav">我的后台账户</div></a>
-      {%/if%}
-  </div>
-  <div id="nav_bg"></div>
-</div>
+{%include file="$root/template/common/navbar_prewowkb.html"%}
 
 
 <div class="content_form">
@@ -38,33 +18,36 @@
   <div class="form_title">预约定制服务</div>
   <table id="customize">
     <tr>
-      <td>服务类型</td>
-      <td colspan="2">
-        <select id="mySelect1" name="service_type" onchange="myFunction()">
-            <option value="caseA">套餐A</option>
-            <option value="caseB">套餐B</option>
-            <option value="caseC">套餐C</option>
-      </select>
-    </td>
-    <td>   
-    </td>
+      <td>服务套餐<span class="required">*</span></td>
+      <td>
+        <label class="checkbox-inline"><input name="" type="checkbox" id="inlineCheckbox1" value="" />A 家具设计定制</label> 
+        <label class="checkbox-inline"><input name="" type="checkbox" id="inlineCheckbox1" value="" />B 空间规划定制</label> 
+        <label class="checkbox-inline"><input name="" type="checkbox" id="inlineCheckbox1" value="" />C 室内装修定制</label> 
+      </td>
     </tr>
     <tr>
-      <td>姓名</td>
+      <td>称呼<span class="required">*</span></td>
       <td colspan="2"><input type="text" name="name"></td>
     </tr>
     <tr>
-      <td>联系电话</td>
+      <td>联系电话<span class="required">*</span></td>
       <td colspan="2"><input type="text" name="tel"></td>
     </tr>
     <tr>
-      <td>邮箱</td>
+      <td>邮箱<span class="required">*</span></td>
       <td colspan="2"><input type="text" name="email"></td>
     </tr>
     <tr>
-      <td>区域</td>
-      <td colspan="2">
-        <select id="mySelect1" name="region" onchange="myFunction()">
+      <td>地址<span class="required">*</span></td>
+      <td><input type="text" name="addr1" class="input-field input_address" value="address#1" onblur="if (this.value == '') {this.value = 'address#1';}"onfocus="if (this.value == 'address#1') {this.value = '';}"/></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><input type="text" name="addr2" class="input-field input_address" value="address#2" onblur="if (this.value == '') {this.value = 'address#2';}"onfocus="if (this.value == 'address#2') {this.value = '';}"/></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><select name="region">
             <option value="AL">Alabama</option>
             <option value="AK">Alaska</option>
             <option value="AZ">Arizona</option>
@@ -116,14 +99,13 @@
             <option value="WV">West Virginia</option>
             <option value="WI">Wisconsin</option>
             <option value="WY">Wyoming</option>
-      </select>
-    </td>
-    <td>   
-    </td>
+          </select>
+          <input type="text" name="city" class="short_input" value="city" onblur="if (this.value == '') {this.value = 'city';}"onfocus="if (this.value == 'city') {this.value = '';}"/>
+          <input type="text" name="zipcode" class="short_input" value="zip code" onblur="if (this.value == '') {this.value = 'zip code';}"onfocus="if (this.value == 'zip code') {this.value = '';}"/></td>
     </tr>
     <tr>
-      <td>街道</td>
-      <td colspan="2"><input type="text" name="addr"></td>
+      <td><span>服务需求</span></td>
+      <td><textarea name="need" class="textarea-field"></textarea></td>
     </tr>
     <tr>
       <td colspan="2"><input class="agree_check" type="checkbox"><span class="agreement"><a href="#agreenment_window">同意我们的合作条款</a></span></td>

@@ -10,164 +10,57 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-<div id="navbar">
-  <div id="nav_logo">
-      <img id="nav_logo_pic" src="/image/logo4.png">
-  </div>
-  
-  <div id="nav_link1">
-      <a href="/"><div class="nav choose">主页</div></a>
-      <a href="/prewowkb/account.php?act=designer"><div class="nav">设计</div></a>
-      <a href="/prewowkb/account.php?act=productsupplier"><div class="nav">产品</div></a>
-      <a href="/prewowkb/account.php?act=service"><div class="nav">服务</div></a>
-      <a href="/prewowkb/account.php?act=about"><div class="nav">关于我们</div></a>
-      <a href="/prewowkb/account.php?act=begincustomize"><div class="nav">开始定制</div></a>
-      {%if empty($userid)%}
-      <a href="/account/account.php?act=register"><div class="nav">注册</div></a>
-      <a href="/account/account.php?act=login"><div id="nav_sign_signin">登陆</div></a>
-      {%else%}
-      <a href="/account/space.php?act=user_dashboard"><div class="nav">我的后台账户</div></a>
-      {%/if%}
-      
-  </div>
-  <div id="nav_bg"></div>
-</div>
+{%include file="$root/template/common/navbar_prewowkb.html"%}
 
 <div id="showArea">
   <div id="search_slogan">定制您梦想的厨房</div>
-    <img id="showArea_pic" src="/image/title.png">
+  <div class="showArea_bg"></div>
+  <img id="showArea_pic" src="/image/title.png">
 </div>
 
 <div id="body">
-  <div class="index_project_title">家居产品定制</div>
-  <div class="temp_mainArea">   
-  {%foreach from=$res  key=i  item=value %}
+  
+  <div class="temp_mainArea">
+  <div class="index_project_title">家具设计</div> 
+  {%foreach from=$res  key=i  item=value %}  
       <a href="/prewowkb/account.php?act=design_detail&id={%$value['pk_id']|default:''%}">
         <div class="designs_project">
           <div class="designs_project_pic">
             <img class="designs_project_pic" src="{%$value['pic_path']|default:''%}">
           </div>
-          <div class="design_project_price">{%$value['price']|default:''%}</div>
           <div class="admin_collect_intro">
             <div class="admin_collect_title">{%$value['name']|default:''%}</div>
-            <div class="project_labels"><span class="designs_project_label">{%$value['tags']|default:''%}</span></div>
           </div>
         </div>
       </a>
-   {%/foreach%}    
-    </div>
+  {%/foreach%} 
 
-<!-- 
-  <div class="index_project_title">室内翻新改造</div>
-  <div class="temp_mainArea">   
+<!--   <div class="index_project_title">空间规划</div>   
       <a href="design_detail.html">
         <div class="designs_project">
           <div class="designs_project_pic">
-            <img class="designs_project_pic" src="../../image/customize/S2/design.jpg">
+            <img class="designs_project_pic" src="/image/customize/A7/design.jpg">
           </div>
-          <div class="design_project_price">$9999-$19,999</div>
           <div class="admin_collect_intro">
             <div class="admin_collect_title">美式红色枫木橱柜</div>
-            <div class="project_labels"><span class="designs_project_label">橱柜</span></div>
-          </div>
-        </div>
-      </a>
-       
-              <a href="design_detail.html">
-        <div class="designs_project">
-          <div class="designs_project_pic">
-            <img class="designs_project_pic" src="../../image/customize/S8/design.jpg">
-          </div>
-          <div class="design_project_price">$9999-$19,999</div>
-          <div class="admin_collect_intro">
-            <div class="admin_collect_title">美式红色枫木橱柜</div>
-            <div class="project_labels"><span class="designs_project_label">橱柜</span></div>
           </div>
         </div>
       </a>
 
-              <a href="design_detail.html">
-        <div class="designs_project">
-          <div class="designs_project_pic">
-            <img class="designs_project_pic" src="../../image/customize/A7/design.jpg">
-          </div>
-          <div class="design_project_price">$9999-$19,999</div>
-          <div class="admin_collect_intro">
-            <div class="admin_collect_title">美式红色枫木橱柜</div>
-            <div class="project_labels"><span class="designs_project_label">橱柜</span></div>
-          </div>
-        </div>
-      </a>
-   
-              <a href="design_detail.html">
-        <div class="designs_project">
-          <div class="designs_project_pic">
-            <img class="designs_project_pic" src="../../image/customize/A7/design.jpg">
-          </div>
-          <div class="design_project_price">$9999-$19,999</div>
-          <div class="admin_collect_intro">
-            <div class="admin_collect_title">美式红色枫木橱柜</div>
-            <div class="project_labels"><span class="designs_project_label">橱柜</span></div>
-          </div>
-        </div>
-      </a>
-    </div>
-
-
-  <div class="index_project_title">房屋加建改建</div>
-  <div class="temp_mainArea">   
+  <div class="index_project_title">室内装修</div>   
       <a href="design_detail.html">
         <div class="designs_project">
           <div class="designs_project_pic">
-            <img class="designs_project_pic" src="../../image/customize/A7/design.jpg">
+            <img class="designs_project_pic" src="/image/customize/A7/design.jpg">
           </div>
-          <div class="design_project_price">$9999-$19,999</div>
-          <div class="admin_collect_intro">
-            <div class="admin_collect_title">美式田园风格厨房</div>
-            <div class="project_labels"><span class="designs_project_label">橱柜</span><span class="designs_project_label">台面</span><span class="designs_project_label">地板</span><span class="designs_project_label">墙砖</span><span class="designs_project_label">橱柜</span><span class="designs_project_label">台面</span><span class="designs_project_label">地板</span><span class="designs_project_label">墙砖</span></div>
-          </div>
-        </div>
-      </a>
-       
-              <a href="design_detail.html">
-        <div class="designs_project">
-          <div class="designs_project_pic">
-            <img class="designs_project_pic" src="../../image/customize/A7/design.jpg">
-          </div>
-          <div class="design_project_price">$9999-$19,999</div>
-          <div class="admin_collect_intro">
-            <div class="admin_collect_title">美式田园风格厨房</div>
-            <div class="project_labels"><span class="designs_project_label">橱柜</span><span class="designs_project_label">台面</span><span class="designs_project_label">地板</span><span class="designs_project_label">墙砖</span></div>
-          </div>
-        </div>
-      </a>
-
-              <a href="design_detail.html">
-        <div class="designs_project">
-          <div class="designs_project_pic">
-            <img class="designs_project_pic" src="../../image/customize/A7/design.jpg">
-          </div>
-          <div class="design_project_price">$9999-$19,999</div>
-          <div class="admin_collect_intro">
-            <div class="admin_collect_title">美式田园风格厨房</div>
-            <div class="project_labels"><span class="designs_project_label">橱柜</span><span class="designs_project_label">台面</span><span class="designs_project_label">地板</span><span class="designs_project_label">墙砖</span></div>
-          </div>
-        </div>
-      </a>
-   
-              <a href="design_detail.html">
-        <div class="designs_project">
-          <div class="designs_project_pic">
-            <img class="designs_project_pic" src="../../image/customize/A7/design.jpg">
-          </div>
-          <div class="design_project_price">$9999-$19,999</div>
           <div class="admin_collect_intro">
             <div class="admin_collect_title">美式红色枫木橱柜</div>
-            <div class="project_labels"><span class="designs_project_label">橱柜</span><span class="designs_project_label">台面</span><span class="designs_project_label">地板</span><span class="designs_project_label">墙砖</span></div>
           </div>
         </div>
       </a> -->
-    </div>
+       
+
+</div>
 
 <div class="step_section">
   <div class="section_title">
@@ -175,62 +68,40 @@
     <p>五步解决装修定制服务；它是简单、轻松和愉快的</p>
   </div>
 
-    <div class="step_center">
-      <div class="line_dot">1</div>
-      <div class="line_dot dot_margin1">2</div>
-      <div class="line_dot dot_margin2">3</div>
-      <div class="line_dot dot_margin3">4</div>
-      <div class="line_dot dot_margin4">5</div>
-      <div class="step_line"></div>
-    </div>
-
   <div class="design_steps">
-    <div class="step_left">
-      <div class="each_step">
-        <div class="step_inside_right">
-         <!--  <div id="step_icon">1</div>
- -->          <h4>在线咨询</h4>
-          <p>在线查看设计作品与产品，与设计师、产品销售顾问、施工服务商交流想法与灵感；</p>
-        </div>
-      </div>
-      <div class="step_blank"></div>
-      <div class="each_step">
-        <div class="step_inside_right">
-         <!--  <div id="step_icon">3</div> -->
-          <h4>上门测量</h4>
-          <p>预约上门测量服务，对区域规划、物品位置、结构尺寸进行精准测量；</p>
-        </div>
-      </div>
-      <div class="step_blank"></div>
-      <div class="each_step">
-        <div class="step_inside_right">
-         <!--  <div id="step_icon">5</div> -->
-          <h4>设计服务</h4>
-          <p>绘制房屋图纸，设计效果图；</p>
-        </div>
+    <div class="each_step">
+      <div class="step_icon">1</div>
+      <div class="step_intro">选择服务方案</br></br>
+      <span class="step_intro_des">填写个人信息问卷预约相关服务。预约成功后，指定设计师会根据问卷信息与客户联系，并询问详细资料。</span>
       </div>
     </div>
-    <div class="step_right">
-      <div class="step_blank"></div>
-      <div class="each_step">
-        <div class="step_inside_left">
-         <!--  <div id="step_icon">2</div> -->
-          <h4>购买材料</h4>
-          <p>精心挑选产品，包括品牌、材质、颜色、尺寸、价格；</p>
-        </div>
+    <div class="each_step">
+      <div class="step_icon">2</div>
+      <div class="step_intro">选择设计师</br></br>
+      <span class="step_intro_des">在线查看多个对应设计师的个人资料及作品，选择一位最满意的设计师为您服务。设计师会主动与您联系。</span>
       </div>
-      <div class="step_blank"></div>
-      <div class="each_step">
-        <div class="step_inside_left">
-         <!--  <div id="step_icon">4</div> -->
-          <h4>施工服务</h4>
-          <p>专业的施工技能，精确的施工图纸、正确的产品组装和安装方法，保障方案的实施；</p>
-        </div>
+    </div>
+    <div class="each_step">
+      <div class="step_icon">3</div>
+      <div class="step_intro">现场评估</br></br>
+      <span class="step_intro_des">在线预约评估时间。专业人士将到指定地点进行空间、结构、方位、采光等考察。用于收集详细准确资料便于之后服务。</span>
       </div>
-      <div class="step_blank"></div>
+    </div>
+    <div class="each_step">
+      <div class="step_icon">4</div>
+      <div class="step_intro">设计制作</br></br>
+      <span class="step_intro_des">设计师将制定设计方案，绘制设计图，挑选家具、装饰等产品，并制定购买预算。在此期间，设计师会与客户持续沟通，确保满足客户需求达到最佳效果。</span>
+      </div>
+    </div>
+    <div class="each_step">
+      <div class="step_icon">5</div>
+      <div class="step_intro">购买及施工</br></br>
+      <span class="step_intro_des">将设计师选用的指定产品生成详细购买清单，并计算最终购买总价。客户确认后下单购买。在线预约上门施工安装时间。专业人士将在指定地点及时间进行施工安装，最终确保安装安全完成。</span>
+      </div>
     </div>
   </div>
-  <a href="/prewowkb/account.php?act=form_customize"><div class="line_button">开始定制</div></a>
+
+  <a href="#"><div class="line_button">开始定制</div></a>
 </div>
 </div>
 </body>

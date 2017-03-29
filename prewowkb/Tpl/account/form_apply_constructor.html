@@ -5,60 +5,102 @@
   <link rel="shortcut icon" type="image/x-icon" href="image/favicon.ico">
   <link rel="stylesheet" type="text/css" href="/template/common/css/common_temp.css">
   <link rel="stylesheet" type="text/css" href="/prewowkb/css/prepage.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 </head>
 <body>
-<div id="navbar">
-  <div id="nav_logo">
-      <img id="nav_logo_pic" src="/image/logo4.png">
-  </div>
-  
-  <div id="nav_link1">
-      <a href="/"><div class="nav">主页</div></a>
-      <a href="/prewowkb/account.php?act=designer"><div class="nav">设计</div></a>
-      <a href="/prewowkb/account.php?act=productsupplier"><div class="nav">产品</div></a>
-      <a href="/prewowkb/account.php?act=service"><div class="nav">服务</div></a>
-      <a href="/prewowkb/account.php?act=about"><div class="nav">关于我们</div></a>
-      <a href="/prewowkb/account.php?act=begincustomize"><div class="nav">开始定制</div></a>
-      {%if empty($userid)%}
-      <a href="/account/account.php?act=register"><div class="nav">注册</div></a>
-      <a href="/account/account.php?act=login"><div id="nav_sign_signin">登陆</div></a>
-      {%else%}
-      <a href="/account/space.php?act=user_dashboard"><div class="nav">我的后台账户</div></a>
-      {%/if%}
-  </div>
-  <div id="nav_bg"></div>
+{%include file="$root/template/common/navbar_prewowkb.html"%}
+
+<div class="form_top_space"></div>
+
+<div class="form_title">申请成为WOWKB施工商</div>
+<div class="page_intro_content">
+    <h4>加入WOWKB能为您带来什么？</h4></br>
+    营销支持：设计品牌标识，官网制作，宣传名片与文档；</br>
+    工具支持：提供测量工具与绘制户型的专用图纸；</br>
+    设计支持：提供设计与施工图纸的绘制服务；</br>
+    业务支持：免费推荐订单和官网宣传服务；</br>
+    软件支持：免费提供施工报价与服务管理软件；</br>
+    成为WOWKB的施工合作服务商，简单、省心、省钱；</br></br>
+    只需四步申请；</br>
+    在线申请 — 提交材料 — 审核通过 — 开通服务
 </div>
-
-
 
 <div class="content_form">
     <form action="/prewowkb/account.php?act=form_apply_constructor_process" method="post" enctype="multipart/form-data">
-            <div class="form_title">申请成为WOWKB施工商</div>
             <table id="customize">
               <tr>
-                <td><span>名称<span class="required">*</span></span></td>
+                <td><span>公司名称<span class="required">*</span></span></td>
                 <td><input type="text" name="name"/></td>
+              </tr>
+              <tr>
+                <td><span>品牌名称</span></td>
+                <td><input type="text" name=""/></td>
+              </tr>
+              <tr>
+                <td>服务区域<span class="required">*</span></td>
+                <td><label class="checkbox-inline"><input name="" type="checkbox" id="inlineCheckbox1" value="Burlingame" />Burlingame</label> 
+                <label class="checkbox-inline"><input name="" type="checkbox" id="inlineCheckbox1" value="Campbell" />Campbell</label> 
+                <label class="checkbox-inline"><input name="" type="checkbox" id="inlineCheckbox1" value="Castro Valley" />Castro Valley</label> 
+                <label class="checkbox-inline"><input name="" type="checkbox" id="inlineCheckbox1" value="Cupertino" />Cupertino</label>
+                <label class="checkbox-inline"><input name="" type="checkbox" id="inlineCheckbox1" value="Fremont" />Fremont</label> 
+                <label class="checkbox-inline"><input name="" type="checkbox" id="inlineCheckbox1" value="Hayward" />Hayward</label> 
+                <label class="checkbox-inline"><input name="" type="checkbox" id="inlineCheckbox1" value="Livermore" />Livermore</label> 
+                <label class="checkbox-inline"><input name="" type="checkbox" id="inlineCheckbox1" value="Mountain View" />Mountain View</label>
+                <label class="checkbox-inline"><input name="" type="checkbox" id="inlineCheckbox1" value="Palo Alto" />Palo Alto</label> 
+                <label class="checkbox-inline"><input name="" type="checkbox" id="inlineCheckbox1" value="Richmond" />Richmond</label> 
+                <label class="checkbox-inline"><input name="" type="checkbox" id="inlineCheckbox1" value="Sacramento" />Sacramento</label> 
+                <label class="checkbox-inline"><input name="" type="checkbox" id="inlineCheckbox1" value="San Carlos" />San Carlos</label>
+                <label class="checkbox-inline"><input name="" type="checkbox" id="inlineCheckbox1" value="San Francisco" />San Francisco</label>
+                <label class="checkbox-inline"><input name="" type="checkbox" id="inlineCheckbox1" value="San Jose" />San Jose</label> 
+                <label class="checkbox-inline"><input name="" type="checkbox" id="inlineCheckbox1" value="San Leandro" />San Leandro</label>
+                <label class="checkbox-inline"><input name="" type="checkbox" id="inlineCheckbox1" value="Santa Clara" />Santa Clara</label> 
+                <label class="checkbox-inline"><input name="" type="checkbox" id="inlineCheckbox1" value="South Pasaden" />South Pasaden</label> 
+                <label class="checkbox-inline"><input name="" type="checkbox" id="inlineCheckbox1" value="Sunnyvale" />Sunnyvale</label> 
+                <label class="checkbox-inline"><input name="" type="checkbox" id="inlineCheckbox1" value="Union City" />Union City</label>  
+              </td>
+              </tr>
+              <tr>
+                <td>服务项目<span class="required">*</span></td>
+                <td>
+                <label class="checkbox-inline"><input name="" type="checkbox" id="inlineCheckbox1" value="" />室内装修</label> 
+                <label class="checkbox-inline"><input name="" type="checkbox" id="inlineCheckbox1" value="" />水电工程</label> 
+                <label class="checkbox-inline"><input name="" type="checkbox" id="inlineCheckbox1" value="" />油漆</label>
+                <label class="checkbox-inline"><input name="" type="checkbox" id="inlineCheckbox1" value="" />通渠</label> 
+                <label class="checkbox-inline"><input name="" type="checkbox" id="inlineCheckbox1" value="" />门窗</label> 
+                <label class="checkbox-inline"><input name="" type="checkbox" id="inlineCheckbox1" value="" />庭院</label> 
+                <label class="checkbox-inline"><input name="" type="checkbox" id="inlineCheckbox1" value="" />冷暖</label>
+                <label class="checkbox-inline"><input name="" type="checkbox" id="inlineCheckbox1" value="" />地板</label> 
+                <label class="checkbox-inline"><input name="" type="checkbox" id="inlineCheckbox1" value="" />防震</label> 
+                <label class="checkbox-inline"><input name="" type="checkbox" id="inlineCheckbox1" value="" />软装</label> 
+                <label class="checkbox-inline"><input name="" type="checkbox" id="inlineCheckbox1" value="" />屋顶</label>  
+              </td>
+              </tr>
+              <tr>
+                <td><span>联系人<span class="required">*</span></span></td>
+                <td><input type="text"/></td>
+              </tr>
+              <tr>
+                <td><span>联系电话<span class="required">*</span></span></td>
+                <td><input type="text" name="tel"/></td>
               </tr>
               <tr>
                 <td><span>邮箱<span class="required">*</span></span></td>
                 <td><input type="text" name="email"/></td>
-              </tr>
+              </tr>    
               <tr>
-                <td><span>电话<span class="required">*</span></span></td>
-                <td><input type="text" name="tel"/></td>
-              </tr>
-              <tr>
-                <td><span>网站</span></td>
+                <td><span>公司网站</span></td>
                 <td><input type="text" name="website"/></td>
               </tr>
               <tr>
                 <td><span>地址<span class="required">*</span></span></td>
-                <td><input type="text" name="addr1" class="input-field input_address" value="" onblur="if (this.value == '') {this.value = 'address#1';}"onfocus="if (this.value == 'address#1') {this.value = '';}"/></td>
+                <td><input type="text" name="addr1" class="input-field input_address" value="address#1" onblur="if (this.value == '') {this.value = 'address#1';}"onfocus="if (this.value == 'address#1') {this.value = '';}"/></td>
               </tr>
               <tr>
                 <td></td>
-                <td><input type="text" name="addr2" class="input-field input_address" value="" onblur="if (this.value == '') {this.value = 'address#2';}"onfocus="if (this.value == 'address#2') {this.value = '';}"/></td>
+                <td><input type="text" name="addr2" class="input-field input_address" value="address#2" onblur="if (this.value == '') {this.value = 'address#2';}"onfocus="if (this.value == 'address#2') {this.value = '';}"/></td>
               </tr>
               <tr>
                 <td></td>
@@ -119,8 +161,8 @@
                   <input type="text" name="zipcode" class="short_input" value="zip code" onblur="if (this.value == '') {this.value = 'zip code';}"onfocus="if (this.value == 'zip code') {this.value = '';}"/></td>
               </tr> 
               <tr>
-                <td><span>专业认证资质<span class="required">*</span></span></td>
-                <td><input type="file" name="file" class="add_new_file"></td>
+                <td><span>公司描述</span></td>
+                <td><textarea name="description" class="textarea-field"></textarea></td>
               </tr>
               <tr>
                 <td colspan="2"><input class="agree_check" type="checkbox"><span><a class="agreement" href="#agreenment_window">同意我们的合作条款</a></span></td>

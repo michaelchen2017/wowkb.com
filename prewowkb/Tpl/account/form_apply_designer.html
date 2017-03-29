@@ -5,41 +5,76 @@
   <link rel="shortcut icon" type="image/x-icon" href="image/favicon.ico">
   <link rel="stylesheet" type="text/css" href="/template/common/css/common_temp.css">
   <link rel="stylesheet" type="text/css" href="/prewowkb/css/prepage.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 </head>
 <body>
-<div id="navbar">
-  <div id="nav_logo">
-      <img id="nav_logo_pic" src="/image/logo4.png">
-  </div>
-  
-  <div id="nav_link1">
-      <a href="/"><div class="nav">主页</div></a>
-      <a href="/prewowkb/account.php?act=designer"><div class="nav">设计</div></a>
-      <a href="/prewowkb/account.php?act=productsupplier"><div class="nav">产品</div></a>
-      <a href="/prewowkb/account.php?act=service"><div class="nav">服务</div></a>
-      <a href="/prewowkb/account.php?act=about"><div class="nav">关于我们</div></a>
-      <a href="/prewowkb/account.php?act=begincustomize"><div class="nav">开始定制</div></a>
-       {%if empty($userid)%}
-      <a href="/account/account.php?act=register"><div class="nav">注册</div></a>
-      <a href="/account/account.php?act=login"><div id="nav_sign_signin">登陆</div></a>
-      {%else%}
-      <a href="/account/space.php?act=user_dashboard"><div class="nav">我的后台账户</div></a>
-      {%/if%}
-  </div>
-  <div id="nav_bg"></div>
+{%include file="$root/template/common/navbar_prewowkb.html"%}
+
+<div class="form_top_space"></div>
+<div class="form_title">申请成为WOWKB设计师</div>
+<div class="page_intro_content">
+    <h4>成为WOWKB设计师可以为您带来什么</h4></br>
+    设计师是产品的灵魂，WOWKB为设计师搭建了一个展现个人专业与价值的平台，只要您通过WOWKB在线申请，就可以成为WOWKB的授权设计师</br>灵活：在线设计定制方案，不受时间地点限制；</br>
+    收入：专业服务带来隐定收入，无需任何成本；</br>
+    简单：强大的业务与技术支持，让服务简单高效；</br></br>
+    四步成为WOWKB的合作设计师:</br>
+    在线申请 — 提交作品 — 审核通过 — 开通服务
 </div>
-
-
 
 <div class="content_form">
     <form action="/prewowkb/account.php?act=form_apply_designer_process" method="post" enctype="multipart/form-data">
-            <div class="form_title">申请成为WOWKB设计师</div>
             <table id="customize">
+              <tr>
+                <td>设计领域</td>
+                <td>
+                  <label class="checkbox-inline"><input name="" type="checkbox" id="inlineCheckbox1" value="" />家具设计</label> 
+                  <label class="checkbox-inline"><input name="" type="checkbox" id="inlineCheckbox1" value="" />空间规划</label> 
+                  <label class="checkbox-inline"><input name="" type="checkbox" id="inlineCheckbox1" value="" />室内装修</label> 
+                  <label class="checkbox-inline"><input name="" type="checkbox" id="inlineCheckbox1" value="" />建筑</label> 
+                  <label class="checkbox-inline"><input name="" type="checkbox" id="inlineCheckbox1" value="" />景观</label>
+                </td>
+              </tr>
               <tr>
                 <td><span>姓名<span class="required">*</span></span></td>
                 <td><input type="text" name="name"/></td>
               </tr>
+              <tr>
+                <td><span>毕业院校<span class="required">*</span></span></td>
+                <td><input type="text" name="school"/></td>
+              </tr>
+              <tr>
+                <td><span>专业<span class="required">*</span></span></td>
+                <td><input type="text" name="major"/></td>
+              </tr>
+              <tr>
+                <td>擅长软件</td>
+                <td><label class="checkbox-inline"><input name="" type="checkbox" id="inlineCheckbox1" value="" />AutoCAD</label> 
+                <label class="checkbox-inline"><input name="" type="checkbox" id="inlineCheckbox1" value="" />REVIT</label> 
+                <label class="checkbox-inline"><input name="" type="checkbox" id="inlineCheckbox1" value="" />3DS MAX</label> 
+                <label class="checkbox-inline"><input name="" type="checkbox" id="inlineCheckbox1" value="" />2020 Design</label>
+                <label class="checkbox-inline"><input name="" type="checkbox" id="inlineCheckbox1" value="" />SketchUP</label> 
+                <label class="checkbox-inline"><input name="" type="checkbox" id="inlineCheckbox1" value="" />Photoshop</label> 
+                <label class="checkbox-inline"><input name="" type="checkbox" id="inlineCheckbox1" value="" />Indesign</label> 
+                <label class="checkbox-inline"><input name="" type="checkbox" id="inlineCheckbox1" value="" />Illustrator</label>
+                <label class="checkbox-inline"><input name="" type="checkbox" id="inlineCheckbox1" value="" />VERY</label> 
+                <label class="checkbox-inline"><input name="" type="checkbox" id="inlineCheckbox1" value="" />Redshift</label> 
+                <label class="checkbox-inline"><input name="" type="checkbox" id="inlineCheckbox1" value="" />ArchiCAD</label> 
+                <label class="checkbox-inline"><input name="" type="checkbox" id="inlineCheckbox1" value="" />Vectorworks</label>
+                <label class="checkbox-inline"><input name="" type="checkbox" id="inlineCheckbox1" value="" />其他</label>   
+              </td>
+              </tr>
+              <tr>
+                <td><span>其他</span></td>
+                <td><input type="text" name="" value="如果有其他擅长软件请填写" onblur="if (this.value == '') {this.value = '如果有其他擅长软件请填写';}"onfocus="if (this.value == '如果有其他擅长软件请填写') {this.value = '';}"/></td>
+              </tr>
+              <tr>
+                <td><span>服务报价<span class="required">*</span></span></td>
+                <td><input type="text" name="" value="您希望的服务价格：美元/小时" onblur="if (this.value == '') {this.value = '您希望的服务价格：美元/小时';}"onfocus="if (this.value == '您希望的服务价格：美元/小时') {this.value = '';}"//></td>
+              </tr>
+              
               <tr>
                 <td><span>邮箱<span class="required">*</span></span></td>
                 <td><input type="text" name="email"/></td>
@@ -49,12 +84,16 @@
                 <td><input type="text" name="tel"/></td>
               </tr>
               <tr>
-                <td><span>地址<span class="required">*</span></span></td>
-                <td><input type="text" name="addr1" class="input-field input_address" value="" onblur="if (this.value == '') {this.value = 'address#1';}"onfocus="if (this.value == 'address#1') {this.value = '';}"/></td>
+                <td><span>个人网站</span></td>
+                <td><input type="text" name="website"/></td>
+              </tr>
+              <tr>
+                <td><span>居住地址<span class="required">*</span></span></td>
+                <td><input type="text" name="addr1" class="input-field input_address" value="address#1" onblur="if (this.value == '') {this.value = 'address#1';}"onfocus="if (this.value == 'address#1') {this.value = '';}"/></td>
               </tr>
               <tr>
                 <td></td>
-                <td><input type="text" name="addr2" class="input-field input_address" value="" onblur="if (this.value == '') {this.value = 'address#2';}"onfocus="if (this.value == 'address#2') {this.value = '';}"/></td>
+                <td><input type="text" name="addr2" class="input-field input_address" value="address#2" onblur="if (this.value == '') {this.value = 'address#2';}"onfocus="if (this.value == 'address#2') {this.value = '';}"/></td>
               </tr>
               <tr>
                 <td></td>
@@ -111,27 +150,10 @@
             <option value="WI">Wisconsin</option>
             <option value="WY">Wyoming</option>
                   </select>
-                  <input type="text" class="short_input" name="city" value="city" onblur="if (this.value == '') {this.value = 'city';}"onfocus="if (this.value == 'city') {this.value = '';}"/>
-                  <input type="text" class="short_input" name="zipcode"  value="zip code" onblur="if (this.value == '') {this.value = 'zip code';}"onfocus="if (this.value == 'zip code') {this.value = '';}"/></td>
+                  <input type="text" name="city" class="short_input" value="city" onblur="if (this.value == '') {this.value = 'city';}"onfocus="if (this.value == 'city') {this.value = '';}"/>
+                  <input type="text" name="zipcode" class="short_input" value="zip code" onblur="if (this.value == '') {this.value = 'zip code';}"onfocus="if (this.value == 'zip code') {this.value = '';}"/></td>
               </tr>
-              <tr>
-                <td><span>代理品牌<span class="required">*</span></span></td>
-                <td><input type="text" name="proxy_brands"/></td>
-              </tr>
-              <tr>
-                <td><span>使用设计软件<span class="required">*</span></span></td>
-                <td><select name="used_software">
-                    <option value="">请选择</option>
-                    <option value="saab">2020</option>
-                    <option value="mercedes">3dmax</option>
-                    <option value="audi">Maya</option>
-                    <option value="audi">其他</option>
-                  </select></td>
-              </tr>
-              <tr>
-                <td><span>专业认证资质<span class="required">*</span></span></td>
-                <td><input type="file" name="file" class="add_new_file"></td>
-              </tr>
+              
               <tr>
                 <td colspan="2"><input class="agree_check" type="checkbox"><span><a class="agreement" href="#agreenment_window">同意我们的合作条款</a></span></td>
               </tr>
