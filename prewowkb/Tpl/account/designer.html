@@ -10,131 +10,268 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-<div id="navbar">
-  <div id="nav_logo">
-      <img id="nav_logo_pic" src="/image/logo4.png">
-  </div>
-  
-  <div id="nav_link1">
-      <a href="/"><div class="nav">主页</div></a>
-      <a href="/prewowkb/account.php?act=designer"><div class="nav choose">设计</div></a>
-      <a href="/prewowkb/account.php?act=productsupplier"><div class="nav">产品</div></a>
-      <a href="/prewowkb/account.php?act=service"><div class="nav">服务</div></a>
-      <a href="/prewowkb/account.php?act=about"><div class="nav">关于我们</div></a>
-      <a href="/prewowkb/account.php?act=begincustomize"><div class="nav">开始定制</div></a>
-       {%if empty($userid)%}
-      <a href="/account/account.php?act=register"><div class="nav">注册</div></a>
-      <a href="/account/account.php?act=login"><div id="nav_sign_signin">登陆</div></a>
-      {%else%}
-      <a href="/account/space.php?act=user_dashboard"><div class="nav">我的后台账户</div></a>
-      {%/if%}
-  </div>
-  <div id="nav_bg"></div>
-</div>
+{%include file="$root/template/common/navbar_prewowkb.html"%}
 
-<!-- <a class="back_top" href="#">&#8679;</a> -->
+<a class="back_top" href="#">&#8679;</a>
 
 <div class="page_intro">
-<!--   <div class="page_intro_up">
-    为什么设计服务不能多样化？在WOWKB，您可以选择费用高昂的知名设计师，也可以选择免费的产品设计师，无论是产品定制设计，还是区域空间设计，都可以满足您的需求；0元起，立即预约设计服务</br>
-    <div class="construct_price_button">立即预约</div>
-  </div> -->
   <div class="page_intro_up">
     <h2>WOWKB设计师</h2>
   </div>
   <div class="pageheader_bg"></div>
-  <img class="pageheader" src="/image/pageheader.png">
-<!--   <div class="down_join">
-    成为WOWKB的设计师，找到属于你的风格和领域；在线申请
-    <div class="down_button">申请加入</div>
-  </div> -->   
+  <img class="pageheader" src="/image/pageheader.png">  
 </div>
 
 <div id="body">
   <div class="page_intro_top">
-    设计师是产品的灵魂，WOWKB为设计师搭建了一个展现个人专业与价值的平台，无论您是室内设计师，建材零售商、或是房产服务商，只要您通过WOWKB在线设计销售资格，就可以成为WOWKB在线授权销售商。  
+    设计是产品的核心，WOWKB为设计师搭建了一个展现个人专业与价值的平台，无论您是家居定制设计师，空间设计师，室内设计师，建筑与景观设计师，只要您通过培训与考核，就可以成为WOWKB的专业定制设计师。
+    <a href="/prewowkb/account.php?act=form_apply_designer"><div class="construct_price_button"><div class="construct_price_button">申请加入</div></a> 
   </div>
+
+  <div class="designer_content">
+    <div class="designer_box">
+      <img src="/image/designers/dan.png">
+      <div class="designer_intro">
+        <h5>Dan 刘晓丹</h5>
+        <div class="designer_title">室内设计</div>
+        <div class="designer_box_gapline"></div>
+        <div class="project_labels">擅长空间家具设计规划与定制以厨房为主。现代风格为主要。</div>
+      </br>
+      </div>
+    </div>
+
+    <div class="designer_box">
+      <img src="/image/designers/lynn.jpg">
+      <div class="designer_intro">
+        <h5>Lynn 田婧婧</h5>
+        <div class="designer_title">室内设计</div>
+        <div class="designer_box_gapline"></div>
+        <div class="project_labels">擅长厨房与卫生间设计，西方中世纪风格为主。</div>
+      </br>
+      </div>
+    </div>
+
+    <div class="designer_box">
+      <img src="/image/designers/will.jpg">
+      <div class="designer_intro">
+        <h5>Will 魏子奇</h5>
+        <div class="designer_title">室内设计</div>
+        <div class="designer_box_gapline"></div>
+        <div class="project_labels">擅长空间设计规划与定制。现代风格为主要。</div>
+      </br>
+      </div>
+    </div>
+
+    <div class="designer_box">
+      <img src="/image/designers/natalie.jpg">
+      <div class="designer_intro">
+        <h5>Natalie 钟丽</h5>
+        <div class="designer_title">室内设计</div>
+        <div class="designer_box_gapline"></div>
+        <div class="project_labels">擅长家具设计及摆放， 以美式现代家具风格为首要。</div>
+      </br>
+      </div>
+    </div>
+
+    <div class="designer_box">
+      <img src="/image/designers/james.jpg">
+      <div class="designer_intro">
+        <h5>James 张明杰</h5>
+        <div class="designer_title">室内设计</div>
+        <div class="designer_box_gapline"></div>
+        <div class="project_labels">擅长厨房家居设计， 擅长各种风格家具。</div>
+      </br>
+      </div>
+    </div>
+
+    <div class="designer_box">
+      <img src="/image/designers/jing.jpg">
+      <div class="designer_intro">
+        <h5>Jing 赵静</h5>
+        <div class="designer_title">室内设计</div>
+        <div class="designer_box_gapline"></div>
+        <div class="project_labels">擅长家具设计及摆放， 以美式现代家具风格为首要。</div>
+      </br>
+      </div>
+    </div>
+
+    <div class="designer_box">
+      <img src="/image/designers/maggie.jpg">
+      <div class="designer_intro">
+        <h5>Maggie 刘洁</h5>
+        <div class="designer_title">室内设计</div>
+        <div class="designer_box_gapline"></div>
+        <div class="project_labels">擅长卧室与厨房设计， 以现代简单风格为主。</div>
+      </br>
+      </div>
+    </div>
+
+    <div class="designer_box">
+      <img src="/image/designers/nadia.jpg">
+      <div class="designer_intro">
+        <h5>Nadia 钟琪</h5>
+        <div class="designer_title">室内设计</div>
+        <div class="designer_box_gapline"></div>
+        <div class="project_labels">擅长整体空间规划， 擅长运用多种不同风格。</div>
+      </br>
+      </div>
+    </div>
+
+    <div class="designer_box">
+      <img src="/image/designers/rita.jpg">
+      <div class="designer_intro">
+        <h5>Rita 于晴</h5>
+        <div class="designer_title">室内设计</div>
+        <div class="designer_box_gapline"></div>
+        <div class="project_labels">擅长厨房整体规划与家具摆放， 擅长多种风格。</div>
+      </br>
+      </div>
+    </div>
+
+    <div class="designer_box">
+      <img src="/image/designers/tao.jpg">
+      <div class="designer_intro">
+        <h5>Tao 周子陶</h5>
+        <div class="designer_title">室内设计</div>
+        <div class="designer_box_gapline"></div>
+        <div class="project_labels">擅长家具设计及摆放， 以美式现代家具风格为首要。</div>
+      </br>
+      </div>
+    </div>
+
+    <div class="designer_box">
+      <img src="/image/designers/andy.jpg">
+      <div class="designer_intro">
+        <h5>Andy 洪文谅</h5>
+        <div class="designer_title">室内设计</div>
+        <div class="designer_box_gapline"></div>
+        <div class="project_labels">擅长厨房与卫生间家具设计规划与定制以厨房为主。现代风格为主要。</div>
+      </br>
+      </div>
+    </div>
+
+    <div class="designer_box">
+      <img src="/image/designers/denny.jpg">
+      <div class="designer_intro">
+        <h5>Denny 周维</h5>
+        <div class="designer_title">室内设计</div>
+        <div class="designer_box_gapline"></div>
+        <div class="project_labels">擅长空间家具设计规划与定制以厨房为主。现代风格为主要。</div>
+      </br>
+      </div>
+    </div>
+
+    <div class="designer_box">
+      <img src="/image/designers/jenifer.jpg">
+      <div class="designer_intro">
+        <h5>Jenifer 汪萍</h5>
+        <div class="designer_title">室内设计</div>
+        <div class="designer_box_gapline"></div>
+        <div class="project_labels">擅长厨房与卧室的空间规划，以舒适温馨为主要风格。</div>
+      </br>
+      </div>
+    </div>
+
+    <div class="designer_box">
+      <img src="/image/designers/sarah.jpg">
+      <div class="designer_intro">
+        <h5>Sarah 胡瑶</h5>
+        <div class="designer_title">室内设计</div>
+        <div class="designer_box_gapline"></div>
+        <div class="project_labels">擅长厨房空间规划与设计， 以现代风格为主要。</div>
+      </br>
+      </div>
+    </div>
+
+    <div class="designer_box">
+      <img src="/image/designers/tony.jpg">
+      <div class="designer_intro">
+        <h5>Tony 陈亮</h5>
+        <div class="designer_title">室内设计</div>
+        <div class="designer_box_gapline"></div>
+        <div class="project_labels">擅长空间家具设计规划与定制以厨房为主。东方风格为主要。</div>
+      </br>
+      </div>
+    </div>
+
+    <div class="designer_box">
+      <img src="/image/designers/jolson.png">
+      <div class="designer_intro">
+        <h5>Jolson 陈林</h5>
+        <div class="designer_title">室内设计</div>
+        <div class="designer_box_gapline"></div>
+        <div class="project_labels">擅长厨房与卫生间设计，西方中世纪风格为主。</div>
+      </br>
+      </div>
+    </div>
+
+    <div class="designer_box">
+      <img src="/image/designers/lu.jpg">
+      <div class="designer_intro">
+        <h5>Lu 卢小希</h5>
+        <div class="designer_title">室内设计</div>
+        <div class="designer_box_gapline"></div>
+        <div class="project_labels">擅长整体空间规划，并运用多种不同风格。</div>
+      </br>
+      </div>
+    </div>
+
+    <div class="designer_box">
+      <img src="/image/designers/tracy.jpg">
+      <div class="designer_intro">
+        <h5>Tracy 王洁琳</h5>
+        <div class="designer_title">室内设计</div>
+        <div class="designer_box_gapline"></div>
+        <div class="project_labels">擅长厨房设计与定制，擅长运用美式与欧式橱柜。</div>
+      </br>
+      </div>
+    </div>
+
+    <div class="designer_box">
+      <img src="/image/designers/susan.jpg">
+      <div class="designer_intro">
+        <h5>Susan 赵婷</h5>
+        <div class="designer_title">室内设计</div>
+        <div class="designer_box_gapline"></div>
+        <div class="project_labels">擅长家居设计与摆放并以厨房为主， 擅长东方现代风格。</div>
+      </br>
+      </div>
+    </div>
+
+<!--     <div class="designer_box">
+      <img src="../../image/designers/abby.png">
+      <div class="designer_intro">
+        <h5>Abby 何乔然</h5>
+        <div class="designer_title">室内设计</div>
+        <div class="designer_box_gapline"></div>
+        <div class="project_labels">擅长厨房与卫生间家居设计。 擅长传统风格并融入中国传统元素。</div>
+      </br>
+      </div>
+    </div> -->
+
+    <div class="designer_box">
+      <img src="/image/designers/michael.png">
+      <div class="designer_intro">
+        <h5>Michael 伍文涌</h5>
+        <div class="designer_title">室内设计</div>
+        <div class="designer_box_gapline"></div>
+        <div class="project_labels">擅长空间家具设计与定制现以厨房为主， 擅长欧式橱柜。</div>
+      </br>
+      </div>
+    </div>
+
+    </div><!-- designer_content -->
+
   <div class="page_intro_content">
-    <h4>WOWKB可以为您带来什么</h4></br>
-    灵活：在线设计销售，不受时间与地点的任何限制；</br>
-    收入：用专业的作品与服务来获得销售的回报；</br>
-    简单：完善的设计与销售系统，简单高效；</br></br>
-    成为WOWKB的设计师，找到属于你的风格和领域；在线申请
+    <h4>成为WOWKB设计师可以为您带来什么</h4></br>
+    设计师是产品的灵魂，WOWKB为设计师搭建了一个展现个人专业与价值的平台，只要您通过WOWKB在线申请，就可以成为WOWKB的授权设计师</br>灵活：在线设计定制方案，不受时间地点限制；</br>
+    收入：专业服务带来隐定收入，无需任何成本；</br>
+    简单：强大的业务与技术支持，让服务简单高效；</br></br>
+    四步成为WOWKB的合作设计师:</br>
+    在线申请 — 提交作品 — 审核通过 — 开通服务
       <a href="/prewowkb/account.php?act=form_apply_designer"><div class="construct_price_button">申请加入</div></a>
-    
   </div>
 
-  <div class="designer_content">
-    <div class="designer_box">
-      <img src="/image/designer1.png">
-      <div class="designer_intro">
-        <h5>设计师：James</h5>
-        <h5 class="price">预算：$10,000-$20,000</h5>
-        <div class="project_labels"><span class="designs_project_label">橱柜</span><span class="designs_project_label">台面</span><span class="designs_project_label">地板</span><span class="designs_project_label">墙砖</span></div>
-      </br>
-      </div>
-      <a href="designshow.html"><div class="designer_show"><span class="glyphicon glyphicon-home" aria-hidden="true"></span>  作品集</div></a>
-    </div>
-
-    <div class="designer_box">
-      <img src="/image/designer2.png">
-      <div class="designer_intro">
-        <h5>设计师：Sarah</h5>
-        <h5 class="price">预算：$10,000-$20,000</h5>
-        <div class="project_labels"><span class="designs_project_label">橱柜</span><span class="designs_project_label">台面</span><span class="designs_project_label">地板</span><span class="designs_project_label">墙砖</span></div>
-      </br>
-      </div>
-      <a href="#"><div class="designer_show"><span class="glyphicon glyphicon-home" aria-hidden="true"></span>  作品集</div></a>
-    </div>
-
-    <div class="designer_box">
-      <img src="/image/designer3.png">
-      <div class="designer_intro">
-        <h5>设计师：Dan</h5>
-        <h5 class="price">预算：$10,000-$20,000</h5>
-        <div class="project_labels"><span class="designs_project_label">橱柜</span><span class="designs_project_label">台面</span><span class="designs_project_label">地板</span><span class="designs_project_label">墙砖</span><span class="designs_project_label">橱柜</span></div>
-      </br>
-      </div>
-      <a href="#"><div class="designer_show"><span class="glyphicon glyphicon-home" aria-hidden="true"></span>  作品集</div></a>
-    </div>
-</div>
-
-  <div class="designer_content">
-    <div class="designer_box">
-      <img src="/image/designer4.png">
-      <div class="designer_intro">
-        <h5>设计师：Michael</h5>
-        <h5 class="price">预算：$10,000-$20,000</h5>
-        <div class="project_labels"><span class="designs_project_label">橱柜</span><span class="designs_project_label">台面</span></div>
-      </br>
-      </div>
-      <a href="#"><div class="designer_show"><span class="glyphicon glyphicon-home" aria-hidden="true"></span>  作品集</div></a>
-    </div>
-
-    <div class="designer_box">
-      <img src="/image/designer5.png">
-      <div class="designer_intro">
-        <h5>设计师：Jolson</h5>
-        <h5 class="price">预算：$10,000-$20,000</h5>
-        <div class="project_labels"><span class="designs_project_label">橱柜</span><span class="designs_project_label">台面</span><span class="designs_project_label">地板</span><span class="designs_project_label">墙砖</span></div>
-      </br>
-      </div>
-      <a href="#"><div class="designer_show"><span class="glyphicon glyphicon-home" aria-hidden="true"></span>  作品集</div></a>
-    </div>
-
-    <div class="designer_box">
-      <img src="/image/designer6.png">
-      <div class="designer_intro">
-        <h5>设计师：Christopher</h5>
-        <h5 class="price">预算：$10,000-$20,000</h5>
-        <div class="project_labels"><span class="designs_project_label">橱柜</span><span class="designs_project_label">台面</span><span class="designs_project_label">地板</span><span class="designs_project_label">墙砖</span><span class="designs_project_label">橱柜</span><span class="designs_project_label">台面</span></div>
-      </br>
-      </div>
-      <a href="#"><div class="designer_show"><span class="glyphicon glyphicon-home" aria-hidden="true"></span>  作品集</div></a>
-    </div>
-
-
-    </div>
   </div>
 <div class="bottom_space"></div>
 </div>

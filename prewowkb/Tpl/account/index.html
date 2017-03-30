@@ -21,7 +21,10 @@
 <div id="body">
   
   <div class="temp_mainArea">
-  <div class="index_project_title">家具设计</div> 
+  <div class="index_project_title">
+    家具设计
+    <a href="" class="more_design">更多</a>
+  </div> 
   {%foreach from=$res  key=i  item=value %}  
       <a href="/prewowkb/account.php?act=design_detail&id={%$value['pk_id']|default:''%}">
         <div class="designs_project">
@@ -35,75 +38,40 @@
       </a>
   {%/foreach%} 
 
-<!--   <div class="index_project_title">空间规划</div>   
+  <div class="index_project_title project_title_blank">
+  空间规划
+  <a href="" class="more_design">更多</a>
+  </div>
+
       <a href="design_detail.html">
         <div class="designs_project">
           <div class="designs_project_pic">
-            <img class="designs_project_pic" src="/image/customize/A7/design.jpg">
+            <img class="designs_project_pic" src="/image/customize/K8/design.jpg">
           </div>
           <div class="admin_collect_intro">
-            <div class="admin_collect_title">美式红色枫木橱柜</div>
+            <div class="admin_collect_title">奶油色枫木橱柜定制</br></div>
           </div>
         </div>
       </a>
 
-  <div class="index_project_title">室内装修</div>   
+  <div class="index_project_title project_title_blank">
+  室内装修
+  <a href="" class="more_design">更多</a>
+  </div>
+
       <a href="design_detail.html">
         <div class="designs_project">
           <div class="designs_project_pic">
-            <img class="designs_project_pic" src="/image/customize/A7/design.jpg">
+            <img class="designs_project_pic" src="/image/customize/S2/design.jpg">
           </div>
           <div class="admin_collect_intro">
-            <div class="admin_collect_title">美式红色枫木橱柜</div>
+            <div class="admin_collect_title">奶油色枫木橱柜定制</br></div>
           </div>
         </div>
-      </a> -->
-       
+      </a>  
 
-</div>
-
-<div class="step_section">
-  <div class="section_title">
-    <h4>服务流程</h4>
-    <p>五步解决装修定制服务；它是简单、轻松和愉快的</p>
-  </div>
-
-  <div class="design_steps">
-    <div class="each_step">
-      <div class="step_icon">1</div>
-      <div class="step_intro">选择服务方案</br></br>
-      <span class="step_intro_des">填写个人信息问卷预约相关服务。预约成功后，指定设计师会根据问卷信息与客户联系，并询问详细资料。</span>
-      </div>
-    </div>
-    <div class="each_step">
-      <div class="step_icon">2</div>
-      <div class="step_intro">选择设计师</br></br>
-      <span class="step_intro_des">在线查看多个对应设计师的个人资料及作品，选择一位最满意的设计师为您服务。设计师会主动与您联系。</span>
-      </div>
-    </div>
-    <div class="each_step">
-      <div class="step_icon">3</div>
-      <div class="step_intro">现场评估</br></br>
-      <span class="step_intro_des">在线预约评估时间。专业人士将到指定地点进行空间、结构、方位、采光等考察。用于收集详细准确资料便于之后服务。</span>
-      </div>
-    </div>
-    <div class="each_step">
-      <div class="step_icon">4</div>
-      <div class="step_intro">设计制作</br></br>
-      <span class="step_intro_des">设计师将制定设计方案，绘制设计图，挑选家具、装饰等产品，并制定购买预算。在此期间，设计师会与客户持续沟通，确保满足客户需求达到最佳效果。</span>
-      </div>
-    </div>
-    <div class="each_step">
-      <div class="step_icon">5</div>
-      <div class="step_intro">购买及施工</br></br>
-      <span class="step_intro_des">将设计师选用的指定产品生成详细购买清单，并计算最终购买总价。客户确认后下单购买。在线预约上门施工安装时间。专业人士将在指定地点及时间进行施工安装，最终确保安装安全完成。</span>
-      </div>
-    </div>
-  </div>
-
-  <a href="#"><div class="line_button">开始定制</div></a>
-</div>
-</div>
+</div><!-- temp_mainArea -->
+</div><!-- body -->
 </body>
 </html>
 
