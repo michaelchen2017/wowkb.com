@@ -422,10 +422,10 @@ class admin extends Action{
 	}
 	
 	function ACT_admin_applycheck(){
-		$obj_constructors = load("prewowkb_tmp_apply_constructor");
-		$obj_designers = load("prewowkb_tmp_apply_designer");
-		$obj_suppliers = load("prewowkb_tmp_apply_supplier");
-		$obj_services = load("prewowkb_tmp_customize_service");
+		$obj_constructors = load("account_tmp_apply_constructor");
+		$obj_designers = load("account_tmp_apply_designer");
+		$obj_suppliers = load("account_tmp_apply_supplier");
+		$obj_services = load("account_tmp_customize_service");
 		
 		$con_res = $obj_constructors->getAll("*",array("visible"=>1));
 		$des_res = $obj_designers->getAll("*",array("visible"=>1));
@@ -442,7 +442,7 @@ class admin extends Action{
 	}
 	
 	function ACT_admin_supplier_detail(){
-		$obj_supplier = load("prewowkb_tmp_apply_supplier");
+		$obj_supplier = load("account_tmp_apply_supplier");
 		$res =" ";
 		if(isset($_GET) && !empty($_GET['id'])){
 			$res = $obj_supplier->getOne("*", array("id"=>$_GET['id'], "visible"=>1));
@@ -464,7 +464,7 @@ class admin extends Action{
 	}
 	
 	function ACT_admin_constructor_detail(){
-		$obj_constructor = load("prewowkb_tmp_apply_constructor");
+		$obj_constructor = load("account_tmp_apply_constructor");
 		$res = "";
 		if(isset($_GET) && !empty($_GET['id'])){
 			$res = $obj_constructor->getOne("*", array("id"=>$_GET['id'], "visible"=>1));
@@ -473,7 +473,7 @@ class admin extends Action{
 	}
 	
 	function ACT_admin_service_detail(){
-		$obj_service = load("prewowkb_tmp_customize_service");
+		$obj_service = load("account_tmp_customize_service");
 		$res = "";
 		if(isset($_GET) && !empty($_GET['id'])){
 			$res = $obj_service->getOne("*", array("id"=>$_GET['id'], "visible"=>1));
