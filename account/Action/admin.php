@@ -447,6 +447,7 @@ class admin extends Action{
 		if(isset($_GET) && !empty($_GET['id'])){
 			$res = $obj_supplier->getOne("*", array("id"=>$_GET['id'], "visible"=>1));
 		}
+		debug::d($res);exit;
 		$this->assign("res", $res);
 	}
 	
