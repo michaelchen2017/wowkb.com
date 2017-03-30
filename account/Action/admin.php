@@ -455,6 +455,7 @@ class admin extends Action{
 		$obj_designer = load("prewowkb_tmp_apply_designer");
 // 		debug::d($_GET);exit;
 		$res = "";
+		debug::d($res);exit;
 		if(isset($_GET) && !empty($_GET['id'])){
 			$res = $obj_designer->getOne("*", array("id"=>$_GET['id'], "visible"=>1));
 			debug::d($res);exit;
