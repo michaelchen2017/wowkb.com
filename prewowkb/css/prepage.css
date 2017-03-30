@@ -167,15 +167,15 @@
 
 }
 .section_title h4{
-	color: #fff;
+	color: #383838;
 /*	font-family: 'PingFang ExtraLight'*/
 }
 .section_title p{
-	color: #afafaf;
-	font-family: 'PingFang ExtraLight'
+	color: #5d5d5d;
+/*	font-family: 'PingFang ExtraLight'*/
 }
 .step_section{
-	background-color: #393c3d;
+/*	background-color: #393c3d;*/
 	padding-bottom: 200px;
 }
 .design_steps{
@@ -208,18 +208,18 @@
 	text-align: center;
 }
 .step_intro{
-	color: #ebebeb;
+	color: #383838;
 	border: 0px solid red;
 	margin-top: 20px;
 }
 .step_intro_des{
-	color: #afafaf;
+	color: #7a7a7a;
 }
 .line_button{
 	width: 120px;
 	height: 40px;
 	background-color:#dd7002;
-	color: #fff;
+	color: #d5d5d5;
 	text-align: center;
 	margin-left: auto;
 	margin-right: auto;
@@ -291,18 +291,24 @@
 	line-height: 60px;
 	text-align: center;
 	border: 0px solid red;
-	background-color: #444444;
+	background-color: #333333;
 	position: absolute;
 }
 .catogory_button{
 	display: inline-block;
 	vertical-align: top;
-	color: #ebebeb;
+	color: #999999;
 	margin-left: 40px;
 	margin-right: 40px;
 }
 .catogory_button:hover{
 	color: orange;
+}
+.catogory_button_choose{
+	color: #ebebeb !important;
+}
+.catogory_button:visited{
+	color: #999999;
 }
 .button_center_line{
 	display: inline-block;
@@ -439,7 +445,6 @@
 	margin-top: 40px;
 	width: 72%;
 	line-height: 1.6;
-
 }
 .page_intro_down{
 	width: 100%;
@@ -563,6 +568,7 @@
 	height: 472px;
 	border: 0px solid red;
 	font-size: 0;
+	margin-top: -20px;
 }
 #top_blank{
 	height: 52px;
@@ -570,7 +576,6 @@
 .customize_intro_pic{
 	width: 100%;
 	height: 100%;
-
 }
 .customize_intro_left{
 	width: 50%;
@@ -894,6 +899,9 @@
     width: 70%;
   }
 }
+.aboutus_intro{
+	margin-top: 100px;
+}
 .aboutus_intro,.contact_info{
 	width: 80%;
 	margin-left: auto;
@@ -918,6 +926,35 @@
 }
 .contact_info{
 	margin-top: 40px;
+}
+.hire_info{
+	margin-top: 100px;
+	border: 0px solid red;
+	text-align: center;
+}
+.hire_box{
+	border: 0px solid green;
+	width: 200px;
+	display: inline-block;
+	vertical-align: top;
+	margin-top: 40px;
+	line-height: 2;
+}
+.hire_box h5{
+	color: #444444;
+	margin-bottom: 20px;
+}
+.hire_content{
+	width: 50%;
+	border: 0px solid red;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 60px;
+	line-height: 2;
+	color: #515151;
+}
+.hire_content h5{
+	color: #282828;
 }
 .index_project_title{
 	border-bottom:1px solid #d5d5d5;
