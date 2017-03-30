@@ -39,7 +39,7 @@ class account extends Action{
 					"pswd" => $_POST['password'],
 					"tel" => isset($_POST['gender'])?$_POST['gender']:"",
 					"ip" => http::getIP(),
-					"account_type"=>"user",
+					"account_type"=> $_POST['account_type'],
 					"isdesigner" => 0,
 					"status" => 1,
 					"level" => 0,

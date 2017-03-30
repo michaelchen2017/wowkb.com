@@ -75,11 +75,12 @@
 								</form>
 								<form id="register-form" action="/account/account.php?act=signup" method="post" role="form" style="display: block;">
 									<div class="form-group">
-										用户类型: <label class="radio-inline"><input type="radio" name="user">普通用户</label>
-										<label class="radio-inline"><input type="radio" name="designer">设计师</label>
-										<label class="radio-inline"><input type="radio" name="supplier">供应商</label>
-										<label class="radio-inline"><input type="radio" name="constructor">施工商</label>
-										<label class="radio-inline"><input type="radio" name="admin">管理员</label>
+										用户类型: 
+										<label class="radio-inline"><input type="radio" name="account_type" value="user">普通用户</label>
+										<label class="radio-inline"><input type="radio" name="account_type" value="designer">设计师</label>
+										<label class="radio-inline"><input type="radio" name="account_type" value="supplier">供应商</label>
+										<label class="radio-inline"><input type="radio" name="account_type" value="constructor">施工商</label>
+										<label class="radio-inline"><input type="radio" name="account_type" value="admin">管理员</label>
 									</div>
 									<div class="form-group">
 										用户名: <input type="text" name="username" id="username" tabindex="1" class="form-control form_style" placeholder="" value="" required>
