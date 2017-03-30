@@ -18,89 +18,73 @@
         <div id="applycheck_title">物料商申请</div>
         <table id="applycheck">
           <tr>
-            <th>申请时间</th>
+           <!--  <th>申请时间</th> -->
             <th>公司名称</th>
             <th>审核状态</th>
             <th>详细信息</th>
           </tr>
+          {%foreach from=$sup_res key=i item=val%}
           <tr>
-            <td>2017.03.12 11:42</td>
-            <td>Grand JK</td>
-            <td><div class="wait_check">待审核</div></td>
-            <td><a href="#">查看</a></td>
+            
+            <td>{%$val['name']|default:''%}</td>
+            <td><div class="wait_check">{%$val['isapproved']|default:''%}</div></td>
+            <td><a href="/account/admin.php?act=admin_supplier_detail&id={%$val['id']|default:''%}">查看</a></td>
           </tr>
-          <tr>
-            <td>2017.03.12 11:49</td>
-            <td>wowkb</td>
-            <td><div class="pass_check">已通过</div></td>
-            <td><a href="#">查看</a></td>
-          </tr>
+          {%/foreach%}
         </table>
 
         <div id="applycheck_title">设计师申请</div>
         <table id="applycheck">
           <tr>
-            <th>申请时间</th>
+            <!-- <th>申请时间</th> -->
             <th>姓名</th>
             <th>审核状态</th>
             <th>详细信息</th>
           </tr>
+          {%foreach from=$des_res key=i item=val%}
           <tr>
-            <td>2017.03.12 11:42</td>
-            <td>James</td>
-            <td><div class="pass_check">已通过</div></td>
-            <td><a href="#">查看</a></td>
+            
+            <td>{%$val['name']|default:''%}</td>
+            <td><div class="pass_check">{%$val['isapproved']|default:''%}</div></td>
+            <td><a href="/account/admin.php?act=admin_designer_detail&id={%$val['id']|default:''%}">查看</a></td>
           </tr>
-          <tr>
-            <td>2017.03.12 11:42</td>
-            <td>wowkb</td>
-            <td><div class="wait_check">待审核</div></td>
-            <td><a href="#">查看</a></td>
-          </tr>
+          {%/foreach%}
         </table>
 
         <div id="applycheck_title">施工商申请</div>
         <table id="applycheck">
           <tr>
-            <th>申请时间</th>
+            
             <th>名称</th>
             <th>审核状态</th>
             <th>详细信息</th>
           </tr>
+          {%foreach from=$con_res key=i item=val%}
           <tr>
-            <td>2017.03.12 11:42</td>
-            <td>James</td>
-            <td><div class="pass_check">已通过</div></td>
-            <td><a href="#">查看</a></td>
+            
+            <td>{%$val['name']|default:''%}</td>
+            <td><div class="pass_check">{%$val['isapproved']|default:''%}</div></td>
+            <td><a href="/account/admin.php?act=admin_constructor_detail&id={%$val['id']|default:''%}">查看</a></td>
           </tr>
-          <tr>
-            <td>2017.03.12 11:42</td>
-            <td>wowkb</td>
-            <td><div class="wait_check">待审核</div></td>
-            <td><a href="#">查看</a></td>
-          </tr>
+          {%/foreach%}
         </table>
 
         <div id="applycheck_title">定制服务预约</div>
         <table id="applycheck">
           <tr>
-            <th>预约时间</th>
+            
             <th>预约用户</th>
             <th>预约状态</th>
             <th>详细信息</th>
           </tr>
+          {%foreach from=$ser_res key=i item=val%}
           <tr>
-            <td>2017.03.12 11:42</td>
-            <td>USerA</td>
-            <td><div class="wait_check">待审核</div></td>
-            <td><a href="#">查看</a></td>
+            
+            <td>{%$val['email']|default:''%}</td>
+            <td><div class="wait_check">{%$val['isapproved']|default:''%}</div></td>
+            <td><a href="/account/admin.php?act=admin_service_detail&id={%$val['id']|default:''%}">查看</a></td>
           </tr>
-          <tr>
-            <td>2017.03.12 11:49</td>
-            <td>UserB</td>
-            <td><div class="pass_check">已通过</div></td>
-            <td><a href="#">查看</a></td>
-          </tr>
+          {%/foreach%}
         </table>
 
     </div>

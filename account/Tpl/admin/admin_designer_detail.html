@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Wow Kitchen & Bath</title>
+  <link rel="shortcut icon" type="image/x-icon" href="image/favicon.ico">
+  <link rel="stylesheet" type="text/css" href="/template/common/css/common.css">
+  <link rel="stylesheet" type="text/css" href="/account/css/admin.css">
+</head>
+<body>
+{%include file="$root/template/common/navbar.html"%}
+
+<div id="body_dash">
+    {%include file="$root/template/common/sidebar.html"%}
+
+  <div id="admin_main">
+  <a href="#">返回</a>      
+      <div id="admin_content">
+  <!-- 设计师认证信息 -->
+       <div id="supplier_apply">
+        <table class="applycheck">
+          <tr>
+            <td class="applycheck_label">设计领域</td>
+            <td class="applycheck_content">{%$res['design_fields']|default:''%}</td>
+          </tr>
+          <tr>
+            <td class="applycheck_label">姓名</td>
+            <td class="applycheck_content">{%$res['name']|default:''%}</td>
+          </tr>
+          <tr>
+            <td class="applycheck_label">毕业院校</td>
+            <td class="applycheck_content">{%$res['school']|default:''%}</td>
+          </tr>
+          <tr>
+            <td class="applycheck_label">专业</td>
+            <td class="applycheck_content">{%$res['major']|default:''%}</td>
+          </tr>
+          <tr>
+            <td class="applycheck_label">擅长软件</td>
+            <td class="applycheck_content">{%$res['used_software']|default:''%}</td>
+          </tr>
+          <tr>
+            <td class="applycheck_label">服务报价</td>
+            <td class="applycheck_content">{%$res['price']|default:''%}</td>
+          </tr>
+          <tr>
+            <td class="applycheck_label">邮箱</td>
+            <td class="applycheck_content">{%$res['email']|default:''%}</td>
+          </tr>
+          <tr>
+            <td class="applycheck_label">电话</td>
+            <td class="applycheck_content">{%$res['tel']|default:''%}</td>
+          </tr>
+          <tr>
+            <td class="applycheck_label">个人网站</td>
+            <td class="applycheck_content">{%$res['website']|default:''%}</td>
+          </tr>
+          <tr>
+            <td class="applycheck_label">居住地址</td>
+            <td class="applycheck_content">{%$res['address']|default:''%}</td>
+          </tr>
+        </table>
+        <!-- <div class="apply_check_button">通过</div>
+        <div class="apply_check_unpass">不通过</div> -->
+      </div>
+
+
+  
+      
+
+    </div>
+  </div>
+</div>
+
+
+{%include file="$root/template/common/footer.html"%}
+  </body>
+</html>

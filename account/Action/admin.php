@@ -23,6 +23,8 @@ class admin extends Action{
 		
 		$user_type_arr = $this->obj_user->getOne("*", array("uid"=>$userid, "visible"=>1));
 		$user_type = $user_type_arr['account_type'];
+		if($user_type != "admin")
+			go("/");
 			
 		$this->assign("user_type", $user_type);
 		
@@ -419,5 +421,64 @@ class admin extends Action{
 		
 	}
 	
+	function ACT_admin_applycheck(){
+		$obj_constructors = load("prewowkb_tmp_apply_constructor");
+		$obj_designers = load("prewowkb_tmp_apply_designer");
+		$obj_suppliers = load("prewowkb_tmp_apply_supplier");
+		$obj_services = load("prewowkb_tmp_customize_service");
+		
+		$con_res = $obj_constructors->getAll("*",array("visible"=>1));
+		$des_res = $obj_designers->getAll("*",array("visible"=>1));
+		$sup_res = $obj_suppliers->getAll("*",array("visible"=>1));
+		$ser_res = $obj_services->getAll("*",array("visible"=>1));
+		
+		
+		$this->assign("con_res", $con_res);
+		$this->assign("des_res", $des_res);
+		$this->assign("sup_res", $sup_res);
+		$this->assign("ser_res", $ser_res);
+		
+		
+	}
+	
+	function ACT_admin_supplier_detail(){
+		$obj_supplier = load("prewowkb_tmp_apply_supplier");
+		$res =" ";
+		if(isset($_GET) && !empty($_GET['id'])){
+			$res = $obj_supplier->getOne("*", array("id"=>$_GET['id'], "visible"=>1));
+		}
+		$this->assign("res", $res);
+	}
+	
+	function ACT_admin_designer_detail(){
+		$obj_designer = load("prewowkb_tmp_apply_designer");
+		$res = "";
+		if(isset($_GET) && !empty($_GET['id'])){
+			$res = $obj_designer->getOne("*", array("id"=>$_GET['id'], "visible"=>1));
+		}
+		$this->assign("res", $res);
+	}
+	
+	function ACT_admin_constructor_detail(){
+		$obj_constructor = load("prewowkb_tmp_apply_constructor");
+		$res = "";
+		if(isset($_GET) && !empty($_GET['id'])){
+			$res = $obj_constructor->getOne("*", array("id"=>$_GET['id'], "visible"=>1));
+		}
+		$this->assign("res", $res);
+	}
+	
+	function ACT_admin_service_detail(){
+		$obj_service = load("prewowkb_tmp_customize_service");
+		$res = "";
+		if(isset($_GET) && !empty($_GET['id'])){
+			$res = $obj_service->getOne("*", array("id"=>$_GET['id'], "visible"=>1));
+		}
+		$this->assign("res", $res);
+	}
+	
+	function ACT_admin_applycheck_detail(){
+		
+	}
 	
 }

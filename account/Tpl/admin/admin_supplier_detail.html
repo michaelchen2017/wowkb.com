@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Wow Kitchen & Bath</title>
+  <link rel="shortcut icon" type="image/x-icon" href="image/favicon.ico">
+  <link rel="stylesheet" type="text/css" href="/template/common/css/common.css">
+  <link rel="stylesheet" type="text/css" href="/account/css/admin.css">
+</head>
+<body>
+{%include file="$root/template/common/navbar.html"%}
+
+<div id="body_dash">
+    {%include file="$root/template/common/sidebar.html"%}
+
+  <div id="admin_main">
+   
+      <div id="admin_content">
+
+<!-- 物料商申请认证 -->
+        <div id="supplier_apply">
+        <table class="applycheck">
+          <tr>
+            <td class="applycheck_label">公司名称</td>
+            <td class="applycheck_content">{%$res['name']|default:''%}</td>
+          </tr>
+          <tr>
+            <td class="applycheck_label">品牌名称</td>
+            <td class="applycheck_content">{%$res['brand']|default:''%}</td>
+          </tr>
+          <tr>
+            <td class="applycheck_label">公司分类</td>
+            <td class="applycheck_content">{%$res['company_type']|default:''%}</td>
+          </tr>
+          <tr>
+            <td class="applycheck_label">产品产地</td>
+            <td class="applycheck_content">{%$res['country_of_origin']|default:''%}</td>
+          </tr>
+          <tr>
+            <td class="applycheck_label">产品品类</td>
+            <td class="applycheck_content">{%$res['type_of_product']|default:''%}</td>
+          </tr>
+          <tr>
+            <td class="applycheck_label">销售区域范围</td>
+            <td class="applycheck_content">{%$res['sales_region']|default:''%}</td>
+          </tr>
+          <tr>
+            <td class="applycheck_label">销售网点数量</td>
+            <td class="applycheck_content">{%$res['num_of_sales_network']|default:''%}</td>
+          </tr>
+          <tr>
+            <td class="applycheck_label">公司网站</td>
+            <td class="applycheck_content">{%$res['website']|default:''%}</td>
+          </tr>
+          <tr>
+            <td class="applycheck_label">联系人</td>
+            <td class="applycheck_content">{%$res['person_to_contact']|default:''%}</td>
+          </tr>
+          <tr>
+            <td class="applycheck_label">联系电话</td>
+            <td class="applycheck_content">{%$res['tel']|default:''%}</td>
+          </tr>
+          <tr>
+            <td class="applycheck_label">邮箱</td>
+            <td class="applycheck_content">{%$res['email']|default:''%}</td>
+          </tr>
+          <tr>
+            <td class="applycheck_label">公司地址</td>
+            <td class="applycheck_content">{%$res['address']|default:''%}</td>
+          </tr>
+          <tr>
+            <td class="applycheck_label">生产／仓储／零售门店地址</td>
+            <td class="applycheck_content">{%$res['retail_address']|default:''%}</td>
+          </tr>
+          <tr>
+            <td class="applycheck_label">公司描述</td>
+            <td class="applycheck_content applycheck_des"><div>{%$res['intro']|default:''%}</div></td>      
+          </tr>
+        </table>
+       <!--  <div class="apply_check_button">通过</div>
+        <div class="apply_check_unpass">不通过</div> -->
+      </div>
+      
+
+    </div>
+  </div>
+</div>
+
+
+{%include file="$root/template/common/footer.html"%}
+  </body>
+</html>
