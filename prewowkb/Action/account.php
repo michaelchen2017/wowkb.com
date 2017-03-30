@@ -387,67 +387,87 @@ class account extends Action{
 	}
 
 	function ACT_form_customize_process(){
-		if(isset($_POST) && !empty($_POST['name'])){
-			$item_id = time() . "_" . md5($_POST['name']) . "_" . rand(1, 1000);
-		
-		
-			$target_dir = DOCUROOT . "/image/material/";
-			$target_file = $target_dir . basename($_FILES["file"]["name"]);
-		
-			$imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
-			$imageFileType = strtolower($imageFileType);
-		
-			$file_name = $item_id . '.' . $imageFileType;
-		
-			$target_file = $target_dir . $file_name;
-			$pic_path = "/image/material/" . $file_name;
-			$uploadOk = 1;
-		
-		
-			// Check file size
-			if ($_FILES["file"]["size"] > 5000000) {
-				//echo "Sorry, your file is too large.";
-				$uploadOk = 0;
+		if(isset($_POST)){
+			$service_type = "";
+			if(isset($_GET['msg']) && !empty($_GET['msg'])){
+				$service_type = $_GET['msg'];
 			}
-			// Allow certain file formats
-			$file_type = "图片";
-			if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
-					&& $imageFileType != "gif"  && $imageFileType != "xlsx" && $imageFileType != "xls") {
-						//echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
-						$uploadOk = 0;
-						$file_type = "非图片";
-					}
-					// Check if $uploadOk is set to 0 by an error
-					if ($uploadOk == 0) {
-						//echo "Sorry, your file was not uploaded.";
-						// if everything is ok, try to upload file
-					} else {
-						if (move_uploaded_file($_FILES["file"]["tmp_name"], $target_file)) {
-							//echo "The file ". basename( $_FILES["fileToUpload"]["name"]). " has been uploaded.";
+			
+			$res = array(
+										"service_type"=>$service_type,
+										"name"=>$_POST['name'],
+										"email"=>$_POST['email'],
+										"tel"=>$_POST['tel'],
+										"address"=>trim($_POST['addr1']) . trim($_POST['addr2']),
+										"state"=>$_POST['state'],
+										"city"=>$_POST['city'],
+										"zipcode"=>$_POST['zipcode'],
+										"demand"=>$_POST['demand'],
+			
+								);
+			
+								$this->obj_tmp_customize->insert($res);
+								go("/");
+// 			$item_id = time() . "_" . md5($_POST['name']) . "_" . rand(1, 1000);
 		
-						} else {
-							//echo "Sorry, there was an error uploading your file.";
-						}
-					}
 		
-					$res = array(
-							"service_type"=>$_POST['service_type'],
-							"name"=>$_POST['name'],
+// 			$target_dir = DOCUROOT . "/image/material/";
+// 			$target_file = $target_dir . basename($_FILES["file"]["name"]);
+		
+// 			$imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
+// 			$imageFileType = strtolower($imageFileType);
+		
+// 			$file_name = $item_id . '.' . $imageFileType;
+		
+// 			$target_file = $target_dir . $file_name;
+// 			$pic_path = "/image/material/" . $file_name;
+// 			$uploadOk = 1;
+		
+		
+// 			// Check file size
+// 			if ($_FILES["file"]["size"] > 5000000) {
+// 				//echo "Sorry, your file is too large.";
+// 				$uploadOk = 0;
+// 			}
+// 			// Allow certain file formats
+// 			$file_type = "图片";
+// 			if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
+// 					&& $imageFileType != "gif"  && $imageFileType != "xlsx" && $imageFileType != "xls") {
+// 						//echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
+// 						$uploadOk = 0;
+// 						$file_type = "非图片";
+// 					}
+// 					// Check if $uploadOk is set to 0 by an error
+// 					if ($uploadOk == 0) {
+// 						//echo "Sorry, your file was not uploaded.";
+// 						// if everything is ok, try to upload file
+// 					} else {
+// 						if (move_uploaded_file($_FILES["file"]["tmp_name"], $target_file)) {
+// 							//echo "The file ". basename( $_FILES["fileToUpload"]["name"]). " has been uploaded.";
+		
+// 						} else {
+// 							//echo "Sorry, there was an error uploading your file.";
+// 						}
+// 					}
+		
+// 					$res = array(
+// 							"service_type"=>$_POST['service_type'],
+// 							"name"=>$_POST['name'],
 							
-							"tel"=>$_POST['tel'],
-							"address"=>trim($_POST['addr']),
-// 							"state"=>$_POST['state'],
-// 							"city"=>$_POST['city'],
-// 							"zipcode"=>$_POST['zipcode'],
-							"region"=>$_POST['region'],
-							"email"=>$_POST['email']
+// 							"tel"=>$_POST['tel'],
+// 							"address"=>trim($_POST['addr']),
+// // 							"state"=>$_POST['state'],
+// // 							"city"=>$_POST['city'],
+// // 							"zipcode"=>$_POST['zipcode'],
+// 							"region"=>$_POST['region'],
+// 							"email"=>$_POST['email']
 		
-					);
+// 					);
 		
-					$this->obj_tmp_customize->insert($res);
+// 					$this->obj_tmp_customize->insert($res);
 		
-					// go("/account/space.php?act=index&id={$userid}");
-					go("/");
+// 					// go("/account/space.php?act=index&id={$userid}");
+// 					go("/");
 		
 		}else{
 			go("/");
