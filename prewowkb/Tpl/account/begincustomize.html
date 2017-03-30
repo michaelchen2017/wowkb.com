@@ -10,41 +10,50 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-<div id="navbar">
-  <div id="nav_logo">
-      <img id="nav_logo_pic" src="/image/logo4.png">
-  </div>
-  
-  <div id="nav_link1">
-      <a href="/"><div class="nav">主页</div></a>
-      <a href="/prewowkb/account.php?act=designer"><div class="nav">设计</div></a>
-      <a href="/prewowkb/account.php?act=productsupplier"><div class="nav">产品</div></a>
-      <a href="/prewowkb/account.php?act=service"><div class="nav">服务</div></a>
-      <a href="/prewowkb/account.php?act=about"><div class="nav">关于我们</div></a>
-      <a href="/prewowkb/account.php?act=begincustomize"><div class="nav choose">开始定制</div></a>
-       {%if empty($userid)%}
-      <a href="/account/account.php?act=register"><div class="nav">注册</div></a>
-      <a href="/account/account.php?act=login"><div id="nav_sign_signin">登陆</div></a>
-      {%else%}
-      <a href="/account/space.php?act=user_dashboard"><div class="nav">我的后台账户</div></a>
-      {%/if%}
-  </div>
-  <div id="nav_bg"></div>
-</div>
-
-<!-- <a class="back_top" href="#">&#8679;</a> -->
+{%include file="$root/template/common/navbar_prewowkb.html"%}
 
 <div id="top_blank"></div>
+
+<div class="customize_intro">
+  <div class="customize_intro_left">
+    <img class="customize_intro_pic" src="/image/kitchen3.jpg">
+  </div>
+  <div class="customize_intro_right">
+    <div class="intro_content">
+      <h3>家具设计</h3></br>
+      <p>我们为您的空间量身定制家具， 使您的空间更加舒适、温馨和个性化。家具设计师将全程协助您定制方案与预算，根据您的需求调整到最佳的设计定制方案。</br></br>
+      家具定制范围： 橱柜、浴柜、衣柜、电视柜、餐桌、椅子、沙发、床、床头柜、咖啡桌、组合式家具。我们有众多的品牌合作商可供您选择，不赚产品差价，让您省心省钱。</p>
+      <a href="/prewowkb/account.php?act=form_customize"><div class="customize_button">开始定制</div></a>
+    </div>
+  </div>
+</div>
+
+<div class="customize_intro">
+  <div class="customize_intro_right">
+    <div class="intro_content">
+      <h3>空间规划</h3></br>
+      <p>我们将评估您的空间布局和家庭生活方式，定制出一套符合您私人空间的规划方案，并结合家私、家具、手工艺品、收藏品、花卉、灯饰、智能设备等家居用品的面料材质功能，进行巧妙的布局与摆放，尽显个人品味。</br></br>
+      空间定制范围：厨房、餐厅、浴室、卧室、书房、客厅、娱乐室、壁炉区、酒窖、荼室、儿童房间或是娱乐场所；</p>
+      <a href="/prewowkb/account.php?act=form_customize"><div class="customize_button">开始定制</div></a>
+    </div>
+  </div>
+  <div class="customize_intro_left">
+    <img class="customize_intro_pic" src="/image/kitchen4.jpg">
+  </div>
+</div>
 
 <div class="customize_intro">
   <div class="customize_intro_left">
     <img class="customize_intro_pic" src="/image/customizepic.jpg">
   </div>
   <div class="customize_intro_right">
-    <h2>定制服务</h2>
-    <h4>WOWKB提供免费咨询服务，免费上门测量、免费绘制图纸、免费定制方案的服务；只有当您获得满意的定制服务方案后，才需要支付少量的设计与定制服务费用；</h4>
-<a href="/prewowkb/account.php?act=form_customize"><div class="customize_button">开始定制</div></a>
-</div>
+    <div class="intro_content">
+      <h3>室内装修</h3></br>
+      <p>我们提供室内翻新与改造的定制服务。 从项目咨询、评估到测量，颜色与风格的搭配设计，石材、瓷砖、木质板、人造石、油漆涂料、地毯、门窗等建材的应用，施工安装服务与报价等； 花最少钱，办最好的事。</br></br>
+      装修定制范围：家庭公寓、别墅；餐厅、咖啡厅、零售店、办公室、饮品店等。</p>
+      <a href="/prewowkb/account.php?act=form_customize"><div class="customize_button">开始定制</div></a>
+    </div>
+  </div>
 </div>
 
 <div class="customize_service">
@@ -52,9 +61,9 @@
     <div class="price_content">
       <div class="price_box">
         <div class="price_box_title">A类套餐</div>
-        <div class="price_box_des">家居产品定制服务</div>
-        <div class="price_box_price"><span class="lefttop">$</span>200<span class="rightbottom">起</span></div>
-        <div class="price_box_intro">$0.1-0.5/SF</div>
+        <div class="price_box_des">家具设计</div>
+        <div class="price_box_price"><span class="lefttop">$</span>50<span class="rightbottom">/h</span></div>
+        <div class="price_box_intro">3小时起:按空间大小,家具品类决定时间长短</div>
         <ul>
           <li>咨询服务</li>
           <li>上门测量</li>
@@ -67,9 +76,9 @@
       </div>
       <div class="price_box">
         <div class="price_box_title">B类套餐</div>
-        <div class="price_box_des">室内翻新改造</div>
-        <div class="price_box_price"><span class="lefttop">$</span>200<span class="rightbottom">起</span></div>
-        <div class="price_box_intro">$0.2-1/Sf</div>
+        <div class="price_box_des">空间规划</div>
+        <div class="price_box_price"><span class="lefttop">$</span>115<span class="rightbottom">/h</span></div>
+        <div class="price_box_intro">5小时起:按空间大小,定制数量决定</div>
         <ul>
           <li>咨询服务</li>
           <li>上门测量</li>
@@ -82,9 +91,9 @@
       </div>
       <div class="price_box">
         <div class="price_box_title">C类套餐</div>
-        <div class="price_box_des">房屋加建改建</div>
-        <div class="price_box_price"><span class="lefttop">$</span>2000<span class="rightbottom">起</span></div>
-        <div class="price_box_intro">$1.5-2/Sf</div>
+        <div class="price_box_des">室内装修</div>
+        <div class="price_box_price"><span class="lefttop">$</span>150<span class="rightbottom">/h</span></div>
+        <div class="price_box_intro">10小时起</div>
         <ul>
           <li>咨询服务</li>
           <li>上门测量</li>
@@ -93,9 +102,21 @@
           <li>定制产品购物清单</li>
           <li>定制施工服务报价与清单</li>
         </ul>
-       <a href="/prewowkb/account.php?act=form_customize"> <div class="service_button">开始服务</div></a>
+        <a href="/prewowkb/account.php?act=form_customize"><div class="service_button">开始服务</div></a>
       </div>
     </div>
+
+    <div class="service_bottom">
+      <ul>
+        <li>家具设计：50美元/小时，3小时起；按空间大小、家具品类决定时间长短</li>
+        <li>空间规划：115美元/小时，5小时起；按空间大小，定制数量决定</li>
+        <li>室内装修：150美元/小时，10小时起；</li>
+        <li>建筑设计：200美元/小时，20小时起；</li>
+        <li>景观设计：250美元/小时，20小时起；</li>
+      </ul>
+    </div>
+
+
 </div>
 <div class="bottom_space">
 

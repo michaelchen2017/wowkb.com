@@ -10,35 +10,15 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-<div id="navbar">
-  <div id="nav_logo">
-      <img id="nav_logo_pic" src="/image/logo4.png">
-  </div>
-  
-  <div id="nav_link1">
-      <a href="/"><div class="nav">主页</div></a>
-      <a href="/prewowkb/account.php?act=designer"><div class="nav">设计</div></a>
-      <a href="/prewowkb/account.php?act=productsupplier"><div class="nav">产品</div></a>
-      <a href="/prewowkb/account.php?act=service"><div class="nav">服务</div></a>
-      <a href="/prewowkb/account.php?act=about"><div class="nav choose">关于我们</div></a>
-      <a href="/prewowkb/account.php?act=begincustomize"><div class="nav">开始定制</div></a>
-       {%if empty($userid)%}
-      <a href="/account/account.php?act=register"><div class="nav">注册</div></a>
-      <a href="/account/account.php?act=login"><div id="nav_sign_signin">登陆</div></a>
-      {%else%}
-      <a href="/account/space.php?act=user_dashboard"><div class="nav">我的后台账户</div></a>
-      {%/if%}
-  <div id="nav_bg"></div>
-</div>
+{%include file="$root/template/common/navbar_prewowkb.html"%}
 
-<a class="back_top" href="#">&#8679;</a>
 
-<div id="showArea">
+<div id="page_intro">
   <div class="page_intro_up">
     <h2>关于我们</h2>
   </div>
   <div class="pageheader_bg"></div>
-    <img id="showArea_pic" class="pageheader" src="/image/pageheader.png">   
+    <img class="pageheader" class="pageheader" src="/image/pageheader.png">   
 </div>
 
 <div id="body">

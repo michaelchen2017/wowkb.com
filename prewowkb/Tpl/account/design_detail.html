@@ -12,29 +12,8 @@
 
 </head>
 <body>
-<div id="navbar">
-  <div id="nav_logo">
-      <img id="nav_logo_pic" src="/image/logo4.png">
-  </div>
-  
-  <div id="nav_link1">
-      <a href="/"><div class="nav">主页</div></a>
-      <a href="/prewowkb/account.php?act=designer"><div class="nav">设计</div></a>
-      <a href="/prewowkb/account.php?act=productsupplier"><div class="nav">产品</div></a>
-      <a href="/prewowkb/account.php?act=service"><div class="nav">服务</div></a>
-      <a href="/prewowkb/account.php?act=about"><div class="nav">关于我们</div></a>
-      <a href="/prewowkb/account.php?act=begincustomize"><div class="nav">开始定制</div></a>
-      {%if empty($userid)%}
-      <a href="/account/account.php?act=register"><div class="nav">注册</div></a>
-      <a href="/account/account.php?act=login"><div id="nav_sign_signin">登录</div></a>
-      {%else%}
-      <a href="/account/space.php?act=user_dashboard"><div class="nav">我的后台账户</div></a>
-      <a href="/account/account.php?act=logout"><div class="nav">登出</div></a>
-      {%/if%}
-     
-  </div>
-  <div id="nav_bg"></div>
-</div>
+{%include file="$root/template/common/navbar_prewowkb.html"%}
+
 
 
 <div id="body_design">
@@ -46,22 +25,33 @@
               <img id="design_main_pic_img" src="{%$res['pic_path']|default:''%}">
               <div class="project_intro_detail">
                 {%$res['intro']|default:''%}
+                <div class="project_intro_parameter">
+                  <span class="parameter_title">材質：</span>楓木</br><span class="parameter_title">内部處理：</span>天然清澈木紋、 膠合板</br><span class="parameter_title">顔色：</span>奶油</br><span class="parameter_title">應用：</span>厨房
+                </div>
               </div>
+
+              <!-- <img id="design_main_pic_img" src="../../image/t1.jpg">
+              <div class="project_intro_detail">
+                采用高端木质材料，外观简洁大方，美式风格.采用高端木质材料，外观简洁大方，美式风格
+                采用高端木质材料，外观简洁大方，美式风格.采用高端木质材料，外观简洁大方，美式风格
+                采用高端木质材料，外观简洁大方，美式风格
+              </div> -->
       </div>
     </div>
 
     <div id="design_related">
       <div id="related_name">相关设计作品</div>
       <div id="related_content">
-      {%foreach from=$other_relative_zuopins key=i item=value %}
+        {%foreach from=$other_relative_zuopins key=i item=value %}
         <div class="related_content_project">
         <a href="/prewowkb/account.php?act=design_detail&id={%$value['pk_id']|default:''%}">
-          <div id="related_pic"><img src="{%$value['pic_path']|default:''%}"></div>
+          <img id="related_pic" src="{%$value['pic_path']|default:''%}">
           <div id="related_title">{%$value['name']|default:''%}</div>
           <div id="related_price">XXX设计师</div>
-         </a>
+          </a>
         </div>
-       {%/foreach%}    
+        {%/foreach%}
+     
       </div>
     </div>
 
@@ -74,12 +64,13 @@
         <div class="design_project_designer">
           <img id="design_project_designer_head" src="/image/head.png">
           <div class="design_project_designer_intro">
-            <h5>设计师AAA</h5>
+            <h5>Sarah XXX</h5>
+            <div class="designer_catogory">家居设计 ｜ 空间规划 ｜ 室内装修</div>
+            <div class="design_project_designer_des">擅长厨房与卫生间家居设计。擅长传统风格并融入中国传统元素。</div>
           </div>
         </div>
-        <!-- <div class="project_detail_labels"><span class="designs_project_label">橱柜</span><span class="designs_project_label">台面</span><span class="designs_project_label">地板</span><span class="designs_project_label">墙砖</span></div> -->
-        <div class="sidebar_gapline"></div>
-        <div id="sidebar_right_price">预算：${%$res['price']|default:''%}</div>   
+        <div class="design_sidebar_gapline"></div>  
+        <div class="design_project_detail_price"><span class="price_title">项目成本</span><span class="price_number"><div class="dropdown">${%$res['price']|default:''%}<div class="dropdown-content"><p>包括：</br>设计费用，购买材料，施工服务，其他</p></div></div></span></div>   
         <a href="/prewowkb/account.php?act=begincustomize"><button class="buyButton">开始定制</button></a>
       
       </div><!-- sidebar_right -->
@@ -92,34 +83,60 @@
 
     <!-- Wrapper for slides -->
     <div class="carousel-inner use_product" role="listbox">
-
-      <div class="item active">
-          <a href="#"><div id="sidebar_material_pic">
-            <img src="/image/customize/A7/material.jpg" alt="chair">
-          </div></a>
-          <a href="#"><div id="sidebar_use_name">XX白色橱柜</div></a>
+     
+     {%foreach from=$pics key=i item=value%}
+      <div class="item">
+          <div id="sidebar_material_pic">
+            <img src="{%$value['pic_path']|default:''%}" alt="material">
+          </div>
+          <div id="sidebar_use_name">奶油色枫木</div>
           <!-- <div id="sidebar_use_num">1/5</div> -->
       </div>
-	{%foreach from=$pics key=i item=value%}
+      {%/foreach %}
+
+      <!-- <div class="item">
+        <div id="sidebar_use_pic">
+            <img src="/image/p2.png" alt="chair">
+          </div>
+          <div id="sidebar_use_name">XX白色橱柜</div>
+          <div id="sidebar_use_num">2/5</div>
+      </div>
+    
       <div class="item">
         <div id="sidebar_use_pic">
-            <img src="{%$value['pic_path']|default:''%}" alt="chair">
+            <img src="/image/p3.png" alt="chair">
           </div>
-          <!-- <div id="sidebar_use_name">XX白色橱柜</div> -->
-        <!--   <div id="sidebar_use_num">2/5</div> -->
+          <div id="sidebar_use_name">XX白色橱柜</div>
+          <div id="sidebar_use_num">3/5</div>
       </div>
-  	{%/foreach %}
+
+      <div class="item">
+        <div id="sidebar_use_pic">
+            <img src="/image/p4.png" alt="chair">
+          </div>
+          <div id="sidebar_use_name">XX白色橱柜</div>
+          <div id="sidebar_use_num">4/5</div>
+      </div>
+
+      <div class="item">
+        <div id="sidebar_use_pic">
+            <img src="/image/p5.png" alt="chair">
+          </div>
+          <div id="sidebar_use_name">XX白色橱柜</div>
+          <div id="sidebar_use_num">5/5</div>
+      </div> -->
+  
     </div>
 
     <!-- Left and right controls -->
-    <a class="left use_product_control_left" href="#myCarousel" role="button" data-slide="prev">
+<!--     <a class="left use_product_control_left" href="#myCarousel" role="button" data-slide="prev">
       <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
       <span class="sr-only">Previous</span>
     </a>
     <a class="right use_product_control_right" href="#myCarousel" role="button" data-slide="next">
       <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
       <span class="sr-only">Next</span>
-    </a>
+    </a> -->
   </div>
       </div><!-- sidebar_use_content -->
   </div>
