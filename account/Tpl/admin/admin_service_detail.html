@@ -13,33 +13,24 @@
     {%include file="$root/template/common/sidebar.html"%}
 
   <div id="admin_main">
-  <a href="#">返回</a>      
+ 
       <div id="admin_content">
 
 
-
-  <!-- 施工商认证信息 -->
+  <!-- 用户预约定制服务 -->
        <div id="supplier_apply">
         <table class="applycheck">
           <tr>
-            <td class="applycheck_label">公司名称</td>
+            <td class="applycheck_label">预约作品名称</td>
             <td class="applycheck_content">{%$res['name']|default:''%}</td>
           </tr>
           <tr>
-            <td class="applycheck_label">品牌名称</td>
-            <td class="applycheck_content">{%$res['brand']|default:''%}</td>
+            <td class="applycheck_label">预约作品类别</td>
+            <td class="applycheck_content">{%$res['service_type']|default:''%}</td>
           </tr>
           <tr>
-            <td class="applycheck_label">服务区域</td>
-            <td class="applycheck_content">{%$res['service_regions']|default:''%}</td>
-          </tr>
-          <tr>
-            <td class="applycheck_label">服务项目</td>
-            <td class="applycheck_content">{%$res['services']|default:''%}</td>
-          </tr>
-          <tr>
-            <td class="applycheck_label">联系人</td>
-            <td class="applycheck_content">{%$res['person_to_contact']|default:''%}</td>
+            <td class="applycheck_label">姓名</td>
+            <td class="applycheck_content">{%$res['email']|default:''%}</td>
           </tr>
           <tr>
             <td class="applycheck_label">联系电话</td>
@@ -50,17 +41,18 @@
             <td class="applycheck_content">{%$res['email']|default:''%}</td>
           </tr> 
           <tr>
-            <td class="applycheck_label">公司网站</td>
-            <td class="applycheck_content">{%$res['website']|default:''%}</td>
-          </tr>
-          <tr>
             <td class="applycheck_label">地址</td>
             <td class="applycheck_content">{%$res['address']|default:''%}</td>
+          </tr>
+          <tr>
+            <td class="applycheck_label">服务需求</td>
+            <td class="applycheck_content applycheck_des"><div>{%$res['demand']|default:''%}</div></td>      
           </tr>
         </table>
         <div class="apply_check_button">通过</div>
         <div class="apply_check_unpass">不通过</div>
       </div>
+
       
 
     </div>
