@@ -15,6 +15,7 @@
 
 <div class="content_form">
   <form action="/prewowkb/account.php?act=form_customize_process" method="post" enctype="multipart/form-data">
+  <input type="hidden" name="service_type" value="{%$service_type|default:''%}">
   <div class="form_title">预约定制服务</div>
   <table id="customize">
     <tr>
