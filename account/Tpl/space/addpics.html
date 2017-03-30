@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<link rel="stylesheet" type="text/css" href="/account/css/admin.css"><!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
@@ -6,6 +6,7 @@
 <link rel="shortcut icon" type="image/x-icon" href="/image/favicon.ico">
 <link rel="stylesheet" type="text/css" href="/template/common/css/common.css">
 <link rel="stylesheet" type="text/css" href="/account/css/admin.css">
+<link rel="stylesheet" type="text/css" href="/account/css/account.css">
 </head>
 <body>
 
@@ -16,7 +17,17 @@
 
 	<div id="admin_main">
 
-	  <div class="productLink topspace">批量上传图片</div>
+	  <div class="productLink topspace">
+	  	<div class="step_each">
+	  		<div class="step_choose">1</div>
+            填写作品信息
+	  	</div>
+	  	<div class="step_arrow">&#8594;</div>
+	  	<div class="step_each step_current">
+	  		<div class="step_choose">2</div>
+            上传物料图片
+	  	</div>
+	  </div>
 
 		<div id="admin_upload">
 		  <form  action="/account/space.php?act=addpics_process" enctype="multipart/form-data"  method="post">

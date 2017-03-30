@@ -5,6 +5,7 @@
   <link rel="shortcut icon" type="image/x-icon" href="image/favicon.ico">
   <link rel="stylesheet" type="text/css" href="/template/common/css/common.css">
   <link rel="stylesheet" type="text/css" href="/account/css/account.css">
+  <link rel="stylesheet" type="text/css" href="/template/common/css/temporary.css">
 </head>
 <body>
 {%include file="$root/template/common/navbar.html"%}
@@ -14,55 +15,96 @@
     {%include file="$root/template/common/sidebar.html"%}
     
 <div id="admin_main">
-    <div class="productLink topspace"><a href="">管理作品</a>/上传设计作品/第一步：填写作品信息</div>
-        <div class="form-style-2">
-          <form action="/account/space.php?act=designer_upload_process" method="post" enctype="multipart/form-data">
-            <label for="field1">
-              <span>作品名称<span class="required">*</span></span><input type="text" class="input-field" name="name" value="" />
-            </label>
-            <label for="field1">
-              <span>作品类别<span class="required">*</span></span>
-            <select name="category" id="mySelect1" onchange="myFunction()">
-                <option value="家居产品定制">家居产品定制</option>
-                <option value="室内翻新改造">室内翻新改造</option>
-                <option value="房屋加建改建">房屋加建改建</option>
-            </select>
-            </label>
-            <label for="field2">
-              <span>作品报价<span class="required">*</span></span><input type="text" class="input-field" name="price" value="" />
-            </label>
-            <label for="field2">
-              <span>空间尺寸<span class="required">*</span></span><input type="text" class="input-field" name="size" value="" />
-            </label>
-            <label for="field2">
-              <span>材质<span class="required">*</span></span><input type="text" class="input-field" name="texture" value="" />
-            </label>
-            <label for="field2">
-              <span>内部处理<span class="required">*</span></span><input type="text" class="input-field" name="interior" value="" />
-            </label>
-            <label for="field2">
-              <span>颜色<span class="required">*</span></span><input type="text" class="input-field" name="color" value="" />
-            </label>
-            <label for="field2">
-              <span>应用<span class="required">*</span></span><input type="text" class="input-field" name="application" value="" />
-            </label>
-            <label for="field2">
-              <span>作品标签<span class="required">*</span></span><input type="text" class="input-field design_label" name="tags" value="标签之间逗号分隔，比如：橱柜，台面，地板..." />
-            </label>
-            <label>
-              <span>设计图片<span class="required">*</span></span><input type="file" name="file">
-            </label>
-            <label for="field5">
-              <span>内容简介 <span class="required">*</span></span><textarea name="intro" class="textarea-field"></textarea>
-            </label>          
-            <!-- <label>
-              <span>使用物料</span><input type="file" name="">
-            </label> -->
-            <label>
-              <span>&nbsp;</span><input type="submit" value="提交"/>
-            </label>
+    <div class="productLink topspace">
+      <div class="step_each step_current">
+        <div class="step_choose">1</div>
+            填写作品信息
+      </div>
+      <div class="step_arrow">&#8594;</div>
+      <div class="step_each">
+        <div class="step_circle">2</div>
+            上传物料图片
+      </div>
+    </div>
+
+      <form action="/account/space.php?act=designer_upload_process" method="post" enctype="multipart/form-data">
+
+           <table class="upload_form">
+              <tr>
+                <td colspan="2">
+                  <div class="design_upload_title">作品展示</div>
+                </td>
+              </tr>
+              <tr>
+                <td>作品名称<span class="required">*</span></td>
+                <td><input type="text" class="input-field" name="name" value="颜色＋材质＋服务" onblur="if (this.value == '') {this.value = '颜色＋材质＋服务';}"onfocus="if (this.value == '颜色＋材质＋服务') {this.value = '';}" /></td>
+              </tr>
+              <tr>
+                <td>作品类别<span class="required">*</span></td>
+                <td>
+                  <select name="category" id="mySelect1" onchange="myFunction()">
+                    <option value="furnish">家居设计</option>
+                    <option value="space">空间规划</option>
+                    <option value="finish">室内装修</option>
+                    <option value="landscape">景观</option>
+                    <option value="building">建筑</option>
+                  </select>
+                </td>
+              </tr>
+              <tr>
+                <td>设计图片<span class="required">*</span></td>
+                <td><input type="file" name="file"></td>
+              </tr>
+              <tr>
+                <td>物料名称<span class="required">*</span></td>
+                <td><input type="text" class="input-field" name="materialname" value="颜色＋材质" onblur="if (this.value == '') {this.value = '颜色＋材质';}"onfocus="if (this.value == '颜色＋材质') {this.value = '';}"/></td>
+              </tr>
+              <tr>
+                <td colspan="2">
+                  <div class="design_upload_title upload_blank">项目整体预算</div>
+                </td>
+              </tr>
+              <tr>
+                <td>项目成本<span class="required">*</span></td>
+                <td><input type="text" class="input-field" name="price" value="只输入数字" onblur="if (this.value == '') {this.value = '只输入数字';}"onfocus="if (this.value == '只输入数字') {this.value = '';}"/></td>
+              </tr>
+              <tr>
+                <td colspan="2">
+                  <div class="design_upload_title upload_blank">方案总体描述</div>
+                </td>
+              </tr>
+              <tr>
+                <td>内容简介 <span class="required">*</span></td>
+                <td><textarea maxlength="250" id="status" name="intro" class="textarea-field supplier_info_textarea" onkeydown='countChar("status","counter");' onkeyup='countChar("status","counter");'></textarea></br><div id="type_counter">可以输入<span id="counter">250</span>字<br/></div></td>
+              </tr>
+              <tr>
+                <td colspan="2">
+                  <div class="design_upload_title upload_blank">方案详细介绍</div>
+                </td>
+              </tr>
+              <tr>
+                <td>空间尺寸</td>
+                <td><input type="text" class="input-field" name="size" value="" /></td>
+              </tr>
+              <tr>
+                <td>材质</td>
+                <td><input type="text" class="input-field" name="texture" value="" /></td>
+              </tr>
+              <tr>
+                <td>内部处理</td>
+                <td><input type="text" class="input-field" name="interior" value="" /></td>
+              </tr>
+              <tr>
+                <td>颜色</td>
+                <td><input type="text" class="input-field" name="color" value="" /></td>
+              </tr>
+              <tr>
+                <td>应用</td>
+                <td><input type="text" class="input-field" name="application" value="" /></td>
+              </tr>
+            </table>
+            <span>&nbsp;</span><input type="submit" value="提交"/>
           </form>
-        </div>
       </div>
   </div>
 
