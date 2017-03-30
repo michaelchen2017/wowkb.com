@@ -452,8 +452,8 @@ class admin extends Action{
 	}
 	
 	function ACT_admin_designer_detail(){
-		$obj_designer = load("prewowkb_tmp_apply_designer");
-		
+// 		$obj_designer = load("prewowkb_tmp_apply_designer");
+		$obj_designer = load("account_tmp_apply_designer");
 		$res = "";
 
 		if(isset($_GET) && !empty($_GET['id'])){
