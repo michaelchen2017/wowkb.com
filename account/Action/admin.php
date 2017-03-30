@@ -453,13 +453,14 @@ class admin extends Action{
 	
 	function ACT_admin_designer_detail(){
 		$obj_designer = load("prewowkb_tmp_apply_designer");
+		debug::d($obj_designer);exit;
 // 		debug::d($_GET);exit;
 		$res = "";
-		debug::d($res);exit;
-		if(isset($_GET) && !empty($_GET['id'])){
+// 		debug::d($res);exit;
+// 		if(isset($_GET) && !empty($_GET['id'])){
 			$res = $obj_designer->getOne("*", array("id"=>$_GET['id'], "visible"=>1));
-			debug::d($res);exit;
-		}
+// 			debug::d($res);exit;
+// 		}
 		$this->assign("res", $res);
 	}
 	
