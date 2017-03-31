@@ -276,9 +276,6 @@ class space extends Action{
 	}
 	
 	function ACT_designer_upload_process(){
-//  		debug::d($_POST);
-//  		debug::d($_FILES);
-//  		exit;
 
 		if(!empty($_POST['name'])){
 		
