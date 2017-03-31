@@ -485,6 +485,49 @@ class account extends Action{
 		
 	}
 	
+	function ACT_designs(){
+		/*
+		 * furnish
+			space
+			construct
+			landscape
+			building
+		 */
+		$obj_tmp_zuopins = load("account_tmp_zuopin");
+		$res = $obj_tmp_zuopins->getAll("*", array("visible"=>1));
+		
+		$jiaju = array();
+		$kongjian = array();
+		$shinei = array();
+		$landscape = array();
+		$building = array();
+		
+		
+		if(!empty($res)){
+			foreach ($res as $val){
+				if($val['category'] == "furnish")
+					$jiaju[] = $val;
+				else if($val['category'] == "space")
+					$kongjian[] = $val;
+				else if($val['category'] == "construct")
+					$shinei[] = $val;
+				else if($val['category'] == "landscape")
+					$landscape[] = $val;
+				else if($val['category'] == "building")
+					$building[] = $val;
+					
+			}
+			
+		}
+		
+		$this->assign("jiaju", $jiaju);
+		$this->assign("kongjian", $kongjian);
+		$this->assign("shinei", $shinei);
+		$this->assign("landscape", $landscape);
+		$this->assign("building", $building);
+		
+	}
+	
 	function ACT_productsupplier(){
 		
 	}
