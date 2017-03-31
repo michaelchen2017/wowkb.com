@@ -338,7 +338,7 @@ class space extends Action{
 										"interior"=>$_POST['interior'],
 										"color"=>$_POST['color'],
 										"application"=>$_POST['application'],
-										"tags"=>$_POST['tags'],
+// 										"tags"=>$_POST['tags'],
 										"pic_path"=>$pic_path,
 										"intro"=>$_POST['intro'],
 										"fk_uid"=> $_SESSION['userid'],
