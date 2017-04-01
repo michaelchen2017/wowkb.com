@@ -21,54 +21,97 @@
 <div id="body">
   
   <div class="temp_mainArea">
+    {%if !empty($jiaju)%}
   <div class="index_project_title">
     家居设计
     <a href="/prewowkb/account.php?act=designs#jiaju" class="more_design">更多</a>
   </div> 
-  {%foreach from=$res  key=i  item=value %}  
-      <a href="/prewowkb/account.php?act=design_detail&id={%$value['pk_id']|default:''%}">
+  {%foreach from=$jiaju key=i item=val%}
+      <a href="/prewowkb/account.php?act=design_detail&id={%$val['pk_id']|default:''%}">
         <div class="designs_project">
           <div class="designs_project_pic">
-            <img class="designs_project_pic" src="{%$value['pic_path']|default:''%}">
+            <img class="designs_project_pic" src="{%$val['pic_path']|default:''%}">
           </div>
           <div class="admin_collect_intro">
-            <div class="admin_collect_title">{%$value['name']|default:''%}</div>
+            <div class="admin_collect_title">{%$val['intro']|default:''%}</br></div>
           </div>
         </div>
       </a>
-  {%/foreach%} 
+    {%/foreach%}
+{%/if%}
 
+{%if !empty($kongjian)%}
   <div class="index_project_title project_title_blank">
   空间规划
   <a href="/prewowkb/account.php?act=designs#kongjian" class="more_design">更多</a>
   </div>
-
-      <a href="design_detail.html">
+{%foreach from=$kongjian key=i item=val%}
+      <a href="/prewowkb/account.php?act=design_detail&id={%$val['pk_id']|default:''%}">
         <div class="designs_project">
           <div class="designs_project_pic">
-            <img class="designs_project_pic" src="/image/customize/K8/design.jpg">
+            <img class="designs_project_pic" src="{%$val['pic_path']|default:''%}">
           </div>
           <div class="admin_collect_intro">
-            <div class="admin_collect_title">奶油色枫木橱柜定制</br></div>
+            <div class="admin_collect_title">{%$val['intro']|default:''%}</br></div>
           </div>
         </div>
       </a>
+    {%/foreach%}
+{%/if%}
+
+{%if !empty($shinei)%}
 
   <div class="index_project_title project_title_blank">
   室内装修
   <a href="/prewowkb/account.php?act=designs#shinei" class="more_design">更多</a>
   </div>
 
-      <a href="design_detail.html">
+     {%foreach from=$shinei key=i item=val%}
+      <a href="/prewowkb/account.php?act=design_detail&id={%$val['pk_id']|default:''%}">
         <div class="designs_project">
           <div class="designs_project_pic">
-            <img class="designs_project_pic" src="/image/customize/S2/design.jpg">
+            <img class="designs_project_pic" src="{%$val['pic_path']|default:''%}">
           </div>
           <div class="admin_collect_intro">
-            <div class="admin_collect_title">奶油色枫木橱柜定制</br></div>
+            <div class="admin_collect_title">{%$val['intro']|default:''%}</br></div>
           </div>
         </div>
-      </a>  
+      </a>
+    {%/foreach%}
+{%/if%}
+
+{%if !empty($landscape)%}
+<div class="index_project_title project_title_blank">景观</div>
+ 	{%foreach from=$landscape key=i item=val%}
+      <a href="/prewowkb/account.php?act=design_detail&id={%$val['pk_id']|default:''%}">
+        <div class="designs_project">
+          <div class="designs_project_pic">
+            <img class="designs_project_pic" src="{%$val['pic_path']|default:''%}">
+          </div>
+          <div class="admin_collect_intro">
+            <div class="admin_collect_title">{%$val['intro']|default:''%}</br></div>
+          </div>
+        </div>
+      </a>
+    {%/foreach%}
+{%/if%}
+
+{%if !empty($building)%}
+ <div id="shinei"></div>
+ <div class="index_project_title project_title_blank">建筑</div>
+ 	{%foreach from=$building key=i item=val%}
+      <a href="/prewowkb/account.php?act=design_detail&id={%$val['pk_id']|default:''%}">
+        <div class="designs_project">
+          <div class="designs_project_pic">
+            <img class="designs_project_pic" src="{%$val['pic_path']|default:''%}">
+          </div>
+          <div class="admin_collect_intro">
+            <div class="admin_collect_title">{%$val['intro']|default:''%}</br></div>
+          </div>
+        </div>
+      </a>
+    {%/foreach%}
+{%/if%}
 
 </div><!-- temp_mainArea -->
 </div><!-- body -->
