@@ -10,27 +10,7 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-<div id="navbar">
-  <div id="nav_logo">
-      <img id="nav_logo_pic" src="/image/logo4.png">
-  </div>
-  
-  <div id="nav_link1">
-      <a href="/"><div class="nav">主页</div></a>
-      <a href="/prewowkb/account.php?act=designer"><div class="nav">设计</div></a>
-      <a href="/prewowkb/account.php?act=productsupplier"><div class="nav">产品</div></a>
-      <a href="/prewowkb/account.php?act=service"><div class="nav choose">服务</div></a>
-      <a href="/prewowkb/account.php?act=about"><div class="nav">关于我们</div></a>
-      <a href="/prewowkb/account.php?act=begincustomize"><div class="nav">开始定制</div></a>
-       {%if empty($userid)%}
-      <a href="/account/account.php?act=register"><div class="nav">注册</div></a>
-      <a href="/account/account.php?act=login"><div id="nav_sign_signin">登陆</div></a>
-      {%else%}
-      <a href="/account/space.php?act=user_dashboard"><div class="nav">我的后台账户</div></a>
-      {%/if%}
-  </div>
-  <div id="nav_bg"></div>
-</div>
+{%include file="$root/template/common/navbar_prewowkb.html"%}
 
 
 <!-- <a class="back_top" href="#">&#8679;</a> -->
@@ -45,54 +25,245 @@
   </div>
   <div class="pageheader_bg"></div>
   <img class="pageheader" src="/image/pageheader.png">
-<!--   <div class="page_intro_down">
+  <div class="page_intro_down">
     加入WOWKB，我们会提供网站设计和制作，营销、订单和施工管理软件等全方位服务，在线申请
-    <div class="down_button">申请加入</div>
-  </div>  -->  
+    <a href="/prewowkb/account.php?act=form_apply_constructor"><div class="down_button">申请加入</div></a>
+  </div>   
 </div>
 
 <div id="body">
-  <div class="page_intro_main">
-    加入WOWKB，我们会提供网站设计和制作，营销、订单和施工管理软件等全方位服务，</br>成为WOWKB的施工服务商，在线申请</br>
-    <a href="/prewowkb/account.php?act=form_apply_constructor"><div class="construct_price_button">申请加入</div></a>
-  </div>
-<!--   <div class="body_content">
+<div class="body_content">
     <div class="supplier_title">
       <ul class="construct_logo fix">
         <li>
-          <a href=""><div class="construct_detail_logo"><img src="../../image/constructlogo1.jpg" /></div><div class="construct_logo_intro"><p class="construct_detail_title">BYC建筑公司</br>BYC construction Inc</p><p>510-564-4128</p><p class="logo_location"><span class="glyphicon glyphicon-map-marker"></span> San Leandro, CA</p></div></a>
+          <a href="">
+            <div class="construct_detail_logo">
+              <img src="/image/constructor/b.jpg" />
+            </div>
+            <div class="construct_logo_intro">
+              <p class="construct_detail_title">BYC建筑公司</br><span class="sub_title">BYC construction Inc</span></p><p class="construct_label">Contractor,  roofing,  painting,  siding,  solar</p><p class="construct_contact">510-564-4128</p><p class="logo_location"><span class="glyphicon glyphicon-map-marker"></span> San Leandro, CA</p>
+            </div>
+          </a>
         </li>
         <li>
-          <a href=""><div class="construct_detail_logo"><img src="../../image/constructlogo2.jpg" /></div><div class="construct_logo_intro"><p class="construct_detail_title">家艺设计装修公司 - JY Home Improvement</p><p>510-564-4128</p><p class="logo_location"><span class="glyphicon glyphicon-map-marker"></span> San Leandro, CA</p></div></a>
+          <a href=""><div class="construct_detail_logo"><img src="/image/constructor/j.jpg" /></div><div class="construct_logo_intro"><p class="construct_detail_title">家艺设计装修公司</br><span class="sub_title">JY Home Improvement</span></p><p class="construct_label">装修,  地板,  水电工程,  建筑,  油漆</p><p class="construct_contact">510-564-4128</p><p class="logo_location"><span class="glyphicon glyphicon-map-marker"></span> Fremont, CA</p></div></a>
         </li>
         <li>
-          <a href=""><div class="construct_detail_logo"><img src="../../image/constructlogo3.png" /></div><div class="construct_logo_intro"><p class="construct_detail_title">阳光装修公司 - Sunshine Handyman Service Inc</p><p>510-564-4128</p><p class="logo_location"><span class="glyphicon glyphicon-map-marker"></span> San Leandro, CA</p></div></a>
+          <a href=""><div class="construct_detail_logo"><img src="/image/constructor/y.jpg" /></div><div class="construct_logo_intro"><p class="construct_detail_title">阳光装修公司</br><span class="sub_title">Sunshine Handyman Service Inc</span></p><p class="construct_label">Contractor,  roofing,  painting,  siding,  solar</p><p class="construct_contact">510-564-4128</p><p class="logo_location"><span class="glyphicon glyphicon-map-marker"></span> UNION CITY, CA</p></div></a>
         </li>
         <li>
-          <a href=""><div class="construct_detail_logo"><img src="../../image/indexlogo2.png" /></div><div class="construct_logo_intro"><p class="construct_detail_title">诚信室内外建筑装修 - Integrity In&Exterior Construction Inc.</p><p>510-564-4128</p><p class="logo_location"><span class="glyphicon glyphicon-map-marker"></span> San Leandro, CA</p></div></a>
+          <a href=""><div class="construct_detail_logo"><img src="/image/constructor/c.jpg" /></div><div class="construct_logo_intro"><p class="construct_detail_title">诚信室内外建筑装修</br><span class="sub_title">Integrity In&Exterior Construction Inc.</span></p><p class="construct_label">Contractor,  roofing,  painting,  siding,  solar</p><p class="construct_contact">510-564-4128</p><p class="logo_location"><span class="glyphicon glyphicon-map-marker"></span> San Leandro, CA</p></div></a>
         </li>
         <li>
-          <a href=""><div class="construct_detail_logo"><img src="../../image/indexlogo2.png" /></div><div class="construct_logo_intro"><p class="construct_detail_title">诚信第一加州建筑装修公司</br> Integrity California Construction Inc.gkgkjgkgkj</p><p>510-564-4128</p><p class="logo_location"><span class="glyphicon glyphicon-map-marker"></span> San Leandro, CA</p></div></a>
+          <a href=""><div class="construct_detail_logo"><img src="/image/constructor/c.jpg" /></div><div class="construct_logo_intro"><p class="construct_detail_title">诚信第一加州建筑装修公司</br><span class="sub_title">Integrity California Construction Inc.</span></p><p class="construct_label">Contractor,  roofing,  painting,  siding,  solar</p><p class="construct_contact">510-564-4128</p><p class="logo_location"><span class="glyphicon glyphicon-map-marker"></span> San Leandro, CA</p></div></a>
         </li>
         <li>
-          <a href=""><div class="construct_detail_logo"><img src="../../image/grandjk.jpg" /></div><div class="construct_logo_intro"><p class="construct_detail_title">BYC建筑公司</br>BYC construction Inc</p><p>510-564-4128</p><p class="logo_location"><span class="glyphicon glyphicon-map-marker"></span> San Leandro, CA</p></div></a>
+          <a href=""><div class="construct_detail_logo"><img src="/image/constructor/y.jpg" /></div><div class="construct_logo_intro"><p class="construct_detail_title">元隆建筑公司</br><span class="sub_title">YUANLONG CONSTRUCTION INC</span></p><p class="construct_label">装修, 改建及室内装修, 加建, 水电工程, Contractor</p><p class="construct_contact">415-640-7637</p><p class="logo_location"><span class="glyphicon glyphicon-map-marker"></span> Campbell, CA</p></div></a>
         </li>
         <li>
-          <a href=""><div class="construct_detail_logo"><img src="../../image/indexlogo2.png" /></div><div class="construct_logo_intro"><p class="construct_detail_title">BYC建筑公司</br>BYC construction Inc</p><p>510-564-4128</p><p class="logo_location"><span class="glyphicon glyphicon-map-marker"></span> San Leandro, CA</p></div></a>
+          <a href=""><div class="construct_detail_logo"><img src="/image/constructor/x.jpg" /></div><div class="construct_logo_intro"><p class="construct_detail_title">XY门窗公司</br><span class="sub_title">XY Window and Door</span></p><p class="construct_label">装修, 地板,  水电工程, 建筑</p><p class="construct_contact">408-293-8208, 408-471-8266</p><p class="logo_location"><span class="glyphicon glyphicon-map-marker"></span> San Jose, CA</p></div></a>
         </li>
         <li>
-          <a href=""><div class="construct_detail_logo"><img src="../../image/grandjk.jpg" /></div><div class="construct_logo_intro"><p class="construct_detail_title">BYC建筑公司</br>BYC construction Inc</p><p>510-564-4128</p><p class="logo_location"><span class="glyphicon glyphicon-map-marker"></span> San Leandro, CA</p></div></a>
+          <a href=""><div class="construct_detail_logo"><img src="/image/constructor/j.jpg" /></div><div class="construct_logo_intro"><p class="construct_detail_title">精创装修</br><span class="sub_title">K&Z Construction Inc</span></p><p class="construct_label">改建, 室内外装修, 车库隔间, 翻新厨房厕所, 地板油漆, 水电工程</p><p class="construct_contact">408-207-2082</p><p class="logo_location"><span class="glyphicon glyphicon-map-marker"></span> San Jose, CA</p></div></a>
         </li>
         <li>
-          <a href=""><div class="construct_detail_logo"><img src="../../image/indexlogo2.png" /></div><div class="construct_logo_intro"><p class="construct_detail_title">BYC建筑公司</br>BYC construction Inc</p><p>510-564-4128</p><p class="logo_location"><span class="glyphicon glyphicon-map-marker"></span> San Leandro, CA</p></div></a>
+          <a href=""><div class="construct_detail_logo"><img src="/image/constructor/b.jpg" /></div><div class="construct_logo_intro"><p class="construct_detail_title">B & B Marble Inc</p><p class="construct_label">装修</p><p class="construct_contact">650-548-1628</p><p class="logo_location"><span class="glyphicon glyphicon-map-marker"></span> Burlingame, CA</p></div></a>
         </li>
         <li>
-          <a href=""><div class="construct_detail_logo"><img src="../../image/indexlogo2.png" /></div><div class="construct_logo_intro"><p class="construct_detail_title">BYC建筑公司</br>BYC construction Inc</p><p>510-564-4128</p><p class="logo_location"><span class="glyphicon glyphicon-map-marker"></span> San Leandro, CA</p></div></a>
+          <a href=""><div class="construct_detail_logo"><img src="/image/constructor/h.jpg" /></div><div class="construct_logo_intro"><p class="construct_detail_title">鸿发屋顶公司</br><span class="sub_title">Principle Roofing & Construction</span></p><p class="construct_label">装修, roofing</p><p class="construct_contact">408-898-7298</p><p class="logo_location"><span class="glyphicon glyphicon-map-marker"></span> Cupertino, CA</p></div></a>
+        </li>
+        <li>
+          <a href=""><div class="construct_detail_logo"><img src="/image/constructor/j.jpg" /></div><div class="construct_logo_intro"><p class="construct_detail_title">精工建筑装修公司</br><span class="sub_title">TL Construction Inc</span></p><p class="construct_label">建筑, 装修</p><p class="construct_contact">408-439-8217, 510-449-3615</p><p class="logo_location"><span class="glyphicon glyphicon-map-marker"></span> Fremont, CA</p></div></a>
+        </li>
+        <li>
+          <a href=""><div class="construct_detail_logo"><img src="/image/constructor/m.jpg" /></div><div class="construct_logo_intro"><p class="construct_detail_title">名匠建筑公司</br><span class="sub_title">AGH USA INC</span></p><p class="construct_label">建筑公司, 加建, 室内装修, Contractor, 新建</p><p class="construct_contact">408-417-0456</p><p class="logo_location"><span class="glyphicon glyphicon-map-marker"></span> Fremont, CA</p></div></a>
+        </li>
+        <li>
+          <a href=""><div class="construct_detail_logo"><img src="/image/constructor/x.jpg" /></div><div class="construct_logo_intro"><p class="construct_detail_title">兴光装修</br><span class="sub_title">BRIGHT CONSTRUCTION</span></p><p class="construct_label">装修, 改建及室内装修, 油漆, 水电工程, 地板</p><p class="construct_contact">408-464-6808</p><p class="logo_location"><span class="glyphicon glyphicon-map-marker"></span> Cupertino, CA</p></div></a>
+        </li>
+        <li>
+          <a href=""><div class="construct_detail_logo"><img src="/image/constructor/m.jpg" /></div><div class="construct_logo_intro"><p class="construct_detail_title">美华装修</br><span class="sub_title">East west decoration company</span></p><p class="construct_label">装修, 地板, 水电工程, 建筑, 油漆</p><p class="construct_contact">408-607-5783</p><p class="logo_location"><span class="glyphicon glyphicon-map-marker"></span> Cupertino, CA</p></div></a>
+        </li>
+        <li>
+          <a href=""><div class="construct_detail_logo"><img src="/image/constructor/l.jpg" /></div><div class="construct_logo_intro"><p class="construct_detail_title">Leadton地板公司</br><span class="sub_title">Leadton Floors Inc.</span></p><p class="construct_label">地板, 装修, 建筑, 油漆</p><p class="construct_contact">408-293-8208, 408-471-8266</p><p class="logo_location"><span class="glyphicon glyphicon-map-marker"></span> San Jose, CA</p></div></a>
+        </li>
+        <li>
+          <a href=""><div class="construct_detail_logo"><img src="/image/constructor/c.jpg" /></div><div class="construct_logo_intro"><p class="construct_detail_title">诚信第一加州建筑装修公司</br><span class="sub_title">Integrity California Construction Inc.</span></p><p class="construct_label">Contractor,  roofing,  painting,  siding,  solar</p><p class="construct_contact">510-564-4128</p><p class="logo_location"><span class="glyphicon glyphicon-map-marker"></span> San Leandro, CA</p></div></a>
+        </li>
+        <li>
+          <a href=""><div class="construct_detail_logo"><img src="/image/constructor/x.jpg" /></div><div class="construct_logo_intro"><p class="construct_detail_title">信誉第一建筑装修</br></p><p class="construct_label">车库加建, 装修, 地板, 油漆, 厨房翻新</p><p class="construct_contact"></p><p class="logo_location"><span class="glyphicon glyphicon-map-marker"></span> Milpitas, CA</p></div></a>
+        </li>
+        <li>
+          <a href=""><div class="construct_detail_logo"><img src="/image/constructor/m.jpg" /></div><div class="construct_logo_intro"><p class="construct_detail_title">美易-装修公司</br><span class="sub_title">AME Home Improvement Inc.</span></p><p class="construct_label">地板, 室内装修, 厨房, 浴室, 装修</p><p class="construct_contact">408-908-8363</p><p class="logo_location"><span class="glyphicon glyphicon-map-marker"></span>  Campbell, CA</p></div></a>
+        </li>
+        <li>
+          <a href=""><div class="construct_detail_logo"><img src="/image/constructor/l.jpg" /></div><div class="construct_logo_intro"><p class="construct_detail_title">刘师傅</p><p class="construct_label">装修, 建筑, 室内装修, contractor, roofing</p><p class="construct_contact">408-888-5859</p><p class="logo_location"><span class="glyphicon glyphicon-map-marker"></span> San Jose, CA</p></div></a>
+        </li>
+        <li>
+          <a href=""><div class="construct_detail_logo"><img src="/image/constructor/h.jpg" /></div><div class="construct_logo_intro"><p class="construct_detail_title">豪艺建筑</br><span class="sub_title">JXYZ Integrity Construction</span></p><p class="construct_label">建筑/装修, 加建, 新建, 改建, 建筑执照</p><p class="construct_contact">415-987-3311</p><p class="logo_location"><span class="glyphicon glyphicon-map-marker"></span></p></div></a>
+        </li>
+        <li>
+          <a href=""><div class="construct_detail_logo"><img src="/image/constructor/h.jpg" /></div><div class="construct_logo_intro"><p class="construct_detail_title">豪苑建筑</br><span class="sub_title">Palladium Construction Inc</span></p><p class="construct_label">建筑</p><p class="construct_contact">415-999-0688</p><p class="logo_location"><span class="glyphicon glyphicon-map-marker"></span></p></div></a>
+        </li>
+        <li>
+          <a href=""><div class="construct_detail_logo"><img src="/image/constructor/j.jpg" /></div><div class="construct_logo_intro"><p class="construct_detail_title">建业装潢</br><span class="sub_title"></span></p><p class="construct_label">改建, 室内装修, 水电工程, painting</p><p class="construct_contact">408-677-6006</p><p class="logo_location"><span class="glyphicon glyphicon-map-marker"></span> San Jose, CA</p></div></a>
+        </li>
+        <li>
+          <a href=""><div class="construct_detail_logo"><img src="/image/constructor/g.jpg" /></div><div class="construct_logo_intro"><p class="construct_detail_title">耿师傅装修</br><span class="sub_title"></span></p><p class="construct_label">装修, 水电工程, 地板</p><p class="construct_contact">510-240-2189</p><p class="logo_location"><span class="glyphicon glyphicon-map-marker"></span> </p></div></a>
+        </li>
+        <li>
+          <a href=""><div class="construct_detail_logo"><img src="/image/constructor/y.jpg" /></div><div class="construct_logo_intro"><p class="construct_detail_title">一流地板装修</br><span class="sub_title">First quality flooring</span></p><p class="construct_label">地板, 装修, 油漆, flooring, 室内装修</p><p class="construct_contact">510-648-0795, 925-978-6738</p><p class="logo_location"><span class="glyphicon glyphicon-map-marker"></span> Fremont/East Bay, CA</p></div></a>
+        </li>
+        <li>
+          <a href=""><div class="construct_detail_logo"><img src="/image/constructor/w.jpg" /></div><div class="construct_logo_intro"><p class="construct_detail_title">屋顶医生</br><span class="sub_title">Roofing Doctor</span></p><p class="construct_label">装修, roofing</p><p class="construct_contact">415-722-6600, 510-828-2232</p><p class="logo_location"><span class="glyphicon glyphicon-map-marker"></span> Union City, CA</p></div></a>
+        </li>
+        <li>
+          <a href=""><div class="construct_detail_logo"><img src="/image/constructor/f.jpg" /></div><div class="construct_logo_intro"><p class="construct_detail_title">冯师傅</br><span class="sub_title"></span></p><p class="construct_label">装修, 地板, 水电工程, 建筑, 油漆</p><p class="construct_contact">408-221-1126, 408-221-1068</p><p class="logo_location"><span class="glyphicon glyphicon-map-marker"></span></p></div></a>
+        </li>
+        <li>
+          <a href=""><div class="construct_detail_logo"><img src="/image/constructor/n.jpg" /></div><div class="construct_logo_intro"><p class="construct_detail_title">南湾通渠</br><span class="sub_title">South Bay Cleaning</span></p><p class="construct_label">通渠</p><p class="construct_contact">408-725-1859</p><p class="logo_location"><span class="glyphicon glyphicon-map-marker"></span> San Jose, CA</p></div></a>
+        </li>
+        <li>
+          <a href=""><div class="construct_detail_logo"><img src="/image/constructor/c.jpg" /></div><div class="construct_logo_intro"><p class="construct_detail_title">诚意装修</br><span class="sub_title"></span></p><p class="construct_label">装修, 地板, 油漆</p><p class="construct_contact">408-838-4976</p><p class="logo_location"><span class="glyphicon glyphicon-map-marker"></span></p></div></a>
+        </li>
+        <li>
+          <a href=""><div class="construct_detail_logo"><img src="/image/constructor/j.jpg" /></div><div class="construct_logo_intro"><p class="construct_detail_title">佳诚建筑装修/br><span class="sub_title">PERFECT CONSTRUCTION</span></p><p class="construct_label">加建, 室内装修, 地板, 油漆</p><p class="construct_contact">408-205-7894</p><p class="logo_location"><span class="glyphicon glyphicon-map-marker"></span> </p></div></a>
+        </li>
+        <li>
+          <a href=""><div class="construct_detail_logo"><img src="/image/constructor/j.jpg" /></div><div class="construct_logo_intro"><p class="construct_detail_title">精细竹木地板装修</p><p class="construct_label">Contractor,  建筑,  装修,  painting,  roofing</p><p class="construct_contact">510-493-8795</p><p class="logo_location"><span class="glyphicon glyphicon-map-marker"></span> </p></div></a>
+        </li>
+        <li>
+          <a href=""><div class="construct_detail_logo"><img src="/image/constructor/h.jpg" /></div><div class="construct_logo_intro"><p class="construct_detail_title">华安装修</br><span class="sub_title">Hua an</span></p><p class="construct_label">装修,  地板,  油漆,  室内装修,  加建</p><p class="construct_contact">408-480-5288</p><p class="logo_location"><span class="glyphicon glyphicon-map-marker"></span> </p></div></a>
+        </li>
+        <li>
+          <a href=""><div class="construct_detail_logo"><img src="/image/constructor/s.jpg" /></div><div class="construct_logo_intro"><p class="construct_detail_title">山水装修</br><span class="sub_title">Raymond Construction</span></p><p class="construct_label">装修</p><p class="construct_contact">510-472-5588</p><p class="logo_location"><span class="glyphicon glyphicon-map-marker"></span> </p></div></a>
+        </li>
+        <li>
+          <a href=""><div class="construct_detail_logo"><img src="/image/constructor/y.jpg" /></div><div class="construct_logo_intro"><p class="construct_detail_title">英利 Construction</br><span class="sub_title">Yingli construction</span></p><p class="construct_label">装修</p><p class="construct_contact">510-552-1683</p><p class="logo_location"><span class="glyphicon glyphicon-map-marker"></span> </p></div></a>
+        </li>
+        <li>
+          <a href=""><div class="construct_detail_logo"><img src="/image/constructor/f.jpg" /></div><div class="construct_logo_intro"><p class="construct_detail_title">房屋装修实惠</br><span class="sub_title">East west decoration company</span></p><p class="construct_label">装修,  地板,  水电工程,  室内装修,  厨房</p><p class="construct_contact">408-627-2323</p><p class="logo_location"><span class="glyphicon glyphicon-map-marker"></span> </p></div></a>
+        </li>
+        <li>
+          <a href=""><div class="construct_detail_logo"><img src="/image/constructor/h.jpg" /></div><div class="construct_logo_intro"><p class="construct_detail_title">华兴建筑工程公司</br><span class="sub_title">Allied Teamwork Construction Inc</span></p><p class="construct_label">建筑公司</p><p class="construct_contact">415-606-2060, 650-430-2838</p><p class="logo_location"><span class="glyphicon glyphicon-map-marker"></span> San Francisco, CA</p></div></a>
+        </li>
+        <li>
+          <a href=""><div class="construct_detail_logo"><img src="/image/constructor/x.jpg" /></div><div class="construct_logo_intro"><p class="construct_detail_title">西欧电力</br><span class="sub_title">Occidental Power</span></p><p class="construct_label">水电工程</p><p class="construct_contact">888-497-6527</p><p class="logo_location"><span class="glyphicon glyphicon-map-marker"></span> </p></div></a>
+        </li>
+        <li>
+          <a href=""><div class="construct_detail_logo"><img src="/image/constructor/s.jpg" /></div><div class="construct_logo_intro"><p class="construct_detail_title">师先生专业装修</br></p><p class="construct_label">装修,  地板,  建筑,  油漆,  室内装修</p><p class="construct_contact">408-888-6285</p><p class="logo_location"><span class="glyphicon glyphicon-map-marker"></span></p></div></a>
+        </li>
+        <li>
+          <a href=""><div class="construct_detail_logo"><img src="/image/constructor/m.jpg" /></div><div class="construct_logo_intro"><p class="construct_detail_title">马师傅</br><span class="sub_title"></span></p><p class="construct_label">Contractor</p><p class="construct_contact">510-585-6072</p><p class="logo_location"><span class="glyphicon glyphicon-map-marker"></span> </p></div></a>
+        </li>
+        <li>
+          <a href=""><div class="construct_detail_logo"><img src="/image/constructor/c.jpg" /></div><div class="construct_logo_intro"><p class="construct_detail_title">Cibotti Engineering</p><p class="construct_label">建筑,  建筑公司,  新建,  加建,  设计施工</p><p class="construct_contact">415-494-9038</p><p class="logo_location"><span class="glyphicon glyphicon-map-marker"></span> </p></div></a>
+        </li>
+        <li>
+          <a href=""><div class="construct_detail_logo"><img src="/image/constructor/l.jpg" /></div><div class="construct_logo_intro"><p class="construct_detail_title">罗师傅 【至诚装修】</p><p class="construct_label">装修,  建筑,  新建,  加建,  室内装修</p><p class="construct_contact">415-350-7251</p><p class="logo_location"><span class="glyphicon glyphicon-map-marker"></span> </p></div></a>
+        </li>
+        <li>
+          <a href=""><div class="construct_detail_logo"><img src="/image/constructor/k.jpg" /></div><div class="construct_logo_intro"><p class="construct_detail_title">KEVIN装修</br><span class="sub_title"></span></p><p class="construct_label">装修</p><p class="construct_contact">626-410-3987</p><p class="logo_location"><span class="glyphicon glyphicon-map-marker"></span> MODESTO, CA</p></div></a>
+        </li>
+        <li>
+          <a href=""><div class="construct_detail_logo"><img src="/image/constructor/j.jpg" /></div><div class="construct_logo_intro"><p class="construct_detail_title">建威装修建筑材料公司</br><span class="sub_title">SUPERIOR HARDWARE SUPPLY</span></p><p class="construct_label">装修</p><p class="construct_contact">408-392-0889</p><p class="logo_location"><span class="glyphicon glyphicon-map-marker"></span> San Jose, CA</p></div></a>
+        </li>
+        <li>
+          <a href=""><div class="construct_detail_logo"><img src="/image/constructor/y.jpg" /></div><div class="construct_logo_intro"><p class="construct_detail_title">余赞土木工程</br><span class="sub_title">Kenneth. Chiu Construction</span></p><p class="construct_label">新建,  加建</p><p class="construct_contact">415-421-3661</p><p class="logo_location"><span class="glyphicon glyphicon-map-marker"></span> San Francisco, CA</p></div></a>
+        </li>
+        <li>
+          <a href=""><div class="construct_detail_logo"><img src="/image/constructor/j.jpg" /></div><div class="construct_logo_intro"><p class="construct_detail_title">建威装修</br><span class="sub_title">Superior Marble & Cabinet</span></p><p class="construct_label">建筑</p><p class="construct_contact">510-333-2625</p><p class="logo_location"><span class="glyphicon glyphicon-map-marker"></span> SANTA CLARA/HAYWARD, CA</p></div></a>
+        </li>
+        <li>
+          <a href=""><div class="construct_detail_logo"><img src="/image/constructor/j.jpg" /></div><div class="construct_logo_intro"><p class="construct_detail_title">建业建筑</br><span class="sub_title"></span></p><p class="construct_label">加建,  设计施工</p><p class="construct_contact">510-585-5907</p><p class="logo_location"><span class="glyphicon glyphicon-map-marker"></span> </p></div></a>
+        </li>
+        <li>
+          <a href=""><div class="construct_detail_logo"><img src="/image/constructor/m.jpg" /></div><div class="construct_logo_intro"><p class="construct_detail_title">邝氏建筑</br><span class="sub_title"></span></p><p class="construct_label">新建,  加建,  令暖空调,  室内装修,  水电工程</p><p class="construct_contact">415-584-3608, 916-941-2378</p><p class="logo_location"><span class="glyphicon glyphicon-map-marker"></span> </p></div></a>
+        </li>
+        <li>
+          <a href=""><div class="construct_detail_logo"><img src="/image/constructor/g.jpg" /></div><div class="construct_logo_intro"><p class="construct_detail_title">国兴装修建筑工程公司</br><span class="sub_title">Sam‘s Construction Co</span></p><p class="construct_label">装修,  水电工程,  加建,  地板</p><p class="construct_contact">408-667-8890</p><p class="logo_location"><span class="glyphicon glyphicon-map-marker"></span> </p></div></a>
+        </li>
+        <li>
+          <a href=""><div class="construct_detail_logo"><img src="/image/constructor/h.jpg" /></div><div class="construct_logo_intro"><p class="construct_detail_title">宏程建筑</br><span class="sub_title">RedApp Inc</span></p><p class="construct_label">装修,  建筑,  改建及室内装修,  建筑/装修,  建筑执照</p><p class="construct_contact">650-218-9289</p><p class="logo_location"><span class="glyphicon glyphicon-map-marker"></span> </p></div></a>
+        </li>
+        <li>
+          <a href=""><div class="construct_detail_logo"><img src="/image/constructor/g.jpg" /></div><div class="construct_logo_intro"><p class="construct_detail_title">高建光</br><span class="sub_title">Besko electric</span></p><p class="construct_label">新建改建,商业, 住宅,安装变压器,  配电盘, 带开关的照明灯具, 插座测试</p><p class="construct_contact">408-314-8899</p><p class="logo_location"><span class="glyphicon glyphicon-map-marker"></span> </p></div></a>
+        </li>
+        <li>
+          <a href=""><div class="construct_detail_logo"><img src="/image/constructor/h.jpg" /></div><div class="construct_logo_intro"><p class="construct_detail_title">辉达建筑</br><span class="sub_title"></span></p><p class="construct_label">建筑,  装修</p><p class="construct_contact">510-708-9999 510-482-4563</p><p class="logo_location"><span class="glyphicon glyphicon-map-marker"></span> </p></div></a>
+        </li>
+        <li>
+          <a href=""><div class="construct_detail_logo"><img src="/image/constructor/c.jpg" /></div><div class="construct_logo_intro"><p class="construct_detail_title">CSD加州建筑室内设计与工程</br><span class="sub_title">CSD California Design and Construction</span></p><p class="construct_label">装修,  室内设计,  加建,  建筑/装修</p><p class="construct_contact">415-319-5602</p><p class="logo_location"><span class="glyphicon glyphicon-map-marker"></span> Livermore, CA</p></div></a>
+        </li>
+        <li>
+          <a href=""><div class="construct_detail_logo"><img src="/image/constructor/c.jpg" /></div><div class="construct_logo_intro"><p class="construct_detail_title">陈师傅装修</br><span class="sub_title">Gobless Home Improvement Inc.</span></p><p class="construct_label">地板,  室内装修,  厨房,  浴室,  装修</p><p class="construct_contact">408-908-8363</p><p class="logo_location"><span class="glyphicon glyphicon-map-marker"></span> Campbell, CA</p></div></a>
+        </li>
+        <li>
+          <a href=""><div class="construct_detail_logo"><img src="/image/constructor/x.jpg" /></div><div class="construct_logo_intro"><p class="construct_detail_title">新区花园-持有C牌</br><span class="sub_title"></span></p><p class="construct_label">园艺,  庭院设计,  siding</p><p class="construct_contact">925-667-1881</p><p class="logo_location"><span class="glyphicon glyphicon-map-marker"></span> Fremont, CA</p></div></a>
+        </li>
+        <li>
+          <a href=""><div class="construct_detail_logo"><img src="/image/constructor/f.jpg" /></div><div class="construct_logo_intro"><p class="construct_detail_title">方知装修</br><span class="sub_title"></span></p><p class="construct_label">水电工程,  改建及室内装修,  厨房,  加建,  浴室</p><p class="construct_contact">408-876-0886</p><p class="logo_location"><span class="glyphicon glyphicon-map-marker"></span> </p></div></a>
+        </li>
+        <li>
+          <a href=""><div class="construct_detail_logo"><img src="/image/constructor/k.jpg" /></div><div class="construct_logo_intro"><p class="construct_detail_title">Kevin装修</br><span class="sub_title"></span></p><p class="construct_label">建筑装修</p><p class="construct_contact">716－380－5792</p><p class="logo_location"><span class="glyphicon glyphicon-map-marker"></span> Fremont, CA</p></div></a>
+        </li>
+        <li>
+          <a href=""><div class="construct_detail_logo"><img src="/image/constructor/a.jpg" /></div><div class="construct_logo_intro"><p class="construct_detail_title">阿文装修 - AWINV</br><span class="sub_title"></span></p><p class="construct_label">装修,  地板,  油漆,  改建及室内装修,  水电</p><p class="construct_contact">510-565-8792</p><p class="logo_location"><span class="glyphicon glyphicon-map-marker"></span> </p></div></a>
+        </li>
+        <li>
+          <a href=""><div class="construct_detail_logo"><img src="/image/constructor/w.jpg" /></div><div class="construct_logo_intro"><p class="construct_detail_title">王氏装修</br><span class="sub_title"></span></p><p class="construct_label">装修,  水电工程,  改建及室内装修,  厨房,  浴室</p><p class="construct_contact">408-893-5121</p><p class="logo_location"><span class="glyphicon glyphicon-map-marker"></span> </p></div></a>
+        </li>
+        <li>
+          <a href=""><div class="construct_detail_logo"><img src="/image/constructor/j.jpg" /></div><div class="construct_logo_intro"><p class="construct_detail_title">建筑装修</br><span class="sub_title"></span></p><p class="construct_label">装修,  水电工程,  油漆,  建筑,  室内装修</p><p class="construct_contact">510-813-2718</p><p class="logo_location"><span class="glyphicon glyphicon-map-marker"></span> </p></div></a>
+        </li>
+        <li>
+          <a href=""><div class="construct_detail_logo"><img src="/image/constructor/s.jpg" /></div><div class="construct_logo_intro"><p class="construct_detail_title">Statewide Property Preservation</br></p><p class="construct_label">装修,  建筑,  油漆,  改建及室内装修,  Contractor</p><p class="construct_contact">415-849-5714</p><p class="logo_location"><span class="glyphicon glyphicon-map-marker"></span> </p></div></a>
+        </li>
+        <li>
+          <a href=""><div class="construct_detail_logo"><img src="/image/constructor/l.jpg" /></div><div class="construct_logo_intro"><p class="construct_detail_title">刘成水土木公司</br><span class="sub_title"></span></p><p class="construct_label">水电工程,  roofing,  装修,  地板,  油漆</p><p class="construct_contact">510-239-9975</p><p class="logo_location"><span class="glyphicon glyphicon-map-marker"></span>  Campbell, CA</p></div></a>
+        </li>
+        <li>
+          <a href=""><div class="construct_detail_logo"><img src="/image/constructor/t.jpg" /></div><div class="construct_logo_intro"><p class="construct_detail_title">谭氏父子建筑公司</br><span class="sub_title">Tam & Sons Construction Company</span></p><p class="construct_label">建筑,  改建及室内装修,  油漆,  水电工程,  加建</p><p class="construct_contact">510-761-9188</p><p class="logo_location"><span class="glyphicon glyphicon-map-marker"></span> </p></div></a>
+        </li>
+        <li>
+          <a href=""><div class="construct_detail_logo"><img src="/image/constructor/h.jpg" /></div><div class="construct_logo_intro"><p class="construct_detail_title">鸿年家居建材</br><span class="sub_title">Sincere Home Decor</span></p><p class="construct_label">家居建材</p><p class="construct_contact">510-835-9988</p><p class="logo_location"><span class="glyphicon glyphicon-map-marker"></span> Oakland, CA</p></div></a>
+        </li>
+        <li>
+          <a href=""><div class="construct_detail_logo"><img src="/image/constructor/h.jpg" /></div><div class="construct_logo_intro"><p class="construct_detail_title">鸿博建筑公司</br><span class="sub_title">HB Kitchen Bath Inc</span></p><p class="construct_label">装修,  地板,  水电工程,  建筑,  室内装修</p><p class="construct_contact">510-900-6388</p><p class="logo_location"><span class="glyphicon glyphicon-map-marker"></span> HAYWARD, CA</p></div></a>
+        </li>
+        <li>
+          <a href=""><div class="construct_detail_logo"><img src="/image/constructor/h.jpg" /></div><div class="construct_logo_intro"><p class="construct_detail_title">豪艺建筑</br><span class="sub_title">JXYZ Integrity Construction</span></p><p class="construct_label">建筑/装修, 加建, 新建, 改建, 建筑执照</p><p class="construct_contact">415-987-3311</p><p class="logo_location"><span class="glyphicon glyphicon-map-marker"></span></p></div></a>
+        </li>
+        <li>
+          <a href=""><div class="construct_detail_logo"><img src="/image/constructor/b.jpg" /></div><div class="construct_logo_intro"><p class="construct_detail_title">北洋电器，水暖</br><span class="sub_title"></span></p><p class="construct_label">装修,  地板,  建筑,  油漆,  改建及室内装修</p><p class="construct_contact">510-309-3669</p><p class="logo_location"><span class="glyphicon glyphicon-map-marker"></span></p></div></a>
+        </li>
+        <li>
+          <a href=""><div class="construct_detail_logo"><img src="/image/constructor/j.jpg" /></div><div class="construct_logo_intro"><p class="construct_detail_title">建业装潢</br><span class="sub_title"></span></p><p class="construct_label">改建, 室内装修, 水电工程, painting</p><p class="construct_contact">408-677-6006</p><p class="logo_location"><span class="glyphicon glyphicon-map-marker"></span> San Jose, CA</p></div></a>
+        </li>
+        <li>
+          <a href=""><div class="construct_detail_logo"><img src="/image/constructor/x.jpg" /></div><div class="construct_logo_intro"><p class="construct_detail_title">xerdraw旧金山壁画工作室</br><span class="sub_title">xerdraw</span></p><p class="construct_label">绘画,  墙绘,  壁画,  建筑,  油漆</p><p class="construct_contact">415-481-8523</p><p class="logo_location"><span class="glyphicon glyphicon-map-marker"></span> Bay area</p></div></a>
+        </li>
+        <li>
+          <a href=""><div class="construct_detail_logo"><img src="/image/constructor/y.jpg" /></div><div class="construct_logo_intro"><p class="construct_detail_title">壹加壹装修</br><span class="sub_title"></span></p><p class="construct_label">装修,  厨房,  浴室,  室内装修,  照明设备</p><p class="construct_contact">510-631-5128</p><p class="logo_location"><span class="glyphicon glyphicon-map-marker"></span> </p></div></a>
+        </li>
+        <li>
+          <a href=""><div class="construct_detail_logo"><img src="/image/constructor/y.jpg" /></div><div class="construct_logo_intro"><p class="construct_detail_title">友利瓷砖云石公司</br><span class="sub_title"></span></p><p class="construct_label">瓷砖,  云石</p><p class="construct_contact">415-282-3388</p><p class="logo_location"><span class="glyphicon glyphicon-map-marker"></span> San Francisco, CA</p></div></a>
+        </li>
+        <li>
+          <a href=""><div class="construct_detail_logo"><img src="/image/constructor/s.jpg" /></div><div class="construct_logo_intro"><p class="construct_detail_title">顺利创意装修</br><span class="sub_title"></span></p><p class="construct_label">装修,  地板,  水电工程,  建筑,  油漆</p><p class="construct_contact">650-665-9022</p><p class="logo_location"><span class="glyphicon glyphicon-map-marker"></span></p></div></a>
+        </li>
+        <li>
+          <a href=""><div class="construct_detail_logo"><img src="/image/constructor/s.jpg" /></div><div class="construct_logo_intro"><p class="construct_detail_title">室内装修</br><span class="sub_title"></span></p><p class="construct_label">装修,  地板,  水电工程,  油漆,  室内装修</p><p class="construct_contact">650-861-0851</p><p class="logo_location"><span class="glyphicon glyphicon-map-marker"></span> </p></div></a>
+        </li>
+        <li>
+          <a href=""><div class="construct_detail_logo"><img src="/image/constructor/m.jpg" /></div><div class="construct_logo_intro"><p class="construct_detail_title">M.Y Co.,</br><span class="sub_title"></span></p><p class="construct_label">装修,  地板,  水电工程,  建筑,  油漆</p><p class="construct_contact">650-665-9022</p><p class="logo_location"><span class="glyphicon glyphicon-map-marker"></span></p></div></a>
+        </li>
+        <li>
+          <a href=""><div class="construct_detail_logo"><img src="/image/constructor/y.jpg" /></div><div class="construct_logo_intro"><p class="construct_detail_title">余师傅-新区花园</br><span class="sub_title"></span></p><p class="construct_label">园艺,  水电,  室内装修,  卫生间</p><p class="construct_contact">925－667－1881</p><p class="logo_location"><span class="glyphicon glyphicon-map-marker"></span> </p></div></a>
         </li>
       </ul>
     </div>
-
-  </div> -->
+  </div>
 <div class="bottom_space"></div>
 </div>
 </body>

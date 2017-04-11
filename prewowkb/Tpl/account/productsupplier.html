@@ -10,44 +10,24 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-<div id="navbar">
-  <div id="nav_logo">
-      <img id="nav_logo_pic" src="/image/logo4.png">
-  </div>
-  
-  <div id="nav_link1">
-      <a href="/"><div class="nav">主页</div></a>
-      <a href="/prewowkb/account.php?act=designer"><div class="nav">设计</div></a>
-      <a href="/prewowkb/account.php?act=productsupplier"><div class="nav choose">产品</div></a>
-      <a href="/prewowkb/account.php?act=service"><div class="nav">服务</div></a>
-      <a href="/prewowkb/account.php?act=about"><div class="nav">关于我们</div></a>
-      <a href="/prewowkb/account.php?act=begincustomize"><div class="nav">开始定制</div></a>
-       {%if empty($userid)%}
-      <a href="/account/account.php?act=register"><div class="nav">注册</div></a>
-      <a href="/account/account.php?act=login"><div id="nav_sign_signin">登陆</div></a>
-      {%else%}
-      <a href="/account/space.php?act=user_dashboard"><div class="nav">我的后台账户</div></a>
-      {%/if%}
-  </div>
-  <div id="nav_bg"></div>
-</div>
+{%include file="$root/template/common/navbar_prewowkb.html"%}
 
 
 <!-- <a class="back_top" href="#">&#8679;</a> -->
 
-<div id="showArea">
+<div id="page_intro">
   <div class="page_intro_up">
     <h2>WOWKB产品</h2>
   </div>
   <div class="pageheader_bg"></div>
-    <img id="showArea_pic" class="pageheader" src="/image/pageheader.png">
+    <img id="pageheader" class="pageheader" src="/image/pageheader.png">
 <!--     <div class="down_join ">
     成为WOWKB的产品供应伙伴，在线申请
     <div class="down_button">申请加入</div>
   </div> -->   
 </div>
 
-<!-- <div class="supplier_catogory_menu">
+<div class="supplier_catogory_menu">
     <a class="catogory_button" href="#cabinet">橱柜</a>
     <div class="button_center_line"></div>
     <a class="catogory_button" href="#stone">磁砖&石材</a>
@@ -65,24 +45,26 @@
     <a class="catogory_button" href="#appliance">设备</a>
     <div class="button_center_line"></div>
     <a class="catogory_button" href="#other">其他</a>
-  </div> -->
+  </div>
 
 <div id="body">
   <div class="page_intro_top">
-    <h4>欢迎加入WOWKB</h4></br>我们正在改变家装定制行业，我们认为家装定制服务是简单、轻松、愉悦的，我们希望通过在线的设计与协作来改善购物体验。</br></br>
-    
+    欢迎加入WOWKB我们正在改变家装定制行业，我们认为家装定制服务是简单、轻松、愉悦的，我们希望通过在线的设计与协作来改善购物体验。</br>
+    <a href="/prewowkb/account.php?act=form_apply_supplier"><div class="construct_price_button">申请加入</div></a>
+ 
   </div>
-  <div class="page_intro_content">
+
+<!--   <div class="page_intro_content">
     <h4>供应商合作</h4></br>
     WOWKB为您打造一个完整的营销系统，让您可以专注于核心业务，</br>如果您是制造商、仓储批发商，产品有完善的质量和售后服务保障，</br>我们希望能与您合作，共同打造一个全新的销售体验。</br>
     申请成为供应商，只需要填写供应商申请表</br></br>
     
       成为WOWKB的产品供应伙伴，在线申请</br>
-     <a href="/prewowkb/account.php?act=form_apply_supplier"> <div class="construct_price_button">申请加入</div></a>
+      <div class="construct_price_button">申请加入</div>
     
-  </div>
+  </div> -->
   
-<!--   <div id="cabinet"></div>
+<div id="cabinet"></div>
   <div class="supplier_catogory">
     <div class="catogory_line_word">橱柜</div>
     <div class="catogory_line"></div>
@@ -90,34 +72,52 @@
     <div class="supplier_title">
       <ul class="index_logo fix">
         <li>
-          <a href=""><div><img src="../../image/grandjk.jpg" /></div><p>Grand J&K</p></a>
+          <a href=""><div><img src="/image/grandjk.jpg" /></div><p>Grand J&K</p></a>
         </li>
         <li>
-          <a href=""><div><img src="../../image/indexlogo2.png" /></div><p>grand </p></a>
+          <a href="http://megacabinet.us/MegaCabinet/Mega_Cabinet.html"><div><img src="/image/supplier_logo/cabinet/mega.jpg" /></div><p>Mega Cabinet Supply</p></a>
         </li>
         <li>
-          <a href=""><div><img src="../../image/grandjk.jpg" /></div><p>grand </p></a>
+          <a href="http://www.kwwkitchencabinets.com/index.html"><div><img src="/image/supplier_logo/cabinet/k.jpg" /></div><p>KWW Kitchen Cabinet & Bath</p></a>
         </li>
         <li>
-          <a href=""><div><img src="../../image/indexlogo2.png" /></div><p>grand </p></a>
+          <a href="http://www.zmcproducts.com/"><div><img src="/image/supplier_logo/cabinet/zmc.png" /></div><p>ZMC Product</p></a>
         </li>
         <li>
-          <a href=""><div><img src="../../image/indexlogo2.png" /></div><p>grand </p></a>
+          <a href="http://www.hesticabinet.com/"><div><img src="/image/supplier_logo/cabinet/hesti.png" /></div><p>Hesti Cabinet Inc (Zhong Hong)</p></a>
         </li>
         <li>
-          <a href=""><div><img src="../../image/grandjk.jpg" /></div><p>grand </p></a>
+          <a href="http://www.woodsonproducts.com/"><div><img src="/image/supplier_logo/cabinet/woodson.png" /></div><p>Woodson</p></a>
         </li>
         <li>
-          <a href=""><div><img src="../../image/indexlogo2.png" /></div><p>grand </p></a>
+          <a href="http://huggybear.com/"><div><img src="/image/supplier_logo/cabinet/huggybear.png" /></div><p>Huggy Bear</p></a>
         </li>
         <li>
-          <a href=""><div><img src="../../image/grandjk.jpg" /></div><p>grand </p></a>
+          <a href="http://www.kitchencraft.com/"><div><img src="/image/supplier_logo/cabinet/kitchencraft.jpg" /></div><p>KitchenCraft</p></a>
         </li>
         <li>
-          <a href=""><div><img src="../../image/indexlogo2.png" /></div><p>grand </p></a>
+          <a href="http://www.decoracabinets.com/"><div><img src="/image/supplier_logo/cabinet/decora.jpg" /></div><p>Decora</p></a>
         </li>
         <li>
-          <a href=""><div><img src="../../image/indexlogo2.png" /></div><p>grand </p></a>
+          <a href=""><div><img src="/image/supplier_logo/cabinet/homecrest.jpg" /></div><p>Homecrest</p></a>
+        </li>
+        <li>
+          <a href="https://www.thegraniteexpo.com/"><div><img src="/image/supplier_logo/cabinet/granite_expo.jpg" /></div><p>Granite Expo</p></a>
+        </li>
+        <li>
+          <a href=""><div><img src="/image/supplier_logo/cabinet/o.jpg" /></div><p>Olivia Cabinetry Inc</p></a>
+        </li>
+        <li>
+          <a href="http://www.tecabinets.com/"><div><img src="/image/supplier_logo/cabinet/team_effort_cabinet.jpg" /></div><p>Team Effort Cabinet</p></a>
+        </li>
+        <li>
+          <a href="https://www.uscabinetdepot.com/"><div><img src="/image/supplier_logo/cabinet/U.S_cabinet_depot.jpg" /></div><p>U.S Cabinet Depot</p></a>
+        </li>
+        <li>
+          <a href="http://www.masterbrandcollection.com/welcome.asp"><div><img src="/image/supplier_logo/cabinet/master_brand.png" /></div><p>Master Brand (Payment Collection)</p></a>
+        </li>
+        <li>
+          <a href="http://www.crlaurence.com/"><div><img src="/image/supplier_logo/cabinet/crl.jpg" /></div><p>CRL Building Supply LLC</p></a>
         </li>
       </ul>
     </div>
@@ -130,34 +130,37 @@
     <div class="supplier_title">
       <ul class="index_logo fix">
         <li>
-          <a href=""><div><img src="../../image/grandjk.jpg" /></div><p>Grand J&K</p></a>
+          <a href=""><div><img src="/image/supplier_logo/stone/porcelanosa.jpg" /></div><p>Porcelanosa</p></a>
         </li>
         <li>
-          <a href=""><div><img src="../../image/indexlogo2.png" /></div><p>grand </p></a>
+          <a href=""><div><img src="/image/supplier_logo/stone/Bedrosians.jpg" /></div><p>Bedrosians </p></a>
         </li>
         <li>
-          <a href=""><div><img src="../../image/grandjk.jpg" /></div><p>grand </p></a>
+          <a href=""><div><img src="/image/supplier_logo/stone/ms_International.jpg" /></div><p>MS International</p></a>
         </li>
         <li>
-          <a href=""><div><img src="../../image/indexlogo2.png" /></div><p>grand </p></a>
+          <a href=""><div><img src="/image/supplier_logo/stone/eleganza_tiles.jpg" /></div><p>Eleganza Tiles </p></a>
         </li>
         <li>
-          <a href=""><div><img src="../../image/indexlogo2.png" /></div><p>grand </p></a>
+          <a href="http://westernpacifictile.com/"><div><img src="/image/supplier_logo/stone/western_pacific_tiles.jpg" /></div><p>Western Pacific Tiles </p></a>
         </li>
         <li>
-          <a href=""><div><img src="../../image/grandjk.jpg" /></div><p>grand </p></a>
+          <a href="http://www.unitileus.com/"><div><img src="/image/supplier_logo/stone/uni-tile_marble.png" /></div><p>Uni-Tile Marble</p></a>
         </li>
         <li>
-          <a href=""><div><img src="../../image/indexlogo2.png" /></div><p>grand </p></a>
+          <a href="http://www.qortstone.com/"><div><img src="/image/supplier_logo/stone/qortstone.jpg" /></div><p>Qortstone</p></a>
         </li>
         <li>
-          <a href=""><div><img src="../../image/grandjk.jpg" /></div><p>grand </p></a>
+          <a href="http://www.cornerstonemginc.com/us/"><div><img src="/image/supplier_logo/stone/cornerstone_marble_and_ranite.jpg" /></div><p>Corner Stone Marble & Granite</p></a>
         </li>
         <li>
-          <a href=""><div><img src="../../image/indexlogo2.png" /></div><p>grand </p></a>
+          <a href="http://www.bullnosetilesj.com/"><div><img src="/image/supplier_logo/stone/bullnose_tile_LLC.jpg" /></div><p>Bullnose Tile LLC</p></a>
         </li>
         <li>
-          <a href=""><div><img src="../../image/indexlogo2.png" /></div><p>grand </p></a>
+          <a href=""><div><img src="/image/supplier_logo/stone/import_tile_co.jpg" /></div><p>Import Tile Co</p></a>
+        </li>
+        <li>
+          <a href="http://www.daltile.com/"><div><img src="/image/supplier_logo/stone/daltile.jpg" /></div><p>Daltile</p></a>
         </li>
       </ul>
     </div>
@@ -170,34 +173,28 @@
     <div class="supplier_title">
       <ul class="index_logo fix">
         <li>
-          <a href=""><div><img src="../../image/grandjk.jpg" /></div><p>Grand J&K</p></a>
+          <a href="https://www.republicfloor.com/"><div><img src="/image/supplier_logo/floor/republic_floor.png" /></div><p>Republic Floor</p></a>
         </li>
         <li>
-          <a href=""><div><img src="../../image/indexlogo2.png" /></div><p>grand </p></a>
+          <a href="https://www.mohawkflooring.com/"><div><img src="/image/supplier_logo/floor/mohawk_floor.png" /></div><p>Mohawk Floor</p></a>
         </li>
         <li>
-          <a href=""><div><img src="../../image/grandjk.jpg" /></div><p>grand </p></a>
+          <a href="http://www.diamondw.com/"><div><img src="/image/supplier_logo/floor/diamond_w.png" /></div><p>Diamond W</p></a>
         </li>
         <li>
-          <a href=""><div><img src="../../image/indexlogo2.png" /></div><p>grand </p></a>
+          <a href="https://www.flooranddecor.com"><div><img src="/image/supplier_logo/floor/medallion.jpg" /></div><p>Medallion</p></a>
         </li>
         <li>
-          <a href=""><div><img src="../../image/indexlogo2.png" /></div><p>grand </p></a>
+          <a href="http://kylinfloor.com/"><div><img src="/image/supplier_logo/floor/kylin_floor_inc.jpg" /></div><p>Kylin Floor Inc</p></a>
         </li>
         <li>
-          <a href=""><div><img src="../../image/grandjk.jpg" /></div><p>grand </p></a>
+          <a href="http://www.lexifloors.com/"><div><img src="/image/supplier_logo/floor/lexifloor.png" /></div><p>Lexi Floor</p></a>
         </li>
         <li>
-          <a href=""><div><img src="../../image/indexlogo2.png" /></div><p>grand </p></a>
+          <a href="http://eternityflooring.com"><div><img src="/image/supplier_logo/floor/eternity.jpg" /></div><p>Eternity Floor</p></a>
         </li>
         <li>
-          <a href=""><div><img src="../../image/grandjk.jpg" /></div><p>grand </p></a>
-        </li>
-        <li>
-          <a href=""><div><img src="../../image/indexlogo2.png" /></div><p>grand </p></a>
-        </li>
-        <li>
-          <a href=""><div><img src="../../image/indexlogo2.png" /></div><p>grand </p></a>
+          <a href="http://www.everbrightflooring.com/"><div><img src="/image/supplier_logo/floor/everbright.jpg" /></div><p>Ever Bright</p></a>
         </li>
       </ul>
     </div>
@@ -210,34 +207,28 @@
     <div class="supplier_title">
       <ul class="index_logo fix">
         <li>
-          <a href=""><div><img src="../../image/grandjk.jpg" /></div><p>Grand J&K</p></a>
+          <a href="http://www.generalplumbingsupply.com/"><div><img src="/image/supplier_logo/plumb/generalplumbing.jpg" /></div><p>General Plumbing Supply</p></a>
         </li>
         <li>
-          <a href=""><div><img src="../../image/indexlogo2.png" /></div><p>grand </p></a>
+          <a href="https://www.dpd.com"><div><img src="/image/supplier_logo/plumb/dpd.png" /></div><p>DPD</p></a>
         </li>
         <li>
-          <a href=""><div><img src="../../image/grandjk.jpg" /></div><p>grand </p></a>
+          <a href="https://www.ferguson.com/"><div><img src="/image/supplier_logo/plumb/ferguson.jpg" /></div><p>Ferguson</p></a>
         </li>
         <li>
-          <a href=""><div><img src="../../image/indexlogo2.png" /></div><p>grand </p></a>
+          <a href=""><div><img src="/image/supplier_logo/plumb/s.jpg" /></div><p>Spring</p></a>
         </li>
         <li>
-          <a href=""><div><img src="../../image/indexlogo2.png" /></div><p>grand </p></a>
+          <a href="http://www.dscpacific.com/"><div><img src="/image/supplier_logo/plumb/dscpacific.jpg" /></div><p>DSC Pacific</p></a>
         </li>
         <li>
-          <a href=""><div><img src="../../image/grandjk.jpg" /></div><p>grand </p></a>
+          <a href="http://www.amerisink.com/"><div><img src="/image/supplier_logo/plumb/amerisink.jpg" /></div><p>Amerisink</p></a>
         </li>
         <li>
-          <a href=""><div><img src="../../image/indexlogo2.png" /></div><p>grand </p></a>
+          <a href="https://www.schluter.com"><div><img src="/image/supplier_logo/plumb/schluter_system.jpg" /></div><p>Schluter System</p></a>
         </li>
         <li>
-          <a href=""><div><img src="../../image/grandjk.jpg" /></div><p>grand </p></a>
-        </li>
-        <li>
-          <a href=""><div><img src="../../image/indexlogo2.png" /></div><p>grand </p></a>
-        </li>
-        <li>
-          <a href=""><div><img src="../../image/indexlogo2.png" /></div><p>grand </p></a>
+          <a href=""><div><img src="/image/supplier_logo/plumb/s.jpg" /></div><p>Sarsgan</p></a>
         </li>
       </ul>
     </div>
@@ -250,34 +241,28 @@
     <div class="supplier_title">
       <ul class="index_logo fix">
         <li>
-          <a href=""><div><img src="../../image/grandjk.jpg" /></div><p>Grand J&K</p></a>
+          <a href="http://www.conceptbaths.com/"><div><img src="/image/supplier_logo/bath/conceptbaths.jpg" /></div><p>Concept Baths & Interiors</p></a>
         </li>
         <li>
-          <a href=""><div><img src="../../image/indexlogo2.png" /></div><p>grand </p></a>
+          <a href="https://www.frescabath.com/"><div><img src="/image/supplier_logo/bath/fresca.jpg" /></div><p>Fresca</p></a>
         </li>
         <li>
-          <a href=""><div><img src="../../image/grandjk.jpg" /></div><p>grand </p></a>
+          <a href="http://www.fleurco.com/"><div><img src="/image/supplier_logo/bath/fleurco.jpg" /></div><p>Fleurco</p></a>
         </li>
         <li>
-          <a href=""><div><img src="../../image/indexlogo2.png" /></div><p>grand </p></a>
+          <a href="http://www.tileredi.com/"><div><img src="/image/supplier_logo/bath/tileredi.jpg" /></div><p>Tile Redi</p></a>
         </li>
         <li>
-          <a href=""><div><img src="../../image/indexlogo2.png" /></div><p>grand </p></a>
+          <a href="http://www.ckbusa.com/"><div><img src="/image/supplier_logo/bath/CKB.jpg" /></div><p>CKB Shower Supplier</p></a>
         </li>
         <li>
-          <a href=""><div><img src="../../image/grandjk.jpg" /></div><p>grand </p></a>
+          <a href="http://www.schickershowerdoors.com/"><div><img src="/image/supplier_logo/bath/schicker.png"/></div><p>Schicker Luxury Shower Doors Inc</p></a>
         </li>
         <li>
-          <a href=""><div><img src="../../image/indexlogo2.png" /></div><p>grand </p></a>
+          <a href="http://www.shineincusa.com/"><div><img src="/image/supplier_logo/bath/shine_bathroom_inc.png" /></div><p>Shine Bathroom Inc</p></a>
         </li>
         <li>
-          <a href=""><div><img src="../../image/grandjk.jpg" /></div><p>grand </p></a>
-        </li>
-        <li>
-          <a href=""><div><img src="../../image/indexlogo2.png" /></div><p>grand </p></a>
-        </li>
-        <li>
-          <a href=""><div><img src="../../image/indexlogo2.png" /></div><p>grand </p></a>
+          <a href="http://www.alpinebay.com/products/ez-niches/"><div><img src="/image/supplier_logo/bath/ezniches.jpg" /></div><p>EZ-Niches</p></a>
         </li>
       </ul>
     </div>
@@ -290,34 +275,25 @@
     <div class="supplier_title">
       <ul class="index_logo fix">
         <li>
-          <a href=""><div><img src="../../image/grandjk.jpg" /></div><p>Grand J&K</p></a>
+          <a href="https://www.windowcosts.com/"><div><img src="/image/supplier_logo/window/windowcosts.jpg" /></div><p>A-Plus Window and Door Inc</p></a>
         </li>
         <li>
-          <a href=""><div><img src="../../image/indexlogo2.png" /></div><p>grand </p></a>
+          <a href="http://www.cascadewindows.com/"><div><img src="/image/supplier_logo/window/cascade.jpg" /></div><p>Cascade Windows</p></a>
         </li>
         <li>
-          <a href=""><div><img src="../../image/grandjk.jpg" /></div><p>grand </p></a>
+          <a href="http://www.contractorswardrobe.com/index.html"><div><img src="/image/supplier_logo/window/cw.png"/></div><p>CW Quality Door</p></a>
         </li>
         <li>
-          <a href=""><div><img src="../../image/indexlogo2.png" /></div><p>grand </p></a>
+          <a href="https://www.milgard.com/"><div><img src="/image/supplier_logo/window/milgard.jpg"/></div><p>Milgard</p></a>
         </li>
         <li>
-          <a href=""><div><img src="../../image/indexlogo2.png" /></div><p>grand </p></a>
+          <a href="http://www.simonton.com/"><div><img src="/image/supplier_logo/window/simonton.png" /></div><p>Simonton</p></a>
         </li>
         <li>
-          <a href=""><div><img src="../../image/grandjk.jpg" /></div><p>grand </p></a>
+          <a href="https://www.masonite.com/"><div><img src="/image/supplier_logo/window/masonite.jpg" /></div><p>Masonite</p></a>
         </li>
         <li>
-          <a href=""><div><img src="../../image/indexlogo2.png" /></div><p>grand </p></a>
-        </li>
-        <li>
-          <a href=""><div><img src="../../image/grandjk.jpg" /></div><p>grand </p></a>
-        </li>
-        <li>
-          <a href=""><div><img src="../../image/indexlogo2.png" /></div><p>grand </p></a>
-        </li>
-        <li>
-          <a href=""><div><img src="../../image/indexlogo2.png" /></div><p>grand </p></a>
+          <a href=""><div><img src="/image/indexlogo2.png" /></div><p>Customized Shower Door</p></a>
         </li>
       </ul>
     </div>
@@ -330,34 +306,28 @@
     <div class="supplier_title">
       <ul class="index_logo fix">
         <li>
-          <a href=""><div><img src="../../image/grandjk.jpg" /></div><p>Grand J&K</p></a>
+          <a href="http://www.topknobsdecor.com/"><div><img src="/image/supplier_logo/accessory/tkd.png" /></div><p>Top Knobs</p></a>
         </li>
         <li>
-          <a href=""><div><img src="../../image/indexlogo2.png" /></div><p>grand </p></a>
+          <a href="https://www.atlashomewares.com/"><div><img src="/image/supplier_logo/accessory/atlas.jpg" /></div><p>Atlas</p></a>
         </li>
         <li>
-          <a href=""><div><img src="../../image/grandjk.jpg" /></div><p>grand </p></a>
+          <a href="https://www.hardwareresources.com/"><div><img src="/image/supplier_logo/accessory/hardwareresources.jpg" /></div><p>Hardware Resources</p></a>
         </li>
         <li>
-          <a href=""><div><img src="../../image/indexlogo2.png" /></div><p>grand </p></a>
+          <a href="https://www.quickscrews.com/"><div><img src="/image/supplier_logo/accessory/charles_mcMurray_co.jpg" /></div><p>Charles McMurray Co</p></a>
         </li>
         <li>
-          <a href=""><div><img src="../../image/indexlogo2.png" /></div><p>grand </p></a>
+          <a href="http://www.kleenkover.com/"><div><img src="/image/supplier_logo/accessory/kk.jpg" /></div><p>Kleen Kover</p></a>
         </li>
         <li>
-          <a href=""><div><img src="../../image/grandjk.jpg" /></div><p>grand </p></a>
+          <a href=""><div><img src="/image/supplier_logo/accessory/c.jpg" /></div><p>Confi Ad</p></a>
         </li>
         <li>
-          <a href=""><div><img src="../../image/indexlogo2.png" /></div><p>grand </p></a>
+          <a href=""><div><img src="/image/supplier_logo/accessory/t.jpg" /></div><p>Terra Lighting</p></a>
         </li>
         <li>
-          <a href=""><div><img src="../../image/grandjk.jpg" /></div><p>grand </p></a>
-        </li>
-        <li>
-          <a href=""><div><img src="../../image/indexlogo2.png" /></div><p>grand </p></a>
-        </li>
-        <li>
-          <a href=""><div><img src="../../image/indexlogo2.png" /></div><p>grand </p></a>
+          <a href="https://miraclesealants.com/"><div><img src="/image/supplier_logo/accessory/miraclesealants.png" /></div><p>Miracle Sealants</p></a>
         </li>
       </ul>
     </div>
@@ -370,34 +340,13 @@
     <div class="supplier_title">
       <ul class="index_logo fix">
         <li>
-          <a href=""><div><img src="../../image/grandjk.jpg" /></div><p>Grand J&K</p></a>
+          <a href="https://www.monarkhome.com/"><div><img src="/image/supplier_logo/appliance/monarkhome.jpg"/></div><p>Monark Home</p></a>
         </li>
         <li>
-          <a href=""><div><img src="../../image/indexlogo2.png" /></div><p>grand </p></a>
+          <a href="potterdistributing.com"><div><img src="/image/supplier_logo/appliance/RB.png" /></div><p>RB Wholesale Distributors Inc</p></a>
         </li>
         <li>
-          <a href=""><div><img src="../../image/grandjk.jpg" /></div><p>grand </p></a>
-        </li>
-        <li>
-          <a href=""><div><img src="../../image/indexlogo2.png" /></div><p>grand </p></a>
-        </li>
-        <li>
-          <a href=""><div><img src="../../image/indexlogo2.png" /></div><p>grand </p></a>
-        </li>
-        <li>
-          <a href=""><div><img src="../../image/grandjk.jpg" /></div><p>grand </p></a>
-        </li>
-        <li>
-          <a href=""><div><img src="../../image/indexlogo2.png" /></div><p>grand </p></a>
-        </li>
-        <li>
-          <a href=""><div><img src="../../image/grandjk.jpg" /></div><p>grand </p></a>
-        </li>
-        <li>
-          <a href=""><div><img src="../../image/indexlogo2.png" /></div><p>grand </p></a>
-        </li>
-        <li>
-          <a href=""><div><img src="../../image/indexlogo2.png" /></div><p>grand </p></a>
+          <a href="http://www.gotatsumaki.com/"><div><img src="/image/supplier_logo/appliance/tsumaki.jpg" /></div><p>Tatsumaki</p></a>
         </li>
       </ul>
     </div>
@@ -410,38 +359,28 @@
     <div class="supplier_title">
       <ul class="index_logo fix">
         <li>
-          <a href=""><div><img src="../../image/grandjk.jpg" /></div><p>Grand J&K</p></a>
+          <a href=""><div><img src="/image/supplier_logo/other/east_bay.png" /></div><p>East Bay Molding & Beyond LLC</p></a>
         </li>
         <li>
-          <a href=""><div><img src="../../image/indexlogo2.png" /></div><p>grand </p></a>
+          <a href=""><div><img src="/image/supplier_logo/other/g.jpg" /></div><p>Golden State Lumber</p></a>
         </li>
         <li>
-          <a href=""><div><img src="../../image/grandjk.jpg" /></div><p>grand </p></a>
+          <a href="http://themouldingcompany.com/"><div><img src="/image/supplier_logo/other/moulding_company.png" /></div><p>The Moulding Company</p></a>
         </li>
         <li>
-          <a href=""><div><img src="../../image/indexlogo2.png" /></div><p>grand </p></a>
+          <a href="http://www.bigjoeca.com/"><div><img src="/image/supplier_logo/other/big_joe.jpg"/></div><p>Big Joe</p></a>
         </li>
         <li>
-          <a href=""><div><img src="../../image/indexlogo2.png" /></div><p>grand </p></a>
+          <a href="http://www.wswcorp.com/"><div><img src="/image/supplier_logo/other/western_state.png" /></div><p>Western State Wholesale</p></a>
         </li>
         <li>
-          <a href=""><div><img src="../../image/grandjk.jpg" /></div><p>grand </p></a>
+          <a href="http://www.seci.com/"><div><img src="/image/supplier_logo/other/seci.png" /></div><p>Saft Environmental Control Of California, Inc.</p></a>
         </li>
         <li>
-          <a href=""><div><img src="../../image/indexlogo2.png" /></div><p>grand </p></a>
-        </li>
-        <li>
-          <a href=""><div><img src="../../image/grandjk.jpg" /></div><p>grand </p></a>
-        </li>
-        <li>
-          <a href=""><div><img src="../../image/indexlogo2.png" /></div><p>grand </p></a>
-        </li>
-        <li>
-          <a href=""><div><img src="../../image/indexlogo2.png" /></div><p>grand </p></a>
+          <a href="http://www.brilliantdepot.com/"><div><img src="/image/supplier_logo/other/brilliantdepot.png" /></div><p>Brilliant Depot Inc (Lighting)</p></a>
         </li>
       </ul>
-    </div> -->
-
+    </div>
    
 <div class="bottom_space"></div>
 </div>
