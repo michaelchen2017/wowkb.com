@@ -1,11 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Wow Kitchen & Bath</title>
-  <link rel="shortcut icon" type="image/x-icon" href="image/favicon.ico">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WOWKB</title>
+  <link rel="shortcut icon" type="image/x-icon" href="/image/favicon.ico">
   <link rel="stylesheet" type="text/css" href="/template/common/css/common.css">
   <link rel="stylesheet" type="text/css" href="/account/css/account.css">
-  <link rel="stylesheet" type="text/css" href="/template/common/css/temporary.css">
+  <link rel="stylesheet" type="text/css" href="/prewowkb/css/prepage.css">
+  <script src="https://use.fontawesome.com/99d52acf31.js"></script>
 </head>
 <body>
 {%include file="$root/template/common/navbar.html"%}
@@ -15,7 +18,7 @@
     {%include file="$root/template/common/sidebar.html"%}
     
 <div id="admin_main">
-    <div class="productLink topspace">
+<!--     <div class="productLink topspace">
       <div class="step_each step_current">
         <div class="step_choose">1</div>
             填写作品信息
@@ -25,7 +28,7 @@
         <div class="step_circle">2</div>
             上传物料图片
       </div>
-    </div>
+    </div> -->
 
       <form action="/account/space.php?act=designer_upload_process" method="post" enctype="multipart/form-data">
 
@@ -37,7 +40,7 @@
               </tr>
               <tr>
                 <td>作品名称<span class="required">*</span></td>
-                <td><input type="text" class="input-field" name="name" value="颜色＋材质＋服务" onblur="if (this.value == '') {this.value = '颜色＋材质＋服务';}"onfocus="if (this.value == '颜色＋材质＋服务') {this.value = '';}" /></td>
+                <td><input type="text" class="input-field" name="name" value/></td>
               </tr>
               <tr>
                 <td>作品类别<span class="required">*</span></td>
@@ -53,12 +56,10 @@
               </tr>
               <tr>
                 <td>设计图片<span class="required">*</span></td>
-                <td><input type="file" name="file"></td>
+                <td><input type="file" name="file">
+                  <div id="type_counter"></div>
+                </td>
               </tr>
-             <!--  <tr>
-                <td>物料名称<span class="required">*</span></td>
-                <td><input type="text" class="input-field" name="materialname" value="颜色＋材质" onblur="if (this.value == '') {this.value = '颜色＋材质';}"onfocus="if (this.value == '颜色＋材质') {this.value = '';}"/></td>
-              </tr> -->
               <tr>
                 <td colspan="2">
                   <div class="design_upload_title upload_blank">项目整体预算</div>
@@ -66,7 +67,8 @@
               </tr>
               <tr>
                 <td>项目成本<span class="required">*</span></td>
-                <td><input type="text" class="input-field" name="price" value="只输入数字" onblur="if (this.value == '') {this.value = '只输入数字';}"onfocus="if (this.value == '只输入数字') {this.value = '';}"/></td>
+                <td><input type="number" class="input-field" name="price" value=""/><a title="popup" onclick="return popup()"><i class="fa fa-calculator icon_style" aria-hidden="true"> 报价计算器</i></a>
+                <div id="type_counter">只输入数字</div></td>
               </tr>
               <tr>
                 <td colspan="2">
@@ -83,8 +85,58 @@
                 </td>
               </tr>
               <tr>
-                <td>空间尺寸</td>
-                <td><input type="text" class="input-field" name="size" value="" /></td>
+                <td>作品风格<span class="required">*</span></td>
+                <td>
+                  <select>
+                    <option value="Mid">Mid-century Modern Style</option>
+                    <option value="Modern">Modern Style</option>
+                    <option value="Art">Art Deco Style</option>
+                    <option value="Minimalism">Minimalism Style</option>
+                    <option value="Traditional">Traditional Style</option>
+                    <option value="Chinese">Chinese Style</option>
+                    <option value="Japanese">Japanese Style</option>
+                    <option value="Scandinavian">Scandinavian Design Style</option>
+                    <option value="Eclectic">Eclectic Style</option>
+                    <option value="Country">Country Style</option>
+                  </select>
+                </td>
+              </tr>
+              <tr>
+                <td>空间面积<span class="required">*</span></td>
+                <td>
+                  <select>
+                    <option value="">Smaller: < 70 sq. ft</option>
+                    <option value="">Small: 71 - 100 sq.ft</option>
+                    <option value="">Medium: 101 - 200 sq. ft</option>
+                    <option value="">Large: 201 - 400 sq. ft</option>
+                    <option value="">Larger: > 400 sq. ft</option>
+                  </select>
+                </td>
+              </tr>
+              <tr>
+                <td>形状<span class="required">*</span></td>
+                <td>
+                  <select>
+                    <option value="square">正方形</option>
+                    <option value="rectangle">长方形</option>
+                    <option value="multiple">多边形</option>
+                  </select>
+                </td>
+              </tr>
+              <tr>
+                <td>布局<span class="required">*</span></td>
+                <td>
+                  <select>
+                    <option value="one">一字型</option>
+                    <option value="onem">一字型带中岛</option>
+                    <option value="l">L型</option>
+                    <option value="lm">L型带中岛</option>
+                    <option value="u">U型</option>
+                    <option value="um">U型带中岛</option>
+                    <option value="g">G型</option>
+                    <option value="gallery">步入型</option>
+                  </select>
+                </td>
               </tr>
               <tr>
                 <td>材质</td>
@@ -102,14 +154,58 @@
                 <td>应用</td>
                 <td><input type="text" class="input-field" name="application" value="" /></td>
               </tr>
+              <tr>
+                <td colspan="2">
+                  <div class="design_upload_title upload_blank">物料关联</div>
+                </td>
+              </tr>
+              <tbody id="tb">
+              <tr>
+                <td>物料编号<span class="required">*</span></td>
+                <td id="addmaterial"><input type="text" class="input-field-short" name="" value="" /><input type="text" class="input-field-short" name="" value="" /><a title="popmaterial" onclick="return popmaterial()"><i class="fa fa-cube icon_style" aria-hidden="true"> 物料库搜索</i></a><input type="button" class="addbutton" value="增加" onclick="add()"><br /><div id="type_counter">输入物料编号<span class="right">输入数量</span></div>
+                </td>
+              </tr>
+            </tbody>
             </table>
-            <span>&nbsp;</span><input type="submit" value="提交"/>
+            <span>&nbsp;</span><input type="submit" value="提交" class="submit_button button_left"/>
           </form>
       </div>
   </div>
 
 {%include file="$root/template/common/footer.html"%}
-
+<script language="javascript"> 
+function countChar(textareaName,spanName) 
+{ 
+document.getElementById(spanName).innerHTML = 250 - document.getElementById(textareaName).value.length; 
+} 
+</script>
+<script type="text/javascript">
+function popup()
+{
+        window.open("../common/caculator.html", "", "toolbar=no,height=800,width=740");
+        return false;
+}
+function popmaterial()
+{
+        window.open("search_material.html", "", "toolbar=no");
+        return false;
+}
+</script>
+<script type="text/javascript">
+<script type="text/javascript">
+ function add() {  
+        var trObj = document.createElement("tr");  
+        trObj.id = new Date().getTime();  
+        trObj.innerHTML = "<td></td><td><input name='' class='input-field-short' type='text'/><input name='' type='text' class='input-field-short'/>&nbsp;<input type='button' class='addbutton' value='删除'' onclick='del(this)'></td>";  
+        document.getElementById("tb").appendChild(trObj);  
+    }  
+  function del(obj) {  
+        var trId = obj.parentNode.parentNode.id;  
+        var trObj = document.getElementById(trId);  
+        document.getElementById("tb").removeChild(trObj);  
+    } 
+</script>
+</script>
  
   </body>
 </html>

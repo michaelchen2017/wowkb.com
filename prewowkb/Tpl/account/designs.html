@@ -14,111 +14,106 @@
 
 <a class="back_top" href="#">&#8679;</a>
 
-<div class="page_intro">
-  <div class="page_intro_up">
-    <h2>WOWKB作品</h2>
-  </div>
-  <div class="pageheader_bg"></div>
-  <img class="pageheader" src="../../image/pageheader.png">  
-</div>
+<div id="body_design">
+  <div id="sidebar">      
+      <div id="accordion" role="tablist" aria-multiselectable="true">
+          <div class="panel panel-default">
+              <div class="panel-heading" role="tab" id="headingOne">
+                  <div class="panel-title">
+                      <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">BY STYLE
+                      </a>
+                  </div>
+              </div>
+              <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                  <ul id="catogory_list">
+                      <li class="secondList">All Styles</li>
+                      <li>Mid-century Modern Style</li>
+                      <li>Modern Style</li>
+                      <li>Art Deco Style</li>
+                      <li>Minimalism Style</li>
+                      <li>Traditional Style</li>
+                      <li>Chinese Style</li>
+                      <li>Japanese Style</li>
+                      <li>Scandinavian Design Style</li>
+                      <li>Eclectic Style</li>
+                      <li>Country Style</li>
+                  </ul>
+              </div>
+          </div>
+          <div class="panel panel-default">
+              <div class="panel-heading" role="tab" id="headingTwo">
+                  <div class="panel-title">
+                      <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">BY SIZE RANGE
+                      </a>
+                  </div>
+              </div>
+              <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                  <ul id="catogory_list">
+                      <li class="secondList">All Size Ranges</li>
+                      <li>Smaller<span class="comment">< 70 sq. ft</span></li>
+                      <li>Small<span class="comment">71 - 100 sq.ft</span></li>
+                      <li>Medium<span class="comment">101 - 200 sq. ft</span></li>
+                      <li>Large<span class="comment">201 - 400 sq. ft</span></li>
+                      <li>Larger<span class="comment">> 400 sq. ft</span></li>
+                  </ul>
+              </div>
+          </div>
+          <div class="panel panel-default">
+              <div class="panel-heading" role="tab" id="headingThree">
+                  <div class="panel-title">
+                      <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">BY SPACE SAHPE
+                      </a>
+                  </div>
+              </div>
+          <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+              <ul id="catogory_list">
+                  <li class="secondList">All Space Shapes</li>
+                  <li>Square</li>
+                  <li>Rectangle</li>
+                  <li>Multiple pattern</li>
+              </ul>
+          </div>
+          </div>
+          <div class="panel panel-default">
+              <div class="panel-heading" role="tab" id="headingFour">
+                  <div class="panel-title">
+                      <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour">BY LAYOUT
+                      </a>
+                  </div>
+              </div>
+          <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
+              <ul id="catogory_list">
+                  <li class="secondList">All Kitchen Layouts</li>
+                  <li>One-Wall Kitchen</li>
+                  <li>One-Wall with Island</li>
+                  <li>L- Shape Kitchen</li>
+                  <li>L-Shaped with Island</li>
+                  <li>U- Shape Kitchen</li>
+                  <li>U-Shaped with Island</li>
+                  <li>G- Shape Kitchen</li>
+                  <li>Galley Kitchen</li>
+              </ul>
+          </div>
+          </div>
+      </div>
+    </div><!-- sidebar -->
 
-<div class="supplier_catogory_menu">
-    <a class="catogory_button" href="#jiaju">家居设计</a>
-    <div class="button_center_line"></div>
-    <a class="catogory_button" href="#kongjian">空间规划</a>
-    <div class="button_center_line"></div>
-    <a class="catogory_button" href="#shinei">室内装修</a>
-  </div>
-
-<div id="body">
   
-  <div class="temp_mainArea">  
-  {%if !empty($jiaju)%}
-  <div id="jiaju"></div>
-  <div class="index_project_title">家居设计</div> 
-    {%foreach from=$jiaju key=i item=val%}
-      <a href="/prewowkb/account.php?act=design_detail&id={%$val['pk_id']|default:''%}">
-        <div class="designs_project">
-          <div class="designs_project_pic">
-            <img class="designs_project_pic" src="{%$val['pic_path']|default:''%}">
-          </div>
-          <div class="admin_collect_intro">
-            <div class="admin_collect_title">{%$val['name']|default:''%}</br></div>
-          </div>
-        </div>
-      </a>
-    {%/foreach%}
-{%/if%}
+  <div class="right_mainarea">  
 
-{%if !empty($kongjian)%}
- <div id="kongjian"></div>
- <div class="index_project_title project_title_blank" >空间规划</div>
- 	{%foreach from=$kongjian key=i item=val%}
-      <a href="/prewowkb/account.php?act=design_detail&id={%$val['pk_id']|default:''%}">
-        <div class="designs_project">
+      <a href="design_detail.html">
+        <div class="search_designs_project">
           <div class="designs_project_pic">
-            <img class="designs_project_pic" src="{%$val['pic_path']|default:''%}">
+            <img class="designs_project_pic" src="/image/customize/A7/design.jpg">
           </div>
-          <div class="admin_collect_intro">
-            <div class="admin_collect_title">{%$val['name']|default:''%}</br></div>
+          <div class="project_collect_intro">
+            <div class="admin_collect_title">奶油色枫木橱柜定制</br></div>
           </div>
         </div>
       </a>
-    {%/foreach%}
-{%/if%}
-
-{%if !empty($shinei)%}
- <div id="shinei"></div>
- <div class="index_project_title project_title_blank">室内装修</div>
- 	{%foreach from=$shinei key=i item=val%}
-      <a href="/prewowkb/account.php?act=design_detail&id={%$val['pk_id']|default:''%}">
-        <div class="designs_project">
-          <div class="designs_project_pic">
-            <img class="designs_project_pic" src="{%$val['pic_path']|default:''%}">
-          </div>
-          <div class="admin_collect_intro">
-            <div class="admin_collect_title">{%$val['name']|default:''%}</br></div>
-          </div>
-        </div>
-      </a>
-    {%/foreach%}
-{%/if%}
-
-{%if !empty($landscape)%}
- <div id="shinei"></div>
- <div class="index_project_title project_title_blank">景观</div>
- 	{%foreach from=$landscape key=i item=val%}
-      <a href="/prewowkb/account.php?act=design_detail&id={%$val['pk_id']|default:''%}">
-        <div class="designs_project">
-          <div class="designs_project_pic">
-            <img class="designs_project_pic" src="{%$val['pic_path']|default:''%}">
-          </div>
-          <div class="admin_collect_intro">
-            <div class="admin_collect_title">{%$val['name']|default:''%}</br></div>
-          </div>
-        </div>
-      </a>
-    {%/foreach%}
-{%/if%}
-
-{%if !empty($building)%}
- <div id="shinei"></div>
- <div class="index_project_title project_title_blank">建筑</div>
- 	{%foreach from=$building key=i item=val%}
-      <a href="/prewowkb/account.php?act=design_detail&id={%$val['pk_id']|default:''%}">
-        <div class="designs_project">
-          <div class="designs_project_pic">
-            <img class="designs_project_pic" src="{%$val['pic_path']|default:''%}">
-          </div>
-          <div class="admin_collect_intro">
-            <div class="admin_collect_title">{%$val['name']|default:''%}</br></div>
-          </div>
-        </div>
-      </a>
-    {%/foreach%}
-{%/if%}
+       
+     
     </div>
-
 
 </div><!-- body --> 
 </body>

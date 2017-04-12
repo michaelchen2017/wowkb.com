@@ -10,31 +10,51 @@
 .designs_project{
   width:290px;
   height: 250px;
-  border: 1px solid #d5d5d5;
-  background-color: #fff;
   display: inline-block;
   vertical-align: top;
   margin: 10px 10px 20px 10px;
 }
 .project_title_blank{
-	margin-top: 40px;
+	padding-top: 40px;
 }
 .designs_project_pic{
   width: 288px;
   height:206px;
 }
-.admin_collect_intro{
+.title_category{
+	color: orange;
+	font-family: 'PingFang ExtraLight';
+	margin-left: 10px;
+}
+.project_collect_intro{
 	border: 0px solid red;
-	display: inline-block;
-	vertical-align: top;
-	text-align: left;
-	width: 240px;
-	background-color: #161616;
-	width: 100%;
+	width:288px;
 	height: 42px;
-	padding-left: 20px;
 	padding-top: 10px;
 	line-height: 1.6;
+}
+.icon_style{
+	color: orange;
+	margin-left: 14px;
+	cursor: pointer;
+}
+.admin_collect_title{
+	width: 70%;
+	font-size: 14px;
+	color: #555555;
+	display: inline-block;
+	vertical-align: top;
+	border: 0px solid green;
+	text-align: left;
+}
+.project_design_price{
+	float: right;
+	border: 0px solid red;
+	color: #e57f27;
+	width: 20%;
+	display: inline-block;
+	vertical-align: top;
+	font-family: 'Hiragino Sans GB W3';
 }
 .designer_catogory{
 	border: 0px solid red;
@@ -70,10 +90,6 @@
 	font-family: 'PingFang ExtraLight';
 	margin-left: 6px;
 	color: #5d5d5d;
-}
-.admin_collect_title{
-	font-size: 14px;
-	color: #ebebeb;
 }
 .admin_collect_designer{
 	font-size: 16px;
@@ -188,12 +204,12 @@
 }
 .each_step{
 	border: 0px solid red;
-	width: 200px;
+	width: 220px;
 	height: 200px;
 	display: inline-block;
 	vertical-align: top;
-	margin-left: 15px;
-	margin-right: 15px;
+	margin-left: 20px;
+	margin-right: 20px;
 	font-size: 14px;
 }
 .step_icon{
@@ -228,9 +244,12 @@
 	border-radius: 2px;
 }
 .supplier_title{
-  width: 100%;
+  max-width: 1320px;
   min-height: 200px;
-  text-align: center;
+  border: 0px solid green;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: left;
 }
 .index_logo{
 	margin: 0;
@@ -249,19 +268,20 @@
   margin:20px;
   background-color: #fff;
   border: 1px solid #d5d5d5;
-  width: 220px;
+  width: 250px;
   padding-top: 20px;
   padding-bottom: 16px;
 }
 .index_logo li div{
   display:table-cell; 
   width:100px; 
-  height:100px; 
+  height:110px; 
   text-align:center; 
   vertical-align:middle;
 }
 .index_logo li div img{
   vertical-align:middle;
+  	border: 0px solid red;
 }
 .supplier_catogory{
 	margin-top: 100px;
@@ -365,7 +385,7 @@
   margin:10px;
   background-color: #fff;
   border: 1px solid #d5d5d5;
-  width: 420px;
+  width: 410px;
   padding-top: 20px;
   padding-bottom: 16px;
 }
@@ -735,7 +755,7 @@
 	border: 0px solid red;
 }
 #design_project_designer_head{
-	width: 70px;
+	width: 64px;
 	display: inline-block;
 	vertical-align: top;
 	margin-top: 20px;
@@ -759,6 +779,27 @@
 	font-size: 28px;
 	margin-bottom: 40px;
 	text-align: center;
+}
+.form_title_intro{
+	font-size: 20px;
+	text-align: center;
+	margin-top: 35vh;
+	width: 80%;
+	margin-left: auto;
+	margin-right: auto;
+}
+.form_button{
+	width: 110px;
+	height: 40px;
+	background-color: orange;
+	color: #fff;
+	text-align: center;
+	line-height: 40px;
+	font-size: 14px;
+	margin-left: auto;
+	margin-right: auto;
+	border-radius: 4px;
+	margin-top: 40px;
 }
 #customize{
     border-collapse: collapse;
@@ -837,10 +878,21 @@
 	padding-left: 8px;
 	width: 354px;
 }
+#customize tr td .table_pic{
+	width: 100%;
+	height: 100px;
+	border: 1px solid red;
+}
+#customize tr td .table_pic .each_select{
+	width: 50px;
+	height: 50px;
+	border: 1px solid green;
+	display: inline-block;
+	vertical-align: top;
+}
 .submit_button{
 	width: 100px;
 	height: 40px;
-	line-height: 40px;
 	margin-top: 40px;
 	margin-left: 42%;
 	background-color:orange;
@@ -954,7 +1006,7 @@
 	border: 0px solid red;
 	margin-left: auto;
 	margin-right: auto;
-	margin-top: 60px;
+	margin-top: 120px;
 	line-height: 2;
 	color: #515151;
 }
@@ -966,11 +1018,27 @@
 	width: 98%;
 	margin-left: auto;
 	margin-right: auto;
-	font-size: 16px;
-	padding-bottom: 10px;
+	font-size: 14px;
 	margin-bottom: 10px;
 	text-align: left;
 	padding-left: 10px;
+}
+.index_title{
+	font-size: 20px;
+	text-align: left;
+	margin-bottom: 10px;
+	display: inline-block;
+	margin-top: -10px;
+	margin-right: 10px;
+}
+.project_title_category{
+	border-bottom: 0px solid orange;
+	height: 24px;
+	display: inline-block;
+	vertical-align: top;
+	margin-right: 4px;
+	margin-left: 4px;
+	color: #8c8c8c;
 }
 .dropdown {
     position: relative;
@@ -1091,10 +1159,12 @@
 	box-shadow: 5px 5px 5px 0 rgba(0,0,0,.2);
 }
 .upload_form td{
-	background-color: #ebebeb;
+	background-color: #fff;
 	border: 0px solid red;
 	text-align: left;
 	min-width: 80px;
+	border-radius: 4px;
+	padding-left:40px;
 }
 .upload_form label{
 	border: 0px solid red;
@@ -1111,8 +1181,20 @@
 	width: 340px;
 	height: 30px;
 	border: 1px solid #d5d5d5;
-	color: #afafaf;
 	padding-left: 8px;
+}
+.upload_form tr td .input-field-short{
+	width: 160px;
+	margin-right: 10px;
+}
+.upload_form tr td .addbutton{
+	width: 90px;
+	height: 30px;
+	border: 1px solid orange;
+	color: orange;
+	background-color: #fff;
+	border-radius: 4px;
+	margin-left: 10px;
 }
 .upload_form input:focus{
 	outline: none;
@@ -1149,16 +1231,21 @@
 	color: orange;
 }
 .design_upload_title{
-	width: 100%;
+	width: 96%;
 	border-bottom: 1px solid #d5d5d5;
-	color: orange;
+	color: #383838;
 	margin-bottom: 20px;
-
+	font-size: 16px;
+	padding-top: 20px;
+	font-family: 'Microsoft YaHei';
 }
 #type_counter{
 	font-size: 12px;
 	color: #afafaf;
-	margin-left: 264px;
+	margin-left: 0px;
+}
+#type_counter .right{
+	margin-left: 110px;
 }
 .upload_blank{
 	margin-top: 20px;
@@ -1186,4 +1273,87 @@
 	height: 100px;
 	margin-left: auto;
 	margin-right: auto;
+}
+.hire_email{
+	text-align: center;
+	color: orange;
+	margin-top: 20px;
+}
+.icon_bottom{
+	margin-left:14px;
+	margin-right: 14px;
+}
+
+
+/*作品检索*/
+
+/*物料检索页面*/
+.right_mainarea{
+   margin-left: auto;
+   margin-right: auto;
+   border: 0px solid red;
+   text-align: left;
+   display: inline-block;
+   vertical-align: top;
+   padding-bottom: 60px;
+   width: 78%;
+   position: absolute;
+   margin-left: 20px;
+}
+.search_designs_project{
+  width:290px;
+  height: 250px;
+  display: inline-block;
+  vertical-align: top;
+  border: 0px solid red;
+  margin: 0px 8px 16px 8px;
+}
+#sidebar{
+   margin-left: 20px;
+	width: 240px;
+   height:auto;
+   display: inline-block;
+   vertical-align: top;
+   background-color: #fff;
+   padding-top: 20px;
+   padding-bottom: 20px;
+   border: 0px solid red;
+   overflow-y:scroll; 
+   box-shadow: 0 5px 10px rgba(0,0,0,0.06), 0 2px 2px rgba(0,0,0,0.03);
+}
+.sidebar_gapline{
+   width: 90%;
+   height:1px;
+   margin-left: auto;
+   margin-right: auto;
+   background-color: #ebebeb;
+   margin-top: 20px;
+}
+.secondList{
+   color: #f8a041;
+   margin-bottom: 10px;
+}
+#catogory_list li .comment{
+	color: #afafaf;
+	margin-left: 10px;
+} 
+.panel{
+  margin-left: 20px;
+}
+#catogory_list{
+  line-height: 2.5;
+  margin-top: 10px;
+  list-style-type: none;
+  padding: 0;
+  padding-left: 20px;
+}
+.panel-title{
+  font-size: 16px !important;
+}
+.panel-heading{
+  background-color: #fff !important;
+  border: 0px solid red !important;
+}
+.panel{
+  border: 0px solid red !important;
 }
