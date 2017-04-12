@@ -9,6 +9,7 @@
   <link rel="stylesheet" type="text/css" href="/account/css/account.css">
   <link rel="stylesheet" type="text/css" href="/prewowkb/css/prepage.css">
   <script src="https://use.fontawesome.com/99d52acf31.js"></script>
+  <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.0.min.js"></script>
 </head>
 <body>
 {%include file="$root/template/common/navbar.html"%}
@@ -162,7 +163,11 @@
               <tbody id="tb">
               <tr>
                 <td>物料编号<span class="required">*</span></td>
-                <td id="addmaterial"><input type="text" class="input-field-short" name="" value="" /><input type="text" class="input-field-short" name="" value="" /><a title="popmaterial" onclick="return popmaterial()"><i class="fa fa-cube icon_style" aria-hidden="true"> 物料库搜索</i></a><input type="button" class="addbutton" value="增加" onclick="add()"><br /><div id="type_counter">输入物料编号<span class="right">输入数量</span></div>
+                <td id="addmaterial">
+                  <input type="text" class="input-field-short" name="" value="" />
+                  <input type="text" class="input-field-short" name="" value="" />
+                  <a title="popmaterial" onclick="return popmaterial()"><i class="fa fa-cube icon_style" aria-hidden="true"> 物料库搜索</i></a>
+                  <input type="button" class="addbutton" value="增加" id="addMaterialButton"><br /><div id="type_counter">输入物料编号<span class="right">输入数量</span></div>
                 </td>
               </tr>
             </tbody>
@@ -192,13 +197,12 @@ function popmaterial()
 }
 </script>
 <script type="text/javascript">
-<script type="text/javascript">
- function add() {  
-        var trObj = document.createElement("tr");  
-        trObj.id = new Date().getTime();  
-        trObj.innerHTML = "<td></td><td><input name='' class='input-field-short' type='text'/><input name='' type='text' class='input-field-short'/>&nbsp;<input type='button' class='addbutton' value='删除'' onclick='del(this)'></td>";  
-        document.getElementById("tb").appendChild(trObj);  
-    }  
+  $("#addMaterialButton").click(function() {
+    var trObj = document.createElement("tr");  
+    trObj.id = new Date().getTime();  
+    trObj.innerHTML = "<td></td><td><input name='' class='input-field-short' type='text'/><input name='' type='text' class='input-field-short'/>&nbsp;<input type='button' class='addbutton' value='删除'' onclick='del(this)'></td>";  
+    $("#tb").append(trObj);  
+  });
   function del(obj) {  
         var trId = obj.parentNode.parentNode.id;  
         var trObj = document.getElementById(trId);  
