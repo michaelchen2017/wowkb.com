@@ -41,12 +41,13 @@
               </tr>
               <tr>
                 <td>作品名称<span class="required">*</span></td>
-                <td><input type="text" class="input-field" name="name" value/></td>
+                <td><input type="text" class="input-field" name="name" ></td>
               </tr>
               <tr>
                 <td>作品类别<span class="required">*</span></td>
                 <td>
                   <select name="category" id="mySelect1" onchange="myFunction()">
+                    <option value="">选择类别</option>
                     <option value="furnish">家居设计</option>
                     <option value="space">空间规划</option>
                     <option value="finish">室内装修</option>
@@ -57,7 +58,7 @@
               </tr>
               <tr>
                 <td>设计图片<span class="required">*</span></td>
-                <td><input type="file" name="file">
+                <td><input type="file" name="files">
                   <div id="type_counter"></div>
                 </td>
               </tr>
@@ -88,7 +89,8 @@
               <tr>
                 <td>作品风格<span class="required">*</span></td>
                 <td>
-                  <select>
+                  <select name="style">
+                  <option value="">选择风格</option>
                     <option value="Mid">Mid-century Modern Style</option>
                     <option value="Modern">Modern Style</option>
                     <option value="Art">Art Deco Style</option>
@@ -105,7 +107,8 @@
               <tr>
                 <td>空间面积<span class="required">*</span></td>
                 <td>
-                  <select>
+                  <select name="style">
+                   <option value="">选择面积</option>
                     <option value="">Smaller: < 70 sq. ft</option>
                     <option value="">Small: 71 - 100 sq.ft</option>
                     <option value="">Medium: 101 - 200 sq. ft</option>
@@ -117,7 +120,8 @@
               <tr>
                 <td>形状<span class="required">*</span></td>
                 <td>
-                  <select>
+                  <select name="shape">
+                  <option value="">选择形状</option>
                     <option value="square">正方形</option>
                     <option value="rectangle">长方形</option>
                     <option value="multiple">多边形</option>
@@ -127,7 +131,8 @@
               <tr>
                 <td>布局<span class="required">*</span></td>
                 <td>
-                  <select>
+                  <select name="layout">
+                  <option value="">选择布局</option>
                     <option value="one">一字型</option>
                     <option value="onem">一字型带中岛</option>
                     <option value="l">L型</option>
@@ -164,8 +169,8 @@
               <tr>
                 <td>物料编号<span class="required">*</span></td>
                 <td id="addmaterial">
-                  <input type="text" class="input-field-short" name="" value="" />
-                  <input type="text" class="input-field-short" name="" value="" />
+                  <input type="text" class="input-field-short" name="m_ids[]" value="" />
+                  <input type="text" class="input-field-short" name="amount[]" value="" />
                   <a title="popmaterial" onclick="return popmaterial()"><i class="fa fa-cube icon_style" aria-hidden="true"> 物料库搜索</i></a>
                   <input type="button" class="addbutton" value="增加" id="addMaterialButton"><br /><div id="type_counter">输入物料编号<span class="right">输入数量</span></div>
                 </td>
@@ -200,7 +205,7 @@ function popmaterial()
   $("#addMaterialButton").click(function() {
     var trObj = document.createElement("tr");  
     trObj.id = new Date().getTime();  
-    trObj.innerHTML = "<td></td><td><input name='' class='input-field-short' type='text'/><input name='' type='text' class='input-field-short'/>&nbsp;<input type='button' class='addbutton' value='删除'' onclick='del(this)'></td>";  
+    trObj.innerHTML = "<td></td><td><input name='m_ids[]' class='input-field-short' type='text'/><input name='amount[]' type='text' class='input-field-short'/>&nbsp;<input type='button' class='addbutton' value='删除'' onclick='del(this)'></td>";  
     $("#tb").append(trObj);  
   });
   function del(obj) {  

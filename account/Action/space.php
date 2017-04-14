@@ -277,14 +277,13 @@ class space extends Action{
 	
 	function ACT_designer_upload_process(){
 
-		if(!empty($_POST['name'])){
+		if(isset($_POST) && !empty($_POST['name'])){
 		
 			if(!empty($_POST['name'])){
 				$item_id = time() . "_" . $_POST['name'] . "_" . rand(1, 1000);
 		
-		
 				$target_dir = DOCUROOT . "/image/material/";
-				$target_file = $target_dir . basename($_FILES["file"]["name"]);
+				$target_file = $target_dir . basename($_FILES["files"]["name"]);
 		
 				$imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
 				$imageFileType = strtolower($imageFileType);
