@@ -428,6 +428,10 @@ class account extends Action{
 			go("/");
 		}
 	}
+	
+	function ACT_form_success(){
+		
+	}
 
 	function ACT_form_customize_process(){
 		$obj_customer = load("prewowkb_sys_msg");
@@ -455,7 +459,7 @@ class account extends Action{
 // 								$this->obj_tmp_customize->insert($res);
                              $obj_customer->insert($res);
 			
-								go("/");
+								go("/prewowkb/account.php?act=form_success");
 // 			$item_id = time() . "_" . md5($_POST['name']) . "_" . rand(1, 1000);
 		
 		
@@ -541,38 +545,41 @@ class account extends Action{
 			landscape
 			building
 		 */
-		$obj_tmp_zuopins = load("account_tmp_zuopin");
-		$res = $obj_tmp_zuopins->getAll("*", array("visible"=>1));
-		
-		$jiaju = array();
-		$kongjian = array();
-		$shinei = array();
-		$landscape = array();
-		$building = array();
 		
 		
-		if(!empty($res)){
-			foreach ($res as $val){
-				if($val['category'] == "furnish")
-					$jiaju[] = $val;
-				else if($val['category'] == "space")
-					$kongjian[] = $val;
-				else if($val['category'] == "construct")
-					$shinei[] = $val;
-				else if($val['category'] == "landscape")
-					$landscape[] = $val;
-				else if($val['category'] == "building")
-					$building[] = $val;
+		
+// 		$obj_tmp_zuopins = load("account_tmp_zuopin");
+// 		$res = $obj_tmp_zuopins->getAll("*", array("visible"=>1));
+		
+// 		$jiaju = array();
+// 		$kongjian = array();
+// 		$shinei = array();
+// 		$landscape = array();
+// 		$building = array();
+		
+		
+// 		if(!empty($res)){
+// 			foreach ($res as $val){
+// 				if($val['category'] == "furnish")
+// 					$jiaju[] = $val;
+// 				else if($val['category'] == "space")
+// 					$kongjian[] = $val;
+// 				else if($val['category'] == "construct")
+// 					$shinei[] = $val;
+// 				else if($val['category'] == "landscape")
+// 					$landscape[] = $val;
+// 				else if($val['category'] == "building")
+// 					$building[] = $val;
 					
-			}
+// 			}
 			
-		}
+// 		}
 		
-		$this->assign("jiaju", $jiaju);
-		$this->assign("kongjian", $kongjian);
-		$this->assign("shinei", $shinei);
-		$this->assign("landscape", $landscape);
-		$this->assign("building", $building);
+// 		$this->assign("jiaju", $jiaju);
+// 		$this->assign("kongjian", $kongjian);
+// 		$this->assign("shinei", $shinei);
+// 		$this->assign("landscape", $landscape);
+// 		$this->assign("building", $building);
 		
 	}
 	
