@@ -84,7 +84,7 @@
       {%foreach from=$res key=i item=val%}
         <div class="each_material">
           <div class="each_materil_pic">
-            <img class="material_pic" src="{%$val['pic_path']|default:''%}">
+            <a href="/account/space.php?act=material_detail&id={%$val['item_id']|default:''%}"><img class="material_pic" src="{%$val['pic_path']|default:''%}"></a>
           </div>        
           <div class="material_info">
             <div class="info_1">{%$val['name']|default:''%}</div>

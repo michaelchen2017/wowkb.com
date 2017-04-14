@@ -635,6 +635,18 @@ class space extends Action{
 		$this->assign("res", $res);
 	}
 	
+	function ACT_material_detail(){
+		if(isset($_GET) && !empty($_GET['id'])){
+			$item_id = $_GET['id'];
+			
+			$res = $this->obj_materials->getOne("*", array("item_id"=> $item_id, "visible" => 1));
+			$this->assign("res", $res);
+		}
+		else{
+			go("/");
+		}
+	}
+	
 // 	function ACT_search_material_process(){
 		
 // 		if(isset($_POST) && !empty($_POST['submit'])){

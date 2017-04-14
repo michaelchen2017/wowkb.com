@@ -23,27 +23,27 @@
       <div class="select_box">
       <div class="select_top_link">
         <ul>
-          <li class="upper"><a href="#">返回</a></li>
+          <li class="upper"><a href="/account/space.php?act=search_material">返回</a></li>
         </ul>
       </div>
       </div><!-- select_box -->
       <div class="search_main">
         <div class="left_main_material">
-          <img src="/image/customize/A7/material.jpg">
+          <img src="{%$res['pic_path']|default:''%}">
         </div>
         <div class="right_side">
           <div class="right_info">
-          <h3>Creme Maple Glazed</h3>
-          编号：B-21-L</br>
-          品类：Base Cabinet</br>
-          品牌：JK</br>
-          材质：RUSSIA MAPLE WOOD</br>
-          颜色：CREME</br>
-          款式：A7</br>       
-          宽：9</br>
-          高：34－1-2</br>
-          深：24</br>
-          描述：BASE CABINET WITH ONE DOOR,ONE DRAWER;1 DRWER;1 DOOR;1 ADG.SHELF
+          <h3>{%$res['name']|default:''%}</h3>
+          编号：{%$res['project_no']|default:''%}</br>
+          品类：{%$res['category']|default:''%}</br>
+          品牌：{%$res['brand']|default:''%}</br>
+          材质：{%$res['texture']|default:''%}</br>
+          颜色：{%$res['colour']|default:''%}</br>
+          款式：{%$res['style']|default:''%}</br>       
+          宽：{%$res['w']|default:''%}</br>
+          高：{%$res['h']|default:''%}</br>
+          深：{%$res['d']|default:''%}</br>
+          描述：{%$res['description']|default:''%}
         </div>
       </div>
 
