@@ -12,25 +12,13 @@
   <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.0.min.js"></script>
 </head>
 <body>
-{%include file="$root/template/common/navbar.html"%}
+{%include file="$root/template/common/navbar_prewowkb.html"%}
 
 
 <div id="body_dash">
     {%include file="$root/template/common/sidebar.html"%}
     
 <div id="admin_main">
-<!--     <div class="productLink topspace">
-      <div class="step_each step_current">
-        <div class="step_choose">1</div>
-            填写作品信息
-      </div>
-      <div class="step_arrow">&#8594;</div>
-      <div class="step_each">
-        <div class="step_circle">2</div>
-            上传物料图片
-      </div>
-    </div> -->
-
       <form action="/account/space.php?act=designer_upload_process" method="post" enctype="multipart/form-data">
 
            <table class="upload_form">
@@ -41,7 +29,7 @@
               </tr>
               <tr>
                 <td>作品名称<span class="required">*</span></td>
-                <td><input type="text" class="input-field" name="name" ></td>
+                <td><input type="text" class="input-field" name="name" value/></td>
               </tr>
               <tr>
                 <td>作品类别<span class="required">*</span></td>
@@ -68,13 +56,13 @@
                 </td>
               </tr>
               <tr>
-                <td>项目成本<span class="required">*</span></td>
-                <td><input type="number" class="input-field" name="price" value=""/><a title="popup" onclick="return popup()"><i class="fa fa-calculator icon_style" aria-hidden="true"> 报价计算器</i></a>
+                <td>服务报价<span class="required">*</span></td>
+                <td><input type="number" class="input-field" name="price" value="" type="number" min="1" required="true"/><a title="popup" onclick="return popup()"><i class="fa fa-calculator icon_style" aria-hidden="true"> 报价计算器</i></a>
                 <div id="type_counter">只输入数字</div></td>
               </tr>
               <tr>
                 <td colspan="2">
-                  <div class="design_upload_title upload_blank">方案总体描述</div>
+                  <div class="design_upload_title upload_blank">作品信息描述</div>
                 </td>
               </tr>
               <tr>
@@ -90,7 +78,8 @@
                 <td>作品风格<span class="required">*</span></td>
                 <td>
                   <select name="style">
-                  <option value="">选择风格</option>
+                    <option value="">请选择</option>
+                    <option disabled="disabled">----</option>
                     <option value="Mid">Mid-century Modern Style</option>
                     <option value="Modern">Modern Style</option>
                     <option value="Art">Art Deco Style</option>
@@ -107,8 +96,9 @@
               <tr>
                 <td>空间面积<span class="required">*</span></td>
                 <td>
-                  <select name="style">
-                   <option value="">选择面积</option>
+                  <select>
+                    <option value="">请选择</option>
+                    <option disabled="disabled">----</option>
                     <option value="">Smaller: < 70 sq. ft</option>
                     <option value="">Small: 71 - 100 sq.ft</option>
                     <option value="">Medium: 101 - 200 sq. ft</option>
@@ -121,7 +111,8 @@
                 <td>形状<span class="required">*</span></td>
                 <td>
                   <select name="shape">
-                  <option value="">选择形状</option>
+                    <option value="">请选择</option>
+                    <option disabled="disabled">----</option>
                     <option value="square">正方形</option>
                     <option value="rectangle">长方形</option>
                     <option value="multiple">多边形</option>
@@ -132,7 +123,8 @@
                 <td>布局<span class="required">*</span></td>
                 <td>
                   <select name="layout">
-                  <option value="">选择布局</option>
+                    <option value="">请选择</option>
+                    <option disabled="disabled">----</option>
                     <option value="one">一字型</option>
                     <option value="onem">一字型带中岛</option>
                     <option value="l">L型</option>
@@ -162,10 +154,10 @@
               </tr>
               <tr>
                 <td colspan="2">
-                  <div class="design_upload_title upload_blank">物料关联</div>
+                  <div class="design_upload_title upload_blank">物料清单关联</div>
                 </td>
               </tr>
-              <tbody id="tb">
+              <tbody id="tb1">
               <tr>
                 <td>物料编号<span class="required">*</span></td>
                 <td id="addmaterial">
@@ -173,6 +165,20 @@
                   <input type="text" class="input-field-short" name="amount[]" value="" />
                   <a title="popmaterial" onclick="return popmaterial()"><i class="fa fa-cube icon_style" aria-hidden="true"> 物料库搜索</i></a>
                   <input type="button" class="addbutton" value="增加" id="addMaterialButton"><br /><div id="type_counter">输入物料编号<span class="right">输入数量</span></div>
+                </td>
+              </tr>
+            </tbody>
+            <tr>
+                <td colspan="2">
+                  <div class="design_upload_title upload_blank">对应物料图关联</div>
+                </td>
+              </tr>
+              <tbody id="tb2">
+              <tr>
+                <td>物料编号<span class="required">*</span></td>
+                <td id="addmaterial">
+                  <input type="text" class="input-field-short" name="" value="" required="true" />
+                  <input type="button" class="addbutton" value="增加" id="addMaterialButton2"><br /><div class="type_counter">输入物料编号</div>
                 </td>
               </tr>
             </tbody>
@@ -205,13 +211,24 @@ function popmaterial()
   $("#addMaterialButton").click(function() {
     var trObj = document.createElement("tr");  
     trObj.id = new Date().getTime();  
-    trObj.innerHTML = "<td></td><td><input name='m_ids[]' class='input-field-short' type='text'/><input name='amount[]' type='text' class='input-field-short'/>&nbsp;<input type='button' class='addbutton' value='删除'' onclick='del(this)'></td>";  
-    $("#tb").append(trObj);  
+    trObj.innerHTML = "<td></td><td><input name='' class='input-field-short' type='text'/><input name='' type='text' class='input-field-short'/>&nbsp;<input type='button' class='addbutton' value='删除'' onclick='del(this)'></td>";  
+    $("#tb1").append(trObj);  
   });
   function del(obj) {  
         var trId = obj.parentNode.parentNode.id;  
         var trObj = document.getElementById(trId);  
-        document.getElementById("tb").removeChild(trObj);  
+        document.getElementById("tb1").removeChild(trObj);  
+    }
+   $("#addMaterialButton2").click(function() {
+    var trObj = document.createElement("tr");  
+    trObj.id = new Date().getTime();  
+    trObj.innerHTML = "<td></td><td><input name='' class='input-field-short' type='text'/>&nbsp;<input type='button' class='addbutton' value='删除'' onclick='del2(this)'></td>";  
+    $("#tb2").append(trObj);  
+  });
+    function del2(obj) {  
+        var trId = obj.parentNode.parentNode.id;  
+        var trObj = document.getElementById(trId);  
+        document.getElementById("tb2").removeChild(trObj);  
     } 
 </script>
  
