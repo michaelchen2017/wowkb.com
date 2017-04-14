@@ -19,7 +19,7 @@
       
       <div id="admin_content">
  
-
+	<form action="/account/space.php?act=search_material" method="post">
       <div class="select_box">
 <!--       <label class="dropdown">
         <select>
@@ -32,35 +32,35 @@
         </select>
         </label> -->
         <label class="dropdown">
-        <select>
-                <option selected>按款式选择</option>
-                <option>A7</option>
-                <option>S9</option>
-                <option>H1</option>
-                <option>S8</option>
-                <option>K3</option>
-                <option>K8</option>
-                <option>K10</option>
-                <option>S2</option>
-                <option>CO66</option>
-                <option>J5</option>
-                <option>M01</option>
+        <select  name="style">
+                <option value="" selected>按款式选择</option>
+                <option value="A7">A7</option>
+                <option value="S9">S9</option>
+                <option value="H1">H1</option>
+                <option value="S8">S8</option>
+                <option value="K3">K3</option>
+                <option value="K8">K8</option>
+                <option value="K10">K10</option>
+                <option value="S2">S2</option>
+                <option value="CO66">CO66</option>
+                <option value="J5">J5</option>
+                <option value="M01">M01</option>
         </select>
         </label>
         <label class="dropdown">
-        <select>
-                <option selected>按颜色选择</option>
-                <option>白色 - White</option>
-                <option>黑色 - Black</option>
-                <option>浅色 - Light</option>
-                <option>深色 - Dark</option>
-                <option>棕色 - Brown</option>
-                <option>灰色 - Grey</option>
-                <option>奶白色 - Off- white</option>
-                <option>橘色- Orange</option>
-                <option>蓝色 - Blue</option>
-                <option>红色 - Red</option>
-                <option>绿色 - Green</option>
+        <select name="colour">
+                <option value="" selected>按颜色选择</option>
+                <option value="White">白色 - White</option>
+                <option value="Black">黑色 - Black</option>
+                <option value="Light">浅色 - Light</option>
+                <option value="Dark">深色 - Dark</option>
+                <option value="Brown">棕色 - Brown</option>
+                <option value="Grey">灰色 - Grey</option>
+                <option value="Off- white">奶白色 - Off- white</option>
+                <option value="Orange">橘色- Orange</option>
+                <option value="Blue">蓝色 - Blue</option>
+                <option value="Red">红色 - Red</option>
+                <option value="Green">绿色 - Green</option>
         </select>
         </label>
 <!--         <label class="dropdown">
@@ -74,82 +74,28 @@
         </select>
       </label> -->
       </div><!-- select_box -->
+      <label class="">
+      <input type="submit" name="submit" value="submit">
+      </label>
+      </form>
+      
       <div class="search_main">
+      {%if !empty($res)%}
+      {%foreach from=$res key=i item=val%}
         <div class="each_material">
           <div class="each_materil_pic">
-            <img class="material_pic" src="../../image/customize/A7/material.jpg">
+            <img class="material_pic" src="{%$val['pic_path']|default:''%}">
           </div>        
           <div class="material_info">
-            <div class="info_1">Creme Maple Glazed</div>
+            <div class="info_1">{%$val['name']|default:''%}</div>
           </div>
         </div>
-
-        <div class="each_material">
-          <div class="each_materil_pic">
-            <img class="material_pic" src="../../image/customize/CO66/material.jpg">
-          </div>      
-          <div class="material_info">
-            <div class="info_1">Coffee Maple Glazed</div>
-          </div>
-        </div>
-
-        <div class="each_material">
-          <div class="each_materil_pic">
-            <img class="material_pic" src="../../image/customize/J5/material.jpg">
-          </div>
-          <div class="material_info">
-            <div class="info_1">Maple Glazed</div>
-          </div>
-        </div>
-
-        <div class="each_material">
-          <div class="each_materil_pic">
-            <img class="material_pic" src="../../image/customize/K10/material.jpg">
-          </div>
-          <div class="material_info">
-            <div class="info_1">Maple Glazed</div>
-          </div>
-        </div>
-
-        <div class="each_material">
-          <div class="each_materil_pic">
-            <img class="material_pic" src="../../image/customize/K3/material.jpg">
-          </div>
-          <div class="material_info">
-            <div class="info_1">Maple Glazed</div>
-          </div>
-        </div>
-
-        <div class="each_material">
-          <div class="each_materil_pic">
-            <img class="material_pic" src="../../image/customize/K8/material.jpg">
-          </div>
-          <div class="material_info">
-            <div class="info_1">Maple Glazed</div>
-          </div>
-        </div>
-
-        <div class="each_material">
-          <div class="each_materil_pic">
-            <img class="material_pic" src="../../image/customize/M01/material.jpg">
-          </div>
-          <div class="material_info">
-            <div class="info_1">Maple Glazed</div>
-          </div>
-        </div>
-
-        <div class="each_material">
-          <div class="each_materil_pic">
-            <img class="material_pic" src="../../image/customize/A7/B33.png">
-          </div>
-          <div class="material_info">
-            <div class="info_1">Maple Glazed</div>
-          </div>
-        </div>
-
+		{%/foreach%}
+		
+		{%/if%}
       </div>
 
-      
+     
     </div>
 
 </div>

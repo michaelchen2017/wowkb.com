@@ -613,6 +613,36 @@ class space extends Action{
 	}
 	
 	
+	function ACT_search_material(){
+		$res = array();
+		if(isset($_POST) && !empty(($_POST['submit']))){
+			$style = $_POST['style'];
+			$colour = $_POST['colour'];
+			if(!empty($style) && !empty($colour)){
+				$res = $this->obj_materials->getList("*", array("style"=>$style, "colour"=>$colour,"visible"=>1));
+			}
+			else if(empty($style) && !empty($colour)){
+				$res = $this->obj_materials->getList("*", array("colour"=>$colour,"visible"=>1));
+			}
+			else if(empty($colour) && !empty($style)){
+				$res = $this->obj_materials->getList("*", array("style"=>$style, "visible"=>1));
+			}
+			
+		}
+		else{
+			
+		}
+		$this->assign("res", $res);
+	}
+	
+// 	function ACT_search_material_process(){
+		
+// 		if(isset($_POST) && !empty($_POST['submit'])){
+			
+// 		}
+// 	}
+	
+	
 	
 	
 }
