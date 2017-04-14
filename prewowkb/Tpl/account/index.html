@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Wow Kitchen & Bath</title>
   <link rel="shortcut icon" type="image/x-icon" href="image/favicon.ico">
   <link rel="stylesheet" type="text/css" href="/template/common/css/common_temp.css">
@@ -8,113 +10,93 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="https://use.fontawesome.com/99d52acf31.js"></script>
 </head>
 <body>
 {%include file="$root/template/common/navbar_prewowkb.html"%}
 
 <div id="showArea">
-  <div id="search_slogan">定制您梦想的厨房</div>
+  <div class="search_slogan big_title">
+    <span class="slogan_top">We Design</span></br>Your Dream Kitchen
+    <div class="header_subtitle">
+      Kitchen Design has never been so simple, just choose your favorite works and designers, everything will be done effectively.</div>
+    <a href="#index_body"><div class="header_start"><i class="fa fa-angle-down" aria-hidden="true"></i></div></a>
+  </div>
   <div class="showArea_bg"></div>
-  <img id="showArea_pic" src="/image/title.png">
+  <img id="showArea_pic" src="/image/headerPic.jpg">
 </div>
 
-<div id="body">
+<div id="index_body">
   
   <div class="temp_mainArea">
-    {%if !empty($jiaju)%}
-  <div class="index_project_title">
-    家居设计
-    <a href="/prewowkb/account.php?act=designs#jiaju" class="more_design">更多</a>
+    <div class="project_title_blank">
+    <div class="gap_content_each">
+      <img class="index_icon" src="/image/index_icon2.png">
+      <div><h4>Professional design</h4>Seen the real effect of the extremely large amounts of designs.</div>
+    </div>
+    <div class="gap_content_each">
+      <img class="index_icon" src="/image/index_icon4.png">
+      <div><h4>Real Products</h4>All the products and commodities in our designs can be bought.</div>
+    </div>
+    <div class="gap_content_each">
+      <img class="index_icon" src="/image/index_icon3.png">
+      <div><h4>Best Service</h4>We provide great design services with the full refund guarantee if you are not satisfied.</div>
+    </div>
+  </div>
+  <div class="project_title_blank"></div>
+
+  <div class="index_project_title project_title_blank">
+    <div class="index_title">NEW PROJECTS</div>
+    <a href="" class="more_design">更多</a>
   </div> 
-  {%foreach from=$jiaju key=i item=val%}
-      <a href="/prewowkb/account.php?act=design_detail&id={%$val['pk_id']|default:''%}">
+  {%foreach from=$res  key=i  item=value %}  
+      <a href="/prewowkb/account.php?act=design_detail&id={%$value['pk_id']|default:''%}">
         <div class="designs_project">
           <div class="designs_project_pic">
-            <img class="designs_project_pic" src="{%$val['pic_path']|default:''%}">
+            <img class="designs_project_pic" src="{%$value['pic_path']|default:''%}">
           </div>
-          <div class="admin_collect_intro">
-            <div class="admin_collect_title">{%$val['name']|default:''%}</br></div>
+          <div class="project_collect_intro">
+            <div class="admin_collect_title">{%$value['name']|default:''%}</div>
           </div>
         </div>
       </a>
-    {%/foreach%}
-{%/if%}
-
-{%if !empty($kongjian)%}
-  <div class="index_project_title project_title_blank">
-  空间规划
-  <a href="/prewowkb/account.php?act=designs#kongjian" class="more_design">更多</a>
-  </div>
-{%foreach from=$kongjian key=i item=val%}
-      <a href="/prewowkb/account.php?act=design_detail&id={%$val['pk_id']|default:''%}">
-        <div class="designs_project">
-          <div class="designs_project_pic">
-            <img class="designs_project_pic" src="{%$val['pic_path']|default:''%}">
-          </div>
-          <div class="admin_collect_intro">
-            <div class="admin_collect_title">{%$val['name']|default:''%}</br></div>
-          </div>
-        </div>
-      </a>
-    {%/foreach%}
-{%/if%}
-
-{%if !empty($shinei)%}
+  {%/foreach%} 
 
   <div class="index_project_title project_title_blank">
-  室内装修
-  <a href="/prewowkb/account.php?act=designs#shinei" class="more_design">更多</a>
+    <div class="index_title">HOT PROJECTS</div>
+  <a href="" class="more_design">More</a>
   </div>
 
-     {%foreach from=$shinei key=i item=val%}
-      <a href="/prewowkb/account.php?act=design_detail&id={%$val['pk_id']|default:''%}">
+      <a href="design_detail.html">
         <div class="designs_project">
           <div class="designs_project_pic">
-            <img class="designs_project_pic" src="{%$val['pic_path']|default:''%}">
+            <img class="designs_project_pic" src="/image/customize/K8/design.jpg">
           </div>
-          <div class="admin_collect_intro">
-            <div class="admin_collect_title">{%$val['name']|default:''%}</br></div>
+          <div class="project_collect_intro">
+            <div class="admin_collect_title">奶油色枫木橱柜定制</br></div>
           </div>
         </div>
       </a>
-    {%/foreach%}
-{%/if%}
 
-{%if !empty($landscape)%}
-<div class="index_project_title project_title_blank">景观</div>
- 	{%foreach from=$landscape key=i item=val%}
-      <a href="/prewowkb/account.php?act=design_detail&id={%$val['pk_id']|default:''%}">
+ <div class="index_project_title project_title_blank">
+    <div class="index_title">PICKED PROJECTS</div>
+  <a href="" class="more_design">More</a>
+  </div>
+
+      <a href="design_detail.html">
         <div class="designs_project">
           <div class="designs_project_pic">
-            <img class="designs_project_pic" src="{%$val['pic_path']|default:''%}">
+            <img class="designs_project_pic" src="/image/customize/S2/design.jpg">
           </div>
-          <div class="admin_collect_intro">
-            <div class="admin_collect_title">{%$val['name']|default:''%}</br></div>
-          </div>
-        </div>
-      </a>
-    {%/foreach%}
-{%/if%}
-
-{%if !empty($building)%}
- <div id="shinei"></div>
- <div class="index_project_title project_title_blank">建筑</div>
- 	{%foreach from=$building key=i item=val%}
-      <a href="/prewowkb/account.php?act=design_detail&id={%$val['pk_id']|default:''%}">
-        <div class="designs_project">
-          <div class="designs_project_pic">
-            <img class="designs_project_pic" src="{%$val['pic_path']|default:''%}">
-          </div>
-          <div class="admin_collect_intro">
-            <div class="admin_collect_title">{%$val['name']|default:''%}</br></div>
+          <div class="project_collect_intro">
+            <div class="admin_collect_title">奶油色枫木橱柜定制</br></div>
           </div>
         </div>
-      </a>
-    {%/foreach%}
-{%/if%}
-
+      </a>  
 </div><!-- temp_mainArea -->
 </div><!-- body -->
+
+{%include file="$root/template/common/footer.html"%}
 </body>
 </html>
 

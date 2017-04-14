@@ -1,22 +1,42 @@
-<div id="navbar">
-  <div id="nav_logo">
-      <img id="nav_logo_pic" src="/image/logo4.png">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.0.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<nav id="navtop" role="navigation" class="navbar navbar-fixed-top navbar-inverse">
+  <div class="navbar-header">
+      <button type="button" data-target="#navbarCollapse" data-toggle="collapse" class="navbar-toggle">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+      </button>
+      <a  id="nav_logo" href="designs.html" class="navbar-brand">
+          <img id="nav_logo_pic" src="/image/logo4.png">
+      </a>
   </div>
+
+  <div id="navbarCollapse" class="collapse navbar-collapse">
+      <ul class="nav navbar-nav navbar-right">
+          <li><a href="#"><div class="nav_option">Become Our Designer</div></a></li>
+
+          {%if empty($userid)%}
+          <li><a href="/account/account.php?act=register"><div class="nav">Register</div></a></li>
+          <li><a href="/account/account.php?act=login"><div id="nav_sign_signin">Log In</div></a></li>
+          {%else%}
+          <li><a href="/account/admin.php?act=admin_manage"><div class="nav">物料录入</div></a></li>
+          {%if $user_type == 'designer'%}
+          <li><a href="/account/space.php?act=designer_upload"><div class="nav choose">作品录入</div></a></li>
+          {%/if%}
+          <li><a href="/account/space.php?act=user_dashboard"><div class="nav choose">我的后台账户</div></a></li>
+          <li><a href="/account/account.php?act=logout"><div class="nav">登出</div></a></li>
+          {%/if%}
+      </ul>
+  </div>
+
   
-  <div id="nav_link1">
-      <a href="/"><div class="nav">主页</div></a>
-      <a href="/prewowkb/account.php?act=designer"><div class="nav">设计</div></a>
-      <a href="/prewowkb/account.php?act=productsupplier"><div class="nav">产品</div></a>
-      <a href="/prewowkb/account.php?act=service"><div class="nav">服务</div></a>
-      <a href="/prewowkb/account.php?act=about"><div class="nav">关于我们</div></a>
-      <a href="/prewowkb/account.php?act=begincustomize"><div class="nav">开始定制</div></a>
-      {%if empty($userid)%}
-      <a href="/account/account.php?act=register"><div class="nav">注册</div></a>
-      <a href="/account/account.php?act=login"><div id="nav_sign_signin">登陆</div></a>
-      {%else%}
-      <a href="/account/space.php?act=user_dashboard"><div class="nav">我的后台账户</div></a>
-      {%/if%}
-      
-  </div>
-  <div id="nav_bg"></div>
+
 </div>

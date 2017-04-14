@@ -877,7 +877,8 @@ label.dropdown:after {
 	box-shadow: 0 5px 10px rgba(0,0,0,0.06), 0 2px 2px rgba(0,0,0,0.03);
 }
 .each_material{
-	width: 164px;
+	width: 240px;
+	height: 240px;
 	background-color: #fff;
 	padding: 10px;
 	margin: 8px;
@@ -885,6 +886,12 @@ label.dropdown:after {
 	vertical-align: top;
 	border: 0px solid blue;
 	box-shadow: 0 5px 10px rgba(0,0,0,0.06), 0 2px 2px rgba(0,0,0,0.03);
+}
+.each_materil_pic{
+	height: 210px;
+	border: 0px solid red;
+	margin-left: auto;
+	margin-right: auto;
 }
 .model_pic{
 	border: 0px solid red;
@@ -894,7 +901,7 @@ label.dropdown:after {
 }
 .material_pic{
 	border: 0px solid red;
-	width: 160px;
+	max-height:210px; 
 	margin-left: auto;
 	margin-right: auto;
 }
@@ -934,6 +941,11 @@ label.dropdown:after {
 	margin: 10px;
 	box-shadow: 0 5px 10px rgba(0,0,0,0.06), 0 2px 2px rgba(0,0,0,0.03);
 }
+.left_main_material img{
+	margin-left: auto;
+	margin-right: auto;
+}
+
 .material_pic{
 	border: 0px solid red;
 	width: 80%;

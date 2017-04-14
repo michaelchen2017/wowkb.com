@@ -14,168 +14,246 @@
 <body>
 {%include file="$root/template/common/navbar_prewowkb.html"%}
 
+<div class="design_detail_body">
+    <div id="header">
 
+        <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="false">
 
-<div id="body_design">
-  <div id="container">
-    <div id="design_left">
-    <div class="design_main">
-      <div class="design_main_content">
-            <div class="design_project_title">{%$res['name']|default:''%}</div>
-              <img id="design_main_pic_img" src="{%$res['pic_path']|default:''%}">
-              <div class="project_intro_detail">
-                {%$res['intro']|default:''%}
-                <div class="project_intro_parameter">
-                  <span class="parameter_title">材質：</span>{%$res['texture']|default:''%}</br><span class="parameter_title">内部處理：</span>{%$res['interior']|default:''%}</br><span class="parameter_title">顔色：</span>{%$res['color']|default:''%}</br><span class="parameter_title">應用：</span>{%$res['application']|default:''%}
+            <div class="box_content">
+                <div id="top_share_button" class="show">
+                    <div class="each_share" id="facebook"><i class="fa fa-facebook" aria-hidden="true"></i></div>
+                    <div class="each_share" id="twitter"><i class="fa fa-twitter" aria-hidden="true"></i></div>
+                    <div class="each_share" id="insta"><i class="fa fa-instagram" aria-hidden="true"></i></div>
+                    <div class="each_share" id="tumblr"><i class="fa fa-tumblr" aria-hidden="true"></i></div>
+                    <div class="each_share" id="wechat"><i class="fa fa-weixin" aria-hidden="true"></i></div>
                 </div>
-              </div>
+                <div id="share_button">
+                    <i class="fa fa-share-alt" aria-hidden="true"></i> 分享
+                    <a href="#"><span></span></a>
+                </div>
+            </div>
+            <!-- Wrapper for slides -->
+            <div class="carousel-inner header_box" role="listbox">
 
-              <!-- <img id="design_main_pic_img" src="../../image/t1.jpg">
-              <div class="project_intro_detail">
-                采用高端木质材料，外观简洁大方，美式风格.采用高端木质材料，外观简洁大方，美式风格
-                采用高端木质材料，外观简洁大方，美式风格.采用高端木质材料，外观简洁大方，美式风格
-                采用高端木质材料，外观简洁大方，美式风格
-              </div> -->
-      </div>
-    </div>
+                <div class="item active">                    
+                    <img class="hero" src="{%$res['pic_path']|default:''%}" alt="Chania">
+                </div>
+                <div class="item">
+                    <a href="#"><img class= "hero" src="../../image/customize/CO66/design.jpg" alt="Chania"></a>
+                </div>
+                <div class="item">
+                    <a href="#"><img class="hero" src="../../image/customize/J5/design.jpg" alt="Flower"></a>
+                </div>
+                <div class="item">
+                    <a href="#"><img class="hero" src="../../image/customize/K10/design.jpg" alt="Flower"></a>
+                </div>
+                <div class="item">
+                    <a href="#"><img class="hero" src="../../image/customize/K3/design.jpg" alt="Flower"></a>
+                </div>
+            </div>
 
-    <div id="design_related">
-      <div id="related_name">相关设计作品</div>
-      <div id="related_content">
-        {%foreach from=$other_relative_zuopins key=i item=value %}
-        <div class="related_content_project">
-        <a href="/prewowkb/account.php?act=design_detail&id={%$value['pk_id']|default:''%}">
-          <img id="related_pic" src="{%$value['pic_path']|default:''%}">
-          <div id="related_title">{%$value['name']|default:''%}</div>
-         <!--  <div id="related_price">XXX设计师</div> -->
-          </a>
+            <!-- Left and right controls -->
+            <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
         </div>
-        {%/foreach%}
-     
-      </div>
+    </div><!-- header -->
+
+    <!-- 侧边栏按钮 -->
+    <div class="right_page_button" id="right_page_button">
+        <a href="#" onclick="designer()" class="inline">
+            <div class="button" id="button_designer">
+                <img class="design_designer" src="../../image/designers/james.png">
+                James
+            </div>
+        </a>
+
+        <a href="#" onclick="intro()" class="inline">
+            <div class="button" id="button_intro">
+                <i class="fa fa-book" aria-hidden="true"></i></br>Description
+            </div>
+        </a>
+        <a href="#" onclick="list()" class="inline">
+            <div class="button" id="button_list">
+                <i class="fa fa-cube" aria-hidden="true"></i></br>Commodity
+            </div>
+        </a>
+        <a href="#" onclick="relate_material()" class="inline">
+            <div class="button" id="button_relate_material">
+                <i class="fa fa-cubes" aria-hidden="true"></i></br>Related Commodity
+            </div>
+        </a>
+        <a href="#" onclick="relate_works()" class="inline">
+            <div class="button" id="button_relate_works">
+                <i class="fa fa-tags" aria-hidden="true"></i></br>Related Designs
+            </div>
+        </a>
+        <a href="/prewowkb/account.php?act=form_customize&id={%$res['pk_id']|default:''%}" class="inline">
+            <div class="button" id="button_start_customize">
+                <i class="fa fa-caret-right" aria-hidden="true"></i></br>Start Customize
+            </div>
+        </a>
     </div>
 
-  </div><!-- design_left -->
+    <div class="right_header_hide" id="right_header">
 
 
+        <!-- 设计师 -->
+        <div id="designer">
+            <div class="design_project_designer">
+                <img id="design_project_designer_head" src="../../image/designers/james.png">
+                <div class="design_project_designer_intro">
+                    <span class="designer_name">James</span>
+                    <div class="design_project_designer_des">擅长厨房与卫生间家居设计。擅长传统风格并融入中国传统元素。</div>
+                </div>
+            </div>
+            <div class="design_project_detail_price">
+                <span class="price_number">
+                    <span class="price_title">Service Price</span></br>${%$res['price']|default:''%}/h</span>
+            </div>
+        </div><!-- basic_info -->
 
-  <div id="side_right">
-      <div class="sidebar_right">
-        <div class="design_project_designer">
-          <img id="design_project_designer_head" src="/image/head.png">
-          <div class="design_project_designer_intro">
-            <h5>Sarah XXX</h5>
-            <div class="designer_catogory">家居设计 ｜ 空间规划 ｜ 室内装修</div>
-            <div class="design_project_designer_des">擅长厨房与卫生间家居设计。擅长传统风格并融入中国传统元素。</div>
-          </div>
+<!-- 作品介绍 -->
+        <div id="design_description">
+            <div class="design_intro_top">
+                <h3>{%$res['name']|default:''%}</h3></br>
+                {%$res['intro']|default:''%}
+            </div>
+        </div><!-- design_description -->
+
+<!-- 物料清单 -->
+        <div id="design_material_list">
+            <div class="material_content">
+                <h4>Commodity List</h4>
+                <table>
+                    <tr>
+                        <td>
+                            <h5>標準吊櫃<span class="material_num">&#215;3</span></h5>
+                            <div class="material_detail">Color: White | Texture: Wood</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <h5>玻璃門吊櫃<span class="material_num">&#215;2</span></h5>
+                            <div class="material_detail">颜色：白色 | 材质：Wood</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <h5>玻璃門吊櫃帶微波爐槽<span class="material_num">&#215;1</span></h5>
+                            <div class="material_detail">颜色：白色 | 材质：Wood</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <h5>排風櫃<span class="material_num">&#215;1</span></h5>
+                            <div class="material_detail">颜色：白色 | 材质：Wood</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <h5>地櫃<span class="material_num">&#215;7</span></h5>
+                            <div class="material_detail">颜色：白色 | 材质：Wood</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <h5>水槽櫃<span class="material_num">&#215;1</span></h5>
+                            <div class="material_detail">颜色：白色 | 材质：Wood</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <h5>裝飾柱<span class="material_num">&#215;6</span></h5>
+                            <div class="material_detail">颜色：白色 | 材质：Wood</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <h5>红褐色枫木中島地櫃<span class="material_num">&#215;6</span></h5>
+                            <div class="material_detail">颜色：白色 | 材质：Wood</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <h5>花岗岩臺面<span class="material_num">&#215;2</span></h5>
+                            <div class="material_detail">颜色：白色 | 材质：Wood</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <h5>金属把手<span class="material_num">&#215;50</span></h5>
+                            <div class="material_detail">颜色：白色 | 材质：Wood</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <h5>玻璃吊燈<span class="material_num">&#215;4</span></h5>
+                            <div class="material_detail">颜色：白色 | 材质：Wood</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <h5>對應裝飾木條及配件<span class="material_num">&#215;若干</span></h5>
+                            <div class="material_detail">颜色：白色 | 材质：Wood</div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
         </div>
-        <div class="design_sidebar_gapline"></div>  
-        <div class="design_project_detail_price"><span class="price_title">项目成本</span><span class="price_number"><div class="dropdown">${%$res['price']|default:''%}<div class="dropdown-content"><p>包括：</br>设计费用，购买材料，施工服务，其他</p></div></div></span></div>   
-        <a href="/prewowkb/account.php?act=form_customize&id={%$res['pk_id']|default:''%}"><button class="buyButton">开始定制</button></a>
-      
-      </div><!-- sidebar_right -->
 
-      <div id="sidebar_use_product">
-        <div id="sidebar_use_title">设计使用到的物料</div>
-  <div id="sidebar_use_content">
-
-  <div id="myCarousel" class="carousel slide" >
-
-    <!-- Wrapper for slides -->
-    <div class="carousel-inner use_product" role="listbox">
-     
-     {%foreach from=$pics key=i item=value%}
-      <div class="item">
-          <div id="sidebar_material_pic">
-            <img src="{%$value['pic_path']|default:''%}" alt="material">
-          </div>
-         <!--  <div id="sidebar_use_name">奶油色枫木</div> -->
-          <!-- <div id="sidebar_use_num">1/5</div> -->
-      </div>
-      {%/foreach %}
-
-      <!-- <div class="item">
-        <div id="sidebar_use_pic">
-            <img src="/image/p2.png" alt="chair">
-          </div>
-          <div id="sidebar_use_name">XX白色橱柜</div>
-          <div id="sidebar_use_num">2/5</div>
-      </div>
-    
-      <div class="item">
-        <div id="sidebar_use_pic">
-            <img src="/image/p3.png" alt="chair">
-          </div>
-          <div id="sidebar_use_name">XX白色橱柜</div>
-          <div id="sidebar_use_num">3/5</div>
-      </div>
-
-      <div class="item">
-        <div id="sidebar_use_pic">
-            <img src="/image/p4.png" alt="chair">
-          </div>
-          <div id="sidebar_use_name">XX白色橱柜</div>
-          <div id="sidebar_use_num">4/5</div>
-      </div>
-
-      <div class="item">
-        <div id="sidebar_use_pic">
-            <img src="/image/p5.png" alt="chair">
-          </div>
-          <div id="sidebar_use_name">XX白色橱柜</div>
-          <div id="sidebar_use_num">5/5</div>
-      </div> -->
-  
-    </div>
-
-    <!-- Left and right controls -->
-<!--     <a class="left use_product_control_left" href="#myCarousel" role="button" data-slide="prev">
-      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-      <span class="sr-only">Previous</span>
-    </a>
-    <a class="right use_product_control_right" href="#myCarousel" role="button" data-slide="next">
-      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-      <span class="sr-only">Next</span>
-    </a> -->
-  </div>
-      </div><!-- sidebar_use_content -->
-  </div>
-
-<!--       <div class="sidebar_related">
-
-          <div id="related_name_side">相关物料</div>
-
-          <div id="related_content_side">
-            
-            <div id="related_project_side">
-              <img id="related_project_pic" src="../../image/p1.png">
-              <div class="related_project_name">XX白色橱柜</div>
-              <div class="related_project_brand">By wowkb</div>
-              <div class="related_project_designer">$2999</div>
+<!-- 相关物料 -->
+        <div id="relate_material">
+            <div class="material_content">
+                <h4>Related Commodity</h4>
+                <div class="each_relate_material">
+                    <img src="../../image/customize/A7/material.jpg">
+                </div>
+                <div class="each_relate_material">
+                    <img src="../../image/customize/CO66/material.jpg">
+                </div>
+                <div class="each_relate_material">
+                    <img src="../../image/customize/J5/material.jpg">
+                </div>
+                <div class="each_relate_material">
+                    <img src="../../image/customize/K8/material.jpg">
+                </div>
+                <div class="each_relate_material">
+                    <img src="../../image/customize/K3/material.jpg">
+                </div>
+                <div class="each_relate_material">
+                    <img src="../../image/customize/K10/material.jpg">
+                </div>
+                <div class="each_relate_material">
+                    <img src="../../image/customize/M01/material.jpg">
+                </div>
+                <div class="each_relate_material">
+                    <img src="../../image/customize/S2/material.jpg">
+                </div>
             </div>
-            <div id="related_project_side">
-              <img id="related_project_pic" src="../../image/p2.png">
-              <div class="related_project_name">xXX美式水槽</div>
-              <div class="related_project_brand">By wowkb</div>
-              <div class="related_project_designer">$3999</div>
+        </div><!-- design_material_intro -->
+
+        <!-- 相关作品 -->
+        <div id="relate_works">
+            <div class="related_design_content">
+                <h4>Related Designs</h4>
+
+                {%foreach from=$other_relative_zuopins key=i item=value %}
+                <a href="/prewowkb/account.php?act=design_detail&id={%$value['pk_id']|default:''%}">
+                <div class="each_relate_design">
+                    <img src="{%$value['pic_path']|default:''%}">
+                    <div class="each_relate_intro">{%$value['name']|default:''%}</div>
+                </div></a>
+                {%/foreach%}
+
             </div>
-          
-          <div id="related_project_side">
-              <img id="related_project_pic" src="../../image/p3.png">
-              <div class="related_project_name">XXX美式冰箱</div>
-              <div class="related_project_brand">By wowkb</div>
-              <div class="related_project_designer">$4999</div>
-            </div>
-            <div id="related_project_side">
-              <img id="related_project_pic" src="../../image/p4.png">
-              <div class="related_project_name">XXX餐桌</div>
-              <div class="related_project_brand">By wowkb</div>
-              <div class="related_project_designer">$5999</div>
-            </div>
-          </div>
-      </div> -->
-    </div><!-- side_right -->
-  </div><!-- container -->
-</div><!-- body -->
+        </div>
+    </div><!-- right_header -->
+</div><!-- design_detail_body -->
 </body>
 </html>
