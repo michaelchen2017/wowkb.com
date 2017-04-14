@@ -17,7 +17,8 @@
 <div id="admin_main">
       
       <div id="admin_content">
-
+      
+      
       <table id="productList">
         <tr>
           <th>作品图片</th>
@@ -26,21 +27,18 @@
           <th>用户电话</th>
           <th>用户邮箱</th>
         </tr>
+        {%foreach from=$res key=i item=val%}
         <tr>
-          <td><img id="design_pic" src="../../image/t1.jpg"></td>
-          <td>欧式橱柜定制</td>
-          <td>AAA</td>
-          <td>000-000-0000</td>
-          <td>xxx@xxx.com</td>
+          <td><img id="design_pic" src="{%$val['pic_path']|default:''%}"></td>
+          <td>{%$val['zuopin_name']|default:''%}</td>
+          <td>{%$val['customer']|default:''%}</td>
+          <td>{%$val['customer_tel']|default:''%}</td>
+          <td>{%$val['customer_email']|default:''%}</td>
         </tr>
-        <tr>
-          <td><img id="design_pic" src="../../image/t2.jpg"></td>
-          <td>欧式橱柜定制</td>
-          <td>AAA</td>
-          <td>000-000-0000</td>
-          <td>xxx@xxx.com</td>
-        </tr>
+        {%/foreach%}
       </table>
+      
+      
     </div>
   </div>
   </div>

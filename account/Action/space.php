@@ -647,6 +647,42 @@ class space extends Action{
 		}
 	}
 	
+	function ACT_designer_message(){
+		$obj_sys_msgs =  load("account_sys_msg");
+		$fk_author_id = $_SESSION['userid'];
+		
+		
+		$sys_msgs = $obj_sys_msgs->getAll("*", array("fk_author_id" => $fk_author_id, "visible" => 1));
+		
+		$res = array();
+		
+		foreach ($sys_msgs as $val){
+			$tmp = array();
+			
+			$zuopin_id = $val['fk_zuopin_id']; 
+			$res_zuopin = $this->obj_tmp_zuopin->getOne("*", array("pk_id" => $zuopin_id, "visible" =>1));
+			$pic_path =$res_zuopin['pic_path'];
+			$zuopin_name = $res_zuopin['name'];
+			
+			$tmp = array(
+					"pic_path" => $pic_path, 
+					"zuopin_name" =>$zuopin_name, 
+					"customer"=> $val['customer'],
+					"customer_tel" => $val['customer_tel'],
+					"customer_email" => $val['customer_email'],
+					
+					
+			);
+			
+		$res[] = $tmp;
+			
+		}
+// 		debug::d($res);exit;
+ 		$this->assign("res", $res);
+	}
+	
+	
+	
 // 	function ACT_search_material_process(){
 		
 // 		if(isset($_POST) && !empty($_POST['submit'])){

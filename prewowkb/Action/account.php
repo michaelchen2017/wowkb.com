@@ -412,30 +412,49 @@ class account extends Action{
 	}
 	
 	function ACT_form_customize(){
-		$service_type = "";
-		if(isset($_GET['msg']) && !empty($_GET['msg'])){
-			$service_type = $_GET['msg'];		
-		}
+// 		$service_type = "";
+// 		if(isset($_GET['msg']) && !empty($_GET['msg'])){
+// 			$service_type = $_GET['msg'];		
+// 		}
 		
-		$this->assign("service_type", $service_type);
+// 		$this->assign("service_type", $service_type);
+
+		
+		if(isset($_GET) && !empty($_GET['id'])){
+			$id = $_GET['id'];
+				
+			$this->assign("id", $id);
+		}else{
+			go("/");
+		}
 	}
 
 	function ACT_form_customize_process(){
+		$obj_customer = load("prewowkb_sys_msg");
+		
 		if(isset($_POST)){
+			
+			$obj_tmp_zuopin = load("prewowkb_tmp_zuopin");
+			$res_uid = $obj_tmp_zuopin->getOne("*", array("pk_id" => $_POST['fk_zuopin_id'], "visible" => 1));
+			$fk_author_id = $res_uid['fk_uid'];
 	
 			$res = array(
-										"service_type"=>$_POST['service_type'],
-										"name"=>$_POST['name'],
-										"email"=>$_POST['email'],
-										"tel"=>$_POST['tel'],
-										"address"=>trim($_POST['addr1']) . trim($_POST['addr2']),
-										"state"=>$_POST['state'],
-										"city"=>$_POST['city'],
-										"zipcode"=>$_POST['zipcode'],
-										"demand"=>$_POST['demand'],
+										"fk_zuopin_id"=>$_POST['fk_zuopin_id'],
+										"fk_author_id" => $fk_author_id,
+										"customer"=>$_POST['customer'],
+										"customer_email"=>$_POST['customer_email'],
+										"customer_tel"=>$_POST['customer_tel'],
+								
+// 										"address"=>trim($_POST['addr1']) . trim($_POST['addr2']),
+// 										"state"=>$_POST['state'],
+// 										"city"=>$_POST['city'],
+// 										"zipcode"=>$_POST['zipcode'],
+// 										"demand"=>$_POST['demand'],
 			
 								);
-								$this->obj_tmp_customize->insert($res);
+// 								$this->obj_tmp_customize->insert($res);
+                             $obj_customer->insert($res);
+			
 								go("/");
 // 			$item_id = time() . "_" . md5($_POST['name']) . "_" . rand(1, 1000);
 		

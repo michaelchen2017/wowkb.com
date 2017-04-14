@@ -15,19 +15,20 @@
 
 <div class="content_form">
   <form action="/prewowkb/account.php?act=form_customize_process" method="post" enctype="multipart/form-data">
+  <input type="hidden" name="fk_zuopin_id" value="{%$id|default:''%}">
   <div class="form_title">Customized Design Service</div>
   <table id="customize">
     <tr>
       <td>Your Name<span class="required">*</span></td>
-      <td colspan="2"><input type="text" name="name"></td>
+      <td colspan="2"><input type="text" name="customer"></td>
     </tr>
     <tr>
       <td>Phone<span class="required">*</span></td>
-      <td colspan="2"><input type="text" name="tel"></td>
+      <td colspan="2"><input type="text" name="customer_tel"></td>
     </tr>
     <tr>
       <td>Email<span class="required">*</span></td>
-      <td colspan="2"><input type="text" name="email"></td>
+      <td colspan="2"><input type="text" name="customer_email"></td>
     </tr>
   </table>
   <input class="submit_button" type="submit" value="Submit"> 
