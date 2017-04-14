@@ -79,6 +79,16 @@
         url('../font/dongqingW3.otf')  format('truetype'), /* Safari, Android, iOS */
         url('webfont.svg#svgFontName') format('svg'); /* Legacy iOS */
 }
+@font-face {
+      font-family: 'PingFang ExtraLight';
+      src: url('webfont.eot'); /* IE9 Compat Modes */
+      src: url('webfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+        url('webfont.woff2') format('woff2'), /* Super Modern Browsers */
+        url('webfont.woff') format('woff'), /* Pretty Modern Browsers */
+        url('../font/PingFang ExtraLight.ttf')  format('truetype'), /* Safari, Android, iOS */
+        url('webfont.svg#svgFontName') format('svg'); /* Legacy iOS */
+}
+
 html{
   margin: 0;
 }
@@ -180,47 +190,31 @@ input[type="color"]:focus,
 
 
 /*导航栏 navigation bar*/
-#navbar{
-	width:100%;
-	min-width: 1000px;
-	height:52px !important;
-	position: fixed;
-	top: 0;
-	z-index: 999;
-}
-#nav_bg{
-	background-color:#000;
-	width: 100%;
-	height: 52px;
-	position: fixed;
-	top: 0;
-	z-index: -9;
-	opacity: 1;
-	display: block;
 
+#navtop{
+	padding-right: 10px;
+	/*
+	width:100%;
+	height:52px !important;
+	z-index: 999;
+	*/
 }
+
 #nav_logo{
-	width: 136px;
 	padding-top: 12px;
+	width: 136px;
 	margin-left: 30px;
 	display: inline-block;
 	vertical-align: top;
-	border: 0px solid red;
 }
-.nav{
-	padding-left: 20px !important;
-	padding-right: 20px !important;
-	height:40px;
+.nav_option{
 	font-size: 15px !important;
-	border: 0px solid red;
 	display: inline-block;
 	vertical-align: top;
 	text-align: center;
-	padding-top: 16px;
 	color: #fff;
-
 }
-.nav:hover{
+.nav_option:hover{
 	color: orange;
 }
 .choose{
@@ -229,16 +223,19 @@ input[type="color"]:focus,
 #nav_sign_signin{
 	width: 100px;
 	border-radius: 50px;
-	margin-top: 10px;
 	display: inline-block;
 	vertical-align: top;
 	text-align: center;
 	border: 1px solid orange;
-	padding-top: 6px;
-	padding-bottom: 6px;
 	color: orange;
 	font-size: 15px;
 }
+@media only screen and (max-width: 767px) {
+	.nav_option, #nav_sign_signin{
+		margin-left: 30px;
+	}
+}
+/*
 #nav_link1{
   border:0px solid red;
   display: inline-block;
@@ -267,6 +264,7 @@ input[type="color"]:focus,
   margin-left: 10px;
   border: 0px solid red;
 }
+*/
 
 /*侧边栏 sidebar*/
 #sidebar_message{
@@ -394,7 +392,7 @@ input[type="color"]:focus,
 	display: block;
 }
 .bottom_blank{
-	width:50%;
+	width:6%;
 	height:10px;
 	vertical-align: top;
 	display: inline-block;
@@ -483,3 +481,8 @@ input[type="color"]:focus,
 	margin-bottom: 30px; 
 }
 
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+	-webkit-appearance: none;
+	margin: 0;
+}
