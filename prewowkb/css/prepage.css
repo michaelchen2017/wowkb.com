@@ -6,6 +6,7 @@
    text-align: center;
    padding-bottom: 60px;
    max-width: 1260px;
+   font-family:Arial;
 }
 .designs_project{
   width:290px;
@@ -130,7 +131,7 @@
   line-height: 1;
   text-align: center;
   margin-top: 25vh;
-  font-family: 'NotoSansHans-Medium';
+  font-family: 'Avenir LT 95 Black';
 }
 .big_title{
 	font-size: 7.2rem;

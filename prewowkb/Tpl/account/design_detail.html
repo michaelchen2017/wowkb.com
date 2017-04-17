@@ -1,14 +1,23 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Wow Kitchen & Bath</title>
+  <title>WOWKB</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta property="og:url"           content="ttp://beta.wowkb.com/" />
+  <meta property="og:type"          content="website" />
+  <meta property="og:title"         content="Wow Kitchen & Bath" />
+  <meta property="og:description"   content="这一页的内容" />
+  <meta property="og:image"         content="https://iss.zillowstatic.com/image/traditional-kitchen-with-reclaimed-wood-breakfast-bar-and-stone-backsplash-i_g-IS95uzii6vxfm11000000000-LmSnE.jpg" />
   <link rel="shortcut icon" type="image/x-icon" href="image/favicon.ico">
   <link rel="stylesheet" type="text/css" href="/page/css/page.css">
   <link rel="stylesheet" type="text/css" href="/template/common/css/common_temp.css">
   <link rel="stylesheet" type="text/css" href="/prewowkb/css/prepage.css">
+  <link rel="stylesheet" type="text/css" href="/prewowkb/css/design_detail.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="https://use.fontawesome.com/99d52acf31.js"></script>
 
 </head>
 <body>
@@ -21,7 +30,11 @@
 
             <div class="box_content">
                 <div id="top_share_button" class="show">
-                    <div class="each_share" id="facebook"><i class="fa fa-facebook" aria-hidden="true"></i></div>
+                    <div class="each_share" id="facebook">
+                        <div class="fb-share-button" data-href="http://beta.wowkb.com/"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fbeta.wowkb.com%2F&amp;src=sdkpreparse" style="text-decoration: none; color:white; z-index: 200;"></a></div>
+                        <i class="fa fa-facebook" aria-hidden="true" style="position: absolute; top: 38%; left: 42%;"></i>
+                    </div>
+
                     <div class="each_share" id="twitter"><i class="fa fa-twitter" aria-hidden="true"></i></div>
                     <div class="each_share" id="insta"><i class="fa fa-instagram" aria-hidden="true"></i></div>
                     <div class="each_share" id="tumblr"><i class="fa fa-tumblr" aria-hidden="true"></i></div>
@@ -39,16 +52,16 @@
                     <img class="hero" src="{%$res['pic_path']|default:''%}" alt="Chania">
                 </div>
                 <div class="item">
-                    <a href="#"><img class= "hero" src="../../image/customize/CO66/design.jpg" alt="Chania"></a>
+                    <a href="#"><img class= "hero" src="/image/customize/CO66/design.jpg" alt="Chania"></a>
                 </div>
                 <div class="item">
-                    <a href="#"><img class="hero" src="../../image/customize/J5/design.jpg" alt="Flower"></a>
+                    <a href="#"><img class="hero" src="/image/customize/J5/design.jpg" alt="Flower"></a>
                 </div>
                 <div class="item">
-                    <a href="#"><img class="hero" src="../../image/customize/K10/design.jpg" alt="Flower"></a>
+                    <a href="#"><img class="hero" src="/image/customize/K10/design.jpg" alt="Flower"></a>
                 </div>
                 <div class="item">
-                    <a href="#"><img class="hero" src="../../image/customize/K3/design.jpg" alt="Flower"></a>
+                    <a href="#"><img class="hero" src="/image/customize/K3/design.jpg" alt="Flower"></a>
                 </div>
             </div>
 
@@ -67,8 +80,8 @@
     <!-- 侧边栏按钮 -->
     <div class="right_page_button" id="right_page_button">
         <a href="#" onclick="designer()" class="inline">
-            <div class="button" id="button_designer">
-                <img class="design_designer" src="../../image/designers/james.png">
+            <div class="button top_button" id="button_designer">
+                <img class="design_designer" src="/image/designers/james.png">
                 James
             </div>
         </a>
@@ -94,7 +107,7 @@
             </div>
         </a>
         <a href="/prewowkb/account.php?act=form_customize&id={%$res['pk_id']|default:''%}" class="inline">
-            <div class="button" id="button_start_customize">
+            <div class="button bottom_button" id="button_start_customize">
                 <i class="fa fa-caret-right" aria-hidden="true"></i></br>Start Customize
             </div>
         </a>
@@ -106,7 +119,7 @@
         <!-- 设计师 -->
         <div id="designer">
             <div class="design_project_designer">
-                <img id="design_project_designer_head" src="../../image/designers/james.png">
+                <img id="design_project_designer_head" src="/image/designers/james.png">
                 <div class="design_project_designer_intro">
                     <span class="designer_name">James</span>
                     <div class="design_project_designer_des">擅长厨房与卫生间家居设计。擅长传统风格并融入中国传统元素。</div>
@@ -212,28 +225,28 @@
             <div class="material_content">
                 <h4>Related Commodity</h4>
                 <div class="each_relate_material">
-                    <img src="../../image/customize/A7/material.jpg">
+                    <img src="/image/customize/A7/material.jpg">
                 </div>
                 <div class="each_relate_material">
-                    <img src="../../image/customize/CO66/material.jpg">
+                    <img src="/image/customize/CO66/material.jpg">
                 </div>
                 <div class="each_relate_material">
-                    <img src="../../image/customize/J5/material.jpg">
+                    <img src="/image/customize/J5/material.jpg">
                 </div>
                 <div class="each_relate_material">
-                    <img src="../../image/customize/K8/material.jpg">
+                    <img src="/image/customize/K8/material.jpg">
                 </div>
                 <div class="each_relate_material">
-                    <img src="../../image/customize/K3/material.jpg">
+                    <img src="/image/customize/K3/material.jpg">
                 </div>
                 <div class="each_relate_material">
-                    <img src="../../image/customize/K10/material.jpg">
+                    <img src="/image/customize/K10/material.jpg">
                 </div>
                 <div class="each_relate_material">
-                    <img src="../../image/customize/M01/material.jpg">
+                    <img src="/image/customize/M01/material.jpg">
                 </div>
                 <div class="each_relate_material">
-                    <img src="../../image/customize/S2/material.jpg">
+                    <img src="/image/customize/S2/material.jpg">
                 </div>
             </div>
         </div><!-- design_material_intro -->
@@ -255,5 +268,199 @@
         </div>
     </div><!-- right_header -->
 </div><!-- design_detail_body -->
+<div id="test_screen"></div>
+<script type="text/javascript">
+    /*
+    $("#myCarousel").width($( document ).width() - 84);
+    $( window ).resize(function() {
+        $( "#myCarousel" ).width($( document ).width() - 84);
+    });
+    */
+
+    var page_designer = document.getElementById("designer");
+    var page_intro = document.getElementById("design_description");
+    var page_list = document.getElementById("design_material_list");
+    var page_relate_material = document.getElementById("relate_material");
+    var page_relate_works = document.getElementById("relate_works");
+
+    var right_header = document.getElementById("right_header");
+
+    var button_designer = document.getElementById("button_designer");
+    var button_intro = document.getElementById("button_intro");
+    var button_list = document.getElementById("button_list");
+    var button_relate_material = document.getElementById("button_relate_material");
+    var button_relate_works = document.getElementById("button_relate_works");
+
+    function designer(){
+        if($("#button_designer").hasClass("choose_button")) {
+            hide();
+        } else {
+            show();
+
+            button_designer.className = "choose_button top_button";
+            button_intro.className = "button";
+            button_list.className = "button";
+            button_relate_material.className = "button";
+            button_relate_works.className = "button";
+        }
+
+        page_designer.style.display = "block";
+        page_intro.style.display = "none";
+        page_list.style.display = "none";
+        page_relate_material.style.display = "none";
+        page_relate_works.style.display = "none";
+    }
+
+    function intro(){
+        if($("#button_intro").hasClass("choose_button")) {
+            hide();
+        } else {
+            show();
+
+            button_designer.className = "button top_button";
+            button_intro.className = "choose_button";
+            button_list.className = "button";
+            button_relate_material.className = "button";
+            button_relate_works.className = "button";
+        }
+
+        page_designer.style.display = "none";
+        page_intro.style.display = "block";
+        page_list.style.display = "none";
+        page_relate_material.style.display = "none";
+        page_relate_works.style.display = "none";
+    }
+
+    function list(){
+        if($("#button_list").hasClass("choose_button")) {
+            hide();
+        } else {
+            show();
+
+            button_designer.className = "button top_button";
+            button_intro.className = "button";
+            button_list.className = "choose_button";
+            button_relate_material.className = "button";
+            button_relate_works.className = "button";
+        }
+
+        page_designer.style.display = "none";
+        page_intro.style.display = "none";
+        page_list.style.display = "block";
+        page_relate_material.style.display = "none";
+        page_relate_works.style.display = "none";
+    }
+
+    function relate_material() {
+        if($("#button_relate_material").hasClass("choose_button")) {
+            hide();
+        } else {
+            show();
+
+            button_designer.className = "button top_button";
+            button_intro.className = "button";
+            button_list.className = "button";
+            button_relate_material.className = "choose_button";
+            button_relate_works.className = "button";
+        }
+
+        page_designer.style.display = "none";
+        page_intro.style.display = "none";
+        page_list.style.display = "none";
+        page_relate_material.style.display = "block";
+        page_relate_works.style.display = "none";
+
+    }
+
+    function relate_works() {
+        if($("#button_relate_works").hasClass("choose_button")) {
+            hide();
+        } else {
+            show();
+
+            button_designer.className = "button top_button";
+            button_intro.className = "button";
+            button_list.className = "button";
+            button_relate_material.className = "button";
+            button_relate_works.className = "choose_button";
+        }
+
+        page_designer.style.display = "none";
+        page_intro.style.display = "none";
+        page_list.style.display = "none";
+        page_relate_material.style.display = "none";
+        page_relate_works.style.display = "block";
+    }
+
+    $("#header").click(function () {
+        hide();
+    });
+
+    $('#right_header').animate({right: '-600px'});
+
+
+    $( document ).ready(function() {
+        if($('#test_screen').css('display')!='none') {
+            $("#header").width($(window).width() - 84);
+            $("#top_share_button").removeClass("show").addClass("hide");
+            $(".right_page_button .button").width(84);
+        } else {
+            $("#header").width($(window).width());
+            $("#top_share_button").removeClass("hide").addClass("show");
+            $(".right_page_button .button").width($(window).width()/5);
+            $("#button_designer").width($(window).width());
+        }
+    });
+
+    $( window ).resize(function() {
+        if($('#test_screen').css('display')!='none') {
+            $("#header").width($(window).width() - 84);
+            $("#top_share_button").removeClass("show").addClass("hide");
+            $(".right_page_button .button").width(84);
+        } else {
+            $("#header").width($(window).width());
+            $("#top_share_button").removeClass("hide").addClass("show");
+            $(".right_page_button .button").width($(window).width()/5);
+            $("#button_designer").width($(window).width());
+        }
+    });
+
+    $("#share_button").click(function () {
+        if($("#top_share_button").hasClass( "show" )) {
+            $("#top_share_button").fadeOut("3000", function () {
+                $("#top_share_button").hide();
+                $("#top_share_button").removeClass("show").addClass("hide");
+            });
+        } else {
+            $("#top_share_button").fadeIn("3000", function () {
+                $("#top_share_button").removeClass("hide").addClass("show");
+            });
+        }
+    });
+
+    function show() {
+        right_header.className = "right_header";
+        $('#right_header').animate({right: '-15px'});
+    }
+
+    function hide() {
+        $('#right_header').animate({right: '-600px'});
+        button_designer.className = "button top_button";
+        button_intro.className = "button";
+        button_list.className = "button";
+        button_relate_material.className = "button";
+        button_relate_works.className = "button";
+        right_header.className = "right_header_hide";
+    }
+</script>
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.8&appId=952956818145782";
+    fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));
+</script>
 </body>
 </html>

@@ -1,0 +1,192 @@
+@font-face {
+      font-family: 'Hiragino Sans GB W3';
+      src: url('webfont.eot'); /* IE9 Compat Modes */
+      src: url('webfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+        url('/template/common/font/Hiragino Sans GB W3.otf')  format('truetype'), /* Safari, Android, iOS */
+        url('webfont.svg#svgFontName') format('svg'); /* Legacy iOS */
+}
+@font-face {
+      font-family: 'Hanyi';
+      src: url('webfont.eot'); /* IE9 Compat Modes */
+      src: url('webfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+        url('/template/common/font/dongqingW3.otf')  format('truetype'), /* Safari, Android, iOS */
+        url('webfont.svg#svgFontName') format('svg'); /* Legacy iOS */
+}
+@font-face {
+      font-family: 'PingFang ExtraLight';
+      src: url('webfont.eot'); /* IE9 Compat Modes */
+      src: url('webfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+        url('/template/common/font/PingFangExtraLight.ttf')  format('truetype'), /* Safari, Android, iOS */
+        url('webfont.svg#svgFontName') format('svg'); /* Legacy iOS */
+}
+@font-face {
+      font-family: 'Avenir LT 95 Black';
+      src: url('webfont.eotx'); /* IE9 Compat Modes */
+      src: url('webfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+        url('/template/common/font/Avenir LT 95 Black.ttf')  format('truetype'), /* Safari, Android, iOS */
+        url('webfont.svg#svgFontName') format('svg'); /* Legacy iOS */
+}
+@font-face {
+      font-family: 'Avenir LT 35 Light';
+      src: url('webfont.eot'); /* IE9 Compat Modes */
+      src: url('webfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+        url('/template/common/font/Avenir LT 35 Light.ttf')  format('truetype'), /* Safari, Android, iOS */
+        url('webfont.svg#svgFontName') format('svg'); /* Legacy iOS */
+}
+@font-face {
+      font-family: 'Hero Light';
+      src: url('webfont.eot'); /* IE9 Compat Modes */
+      src: url('webfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+        url('/template/common/font/Hero Light.otf')  format('truetype'), /* Safari, Android, iOS */
+        url('webfont.svg#svgFontName') format('svg'); /* Legacy iOS */
+}
+
+@font-face {
+      font-family: 'mixolydian Light';
+      src: url('webfont.eot'); /* IE9 Compat Modes */
+      src: url('webfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+        url('/template/common/font/mixolydiantitlingul.ttf')  format('truetype'), /* Safari, Android, iOS */
+        url('webfont.svg#svgFontName') format('svg'); /* Legacy iOS */
+}
+body{
+  margin: 0;
+  position: relative;
+  width: 100%;
+  background-color: #ebebeb !important;
+  font-family:'Hiragino Sans GB w3',Arial,Helvetica,sans-serif,"宋体";
+}
+img{
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+a:focus{
+  text-decoration: none;
+}
+a:active{
+  text-decoration: none;
+}
+a:visited{
+  text-decoration: none;
+}
+#body{
+  margin-top: 80px;
+}
+#body_design{
+   min-height: 100vh;
+   width: 100%;
+   background-color: #ebebeb;
+   margin-top: 80px;
+   padding-bottom: 100px;
+   border: 0px solid red;
+}
+#container{
+   width:1280px;
+   margin-left: auto;
+   margin-right: auto;
+   border: 0px solid green;
+}
+
+
+/*导航栏 navigation bar*/
+#navbar{
+  width:100%;
+  min-width: 1000px;
+  height:52px !important;
+  position: fixed;
+  top: 0;
+  z-index: 999;
+}
+#nav_bg{
+  background-color:#000;
+  width: 100%;
+  height: 52px;
+  position: fixed;
+  top: 0;
+  z-index: -9;
+  opacity: 1;
+  display: block;
+
+}
+#nav_logo{
+  width: 136px;
+  padding-top: 12px;
+  margin-left: 30px;
+  display: inline-block;
+  vertical-align: top;
+  border: 0px solid red;
+}
+.nav{
+  padding-left: 20px !important;
+  padding-right: 20px !important;
+  height:40px;
+  font-size: 15px !important;
+  border: 0px solid red;
+  display: inline-block;
+  vertical-align: top;
+  text-align: center;
+  padding-top: 16px;
+  color: #fff;
+
+}
+.nav:hover{
+  color: orange;
+}
+.choose{
+  color: #f8a041;
+}
+#nav_sign_signin{
+  width: 100px;
+  border-radius: 50px;
+  margin-top: 10px;
+  display: inline-block;
+  vertical-align: top;
+  text-align: center;
+  border: 1px solid orange;
+  padding-top: 6px;
+  padding-bottom: 6px;
+  color: orange;
+  font-size: 15px;
+}
+#nav_sign_signin_choose{
+  width: 100px;
+  border-radius: 50px;
+  margin-top: 10px;
+  display: inline-block;
+  vertical-align: top;
+  text-align: center;
+  border: 1px solid orange;
+  padding-top: 6px;
+  padding-bottom: 6px;
+  color: #fff;
+  background-color: orange;
+  font-size: 15px;
+}
+#nav_link1{
+  border:0px solid red;
+  display: inline-block;
+  vertical-align: top;
+  float: right;
+  padding-right: 40px;
+}
+#nav_link2{
+  border:0px solid red;
+  display: inline-block;
+  vertical-align: top;
+  float: right;
+}
+#nav_account{
+  display: inline-block;
+  vertical-align: top;
+  margin-top: 10px;
+  margin-left: 20px;
+  width: 40px;
+  height: 40px;
+}
+#accountName{
+  display: inline-block;
+  vertical-align: top;
+  margin-top: 20px;
+  margin-left: 10px;
+  border: 0px solid red;
+}

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Wow Kitchen & Bath</title>
+  <title>WOWKB</title>
   <link rel="shortcut icon" type="image/x-icon" href="image/favicon.ico">
   <link rel="stylesheet" type="text/css" href="/template/common/css/common_temp.css">
   <link rel="stylesheet" type="text/css" href="/prewowkb/css/prepage.css">
@@ -27,6 +27,7 @@
 </div>
 
 <div id="index_body">
+  <div class="project_title_blank"></div>
   
   <div class="temp_mainArea">
     <div class="project_title_blank">
@@ -47,7 +48,7 @@
 
   <div class="index_project_title project_title_blank">
     <div class="index_title">NEW PROJECTS</div>
-    <a href="" class="more_design">更多</a>
+    <a href="" class="more_design">More</a>
   </div> 
   {%foreach from=$res  key=i  item=value %}  
       <a href="/prewowkb/account.php?act=design_detail&id={%$value['pk_id']|default:''%}">
@@ -80,7 +81,13 @@
 
  <div class="index_project_title project_title_blank">
     <div class="index_title">PICKED PROJECTS</div>
-  <a href="" class="more_design">More</a>
+    <span class="project_title_category">Modern Style</span>
+    <span class="project_title_category">Minimalism Style</span>
+    <span class="project_title_category">Mid-century Modern Style</span>
+    <span class="project_title_category">Country Style</span>
+    <span class="project_title_category">Traditional Style</span>
+    <span class="project_title_category">Art Deco Style</span>
+    <a href="" class="more_design">More</a>
   </div>
 
       <a href="design_detail.html">
