@@ -9,7 +9,9 @@
   <link rel="stylesheet" type="text/css" href="/account/css/account.css">
   <link rel="stylesheet" type="text/css" href="/prewowkb/css/prepage.css">
   <script src="https://use.fontawesome.com/99d52acf31.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.0.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
 {%include file="$root/template/common/navbar_prewowkb.html"%}
@@ -19,23 +21,19 @@
     {%include file="$root/template/common/sidebar.html"%}
     
 <div id="admin_main">
-      <form action="/account/space.php?act=designer_upload_process" method="post" enctype="multipart/form-data">
+      <form action="/account/space.php?act=designer_upload_process" method="post" enctype="multipart/form-data" name="productForm">
 
            <table class="upload_form">
-              <tr>
-                <td colspan="2">
-                  <div class="design_upload_title">作品展示</div>
-                </td>
-              </tr>
               <tr>
                 <td>作品名称<span class="required">*</span></td>
                 <td><input type="text" class="input-field" name="name" value/></td>
               </tr>
               <tr>
-                <td>作品类别<span class="required">*</span></td>
+                <td>作品类别</td>
                 <td>
                   <select name="category" id="mySelect1" onchange="myFunction()">
-                    <option value="">选择类别</option>
+                    <option value="">请选择</option>
+                    <option disabled="disabled">----</option>
                     <option value="furnish">家居设计</option>
                     <option value="space">空间规划</option>
                     <option value="finish">室内装修</option>
@@ -46,27 +44,17 @@
               </tr>
               <tr>
                 <td>设计图片<span class="required">*</span></td>
-                <td><input type="file" name="files">
-                  <div id="type_counter"></div>
+                <td><input type="file" name="files" required>
+                  <div class="type_counter">最多上传10张</div>
                 </td>
               </tr>
               <tr>
-                <td colspan="2">
-                  <div class="design_upload_title upload_blank">项目整体预算</div>
-                </td>
-              </tr>
-              <tr>
-                <td>服务报价<span class="required">*</span></td>
+                <td>设计报价<span class="required">*</span></td>
                 <td><input type="number" class="input-field" name="price" value="" type="number" min="1" required="true"/><!-- <a title="popup" onclick="return popup()"><i class="fa fa-calculator icon_style" aria-hidden="true"> 报价计算器</i></a> -->
                 <div id="type_counter">只输入数字</div></td>
               </tr>
               <tr>
-                <td colspan="2">
-                  <div class="design_upload_title upload_blank">作品信息描述</div>
-                </td>
-              </tr>
-              <tr>
-                <td>内容简介 <span class="required">*</span></td>
+                <td>作品信息 <span class="required">*</span></td>
                 <td><textarea maxlength="250" id="status" name="intro" class="textarea-field supplier_info_textarea" onkeydown='countChar("status","counter");' onkeyup='countChar("status","counter");'></textarea></br><div id="type_counter">可以输入<span id="counter">250</span>字<br/></div></td>
               </tr>
               <tr>
@@ -113,9 +101,9 @@
                   <select name="shape">
                     <option value="">请选择</option>
                     <option disabled="disabled">----</option>
-                    <option value="square">正方形</option>
-                    <option value="rectangle">长方形</option>
-                    <option value="multiple">多边形</option>
+                    <option value="square">正方形－square</option>
+                    <option value="rectangle">长方形－rectangle</option>
+                    <option value="multiple">多边形－multiple</option>
                   </select>
                 </td>
               </tr>
@@ -137,53 +125,25 @@
                 </td>
               </tr>
               <tr>
-                <td>材质</td>
-                <td><input type="text" class="input-field" name="texture" value="" /></td>
-              </tr>
-              <tr>
-                <td>内部处理</td>
-                <td><input type="text" class="input-field" name="interior" value="" /></td>
-              </tr>
-              <tr>
-                <td>颜色</td>
-                <td><input type="text" class="input-field" name="color" value="" /></td>
-              </tr>
-              <tr>
-                <td>应用</td>
-                <td><input type="text" class="input-field" name="application" value="" /></td>
-              </tr>
-              <tr>
                 <td colspan="2">
-                  <div class="design_upload_title upload_blank">物料清单关联</div>
+                  <div class="design_upload_title upload_blank">产品清单关联</div>
                 </td>
               </tr>
               <tbody id="tb1">
               <tr>
-                <td>物料编号<span class="required">*</span></td>
+                <td>产品<span class="required">*</span></td>
                 <td id="addmaterial">
                   <input type="text" class="input-field-short" name="m_ids[]" value="" />
+                  <input type="text" class="input-field-short" name="" value="" />
+                  <input type="text" class="input-field-short" name="" value="" />
                   <input type="text" class="input-field-short" name="amount[]" value="" />
-                  <a title="popmaterial" onclick="return popmaterial()"><i class="fa fa-cube icon_style" aria-hidden="true"> 物料库搜索</i></a>
-                  <input type="button" class="addbutton" value="增加" id="addMaterialButton"><br /><div id="type_counter">输入物料编号<span class="right">输入数量</span></div>
-                </td>
-              </tr>
-            </tbody>
-            <tr>
-                <td colspan="2">
-                  <div class="design_upload_title upload_blank">对应物料图关联</div>
-                </td>
-              </tr>
-              <tbody id="tb2">
-              <tr>
-                <td>物料编号<span class="required">*</span></td>
-                <td id="addmaterial">
-                  <input type="text" class="input-field-short" name="" value="" required="true" />
-                  <input type="button" class="addbutton" value="增加" id="addMaterialButton2"><br /><div class="type_counter">输入物料编号</div>
+                  <!-- <a title="popmaterial" onclick="return popmaterial()"><i class="fa fa-cube icon_style" aria-hidden="true"> 物料库搜索</i></a> -->
+                  <input type="button" class="addbutton" value="增加" id="addMaterialButton"><br /><div id="type_counter">输入产品名称<span class="right">输入颜色</span><span class="right">输入材质</span><span class="right">输入数量</span></div>
                 </td>
               </tr>
             </tbody>
             </table>
-            <span>&nbsp;</span><input type="submit" value="提交" class="submit_button button_left"/>
+            <span>&nbsp;</span><input type="submit" value="提交" class="submit_button button_left" id="submitButton"/>
           </form>
       </div>
   </div>
@@ -203,15 +163,16 @@ function popup()
 }
 function popmaterial()
 {
-        window.open("/account/space.php?act=search_material", "", "toolbar=no");
+        window.open("search_material.html", "", "toolbar=no");
         return false;
 }
 </script>
+
 <script type="text/javascript">
   $("#addMaterialButton").click(function() {
     var trObj = document.createElement("tr");  
     trObj.id = new Date().getTime();  
-    trObj.innerHTML = "<td></td><td><input name='' class='input-field-short' type='text'/><input name='' type='text' class='input-field-short'/>&nbsp;<input type='button' class='addbutton' value='删除'' onclick='del(this)'></td>";  
+    trObj.innerHTML = "<td></td><td><input name='m_ids[]' class='input-field-short' type='text'/><input name='' type='text' class='input-field-short'/><input name='' class='input-field-short' type='text'/><input name='amount[]' class='input-field-short' type='text'/>&nbsp;<input type='button' class='addbutton' value='删除'' onclick='del(this)'></td>";  
     $("#tb1").append(trObj);  
   });
   function del(obj) {  
@@ -219,7 +180,8 @@ function popmaterial()
         var trObj = document.getElementById(trId);  
         document.getElementById("tb1").removeChild(trObj);  
     }
-   $("#addMaterialButton2").click(function() {
+
+  $("#addMaterialButton2").click(function() {
     var trObj = document.createElement("tr");  
     trObj.id = new Date().getTime();  
     trObj.innerHTML = "<td></td><td><input name='' class='input-field-short' type='text'/>&nbsp;<input type='button' class='addbutton' value='删除'' onclick='del2(this)'></td>";  
@@ -229,7 +191,43 @@ function popmaterial()
         var trId = obj.parentNode.parentNode.id;  
         var trObj = document.getElementById(trId);  
         document.getElementById("tb2").removeChild(trObj);  
-    } 
+    }
+    /*
+  $("#productForm").formValidation({
+    framework: 'bootstrap',
+    icon: {
+      valid: 'glyphicon glyphicon-ok',
+      invalid: 'glyphicon glyphicon-remove',
+      validating: 'glyphicon glyphicon-refresh'
+    },
+    row: {
+      valid: 'field-success',
+      invalid: 'field-error'
+    },
+    fields: {
+      work_name: {
+        validators: {
+          notEmpty: {
+            message: '作品名字是必需的'
+          },
+          stringLength: {
+            min: 1,
+            max: 50,
+            message: 'The username must be more than 1 and less than 30 characters long'
+          }
+        }
+      },
+      password: {
+        validators: {
+          notEmpty: {
+            message: 'The password is required'
+          }
+        }
+      }
+    }
+  });
+  */
+
 </script>
  
   </body>

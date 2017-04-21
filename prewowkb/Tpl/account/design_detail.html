@@ -10,7 +10,6 @@
   <meta property="og:description"   content="这一页的内容" />
   <meta property="og:image"         content="https://iss.zillowstatic.com/image/traditional-kitchen-with-reclaimed-wood-breakfast-bar-and-stone-backsplash-i_g-IS95uzii6vxfm11000000000-LmSnE.jpg" />
   <link rel="shortcut icon" type="image/x-icon" href="image/favicon.ico">
-  <link rel="stylesheet" type="text/css" href="/page/css/page.css">
   <link rel="stylesheet" type="text/css" href="/template/common/css/common_temp.css">
   <link rel="stylesheet" type="text/css" href="/prewowkb/css/prepage.css">
   <link rel="stylesheet" type="text/css" href="/prewowkb/css/design_detail.css">
@@ -18,19 +17,19 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <script src="https://use.fontawesome.com/99d52acf31.js"></script>
-
+  <script type="text/javascript" src="//platform-api.sharethis.com/js/sharethis.js#property=58f5448676d0e100120d89fb&product=inline-share-buttons"></script>
+  <script async src="https://static.addtoany.com/menu/page.js"></script>
 </head>
 <body>
 {%include file="$root/template/common/navbar_prewowkb.html"%}
 
 <div class="design_detail_body">
     <div id="header">
-
         <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="false">
 
             <div class="box_content">
-                <div id="top_share_button" class="show">
-                    <div class="each_share" id="facebook">
+                <div id="top_share_button" class="hide">
+                    <!-- <div class="each_share" id="facebook">
                         <div class="fb-share-button" data-href="http://beta.wowkb.com/"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fbeta.wowkb.com%2F&amp;src=sdkpreparse" style="text-decoration: none; color:white; z-index: 200;"></a></div>
                         <i class="fa fa-facebook" aria-hidden="true" style="position: absolute; top: 38%; left: 42%;"></i>
                     </div>
@@ -38,12 +37,21 @@
                     <div class="each_share" id="twitter"><i class="fa fa-twitter" aria-hidden="true"></i></div>
                     <div class="each_share" id="insta"><i class="fa fa-instagram" aria-hidden="true"></i></div>
                     <div class="each_share" id="tumblr"><i class="fa fa-tumblr" aria-hidden="true"></i></div>
-                    <div class="each_share" id="wechat"><i class="fa fa-weixin" aria-hidden="true"></i></div>
+                    <div class="each_share" id="wechat"><i class="fa fa-weixin" aria-hidden="true"></i></div> -->
+                    <!-- AddToAny BEGIN -->
+                <div class="a2a_kit a2a_kit_size_32 a2a_default_style share_button">
+                    <a class="a2a_dd each_share" href="https://www.addtoany.com/share"></a>
+                    <a class="a2a_button_facebook each_share"></a>
+                    <a class="a2a_button_twitter each_share"></a>
+                    <a class="a2a_button_google_plus each_share"></a>
+                    <a class="a2a_button_linkedin each_share"></a>
+                    <a class="a2a_button_tumblr each_share"></a>
                 </div>
-                <div id="share_button">
-                    <i class="fa fa-share-alt" aria-hidden="true"></i> 分享
-                    <a href="#"><span></span></a>
+<!-- AddToAny END -->
                 </div>
+                <a id="share_button" href="#">
+                    <i class="fa fa-share-alt" aria-hidden="true"></i> 
+                </a>
             </div>
             <!-- Wrapper for slides -->
             <div class="carousel-inner header_box" role="listbox">
@@ -88,29 +96,32 @@
 
         <a href="#" onclick="intro()" class="inline">
             <div class="button" id="button_intro">
-                <i class="fa fa-book" aria-hidden="true"></i></br>Description
+                <img  class="side_button_icon" src="/image/detail_icon1.png">
+                Description
             </div>
         </a>
         <a href="#" onclick="list()" class="inline">
             <div class="button" id="button_list">
-                <i class="fa fa-cube" aria-hidden="true"></i></br>Commodity
+                <img class="side_button_icon" src="/image/detail_icon3.png">
+                Products
             </div>
-        </a>
-        <a href="#" onclick="relate_material()" class="inline">
-            <div class="button" id="button_relate_material">
-                <i class="fa fa-cubes" aria-hidden="true"></i></br>Related Commodity
-            </div>
-        </a>
+        </a>    
         <a href="#" onclick="relate_works()" class="inline">
             <div class="button" id="button_relate_works">
-                <i class="fa fa-tags" aria-hidden="true"></i></br>Related Designs
+                <img class="side_button_icon" src="/image/detail_icon4.png">
+                Related Designs
             </div>
         </a>
         <a href="/prewowkb/account.php?act=form_customize&id={%$res['pk_id']|default:''%}" class="inline">
             <div class="button bottom_button" id="button_start_customize">
-                <i class="fa fa-caret-right" aria-hidden="true"></i></br>Start Customize
+                <img class="side_button_icon" src="/image/detail_icon5.png">
+                Start Customize
             </div>
         </a>
+<!--         <a href="#" onclick="relate_material1()" class="inline">
+            <div class="button1" id="button_relate_material">
+            </div>
+        </a> -->
     </div>
 
     <div class="right_header_hide" id="right_header">
@@ -142,7 +153,7 @@
 <!-- 物料清单 -->
         <div id="design_material_list">
             <div class="material_content">
-                <h4>Commodity List</h4>
+                <h4>Products List</h4>
                 <table>
                     <tr>
                         <td>
@@ -221,7 +232,7 @@
         </div>
 
 <!-- 相关物料 -->
-        <div id="relate_material">
+<!--         <div id="relate_material">
             <div class="material_content">
                 <h4>Related Commodity</h4>
                 <div class="each_relate_material">
@@ -249,7 +260,7 @@
                     <img src="/image/customize/S2/material.jpg">
                 </div>
             </div>
-        </div><!-- design_material_intro -->
+        </div> --><!-- design_material_intro -->
 
         <!-- 相关作品 -->
         <div id="relate_works">
@@ -268,6 +279,31 @@
         </div>
     </div><!-- right_header -->
 </div><!-- design_detail_body -->
+
+<div class="hidediv" id="form_customize">
+    <span id="close_form_customize" class="glyphicon glyphicon-remove"></span>
+    <form action="" method="post" enctype="multipart/form-data">
+        <div class="form_title">Book Customized Design Service</div>
+
+        <table id="customize">
+            <tr>
+                <td>Your Name<span class="required">*</span></td>
+                <td colspan="2"><input type="text"></td>
+            </tr>
+            <tr>
+                <td>Email<span class="required">*</span></td>
+                <td colspan="2"><input type="text"></td>
+            </tr>
+            <tr>
+                <td>Phone</td>
+                <td colspan="2"><input type="text"></td>
+            </tr>            
+        </table>
+        <input id="form_customize_submitBtn" class="button_blue_input button_pop" type="submit" value="Submit">
+    </form>
+</div>
+
+
 <div id="test_screen"></div>
 <script type="text/javascript">
     /*
@@ -276,20 +312,21 @@
         $( "#myCarousel" ).width($( document ).width() - 84);
     });
     */
-
-    var page_designer = document.getElementById("designer");
-    var page_intro = document.getElementById("design_description");
-    var page_list = document.getElementById("design_material_list");
-    var page_relate_material = document.getElementById("relate_material");
+    var page_designer = document.getElementById("designers");
+    var page_intro = document.getElementById("design_descriptions");
+    var page_list = document.getElementById("design_material_lists");
+    var page_relate_material = document.getElementById("relate_materials");
     var page_relate_works = document.getElementById("relate_works");
 
-    var right_header = document.getElementById("right_header");
+    var form_customize = document.getElementById("form_customizes");
 
-    var button_designer = document.getElementById("button_designer");
-    var button_intro = document.getElementById("button_intro");
-    var button_list = document.getElementById("button_list");
-    var button_relate_material = document.getElementById("button_relate_material");
-    var button_relate_works = document.getElementById("button_relate_works");
+    var right_header = document.getElementById("right_headers");
+
+    var button_designer = document.getElementById("button_designers");
+    var button_intro = document.getElementById("button_intros");
+    var button_list = document.getElementById("button_lists");
+    var button_relate_material = document.getElementById("button_relate_materials");
+    var button_relate_works = document.getElementById("button_relate_work");
 
     function designer(){
         if($("#button_designer").hasClass("choose_button")) {
@@ -392,67 +429,98 @@
         page_relate_works.style.display = "block";
     }
 
-    $("#header").click(function () {
+    $("#headers").click(function () {
         hide();
+        form_customize.className = "hidediv";
+        $("#form_customize").css("display", "none");
     });
-
-    $('#right_header').animate({right: '-600px'});
 
 
     $( document ).ready(function() {
-        if($('#test_screen').css('display')!='none') {
-            $("#header").width($(window).width() - 84);
-            $("#top_share_button").removeClass("show").addClass("hide");
-            $(".right_page_button .button").width(84);
+        if($('#screen_test').css('display')!='none') {
+            $("#headers").width($(window).width() - 84);
+            $("#top_share_buttons").removeClass("show").addClass("hide");
+            $(".right_page_buttons .button").width(84);
+            $('#right_headers').animate({right: '-=600px'});
         } else {
-            $("#header").width($(window).width());
-            $("#top_share_button").removeClass("hide").addClass("show");
-            $(".right_page_button .button").width($(window).width()/5);
-            $("#button_designer").width($(window).width());
+            $("#headers").width($(window).width());
+            $("#top_share_btn").removeClass("hide").addClass("show");
+            $(".right_page_button .btn").width($(window).width()/5);
+            $("#button_designers").width($(window).width());
+            $('#right_headers').animate({right: '-=220px' });
         }
     });
 
     $( window ).resize(function() {
-        if($('#test_screen').css('display')!='none') {
+        if($('#screen_test').css('display')!='none') {
             $("#header").width($(window).width() - 84);
             $("#top_share_button").removeClass("show").addClass("hide");
             $(".right_page_button .button").width(84);
         } else {
-            $("#header").width($(window).width());
-            $("#top_share_button").removeClass("hide").addClass("show");
-            $(".right_page_button .button").width($(window).width()/5);
-            $("#button_designer").width($(window).width());
+            $("#headers").width($(window).width());
+            $("#top_share_btn").removeClass("hide").addClass("show");
+            $(".right_page_btn .button").width($(window).width()/5);
+            $("#button_designers").width($(window).width());
         }
     });
 
     $("#share_button").click(function () {
-        if($("#top_share_button").hasClass( "show" )) {
+        if($("#top_share_btn").hasClass( "show" )) {
             $("#top_share_button").fadeOut("3000", function () {
                 $("#top_share_button").hide();
                 $("#top_share_button").removeClass("show").addClass("hide");
             });
         } else {
-            $("#top_share_button").fadeIn("3000", function () {
+            $("#top_share_btn").fadeIn("3000", function () {
                 $("#top_share_button").removeClass("hide").addClass("show");
             });
         }
     });
 
     function show() {
-        right_header.className = "right_header";
-        $('#right_header').animate({right: '-15px'});
+        if(!$("#button_designers").hasClass("choose_button") &&
+                !$("#button_intro").hasClass("choose_button") &&
+                !$("#button_list").hasClass("choose_button") &&
+                !$("#button_relate_material").hasClass("choose_button") &&
+                !$("#button_relate_works").hasClass("choose_button")) {
+            right_header.className = "right_header";
+            $('#right_header').animate({"right": "+=580px"}, "slow");
+        }
     }
 
     function hide() {
-        $('#right_header').animate({right: '-600px'});
-        button_designer.className = "button top_button";
-        button_intro.className = "button";
-        button_list.className = "button";
-        button_relate_material.className = "button";
-        button_relate_works.className = "button";
-        right_header.className = "right_header_hide";
+        if($("#buttons_designer").hasClass("choose_button") ||
+                $("#button_intro").hasClass("choose_button") ||
+                $("#button_list").hasClass("choose_button") ||
+                $("#button_relate_material").hasClass("choose_button") ||
+                $("#button_relate_works").hasClass("choose_button")) {
+            $('#right_header').animate({"right": "-=580px"}, "slow");
+        }
+        button_designers.className = "button top_button";
+        button_intros.className = "button";
+        button_lists.className = "button";
+        button_relates_material.className = "button";
+        button_relates_works.className = "button";
+        //right_header.className = "right_header_hide";
     }
+
+    $("#start_customized_buttn").click(function() {
+        if($("#form_customize").hasClass("hidediv")) {
+            form_customize.className = "showdiv";
+            $("#form_customize").css("display", "block");
+        } else {
+            form_customize.className = "hidediv";
+            $("#form_customize").css("display", "none");
+        }
+    });
+
+    $("#close_form_customized").click(function () {
+        form_customize.className = "hidediv";
+        $("#form_customize").css("display", "none");
+    });
+
 </script>
+<script src="https://firebasestorage.googleapis.com/v0/b/libraries-320b2.appspot.com/o/design_detail%2Fjquery_style_support.js?alt=media&token=0c6a552e-5d12-43c0-8a25-bf110b94b1f5"></script>
 <div id="fb-root"></div>
 <script>(function(d, s, id) {
     var js, fjs = d.getElementsByTagName(s)[0];
