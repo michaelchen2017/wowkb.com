@@ -41,7 +41,7 @@
           <td><a href="/account/space.php?act=zuopin_modify&id={%$value['pk_id']|default:''%}"><img id="design_pic" src="{%$value['pic_path']|default:''%}"></a></td>
           <td>{%$value['name']|default:''%}</td>
           <td>{%$value['size']|default:''%}</td>
-          <td>2017.4.2 14:20p.m.</td>
+          <td>{%$value['created_time']|date_format:"%Y-%m-%d %H:%M:%S"%}</td>
           <td>
             <a id="edit" href="/account/space.php?act=zuopin_modify&id={%$value['pk_id']|default:''%}">修改</a>
             |
