@@ -85,7 +85,7 @@
     <div class="right_page_button" id="right_page_button">
         <a href="#" onclick="designer()" class="inline">
             <div class="button top_button" id="button_designer">
-                <img class="design_designer" src="/image/designers/james.png">
+                <img class="design_designer" src="{%$user['pic_path']|default:''%}">
                 {%$user['username']|default:''%}
             </div>
         </a>
@@ -129,7 +129,7 @@
                 <img id="design_project_designer_head" src="/image/designers/james.png">
                 <div class="design_project_designer_intro">
                     <span class="designer_name">{%$user['username']|default:''%}</span>
-                    <div class="design_project_designer_des">擅长厨房与卫生间家居设计。擅长传统风格并融入中国传统元素。</div>
+                    <div class="design_project_designer_des">{%$user['intro']|default:''%}</div>
                 </div>
             </div>
             <div class="design_project_detail_price">

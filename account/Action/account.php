@@ -40,7 +40,31 @@ class account extends Action{
 			)
 		 */
 		if(isset($_POST['register-submit'])){
+			
 			$email = strtolower($_POST['email']);
+			
+			$target_dir = DOCUROOT . "/image/material/";
+			$item_id = time() . "_" .md5($_FILES["file"]["name"]) . "_" . rand(1, 1000);
+			
+			$target_file = $target_dir . basename($_FILES["file"]["name"]);
+			
+			$imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
+			$imageFileType = strtolower($imageFileType);
+			
+			$file_name = $item_id . '.' . $imageFileType;
+			
+			$target_file = $target_dir . $file_name;
+			$pic_path = "/image/material/" . $file_name;
+			
+			if (move_uploaded_file($_FILES["file"]["tmp_name"], $target_file)) {
+			
+			}
+			else{
+				exit;
+			}
+			
+			
+			
 			$user_register_info = array(
 					"reg_time" => times::getTime(),
 					"login_time" => times::getTime(),
@@ -49,10 +73,14 @@ class account extends Action{
 					"pswd" => $_POST['password'],
 					"tel" => isset($_POST['gender'])?$_POST['gender']:"",
 					"ip" => http::getIP(),
-					"account_type"=> $_POST['account_type'],
-					"isdesigner" => 0,
+					"account_type"=> "designer",
+					"isdesigner" => 1,
 					"status" => 1,
 					"level" => 0,
+					"pic_path" => $pic_path,
+					"url" => $_POST['url'],
+					"intro" => $_POST['intro'],
+					
 					);
 			
 			//debug::d($user_register_info);exit;

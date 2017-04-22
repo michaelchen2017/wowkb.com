@@ -73,15 +73,15 @@
 									</div>
 								</div>
 								</form>
-								<form id="register-form" action="/account/account.php?act=signup" method="post" role="form" style="display: block;">
-									<div class="form-group">
+								<form id="register-form" action="/account/account.php?act=signup" method="post" role="form" style="display: block;" enctype="multipart/form-data">
+									<!-- <div class="form-group">
 										用户类型: 
 										<label class="radio-inline"><input type="radio" name="account_type" value="user">普通用户</label>
 										<label class="radio-inline"><input type="radio" name="account_type" value="designer">设计师</label>
 										<label class="radio-inline"><input type="radio" name="account_type" value="supplier">供应商</label>
 										<label class="radio-inline"><input type="radio" name="account_type" value="constructor">施工商</label>
 										<label class="radio-inline"><input type="radio" name="account_type" value="admin">管理员</label>
-									</div>
+									</div> -->
 									<div class="form-group">
 										用户名: <input type="text" name="username" id="username" tabindex="1" class="form-control form_style" placeholder="" value="" required>
 									</div>
@@ -91,7 +91,15 @@
 									<div class="form-group">
 										密码: <input type="password" name="password" id="password" tabindex="2" class="form-control form_style" placeholder="" required>
 									</div>
-									
+									<div class="form-group">
+									上传头像： <input type="file" name="file">
+									</div>
+									<div class="form-group">
+									链接： <input type="text" name="url">
+									</div>
+									<div class="form-group">
+									简介： <input type="text" name="intro">
+									</div>
 									
 									<div class="form-group">
 										<div class="row">
