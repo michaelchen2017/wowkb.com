@@ -21,9 +21,9 @@ class space extends Action{
 		$this->obj_tmp_zuopin_wuliao_pics = load("account_tmp_zuopin_wuliao_pics");
 		
 		$userid = isset($_SESSION['userid'])?$_SESSION['userid']:"";
-		if(empty($userid)){
-			go("/");
-		}
+// 		if(empty($userid)){
+// 			go("/");
+// 		}
 		$this->assign("userid", $userid);
 		$user_type_arr = $this->obj_user->getOne("*", array("uid"=>$userid, "visible"=>1));
 		$user_type = $user_type_arr['account_type'];
@@ -219,7 +219,7 @@ class space extends Action{
 	
 	function ACT_designer_manage(){
 		if(!empty($_SESSION['userid'])){
-			$res = $this->obj_tmp_zuopin->getAll("*", array("fk_uid"=>$_SESSION['userid'], "visible"=>1));
+			$res = $this->obj_tmp_zuopin->getAll("*", array("fk_uid"=>$_SESSION['userid'], "visible"=>1, "order"=>array("pk_id"=>'DESC')));
 		}
 		else{
 			$res = array();
@@ -280,10 +280,16 @@ class space extends Action{
 		if(isset($_POST) && !empty($_POST['name'])){
 		
 			if(!empty($_POST['name'])){
-				$item_id = time() . "_" . $_POST['name'] . "_" . rand(1, 1000);
+				
 		
 				$target_dir = DOCUROOT . "/image/material/";
-				$target_file = $target_dir . basename($_FILES["files"]["name"]);
+				$pic_path = "";
+				$res_pics = array();
+				
+			foreach ($_FILES['files']['name'] as $i => $val){
+				$item_id = time() . "_" .md5($_FILES["files"]["name"][$i]) . "_" . rand(1, 1000);
+				
+				$target_file = $target_dir . basename($_FILES["files"]["name"][$i]);
 		
 				$imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
 				$imageFileType = strtolower($imageFileType);
@@ -299,7 +305,7 @@ class space extends Action{
 							$uploadOk = 0;
 						}
 						// Check file size
-						if ($_FILES["file"]["size"] > 5000000) {
+						if ($_FILES["files"]["size"][$i] > 5000000) {
 							//echo "Sorry, your file is too large.";
 							$uploadOk = 0;
 						}
@@ -316,45 +322,60 @@ class space extends Action{
 									//echo "Sorry, your file was not uploaded.";
 									// if everything is ok, try to upload file
 								} else {
-									if (move_uploaded_file($_FILES["file"]["tmp_name"], $target_file)) {
-										//echo "The file ". basename( $_FILES["fileToUpload"]["name"]). " has been uploaded.";
+									if (move_uploaded_file($_FILES["files"]["tmp_name"][$i], $target_file)) {
+										
+										$res_pics[$i] = $pic_path;
+ 										//echo "The file ". basename( $_FILES["fileToUpload"]["name"]). " has been uploaded.";
 		
 									} else {
 										//echo "Sorry, there was an error uploading your file.";
 									}
 								}
+							}
+							
 							
 								$res = array(
 											
 										"name"=>$_POST['name'],
+										"created_time"=>time(),
 										"category"=>$_POST['category'],
 										"price"=>$_POST['price'],
-										"size"=>$_POST['size'],
-										"texture"=>$_POST['texture'],
-										"interior"=>$_POST['interior'],
-										"color"=>$_POST['color'],
-										"application"=>$_POST['application'],
-// 										"tags"=>$_POST['tags'],
+// 										"size"=>$_POST['size'],
+// 										"texture"=>$_POST['texture'],
+// 										"interior"=>$_POST['interior'],
+// 										"color"=>$_POST['color'],
+// 										"application"=>$_POST['application'],
 										"pic_path"=>$pic_path,
 										"intro"=>$_POST['intro'],
-										"fk_uid"=> $_SESSION['userid'],
+										"fk_uid"=> empty($_SESSION['userid'])?1:$_SESSION['userid'],
+										"style" => $_POST['style'],
+										"area" => $_POST['area'],
+										"shape" => $_POST['shape'],
+										"layout" => $_POST['layout'],
 										
 								);
-// 								debug::d($res);exit;
-//                                 var_dump($this->obj_tmp_zuopin);exit;
 								$id = $this->obj_tmp_zuopin->insert($res);
-// 								go("/account/space.php?act=index&id={$userid}");
-								go("/account/space.php?act=addpics&id={$id}");
+								
+								$obj_tmp_wuliaolist = load("account_tmp_wuliaolist");
+								$obj_tmp_zuopin_pics = load("account_tmp_zuopin_pics");
+								
+								foreach ($res_pics as $pic){
+									$obj_tmp_zuopin_pics->insert(array("fk_zid" => $id, "pic_path"=>$pic));
+								}
+								
+								$wuliao_list = array();
+								foreach ($_POST['m_names'] as $i => $val){
+									$wuliao_list = array("name"=>$_POST['m_names'][$i], "fk_id" => $id, "color" => $_POST['m_colors'][$i], "texture" =>$_POST['m_textures'][$i], "amount"=>$_POST['m_amounts'][$i] );
+									
+									$obj_tmp_wuliaolist->insert($wuliao_list);
+								}
+								
+								
+								go("/account/space.php?act=designer_manage");
+
 					}
 		
 				}
-// 				else
-// 				{
-// 					echo "empty";
-// 					go("/account/admin.php?act=admin_singleupload");
-// 				}
-		
-		
 	}
 	function ACT_addpics(){
 		if(isset($_GET) && !empty($_GET['id'])){
@@ -366,25 +387,22 @@ class space extends Action{
 	}
 	
 	function ACT_addpics_process(){
-// 		debug::d($_POST);
-// 		debug::d($_FILES);
-// 		exit;
-// 		debug::d($_GET['id']);exit;
+
 		if(isset($_POST) && !empty($_POST['id'])){
 			if(isset($_POST) && !empty($_POST['submit'])){
-				// 						debug::d($_FILES["files"]["name"]); exit;
+				
 				$pic_path_base ="/upload/images/".time()."/";
 				$target_dir = DOCUROOT . $pic_path_base;
 					
-				//mkdir("/path/to/my/dir", 0777);
+				
 				mkdir($target_dir, 0777);
 				foreach ($_FILES["files"]["name"] as $i => $value){
-					// 						        debug::d($_FILES["files"]["name"]);exit;
+					
 					$file_extension = pathinfo($value,PATHINFO_EXTENSION);
 			
 			
 					$files = explode(".", $_FILES["files"]["name"][$i]);
-					// 				debug::d($files);
+					
 					$file_name = md5($fi[0]) . rand(1,1000);
 					$new_file_name = $file_name . $file_extension;
 					
@@ -614,7 +632,7 @@ class space extends Action{
 	
 	function ACT_search_material(){
 		$res = array();
-		if(isset($_POST) && !empty(($_POST['submit']))){
+		if(isset($_POST) && !empty($_POST['submit'])){
 			$style = $_POST['style'];
 			$colour = $_POST['colour'];
 			if(!empty($style) && !empty($colour)){

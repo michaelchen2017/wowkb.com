@@ -8,6 +8,16 @@ class account extends Action{
 		
 		$this->obj_user = load("account_users");
 		$this->obj_user_favorite = load("account_user_favorite");
+		
+		$userid = isset($_SESSION['userid'])?$_SESSION['userid']:"";
+		if(empty($userid)){
+			go("/");
+		}
+		$this->assign("userid", $userid);
+		$user_type_arr = $this->obj_user->getOne("*", array("uid"=>$userid, "visible"=>1));
+		$user_type = $user_type_arr['account_type'];
+		
+		$this->assign("user_type", $user_type);
 	}
 	
 	function ACT_index(){

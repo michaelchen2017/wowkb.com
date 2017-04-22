@@ -44,7 +44,7 @@
               </tr>
               <tr>
                 <td>设计图片<span class="required">*</span></td>
-                <td><input type="file" name="files" required>
+                <td><input type="file" name="files[]" multiple="multiple" required>
                   <div class="type_counter">最多上传10张</div>
                 </td>
               </tr>
@@ -84,7 +84,7 @@
               <tr>
                 <td>空间面积<span class="required">*</span></td>
                 <td>
-                  <select>
+                  <select name="area">
                     <option value="">请选择</option>
                     <option disabled="disabled">----</option>
                     <option value="1">Smaller: < 70 sq. ft</option>
@@ -133,10 +133,10 @@
               <tr>
                 <td>产品<span class="required">*</span></td>
                 <td id="addmaterial">
-                  <input type="text" class="input-field-short" name="m_ids[]" value="" />
-                  <input type="text" class="input-field-short" name="" value="" />
-                  <input type="text" class="input-field-short" name="" value="" />
-                  <input type="text" class="input-field-short" name="amount[]" value="" />
+                  <input type="text" class="input-field-short" name="m_names[]" value="" />
+                  <input type="text" class="input-field-short" name="m_colors[]" value="" />
+                  <input type="text" class="input-field-short" name="m_textures[]" value="" />
+                  <input type="text" class="input-field-short" name="m_amounts[]" value="" />
                   <!-- <a title="popmaterial" onclick="return popmaterial()"><i class="fa fa-cube icon_style" aria-hidden="true"> 物料库搜索</i></a> -->
                   <input type="button" class="addbutton" value="增加" id="addMaterialButton"><br /><div id="type_counter">输入产品名称<span class="right">输入颜色</span><span class="right">输入材质</span><span class="right">输入数量</span></div>
                 </td>
@@ -172,7 +172,7 @@ function popmaterial()
   $("#addMaterialButton").click(function() {
     var trObj = document.createElement("tr");  
     trObj.id = new Date().getTime();  
-    trObj.innerHTML = "<td></td><td><input name='m_ids[]' class='input-field-short' type='text'/><input name='' type='text' class='input-field-short'/><input name='' class='input-field-short' type='text'/><input name='amount[]' class='input-field-short' type='text'/>&nbsp;<input type='button' class='addbutton' value='删除'' onclick='del(this)'></td>";  
+    trObj.innerHTML = "<td></td><td><input name='m_names[]' class='input-field-short' type='text'/><input name='m_colors[]' type='text' class='input-field-short'/><input name='m_textures[]' class='input-field-short' type='text'/><input name='m_amounts[]' class='input-field-short' type='text'/>&nbsp;<input type='button' class='addbutton' value='删除'' onclick='del(this)'></td>";  
     $("#tb1").append(trObj);  
   });
   function del(obj) {  
