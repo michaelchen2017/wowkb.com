@@ -237,6 +237,30 @@
 	margin-top: 20px;
 	background-color: #fff;
 }
+#productList th{
+	background-color: #959a9e;
+	color: #fff;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	font-size: 13px;
+	text-align: center;
+}
+#productList td{
+	text-align: left;
+    padding-left: 8px;
+    padding-right: 8px;
+    padding-top: 14px;
+	padding-bottom: 14px;
+	font-size: 13px;
+	color:#383838;
+	background-color: #fff;
+	border-bottom: 1px solid #dddddd;
+	text-align: center;
+}
+#productList td:nth-child(even){
+	background-color: #fff;
+    border-bottom: 1px solid #dddddd;
+}
 #select_product_pic{
 	width: 60px;
 	height: 60px;
@@ -253,6 +277,7 @@ table {
     border-collapse: collapse;
     width: 100%;
 }
+
 th{
 	background-color: #959a9e;
 	color: #fff;

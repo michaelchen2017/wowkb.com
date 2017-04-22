@@ -6,10 +6,14 @@
   <title>WOWKB</title>
   <link rel="shortcut icon" type="image/x-icon" href="image/favicon.ico">
   <link rel="stylesheet" type="text/css" href="/template/common/css/common.css">
+  <link rel="stylesheet" type="text/css" href="/template/common/css/common_temp.css">
   <link rel="stylesheet" type="text/css" href="/account/css/account.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.0.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-{%include file="$root/template/common/navbar.html"%}
+{%include file="$root/template/common/navbar_prewowkb.html"%}
 
 <div id="body_dash">
    {%include file="$root/template/common/sidebar.html"%}
@@ -17,7 +21,7 @@
   <div id="admin_main">
       
       <div id="admin_content">
-        <a id="admin_edit_button" href="/account/space.php?act=designer_upload">上传作品</a>
+        <a class="button_light" href="/account/space.php?act=designer_upload">上传作品</a>
         <!-- <a id="admin_edit_button" href="../page/products.html">搜索物料</a> -->
  
         <!-- <form id="search">
@@ -26,22 +30,18 @@
 
       <table id="productList">
         <tr>
-          <th><input id="toggle" type="checkbox"></th>
-          <th>图片</th>
-          <th>系统编号</th>
-          <th>名称</th>
+          <th>作品图片</th>
+          <th>作品名称</th>
           <th>空间尺寸</th>
-          <th>预估报价</th>
+          <th>上传时间</th>
           <th></th>
         </tr>
         {%foreach from=$res key=i item=value%}
         <tr>
-          <td><input id="toggle" type="checkbox"></td>
           <td><a href="/account/space.php?act=zuopin_modify&id={%$value['pk_id']|default:''%}"><img id="design_pic" src="{%$value['pic_path']|default:''%}"></a></td>
-          <td>{%$value['pk_id']|default:''%}</td>
           <td>{%$value['name']|default:''%}</td>
           <td>{%$value['size']|default:''%}</td>
-          <td>{%$value['price']|default:''%}</td>
+          <td>2017.4.2 14:20p.m.</td>
           <td>
             <a id="edit" href="/account/space.php?act=zuopin_modify&id={%$value['pk_id']|default:''%}">修改</a>
             |
