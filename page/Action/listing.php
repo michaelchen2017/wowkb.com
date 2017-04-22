@@ -15,6 +15,7 @@ class listing extends Action{
 		$this->obj_user = load("account_users");
 		$this->obj_products = load("account_material");
 		
+		$user_type = "";
 		
 		//$_SESSION ['UserLevel'] = 6; //模拟管理登录，用于debug
 		if(isset($_SESSION['userid']) && !empty($_SESSION['userid'])){
@@ -24,12 +25,13 @@ class listing extends Action{
 			$user_type_arr = $this->obj_user->getOne("*", array("uid"=>$userid, "visible"=>1));
 			$user_type = $user_type_arr['account_type'];
 			
-			$this->assign("user_type", $user_type);
+// 			$this->assign("user_type", $user_type);
 		}else{
 			$userid = 0;
 			unset($_SESSION ['UserLevel']);
 			$this->assign("userid", $userid);
 		}
+		$this->assign("user_type", $user_type);
 	}
 	
 	function ACT_index(){
