@@ -60,7 +60,7 @@ body{
   position: relative;
   width: 100%;
   background-color: #ebebeb !important;
-  font-family:Arial,Helvetica,sans-serif,"宋体";
+  font-family:'Avenir LT 45 Book', Arial,Helvetica,sans-serif,"宋体";
 }
 img{
   display: block;
@@ -273,35 +273,42 @@ a:visited{
 .nav_option{
   font-size: 14px !important;
   display: inline-block;
-  vertical-align: bottom;
-  text-align: center;
+  vertical-align:top;
+  text-align: center !important;
   color: #fff !important;
-  margin-top: -1px;
+  margin-top: 10px;
+  padding-top: 6px !important;
+  padding-left: 9px !important;
+  padding-right: 9px !important;
   border: 1px solid #fff;
-  width: 30px;
   height: 30px;
   border-radius: 30px;
-  line-height: 30px;
+  margin-left: 10px;
+  margin-right: 10px;
 }
 .nav_option:hover{
-  color: orange;
+  background-color: #FF6500 !important;
+  border: 1px solid #FF6500;
 }
 .choose{
   color: #f8a041;
 }
 #nav_sign_signin{
-/*  width: 100px;*/
   height: 30px;
-  line-height: 30px;
   border-radius: 50px;
   display: inline-block;
-  margin-top: -2px;
+  vertical-align: top;
+  margin-top: 10px;
+  padding-top: 6px;
   text-align: center;
   border: 1px solid #FF6500;
   color:#FF6500;
   font-size: 14px;
   padding-left: 14px;
   padding-right: 14px;
+  margin-left: 10px;
+  margin-right: 10px;
+  font-family: 'Avenir LT 45 Book';
 }
 @media only screen and (max-width: 767px) {
   .nav_option, #nav_sign_signin{
