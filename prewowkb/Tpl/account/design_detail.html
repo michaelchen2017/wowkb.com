@@ -55,22 +55,18 @@
             </div>
             <!-- Wrapper for slides -->
             <div class="carousel-inner header_box" role="listbox">
-
+				{%foreach from=$zuopin_pics key=i item=val%}
+				{%if $i == 0%}
                 <div class="item active">                    
-                    <img class="hero" src="{%$res['pic_path']|default:''%}" alt="Chania">
+                    <img class="hero" src="{%$val['pic_path']|default:''%}" alt="Chania">
                 </div>
+                {%else%}
                 <div class="item">
-                    <a href="#"><img class= "hero" src="/image/customize/CO66/design.jpg" alt="Chania"></a>
+                    <a href="#"><img class= "hero" src="{%$val['pic_path']|default:''%}" alt="Chania"></a>
                 </div>
-                <div class="item">
-                    <a href="#"><img class="hero" src="/image/customize/J5/design.jpg" alt="Flower"></a>
-                </div>
-                <div class="item">
-                    <a href="#"><img class="hero" src="/image/customize/K10/design.jpg" alt="Flower"></a>
-                </div>
-                <div class="item">
-                    <a href="#"><img class="hero" src="/image/customize/K3/design.jpg" alt="Flower"></a>
-                </div>
+               {%/if%}
+               {%/foreach%}
+              
             </div>
 
             <!-- Left and right controls -->
@@ -90,7 +86,7 @@
         <a href="#" onclick="designer()" class="inline">
             <div class="button top_button" id="button_designer">
                 <img class="design_designer" src="/image/designers/james.png">
-                James
+                {%$user['username']|default:''%}
             </div>
         </a>
 
@@ -132,7 +128,7 @@
             <div class="design_project_designer">
                 <img id="design_project_designer_head" src="/image/designers/james.png">
                 <div class="design_project_designer_intro">
-                    <span class="designer_name">James</span>
+                    <span class="designer_name">{%$user['username']|default:''%}</span>
                     <div class="design_project_designer_des">擅长厨房与卫生间家居设计。擅长传统风格并融入中国传统元素。</div>
                 </div>
             </div>
@@ -155,78 +151,14 @@
             <div class="material_content">
                 <h4>Products List</h4>
                 <table>
+                {%foreach from=$wuliao key=i item=val%}
                     <tr>
                         <td>
-                            <h5>標準吊櫃<span class="material_num">&#215;3</span></h5>
-                            <div class="material_detail">Color: White | Texture: Wood</div>
+                            <h5>{%$val['name']|default:''%}<span class="material_num">&#215;{%$val['amount']|default:''%}</span></h5>
+                            <div class="material_detail">Color: {%$val['color']|default:''%} | Texture: {%$val['texture']|default:''%}</div>
                         </td>
                     </tr>
-                    <tr>
-                        <td>
-                            <h5>玻璃門吊櫃<span class="material_num">&#215;2</span></h5>
-                            <div class="material_detail">颜色：白色 | 材质：Wood</div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <h5>玻璃門吊櫃帶微波爐槽<span class="material_num">&#215;1</span></h5>
-                            <div class="material_detail">颜色：白色 | 材质：Wood</div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <h5>排風櫃<span class="material_num">&#215;1</span></h5>
-                            <div class="material_detail">颜色：白色 | 材质：Wood</div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <h5>地櫃<span class="material_num">&#215;7</span></h5>
-                            <div class="material_detail">颜色：白色 | 材质：Wood</div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <h5>水槽櫃<span class="material_num">&#215;1</span></h5>
-                            <div class="material_detail">颜色：白色 | 材质：Wood</div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <h5>裝飾柱<span class="material_num">&#215;6</span></h5>
-                            <div class="material_detail">颜色：白色 | 材质：Wood</div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <h5>红褐色枫木中島地櫃<span class="material_num">&#215;6</span></h5>
-                            <div class="material_detail">颜色：白色 | 材质：Wood</div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <h5>花岗岩臺面<span class="material_num">&#215;2</span></h5>
-                            <div class="material_detail">颜色：白色 | 材质：Wood</div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <h5>金属把手<span class="material_num">&#215;50</span></h5>
-                            <div class="material_detail">颜色：白色 | 材质：Wood</div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <h5>玻璃吊燈<span class="material_num">&#215;4</span></h5>
-                            <div class="material_detail">颜色：白色 | 材质：Wood</div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <h5>對應裝飾木條及配件<span class="material_num">&#215;若干</span></h5>
-                            <div class="material_detail">颜色：白色 | 材质：Wood</div>
-                        </td>
-                    </tr>
+                {%/foreach%}      
                 </table>
             </div>
         </div>

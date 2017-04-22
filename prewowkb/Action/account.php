@@ -605,11 +605,23 @@ class account extends Action{
 	
 	function ACT_design_detail(){
 		if(isset($_GET) && !empty($_GET['id'])){
-			$obj_tmp_zuopin = load("account_tmp_zuopin");
-			$obj_tmp_zuopin_wuliao = load("account_tmp_zuopin_wuliao_pics");
+			$obj_tmp_zuopin = load("prewowkb_tmp_zuopin");
+// 			$obj_tmp_zuopin_wuliao = load("prewowkb_tmp_zuopin_wuliao_pics");
+
+			$obj_tmp_zuopin_pics = load("prewowkb_tmp_zuopin_pics");
+			$obj_tmp_wuliao = load("prewowkb_tmp_wuliao_list");
+			$obj_user = load("prewowkb_users");
+			
 			
 			$res = $obj_tmp_zuopin->getOne("*", array("pk_id"=>$_GET['id'], "visible"=>1));
-			$pics = $obj_tmp_zuopin_wuliao->getAll(array("pic_path"), array("fk_id"=>$_GET['id'], "visible"=>1));
+// 			$pics = $obj_tmp_zuopin_wuliao->getAll(array("pic_path"), array("fk_id"=>$_GET['id'], "visible"=>1));
+			$wuliao_list  =$obj_tmp_wuliao->getAll("*", array("fk_id"=>$_GET['id'], "visible"=>1));
+			
+			$user = $obj_user->getOne("*", array("uid"=>$_SESSION['userid'], "visible"=>1));
+			
+			$zuopin_pics = $obj_tmp_zuopin_pics->getAll("*", array("fk_zid" =>$_GET['id'], "visible"=>1));
+			
+			
 			//$res['category']
 			$other_relative_zuopins = $obj_tmp_zuopin->getList("*", array("category"=>$res['category'], "visible"=>1), 6);
 			foreach ($other_relative_zuopins as $i=>$value){
@@ -617,9 +629,14 @@ class account extends Action{
 					unset($other_relative_zuopins[$i]);
 				}
 			}
+			
+			
 // 		debug::d($res);exit;
 			$this->assign("res", $res);
-			$this->assign("pics", $pics);
+// 			$this->assign("pics", $pics);
+			$this->assign("wuliao", $wuliao_list);
+			$this->assign("user", $user);
+			$this->assign("zuopin_pics", $zuopin_pics);
 			$this->assign("other_relative_zuopins", $other_relative_zuopins);
 		}
 	}
