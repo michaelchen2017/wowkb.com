@@ -640,5 +640,36 @@ class account extends Action{
 			$this->assign("other_relative_zuopins", $other_relative_zuopins);
 		}
 	}
+	
+	function ACT_tobedesigner(){
+		
+	}
+	
+	function ACT_about_service(){
+		
+	}
+	
+	function ACT_about_hire(){
+		
+	}
+	
+	function ACT_terms(){
+		
+	}
+	
+	function ACT_privacy(){
+		
+	}
+	
+	function ACT_copyright(){
+		
+	}
+	
+	
+	
+	
+	
+	
+	
 }
 	
