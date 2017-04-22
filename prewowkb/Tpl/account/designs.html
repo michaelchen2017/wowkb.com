@@ -100,18 +100,18 @@
 
   
   <div class="right_mainarea">  
-
-      <a href="design_detail.html">
+{%foreach from=$res key=i item=val%}
+      <a href="/prewowkb/account.php?act=design_detail&id={%$val['pk_id']|default:''%}">
         <div class="search_designs_project">
           <div class="designs_project_pic">
-            <img class="designs_project_pic" src="/image/customize/A7/design.jpg">
+            <img class="designs_project_pic" src="{%$val['pic_path']|default:''%}">
           </div>
           <div class="project_collect_intro">
-            <div class="admin_collect_title">奶油色枫木橱柜定制</br></div>
+            <div class="admin_collect_title">{%$val['intro']|default:''%}</br></div>
           </div>
         </div>
       </a>
-       
+ {%/foreach%}     
      
     </div>
 

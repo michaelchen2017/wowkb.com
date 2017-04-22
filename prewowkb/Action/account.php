@@ -28,37 +28,48 @@ class account extends Action{
 	
 	function ACT_index(){
 		$obj_tmp_zuopins = load("account_tmp_zuopin");
-		$res = $obj_tmp_zuopins->getAll("*", array("visible"=>1));
-		
-		$jiaju = array();
-		$kongjian = array();
-		$shinei = array();
-		$landscape = array();
-		$building = array();
+		$res_new = $obj_tmp_zuopins->getList("*", array("visible"=>1, "order"=>array("pk_id" => "DESC")), 8);
+		$res_hot = $obj_tmp_zuopins->getList("*", array("visible"=>1), 8);
+		$res_picked = $obj_tmp_zuopins->getList("*", array("visible"=>1), 8);
 		
 		
-		if(!empty($res)){
-			foreach ($res as $val){
-				if($val['category'] == "furnish")
-					$jiaju[] = $val;
-				else if($val['category'] == "space")
-					$kongjian[] = $val;
-				else if($val['category'] == "construct")
-					$shinei[] = $val;
-				else if($val['category'] == "landscape")
-					$landscape[] = $val;
-				else if($val['category'] == "building")
-					$building[] = $val;
+		$this->assign("res_new", $res_new);
+		$this->assign("res_hot", $res_hot);
+		$this->assign("res_picked", $res_picked);
+	
+		
+		
+		
+		
+// 		$jiaju = array();
+// 		$kongjian = array();
+// 		$shinei = array();
+// 		$landscape = array();
+// 		$building = array();
+		
+		
+// 		if(!empty($res)){
+// 			foreach ($res as $val){
+// 				if($val['category'] == "furnish")
+// 					$jiaju[] = $val;
+// 				else if($val['category'] == "space")
+// 					$kongjian[] = $val;
+// 				else if($val['category'] == "construct")
+// 					$shinei[] = $val;
+// 				else if($val['category'] == "landscape")
+// 					$landscape[] = $val;
+// 				else if($val['category'] == "building")
+// 					$building[] = $val;
 					
-			}
+// 			}
 			
-		}
+// 		}
 		
-		$this->assign("jiaju", $jiaju);
-		$this->assign("kongjian", $kongjian);
-		$this->assign("shinei", $shinei);
-		$this->assign("landscape", $landscape);
-		$this->assign("building", $building);
+// 		$this->assign("jiaju", $jiaju);
+// 		$this->assign("kongjian", $kongjian);
+// 		$this->assign("shinei", $shinei);
+// 		$this->assign("landscape", $landscape);
+// 		$this->assign("building", $building);
 		
 	}
 	
@@ -546,6 +557,15 @@ class account extends Action{
 	}
 	
 	function ACT_designs(){
+		$obj_designs = load("account_tmp_zuopin");
+		
+		$res = $obj_designs->getList("*", array("visible"=>1));
+		
+		$this->assign("res", $res);
+		
+	}
+	
+	function ACT_designs_old_version(){
 		/*
 		 * furnish
 			space
