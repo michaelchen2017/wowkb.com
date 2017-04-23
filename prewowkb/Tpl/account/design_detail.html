@@ -55,6 +55,7 @@
             </div>
             <!-- Wrapper for slides -->
             <div class="carousel-inner header_box" role="listbox">
+				{%if !empty($zuopin_pics)%}            
 				{%foreach from=$zuopin_pics key=i item=val%}
 				{%if $i == 0%}
                 <div class="item active">                    
@@ -66,6 +67,11 @@
                 </div>
                {%/if%}
                {%/foreach%}
+               {%else%}
+               <div class="item active">                    
+                    <img class="hero" src="{%$res['pic_path']|default:''%}" alt="Chania">
+                </div>
+               {%/if%}
               
             </div>
 
