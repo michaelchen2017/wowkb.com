@@ -558,8 +558,29 @@ class account extends Action{
 	
 	function ACT_designs(){
 		$obj_designs = load("account_tmp_zuopin");
+		$res = "";
 		
-		$res = $obj_designs->getList("*", array("visible"=>1));
+		if(isset($_GET) && !empty($_GET['q'])){
+			if($_GET['category'] == 1){
+				$res = $obj_designs->getList("*", array("style"=>$_GET['q'], "visible"=>1));
+			}
+			
+			if($_GET['category'] == 2){
+				$res = $obj_designs->getList("*", array("area"=>$_GET['q'], "visible"=>1));
+			}
+			
+			if($_GET['category'] == 3){
+				$res = $obj_designs->getList("*", array("shape"=>$_GET['q'], "visible"=>1));
+			}
+			
+			if($_GET['category'] == 4){
+				$res = $obj_designs->getList("*", array("layout"=>$_GET['q'], "visible"=>1));
+			}
+		
+		}
+		else{
+			$res = $obj_designs->getList("*", array("visible"=>1));
+		}
 		
 		$this->assign("res", $res);
 		
