@@ -132,7 +132,7 @@
         <!-- 设计师 -->
         <div id="designer">
             <div class="design_project_designer">
-                <img id="design_project_designer_head" src="/image/designers/james.png">
+                <img id="design_project_designer_head" src="{%$user['pic_path']|default:''%}">
                 <div class="design_project_designer_intro">
                     <span class="designer_name">{%$user['username']|default:''%}</span>
                     <div class="design_project_designer_des">{%$user['intro']|default:''%}</div>
