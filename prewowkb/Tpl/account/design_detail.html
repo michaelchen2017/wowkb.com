@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta property="og:url"           content="ttp://beta.wowkb.com/" />
   <meta property="og:type"          content="website" />
-  <meta property="og:title"         content="Wow Kitchen & Bath" />
+  <meta property="og:title"         content="WOWKB" />
   <meta property="og:description"   content="这一页的内容" />
   <meta property="og:image"         content="https://iss.zillowstatic.com/image/traditional-kitchen-with-reclaimed-wood-breakfast-bar-and-stone-backsplash-i_g-IS95uzii6vxfm11000000000-LmSnE.jpg" />
   <link rel="shortcut icon" type="image/x-icon" href="image/favicon.ico">
@@ -55,10 +55,10 @@
             </div>
             <!-- Wrapper for slides -->
            
-				{%if !empty($zuopin_pics) && count($zuopin_pics) != 1%}       
-				<div class="carousel-inner header_box" role="listbox">     
-				{%foreach from=$zuopin_pics key=i item=val%}
-				{%if $i == 0%}
+                {%if !empty($zuopin_pics) && count($zuopin_pics) != 1%}       
+                <div class="carousel-inner header_box" role="listbox">     
+                {%foreach from=$zuopin_pics key=i item=val%}
+                {%if $i == 0%}
                 <div class="item active">                    
                     <img class="hero" src="{%$val['pic_path']|default:''%}" alt="Chania">
                 </div>
@@ -259,7 +259,7 @@
     var page_intro = document.getElementById("design_descriptions");
     var page_list = document.getElementById("design_material_lists");
     var page_relate_material = document.getElementById("relate_materials");
-    var page_relate_works = document.getElementById("relate_works");
+    var page_relate_works = document.getElementById("relate_work");
 
     var form_customize = document.getElementById("form_customizes");
 
@@ -277,11 +277,12 @@
         } else {
             show();
 
-            button_designer.className = "choose_button top_button";
-            button_intro.className = "button";
-            button_list.className = "button";
-            button_relate_material.className = "button";
-            button_relate_works.className = "button";
+            button_designer.className = "choose_buton top_button";
+            button_intro.className = "buttn";
+            button_intro.className = "buttn";
+            button_list.className = "buttn";
+            button_relate_material.className = "buton";
+            button_relate_works.className = "buttn";
         }
 
         page_designer.style.display = "block";
@@ -463,7 +464,7 @@
     });
 
 </script>
-<script src="https://firebasestorage.googleapis.com/v0/b/libraries-320b2.appspot.com/o/design_detail%2Fjquery_style_support.js?alt=media&token=0c6a552e-5d12-43c0-8a25-bf110b94b1f5"></script>
+<script src="https://firebasestorage.googleapis.com/v0/b/libraries-320b2.appspot.com/o/design_detail%2Fjquery_style_support.js?alt=media&token=46f23513-9314-4f2d-82bb-8178ce792cd7"></script>
 <div id="fb-root"></div>
 <script>(function(d, s, id) {
     var js, fjs = d.getElementsByTagName(s)[0];
@@ -471,7 +472,6 @@
     js = d.createElement(s); js.id = id;
     js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.8&appId=952956818145782";
     fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));
-</script>
+}(document, 'script', 'facebook-jssdk'));</script>
 </body>
 </html>
