@@ -54,28 +54,23 @@
                 </a>
             </div>
             <!-- Wrapper for slides -->
-            <div class="carousel-inner header_box" role="listbox">
-				{%if !empty($zuopin_pics)%}            
+           
+				{%if !empty($zuopin_pics) && count($zuopin_pics) != 1%}       
+				<div class="carousel-inner header_box" role="listbox">     
 				{%foreach from=$zuopin_pics key=i item=val%}
 				{%if $i == 0%}
                 <div class="item active">                    
                     <img class="hero" src="{%$val['pic_path']|default:''%}" alt="Chania">
                 </div>
                 {%else%}
+                 
                 <div class="item">
                     <a href="#"><img class= "hero" src="{%$val['pic_path']|default:''%}" alt="Chania"></a>
                 </div>
                {%/if%}
                {%/foreach%}
-               {%else%}
-               <div class="item active">                    
-                    <img class="hero" src="{%$res['pic_path']|default:''%}" alt="Chania">
-                </div>
-               {%/if%}
-              
-            </div>
-
-            <!-- Left and right controls -->
+               </div>
+               <!-- Left and right controls -->
             <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
                 <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
                 <span class="sr-only">Previous</span>
@@ -84,6 +79,16 @@
                 <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
                 <span class="sr-only">Next</span>
             </a>
+               {%else%}
+               <div class="item active">                    
+                    <img class="hero" src="{%$res['pic_path']|default:''%}" alt="Chania">
+                </div>
+                
+               {%/if%}
+              
+            
+
+            
         </div>
     </div><!-- header -->
 
