@@ -279,7 +279,7 @@ class space extends Action{
 	
 	function ACT_designer_upload_process(){
 
-		if(isset($_POST) && !empty($_POST['name'])){
+		if(isset($_POST) && !empty($_POST['name'] && isset($_SESSION['userid']) && !empty($_SESSION['userid']))){
 		
 			if(!empty($_POST['name'])){
 				
@@ -349,7 +349,7 @@ class space extends Action{
 										"application"=> isset($_POST['application'])?$_POST['application'] : "#",
 										"pic_path"=>$pic_path,
 										"intro"=>$_POST['intro'],
-										"fk_uid"=> empty($_SESSION['userid'])?1:$_SESSION['userid'],
+										"fk_uid"=> $_SESSION['userid'],
 										"style" => $_POST['style'],
 										"area" => $_POST['area'],
 										"shape" => $_POST['shape'],
