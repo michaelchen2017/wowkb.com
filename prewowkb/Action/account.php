@@ -33,6 +33,9 @@ class account extends Action{
 		$res_picked = $obj_tmp_zuopins->getList("*", array("visible"=>1), 8);
 		
 		
+		shuffle($res_hot);
+		shuffle($res_picked);
+		
 		$this->assign("res_new", $res_new);
 		$this->assign("res_hot", $res_hot);
 		$this->assign("res_picked", $res_picked);
