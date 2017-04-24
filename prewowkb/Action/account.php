@@ -658,7 +658,7 @@ class account extends Action{
 // 			$pics = $obj_tmp_zuopin_wuliao->getAll(array("pic_path"), array("fk_id"=>$_GET['id'], "visible"=>1));
 			$wuliao_list  =$obj_tmp_wuliao->getAll("*", array("fk_id"=>$_GET['id'], "visible"=>1));
 			
-			$user = $obj_user->getOne("*", array("uid"=>$_SESSION['userid'], "visible"=>1));
+			$user = $obj_user->getOne("*", array("uid"=>$res['fk_uid'], "visible"=>1));
 			
 			$zuopin_pics = $obj_tmp_zuopin_pics->getAll("*", array("fk_zid" =>$_GET['id'], "visible"=>1));
 			
