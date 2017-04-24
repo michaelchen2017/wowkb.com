@@ -582,6 +582,8 @@ class account extends Action{
 			$res = $obj_designs->getList("*", array("visible"=>1));
 		}
 		
+		shuffle($res);
+		
 		$this->assign("res", $res);
 		
 	}
