@@ -1,4 +1,5 @@
 <?php
+ 
 class space extends Action{
 	public $obj_user;
 	public $obj_panos;
@@ -220,6 +221,7 @@ class space extends Action{
 	function ACT_designer_manage(){
 		if(!empty($_SESSION['userid'])){
 			$res = $this->obj_tmp_zuopin->getAll("*", array("fk_uid"=>$_SESSION['userid'], "visible"=>1, "order"=>array("pk_id"=>'DESC')));
+		
 		}
 		else{
 			$res = array();

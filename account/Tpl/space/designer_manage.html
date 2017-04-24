@@ -40,7 +40,24 @@
         <tr>
           <td><a href="/account/space.php?act=zuopin_modify&id={%$value['pk_id']|default:''%}"><img id="design_pic" src="{%$value['pic_path']|default:''%}"></a></td>
           <td>{%$value['name']|default:''%}</td>
-          <td>{%$value['size']|default:''%}</td>
+          <td>
+          {%if $value['area'] == 1%}
+          	Smaller: < 70 sq. ft
+          {%/if%}
+          {%if $value['area'] == 2%}
+          	Small: 71 - 100 sq.ft
+          {%/if%}
+          {%if $value['area'] == 3%}
+          	Medium: 101 - 200 sq. ft
+          {%/if%}
+          {%if $value['area'] == 4%}
+          	Large: 201 - 400 sq. ft
+          {%/if%}
+          {%if $value['area'] == 5%}
+          	Larger: > 400 sq. ft
+          {%/if%}
+          
+          </td>
           <td>{%$value['created_time']|date_format:"%Y-%m-%d %H:%M:%S"%}</td>
           <td>
             <a id="edit" href="/account/space.php?act=zuopin_modify&id={%$value['pk_id']|default:''%}">修改</a>
