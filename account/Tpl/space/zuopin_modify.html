@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="shortcut icon" type="image/x-icon" href="image/favicon.ico">
   <link rel="stylesheet" type="text/css" href="/template/common/css/common.css">
+  <link rel="stylesheet" type="text/css" href="/template/common/css/common_temp.css">
   <link rel="stylesheet" type="text/css" href="/account/css/account.css">
   <link rel="stylesheet" type="text/css" href="/prewowkb/css/prepage.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -197,6 +198,15 @@
         </tr>
         <tbody id="tb1">
         <tr>
+          <td></td>
+          <td>
+            <div class="type_counter">输入产品名称</div>
+            <div class="type_counter">输入产品材质</div>
+            <div class="type_counter">输入产品颜色</div>
+            <div class="type_counter">输入产品数量</div>
+          </td>
+        </tr>
+        <tr>
           <td>产品编号<span class="required">*</span></td>
           {%foreach from=$wuliaos key=i item=val%}
           <td id="addmaterial">
@@ -204,11 +214,6 @@
             <input type="text" class="input-field-short" name="m_colors[]" value="{%$val['color']|default:''%}" required="true" />
             <input type="text" class="input-field-short" name="m_textures[]" value="{%$val['texture']|default:''%}" required="true" />
             <input type="text" class="input-field-short" name="m_amounts[]" value="{%$val['amount']|default:''%}" required="true" />
-           </br>
-           <div class="type_counter">输入产品名称</div>
-           <div class="type_counter">输入产品材质</div>
-           <div class="type_counter">输入产品颜色</div>
-           <div class="type_counter">输入产品数量</div>
           </td>
           {%/foreach%}
         </tr>
