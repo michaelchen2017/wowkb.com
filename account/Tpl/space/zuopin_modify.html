@@ -91,11 +91,11 @@
                 <td>作品类别<span class="required">*</span></td>
                 <td>
                   <select name="category" id="mySelect1" >
-                    <option value="家居产品定制" {%if $res['category'] eq "家居产品定制"%} selected {%/if%}>家居设计</option>
-                    <option value="室内翻新改造" {%if $res['category'] eq "室内翻新改造"%} selected {%/if%}>空间规划</option>
-                    <option value="房屋加建改建" {%if $res['category'] eq "房屋加建改建"%} selected {%/if%}>室内装修</option>
-                    <option value="">景观</option>
-                    <option value="">建筑</option>
+                    <option value="furnish" {%if $res['category'] eq "furnish"%} selected {%/if%}>家居设计</option>
+                    <option value="space" {%if $res['category'] eq "space"%} selected {%/if%}>空间规划</option>
+                    <option value="finish" {%if $res['category'] eq "finish"%} selected {%/if%}>室内装修</option>
+                    <option value="landscape" {%if $res['category'] eq "landscape"%} selected {%/if%}>景观</option>
+                    <option value="building" {%if $res['category'] eq "building"%} selected {%/if%}>建筑</option>
                   </select>
                 </td>
               </tr>
