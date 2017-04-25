@@ -198,7 +198,7 @@
         </tr>
         <tbody id="tb1">
         <tr>
-          <td></td>
+          <td>产品编号<span class="required">*</span></td>
           <td>
             <div class="type_counter">输入产品名称</div>
             <div class="type_counter">输入产品材质</div>
@@ -206,17 +206,17 @@
             <div class="type_counter">输入产品数量</div>
           </td>
         </tr>
+        {%foreach from=$wuliaos key=i item=val%}
         <tr>
-          <td>产品编号<span class="required">*</span></td>
-          {%foreach from=$wuliaos key=i item=val%}
+          <td></td>          
           <td id="addmaterial">
             <input type="text" class="input-field-short" name="m_names[]" value="{%$val['name']|default:''%}" required="true" />
             <input type="text" class="input-field-short" name="m_colors[]" value="{%$val['color']|default:''%}" required="true" />
             <input type="text" class="input-field-short" name="m_textures[]" value="{%$val['texture']|default:''%}" required="true" />
             <input type="text" class="input-field-short" name="m_amounts[]" value="{%$val['amount']|default:''%}" required="true" />
-          </td>
-          {%/foreach%}
+          </td>          
         </tr>
+        {%/foreach%}
         </tbody>
         <tr>
           <td></td>

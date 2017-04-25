@@ -95,7 +95,6 @@ html{
 body{
   margin: 0;
   position: relative;
-  padding-bottom: 200px;
   width: 100%;
   background-color: #ebebeb !important;
   font-family:'Avenir LT 45 Book',Arial,Helvetica,sans-serif,"宋体";
@@ -186,6 +185,160 @@ input[type="color"]:focus,
 	margin-top: 40px;
 }
 
+/*按钮button*/
+.button_orange{
+  width: 120px;
+  height: 40px;
+  text-align: center;
+  background-color: #FF6500;
+  color: #fff;
+  border-radius: 4px;
+  line-height: 40px;
+  font-size: 14px;
+  display: block;
+}
+.button_orange:hover{
+  background-color: #FF7F2A;
+  color: #fff;
+}
+.button_orange:focus{
+  background-color: #E15900;
+  color: #fff;
+}
+.button_orange_input{
+  width: 120px;
+  height: 40px;
+  text-align: center;
+  background-color: #FF6500;
+  color: #fff;
+  border-radius: 4px;
+  border: none;
+  font-size: 14px;
+}
+.button_orange_input:hover{
+  background-color: #FF7F2A;
+  color: #fff;
+}
+.button_orange_input:focus{
+  background-color: #E15900;
+  color: #fff;
+  outline: none;
+}
+.button_dark{
+  width: 120px;
+  height: 40px;
+  text-align: center;
+  background-color: #54554F;
+  color: #fff;
+  border-radius: 4px;
+  line-height: 40px;
+  font-size: 14px;
+  display: block;
+}
+.button_dark:hover{
+  background-color: #777970;
+  color: #fff;
+}
+.button_dark:focus{
+  background-color: #40413B;
+  color: #fff;
+}
+.button_dark_input{
+  width: 120px;
+  height: 40px;
+  text-align: center;
+  background-color: #54554F;
+  color: #fff;
+  border-radius: 4px;
+  border: none;
+  font-size: 14px;
+}
+.button_dark_input:hover{
+  background-color: #777970;
+  color: #fff;
+}
+.button_dark_input:focus{
+  background-color: #40413B;
+  color: #fff;
+  outline: none;
+}
+.button_light{
+  width: 120px;
+  height: 40px;
+  text-align: center;
+  background-color: #959A9E;
+  color: #fff;
+  border-radius: 4px;
+  line-height: 40px;
+  font-size: 14px;
+  display: block;
+}
+.button_light:hover{
+  background-color: #B1B7BD;
+  color: #fff;
+}
+.button_light:focus{
+  background-color: #6B6F73;
+  color: #fff;
+}
+.button_light_input{
+  width: 120px;
+  height: 40px;
+  text-align: center;
+  background-color: #959A9E;
+  color: #fff;
+  border-radius: 4px;
+  border: none;
+  font-size: 14px;
+}
+.button_light_input:hover{
+  background-color: #B1B7BD;
+  color: #fff;
+}
+.button_light_input:focus{
+  background-color: #6B6F73;
+  color: #fff;
+  outline: none;
+}
+.button_blue{
+  width: 120px;
+  height: 40px;
+  text-align: center;
+  background-color: #73A3EC;
+  color: #fff;
+  border-radius: 4px;
+  line-height: 40px;
+  font-size: 14px;
+  display: block;
+}
+.button_blue:hover{
+  background-color: #A3C7F4;
+  color: #fff;
+}
+.button_blue:focus{
+  background-color: #5783C7;
+  color: #fff;
+}
+.button_blue_input{
+  width: 120px;
+  height: 40px;
+  text-align: center;
+  background-color: #73A3EC;
+  color: #fff;
+  border-radius: 4px;
+  border: none;
+  font-size: 14px;
+}
+.button_blue_input:hover{
+  background-color: #A3C7F4;
+  color: #fff;
+}
+.button_blue_input:focus{
+  background-color: #5783C7;
+  color: #fff;
+  outline: none;
+}
+
 
 /*导航栏 navigation bar*/
 
@@ -193,6 +346,12 @@ input[type="color"]:focus,
 	padding-right: 100px;
 	border: 0px solid red;
 	background-color: rgba(5,5,5,1)
+}
+.nav_option_img img{
+  width: 28px;
+  display: inline-block;
+  margin-right: 10px;
+  margin-top: -4px;
 }
 
 #nav_logo{
@@ -213,7 +372,6 @@ input[type="color"]:focus,
   padding-left: 9px !important;
   padding-right: 9px !important;
   border: 1px solid #fff;
-/*  width: 30px;*/
   height: 30px;
   border-radius: 30px;
   margin-left: 10px;
@@ -222,6 +380,32 @@ input[type="color"]:focus,
 .nav_option:hover{
 	background-color: #FF6500 !important;
 	border: 1px solid #FF6500;
+}
+.nav_option_other{
+  font-size: 14px !important;
+  display: inline-block;
+  vertical-align:top;
+  color: #afafaf !important;
+  margin-left: 10px;
+  margin-top: 1px;
+  margin-right: 10px;
+  border: 0px solid red;
+}
+.nav_option_other:hover{
+  color: #ebebeb !important;
+}
+.nav_option_img{
+  font-size: 14px !important;
+  display: inline-block;
+  vertical-align:top;
+  color: #afafaf !important;
+  margin-left: 10px;
+  margin-top: 0px;
+  margin-right: 10px;
+  border: 0px solid red;
+}
+.nav_option_img:hover{
+  color: #ebebeb !important;
 }
 .choose{
 	color: #f8a041;
@@ -242,6 +426,9 @@ input[type="color"]:focus,
   margin-left: 10px;
   margin-right: 10px;
   font-family: 'Avenir LT 45 Book';
+}
+.nav_sign_signin{
+  color: red;
 }
 #nav_sign_signin:hover{
 	border: 1px solid #FF7F2A;
@@ -342,11 +529,9 @@ input[type="color"]:focus,
 	background-color: #ebebeb;
   border-top: 1px solid #d5d5d5;
 	z-index: 2;
-	position: absolute;
   right: 0;
   bottom: 0;
   left: 0;
-/*    padding-bottom: 1rem;*/
 }
 .bottom_content{
 	width: 85%;
