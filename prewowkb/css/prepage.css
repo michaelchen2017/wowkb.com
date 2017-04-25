@@ -1273,7 +1273,7 @@
 	padding-top: 20px;
 	font-family: 'Microsoft YaHei';
 }
-.type_counter{
+.upload_form tr td .type_counter{
 	font-size: 12px;
 	color: #afafaf;
 	margin-left: 0px;

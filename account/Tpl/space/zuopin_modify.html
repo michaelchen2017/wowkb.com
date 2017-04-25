@@ -7,7 +7,7 @@
   <link rel="shortcut icon" type="image/x-icon" href="image/favicon.ico">
   <link rel="stylesheet" type="text/css" href="/template/common/css/common.css">
   <link rel="stylesheet" type="text/css" href="/account/css/account.css">
-  <link rel="stylesheet" type="text/css" href="/prewowkb/css/prewowkb.css">
+  <link rel="stylesheet" type="text/css" href="/prewowkb/css/prepage.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.0.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -100,9 +100,9 @@
                 </td>
               </tr>
               <tr>
-                <td>作品图片<span class="required">*</span></td>
+                <td>作品图片</td>
                 <td>
-                  <input class="btn" type="file" id="imgInp" name="files[]" accept="image/*" multiple required>
+                  <input class="btn" type="file" id="imgInp" name="files[]" accept="image/*" multiple>
                   <label for="imgInp">Choose a file</label>
                   <div class="type_counter">最多上传10张</div>
                   <div>
@@ -204,7 +204,7 @@
             <input type="text" class="input-field-short" name="m_colors[]" value="{%$val['color']|default:''%}" required="true" />
             <input type="text" class="input-field-short" name="m_textures[]" value="{%$val['texture']|default:''%}" required="true" />
             <input type="text" class="input-field-short" name="m_amounts[]" value="{%$val['amount']|default:''%}" required="true" />
-           <br />
+           </br>
            <div class="type_counter">输入产品名称</div>
            <div class="type_counter">输入产品材质</div>
            <div class="type_counter">输入产品颜色</div>
