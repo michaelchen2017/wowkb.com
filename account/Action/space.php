@@ -364,7 +364,8 @@ class space extends Action{
 			
 			$wuliao_list = array();
 			foreach ($_POST['m_names'] as $i => $val){
-				$wuliao_list = array("name"=>$_POST['m_names'][$i], "fk_id" => $_POST['pk_id'], "color" => $_POST['m_colors'][$i], "texture" =>$_POST['m_textures'][$i], "amount"=>$_POST['m_amounts'][$i] );
+// 				$wuliao_list = array("name"=>$_POST['m_names'][$i], "fk_id" => $_POST['pk_id'], "color" => $_POST['m_colors'][$i], "texture" =>$_POST['m_textures'][$i], "amount"=>$_POST['m_amounts'][$i] );
+				$wuliao_list = array("name"=>empty($_POST['m_names'][$i])?'#':$_POST['m_names'][$i] , "fk_id" => $_POST['pk_id'], "color" => empty($_POST['m_colors'][$i])?'#':$_POST['m_colors'][$i], "texture" =>empty($_POST['m_textures'][$i])?'#':$_POST['m_textures'][$i], "amount"=>empty($_POST['m_amounts'][$i])?'#':$_POST['m_amounts'][$i]);
 					
 				$obj_tmp_wuliao_list->insert($wuliao_list);
 			}
@@ -480,7 +481,7 @@ class space extends Action{
 								
 								$wuliao_list = array();
 								foreach ($_POST['m_names'] as $i => $val){
-									$wuliao_list = array("name"=>$_POST['m_names'][$i], "fk_id" => $id, "color" => $_POST['m_colors'][$i], "texture" =>$_POST['m_textures'][$i], "amount"=>$_POST['m_amounts'][$i] );
+									$wuliao_list = array("name"=>empty($_POST['m_names'][$i])?'#':$_POST['m_names'][$i] , "fk_id" => $id, "color" => empty($_POST['m_colors'][$i])?'#':$_POST['m_colors'][$i], "texture" =>empty($_POST['m_textures'][$i])?'#':$_POST['m_textures'][$i], "amount"=>empty($_POST['m_amounts'][$i])?'#':$_POST['m_amounts'][$i]);
 									
 									$obj_tmp_wuliaolist->insert($wuliao_list);
 								}
