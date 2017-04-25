@@ -384,6 +384,8 @@ class space extends Action{
 	}
 	
 	function ACT_designer_upload_process(){
+		
+// 		debug::d($_FILES);exit;
 
 		if(isset($_POST) && !empty($_POST['name'] && isset($_SESSION['userid']) && !empty($_SESSION['userid']))){
 		
