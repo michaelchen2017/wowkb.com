@@ -6,6 +6,7 @@
   <title>WOWKB</title>
   <link rel="shortcut icon" type="image/x-icon" href="/image/favicon.ico">
   <link rel="stylesheet" type="text/css" href="/template/common/css/common.css">
+  <link rel="stylesheet" type="text/css" href="/template/common/css/common_temp.css">
   <link rel="stylesheet" type="text/css" href="/account/css/account.css">
   <link rel="stylesheet" type="text/css" href="/prewowkb/css/prepage.css">
   <script src="https://use.fontawesome.com/99d52acf31.js"></script>
@@ -188,17 +189,21 @@
               <tbody id="tb1">
               <tr>
                 <td>产品<span class="required">*</span></td>
+                <td>
+                  <div class="type_counter">输入产品名称</div>
+                  <div class="type_counter">输入产品颜色</div>
+                  <div class="type_counter">输入产品材质</div>
+                  <div class="type_counter">输入产品数量</div>
+                </td>
+              </tr>
+              <tr>
+                <td></td>
                 <td id="addmaterial">
                   <input type="text" class="input-field-short" name="m_names[]" value="" />
                   <input type="text" class="input-field-short" name="m_colors[]" value="" />
                   <input type="text" class="input-field-short" name="m_textures[]" value="" />
                   <input type="text" class="input-field-short" name="m_amounts[]" value="" />
                   <!-- <a title="popmaterial" onclick="return popmaterial()"><i class="fa fa-cube icon_style" aria-hidden="true"> 物料库搜索</i></a> -->
-                  <br />
-                  <div id="type_counter">输入产品名称</div>
-                  <div id="type_counter">输入颜色</div>
-                  <div id="type_counter">输入材质</div>
-                  <div id="type_counter">输入数量</div>
                 </td>
               </tr>
             </tbody>
@@ -207,7 +212,7 @@
               <td><input type="button" class="addbutton" value="增加" id="addMaterialButton"></td>
             </tr>
             </table>
-            <span>&nbsp;</span><input type="submit" value="提交" class="submit_button button_left" id="submitButton"/>
+            <span>&nbsp;</span><input type="submit" value="提交" class="button_orange_input button_left" id="submitButton"/>
           </form>
       </div>
   </div>
