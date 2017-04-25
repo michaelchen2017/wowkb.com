@@ -42,19 +42,19 @@
           <td>{%$value['name']|default:''%}</td>
           <td>
           {%if $value['area'] == 1%}
-          	Smaller: < 70 sq. ft
+            Smaller: < 70 sq. ft
           {%/if%}
           {%if $value['area'] == 2%}
-          	Small: 71 - 100 sq.ft
+            Small: 71 - 100 sq.ft
           {%/if%}
           {%if $value['area'] == 3%}
-          	Medium: 101 - 200 sq. ft
+            Medium: 101 - 200 sq. ft
           {%/if%}
           {%if $value['area'] == 4%}
-          	Large: 201 - 400 sq. ft
+            Large: 201 - 400 sq. ft
           {%/if%}
           {%if $value['area'] == 5%}
-          	Larger: > 400 sq. ft
+            Larger: > 400 sq. ft
           {%/if%}
           
           </td>
@@ -71,6 +71,5 @@
   </div>
 </div>
 
-{%include file="$root/template/common/footer.html"%}
   </body>
 </html>

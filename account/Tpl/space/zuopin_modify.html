@@ -1,74 +1,333 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Wow Kitchen & Bath</title>
+  <meta charset="UTF-8">
+  <title>WOWKB</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="shortcut icon" type="image/x-icon" href="image/favicon.ico">
   <link rel="stylesheet" type="text/css" href="/template/common/css/common.css">
   <link rel="stylesheet" type="text/css" href="/account/css/account.css">
+  <link rel="stylesheet" type="text/css" href="/prewowkb/css/prewowkb.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.0.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+  <style>
+    #imgInp {
+      width: 0.1px;
+      height: 0.1px;
+      opacity: 0;
+      overflow: hidden;
+      position: absolute;
+      z-index: -1;
+    }
+    #imgInp + label {
+      height: 30px;
+      padding: 0px 5px 5px 5px;
+      font-size: 1em;
+      font-weight: 700;
+      color: white;
+      background-color: black;
+      display: inline-block;
+    }
+
+    #imgInp:focus + label,
+    #imgInp + label:hover {
+      background-color: red;
+    }
+    #imgInp + label {
+      cursor: pointer; /* "hand" cursor */
+    }
+    #upload_images, #uploaded_images {
+      width: 80%;
+      min-width: 300px;
+      max-width: 600px;
+      max-height: 180px;
+      list-style: none;
+      padding: 0px 20px;
+      overflow: scroll;
+      overflow-x: scroll;
+      overflow-y: hidden;
+      white-space: nowrap;
+      display: none;
+      border: black solid 1px;
+    }
+    #uploaded_images {
+      padding: 0px 20px;
+      display: block;
+    }
+    #upload_images li, #uploaded_images li {
+      display: inline-block;
+      vertical-align: middle;
+      width: 140px;
+      margin: 2px;
+    }
+    #upload_images li span, #uploaded_images li span {
+      float:right;
+      color: red;
+      margin: 10px 8px -20px 0px;
+    }
+    #upload_images li img, #uploaded_images li img {
+      width: 100%;
+    }
+  </style>
 </head>
 <body>
 {%include file="$root/template/common/navbar_prewowkb.html"%}
 
 
 <div id="body_dash">
-    {%include file="$root/template/common/sidebar.html"%}
+ {%include file="$root/template/common/sidebar.html"%}
     
 <div id="admin_main">
-    <div class="productLink topspace"><a href="">管理作品</a>/上传设计作品/第一步：填写作品信息</div>
-        <div class="form-style-2">
           <form action="/account/space.php?act=zuopin_modify_process" method="post" enctype="multipart/form-data">
-            <label for="field1">
-              <span>作品名称<span class="required">*</span></span><input type="text" class="input-field" name="name" value="{%$res['name']|default:''%}" />
-            </label>
-            <input type="hidden" name="pk_id" value="{%$res['pk_id']|default:''%}">
-            <label for="field1">
-              <span>作品类别<span class="required">*</span></span>
-            <select name="category" id="mySelect1" >
-                <option value="家居产品定制" {%if $res['category'] eq "家居产品定制"%} selected {%/if%}>家居产品定制</option>
-                <option value="室内翻新改造" {%if $res['category'] eq "室内翻新改造"%} selected {%/if%}>室内翻新改造</option>
-                <option value="房屋加建改建" {%if $res['category'] eq "房屋加建改建"%} selected {%/if%}>房屋加建改建</option>
+            <table class="upload_form">
+              <tr>
+                <td>作品名称<span class="required">*</span></td>
+                <td><input type="text" class="input-field" name="name" value="{%$res['name']|default:''%}" /></td>
+              </tr>
+              <input type="hidden" name="pk_id" value="{%$res['pk_id']|default:''%}">
+              <tr>
+                <td>作品类别<span class="required">*</span></td>
+                <td>
+                  <select name="category" id="mySelect1" >
+                    <option value="家居产品定制" {%if $res['category'] eq "家居产品定制"%} selected {%/if%}>家居设计</option>
+                    <option value="室内翻新改造" {%if $res['category'] eq "室内翻新改造"%} selected {%/if%}>空间规划</option>
+                    <option value="房屋加建改建" {%if $res['category'] eq "房屋加建改建"%} selected {%/if%}>室内装修</option>
+                    <option value="">景观</option>
+                    <option value="">建筑</option>
+                  </select>
+                </td>
+              </tr>
+              <tr>
+                <td>作品图片<span class="required">*</span></td>
+                <td>
+                  <input class="btn" type="file" id="imgInp" name="designpicture" accept="image/*" multiple required>
+                  <label for="imgInp">Choose a file</label>
+                  <div class="type_counter">最多上传10张</div>
+                  <div>
+                    <div id="uploaded_images">
+                      <h6>已上传作品图片</h6>
+                      <li>
+                        <span class="glyphicon glyphicon-remove"></span>
+                        <img src="../../image/test_work01.jpg" title="undefined">
+                      </li>
+                      <li>
+                        <span class="glyphicon glyphicon-remove"></span>
+                        <img src="../../image/test_work02.jpg" title="undefined">
+                      </li>
+                      <li>
+                        <span class="glyphicon glyphicon-remove"></span>
+                        <img src="../../image/test_work03.jpg" title="undefined">
+                      </li>
+                      <li>
+                        <span class="glyphicon glyphicon-remove"></span>
+                        <img src="../../image/test_work04.jpg" title="undefined">
+                      </li>
+                    </div>
+                    <div id="upload_images">
+                    </div>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>设计报价<span class="required">*</span></td>
+                <td><input type="text" class="input-field" name="price" value="{%$res['price']|default:''%}" /></td>
+              </tr>
+              <tr>
+                <td>作品信息<span class="required">*</span></td>
+                <td><textarea name="intro" class="textarea-field">{%$res['intro']|default:''%}</textarea></td>
+              </tr>
+        <tr>
+          <td>作品风格<span class="required">*</span></td>
+          <td>
+            <select name="style" id="mySelect2" required>
+              <option value="">请选择</option>
+              <option disabled="disabled">----</option>
+              <option value="Mid">Mid-century Modern Style</option>
+              <option value="Modern">Modern Style</option>
+              <option value="Art">Art Deco Style</option>
+              <option value="Minimalism">Minimalism Style</option>
+              <option value="Traditional">Traditional Style</option>
+              <option value="Chinese">Chinese Style</option>
+              <option value="Japanese">Japanese Style</option>
+              <option value="Scandinavian">Scandinavian Design Style</option>
+              <option value="Eclectic">Eclectic Style</option>
+              <option value="Country">Country Style</option>
             </select>
-            </label>
-            <label for="field2">
-              <span>作品报价<span class="required">*</span></span><input type="text" class="input-field" name="price" value="{%$res['price']|default:''%}" />
-            </label>
-            <label for="field2">
-              <span>空间尺寸<span class="required">*</span></span><input type="text" class="input-field" name="size" value="{%$res['size']|default:''%}" />
-            </label>
-            <label for="field2">
-              <span>材质<span class="required">*</span></span><input type="text" class="input-field" name="texture" value="{%$res['texture']|default:''%}" />
-            </label>
-            <label for="field2">
-              <span>内部处理<span class="required">*</span></span><input type="text" class="input-field" name="interior" value="{%$res['interior']|default:''%}" />
-            </label>
-            <label for="field2">
-              <span>颜色<span class="required">*</span></span><input type="text" class="input-field" name="color" value="{%$res['color']|default:''%}" />
-            </label>
-            <label for="field2">
-              <span>应用<span class="required">*</span></span><input type="text" class="input-field" name="application" value="{%$res['application']|default:''%}" />
-            </label>
-            <!-- <label for="field2">
-              <span>作品标签<span class="required">*</span></span><input type="text" class="input-field design_label" name="tags" value="标签之间逗号分隔，比如：橱柜，台面，地板..." />
-            </label> -->
-            <!-- <label>
-              <span>设计图片<span class="required">*</span></span><input type="file" name="file">
-            </label> -->
-            <label for="field5">
-              <span>内容简介 <span class="required">*</span></span><textarea name="intro" class="textarea-field">{%$res['intro']|default:''%}</textarea>
-            </label>          
-            <!-- <label>
-              <span>使用物料</span><input type="file" name="">
-            </label> -->
-            <label>
-              <span>&nbsp;</span><input type="submit" value="修改"/>
-            </label>
-          </form>
-        </div>
-      </div>
-  </div>
+          </td>
+        </tr>
+        <tr>
+          <td>空间面积<span class="required">*</span></td>
+          <td>
+            <select name="area" id="mySelect3" required>
+              <option value="">请选择</option>
+              <option disabled="disabled">----</option>
+              <option value="1">Smaller: < 70 sq. ft</option>
+              <option value="2">Small: 71 - 100 sq.ft</option>
+              <option value="3">Medium: 101 - 200 sq. ft</option>
+              <option value="4">Large: 201 - 400 sq. ft</option>
+              <option value="5">Larger: > 400 sq. ft</option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td>形状<span class="required">*</span></td>
+          <td>
+            <select name="shape" id="mySelect4" onchange="myFunction()" required>
+              <option value="">请选择</option>
+              <option disabled="disabled">----</option>
+              <option value="square">正方形</option>
+              <option value="rectangle">长方形</option>
+              <option value="multiple">多边形</option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td>布局<span class="required">*</span></td>
+          <td>
+            <select name="layout" id="mySelect5" onchange="myFunction()" required>
+              <option value="">请选择</option>
+              <option disabled="disabled">----</option>
+              <option value="one">一字型</option>
+              <option value="onem">一字型带中岛</option>
+              <option value="l">L型</option>
+              <option value="lm">L型带中岛</option>
+              <option value="u">U型</option>
+              <option value="um">U型带中岛</option>
+              <option value="g">G型</option>
+              <option value="gm">步入型</option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <div class="design_upload_title upload_blank">产品清单关联</div>
+          </td>
+        </tr>
+        <tbody id="tb1">
+        <tr>
+          <td>产品编号<span class="required">*</span></td>
+          <td id="addmaterial">
+            <input type="text" class="input-field-short" name="" value="m_names[]" required="true" />
+            <input type="text" class="input-field-short" name="" value="m_colors[]" required="true" />
+            <input type="text" class="input-field-short" name="" value="m_textures[]" required="true" />
+            <input type="text" class="input-field-short" name="" value="m_amounts[]" required="true" />
+           <br />
+           <div class="type_counter">输入产品名称</div>
+           <div class="type_counter">输入产品材质</div>
+           <div class="type_counter">输入产品颜色</div>
+           <div class="type_counter">输入产品数量</div>
+          </td>
+        </tr>
+        </tbody>
+        <tr>
+          <td></td>
+          <td><input type="button" class="addbutton" value="增加" id="addMaterialButton"></td>
+        </tr>
+      </table>
+      <input type="submit" class="button_orange_input button_left" value="修改"/>
+    </form>
+</div>
+</div>
 
-{%include file="$root/template/common/footer.html"%}
 
- 
-  </body>
+<script language="javascript">
+  function countChar(textareaName,spanName)
+  {
+    document.getElementById(spanName).innerHTML = 250 - document.getElementById(textareaName).value.length;
+  }
+</script>
+
+<script type="text/javascript">
+  $("#addMaterialButton").click(function() {
+    var trObj = document.createElement("tr");  
+    trObj.id = new Date().getTime();  
+    trObj.innerHTML = "<td></td><td><input name='' class='input-field-short' type='text'/><input name='' type='text' class='input-field-short'/><input name='' type='text' class='input-field-short'/><input name='' type='text' class='input-field-short'/>&nbsp;<input type='button' class='addbutton' value='删除'' onclick='del(this)'></td>";
+    $("#tb1").append(trObj);
+  });
+  function del(obj) {
+    var trId = obj.parentNode.parentNode.id;
+    var trObj = document.getElementById(trId);
+    document.getElementById("tb1").removeChild(trObj);
+  }
+
+  $('form').submit(function(){
+    if(this.files.length>10)
+      return false;
+  });
+
+  $("#upload_images").css("display", "none");
+
+  $("#imgInp").change(function(event){
+    var files = event.target.files; //FileList object
+
+    var output = document.getElementById("upload_images");
+    output.innerHTML = "";
+
+    $("#upload_images").css("display", "block");
+
+    //$("#uploaded_images").css("width", "38%");
+    //$("#upload_images").css("width", "38%");
+
+    if(this.files.length>10) {
+      alert('to many files');
+      document.getElementById("imgInp").value = "";
+      $("#upload_images").empty();
+      $("#upload_images").css("display", "none");
+      //$("#uploaded_images").css("width", "80%");
+    }
+    if(this.files.length==0) {
+      $("#upload_images").css("display", "none");
+      //$("#uploaded_images").css("width", "80%");
+    }
+
+    for(var i = 0; i< files.length; i++)
+    {
+
+      var temp = i;
+      var file = files[i];
+      //Only pics
+
+      console.log(file);
+      if(!file.type.match('image'))
+        continue;
+      var picReader = new FileReader();
+      picReader.addEventListener("load",function(event){
+        var picFile = event.target;
+        var li = document.createElement("li");
+        li.innerHTML = "<span class='glyphicon glyphicon-remove' onclick='deleteImg("+temp+")' ></span><img src='" + picFile.result + "'" +
+                "title='" + picFile.name + "' />";
+        output.insertBefore(li,null);
+      });
+      //Read the image
+      picReader.readAsDataURL(file);
+    }
+  });
+
+  function deleteImg(id) {
+    var files = $("#imgInp")[0].files;
+    $("#upload_images").css("display", "none");
+
+    var FileList = {};
+
+    for (var key in files) {
+      if (key != id && key !== "item") {
+        FileList[key] = files[key];
+      }
+    }
+    //$("#imgInp")[0].files = FileList;
+
+    document.getElementById("imgInp").value = "";
+    $("#upload_images").empty();
+
+    //$("#uploaded_images").css("width", "80%");
+
+    console.log($("#imgInp")[0].files);
+    console.log(FileList);
+    //files.remove(id);
+  }
+
+</script> 
+</body>
 </html>

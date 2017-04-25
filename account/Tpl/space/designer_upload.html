@@ -138,17 +138,24 @@
                   <input type="text" class="input-field-short" name="m_textures[]" value="" />
                   <input type="text" class="input-field-short" name="m_amounts[]" value="" />
                   <!-- <a title="popmaterial" onclick="return popmaterial()"><i class="fa fa-cube icon_style" aria-hidden="true"> 物料库搜索</i></a> -->
-                  <input type="button" class="addbutton" value="增加" id="addMaterialButton"><br /><div id="type_counter">输入产品名称<span class="right">输入颜色</span><span class="right">输入材质</span><span class="right">输入数量</span></div>
+                  <br />
+                  <div id="type_counter">输入产品名称</div>
+                  <div id="type_counter">输入颜色</div>
+                  <div id="type_counter">输入材质</div>
+                  <div id="type_counter">输入数量</div>
                 </td>
               </tr>
             </tbody>
+            <tr>
+              <td></td>
+              <td><input type="button" class="addbutton" value="增加" id="addMaterialButton"></td>
+            </tr>
             </table>
-            <span>&nbsp;</span><input type="submit" value="提交" class="submit_button button_left" id="submitButton"/>
+            <span>&nbsp;</span><input type="submit" value="提交" class="button_orange_input button_left" id="submitButton"/>
           </form>
       </div>
   </div>
 
-{%include file="$root/template/common/footer.html"%}
 <script language="javascript"> 
 function countChar(textareaName,spanName) 
 { 

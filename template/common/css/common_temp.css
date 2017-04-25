@@ -1,7 +1,7 @@
 @font-face {
-      font-family: 'Hiragino Sans GB W3';
-      src: url('webfont.eot'); /* IE9 Compat Modes */
-      src: url('webfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  		font-family: 'Hiragino Sans GB W3';
+  		src: url('webfont.eot'); /* IE9 Compat Modes */
+  		src: url('webfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
         url('../font/Hiragino Sans GB W3.otf')  format('truetype'), /* Safari, Android, iOS */
         url('webfont.svg#svgFontName') format('svg'); /* Legacy iOS */
 }
@@ -27,16 +27,16 @@
         url('webfont.svg#svgFontName') format('svg'); /* Legacy iOS */
 }
 @font-face {
-      font-family: 'Avenir LT 95 Black';
-      src: url('webfont.eotx'); /* IE9 Compat Modes */
-      src: url('webfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  		font-family: 'Avenir LT 95 Black';
+  		src: url('webfont.eotx'); /* IE9 Compat Modes */
+  		src: url('webfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
         url('../font/Avenir LT 95 Black.ttf')  format('truetype'), /* Safari, Android, iOS */
         url('webfont.svg#svgFontName') format('svg'); /* Legacy iOS */
 }
 @font-face {
-      font-family: 'Avenir LT 35 Light';
-      src: url('webfont.eot'); /* IE9 Compat Modes */
-      src: url('webfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  		font-family: 'Avenir LT 35 Light';
+  		src: url('webfont.eot'); /* IE9 Compat Modes */
+  		src: url('webfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
         url('../font/Avenir LT 35 Light.ttf')  format('truetype'), /* Safari, Android, iOS */
         url('webfont.svg#svgFontName') format('svg'); /* Legacy iOS */
 }
@@ -49,9 +49,9 @@
 }
 
 @font-face {
-      font-family: 'mixolydian Light';
-      src: url('webfont.eot'); /* IE9 Compat Modes */
-      src: url('webfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  		font-family: 'mixolydian Light';
+  		src: url('webfont.eot'); /* IE9 Compat Modes */
+  		src: url('webfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
         url('../font/mixolydiantitlingul.ttf')  format('truetype'), /* Safari, Android, iOS */
         url('webfont.svg#svgFontName') format('svg'); /* Legacy iOS */
 }
@@ -68,13 +68,13 @@ img{
   height: auto;
 }
 a:focus{
-  text-decoration: none;
+	text-decoration: none;
 }
 a:active{
-  text-decoration: none;
+	text-decoration: none;
 }
 a:visited{
-  text-decoration: none;
+	text-decoration: none;
 }
 #index_body{
   min-height: 100vh;
