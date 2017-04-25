@@ -12,6 +12,59 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.0.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <style>
+    #imgInp {
+      width: 0.1px;
+      height: 0.1px;
+      opacity: 0;
+      overflow: hidden;
+      position: absolute;
+      z-index: -1;
+    }
+    #imgInp + label {
+      height: 30px;
+      padding: 0px 5px 5px 5px;
+      font-size: 1em;
+      font-weight: 700;
+      color: white;
+      background-color: black;
+      display: inline-block;
+    }
+
+    #imgInp:focus + label,
+    #imgInp + label:hover {
+      background-color: red;
+    }
+    #imgInp + label {
+      cursor: pointer; /* "hand" cursor */
+    }
+    #upload_images {
+      width: 80%;
+      min-width: 400px;
+      max-height: 200px;
+      list-style: none;
+      padding: 20px;
+      overflow: scroll;
+      overflow-x: scroll;
+      overflow-y: hidden;
+      white-space: nowrap;
+      display: none;
+    }
+    #upload_images li {
+      display: inline-block;
+      vertical-align: middle;
+      width: 20%;
+      margin: 2px;
+    }
+    #upload_images li span {
+      float:right;
+      color: red;
+      margin: 10px 8px -20px 0px;
+    }
+    #upload_images li img {
+      width: 100%;
+    }
+  </style>
 </head>
 <body>
 {%include file="$root/template/common/navbar_prewowkb.html"%}
@@ -44,8 +97,11 @@
               </tr>
               <tr>
                 <td>设计图片<span class="required">*</span></td>
-                <td><input type="file" name="files[]" multiple="multiple" required>
+                <td>
+                  <input class="btn" type="file" id="imgInp" ame="files[]" accept="image/*" multiple required>
+                  <label for="imgInp">Choose a file</label>
                   <div class="type_counter">最多上传10张</div>
+                  <div id="upload_images"></div>
                 </td>
               </tr>
               <tr>
@@ -138,24 +194,17 @@
                   <input type="text" class="input-field-short" name="m_textures[]" value="" />
                   <input type="text" class="input-field-short" name="m_amounts[]" value="" />
                   <!-- <a title="popmaterial" onclick="return popmaterial()"><i class="fa fa-cube icon_style" aria-hidden="true"> 物料库搜索</i></a> -->
-                  <br />
-                  <div id="type_counter">输入产品名称</div>
-                  <div id="type_counter">输入颜色</div>
-                  <div id="type_counter">输入材质</div>
-                  <div id="type_counter">输入数量</div>
+                  <input type="button" class="addbutton" value="增加" id="addMaterialButton"><br /><div id="type_counter">输入产品名称<span class="right">输入颜色</span><span class="right">输入材质</span><span class="right">输入数量</span></div>
                 </td>
               </tr>
             </tbody>
-            <tr>
-              <td></td>
-              <td><input type="button" class="addbutton" value="增加" id="addMaterialButton"></td>
-            </tr>
             </table>
-            <span>&nbsp;</span><input type="submit" value="提交" class="button_orange_input button_left" id="submitButton"/>
+            <span>&nbsp;</span><input type="submit" value="提交" class="submit_button button_left" id="submitButton"/>
           </form>
       </div>
   </div>
 
+{%include file="$root/template/common/footer.html"%}
 <script language="javascript"> 
 function countChar(textareaName,spanName) 
 { 
@@ -234,7 +283,72 @@ function popmaterial()
     }
   });
   */
+$('form').submit(function(){
+    if(this.files.length>10)
+      return false;
+  });
 
+  $("#imgInp").change(function(event){
+    var files = event.target.files; //FileList object
+
+    var output = document.getElementById("upload_images");
+    output.innerHTML = "";
+
+    $("#upload_images").css("display", "block");
+
+    if(this.files.length>10) {
+      alert('to many files');
+      document.getElementById("imgInp").value = "";
+      $("#upload_images").empty();
+      $("#upload_images").css("display", "none");
+    }
+    if(this.files.length==0) {
+      $("#upload_images").css("display", "none");
+    }
+
+    for(var i = 0; i< files.length; i++)
+    {
+
+      var temp = i;
+      var file = files[i];
+      //Only pics
+
+      console.log(file);
+      if(!file.type.match('image'))
+        continue;
+      var picReader = new FileReader();
+      picReader.addEventListener("load",function(event){
+        var picFile = event.target;
+        var li = document.createElement("li");
+        li.innerHTML = "<span class='glyphicon glyphicon-remove' onclick='deleteImg("+temp+")' ></span><img src='" + picFile.result + "'" +
+                "title='" + picFile.name + "' />";
+        output.insertBefore(li,null);
+      });
+      //Read the image
+      picReader.readAsDataURL(file);
+    }
+  });
+
+  function deleteImg(id) {
+    var files = $("#imgInp")[0].files;
+    $("#upload_images").css("display", "none");
+
+    var FileList = {};
+
+    for (var key in files) {
+      if (key != id && key !== "item") {
+        FileList[key] = files[key];
+      }
+    }
+    //$("#imgInp")[0].files = FileList;
+
+    document.getElementById("imgInp").value = "";
+    $("#upload_images").empty();
+
+    console.log($("#imgInp")[0].files);
+    console.log(FileList);
+    //files.remove(id);
+  }
 </script>
  
   </body>
