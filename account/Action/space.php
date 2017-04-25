@@ -27,9 +27,14 @@ class space extends Action{
 // 		}
 		$this->assign("userid", $userid);
 		$user_type_arr = $this->obj_user->getOne("*", array("uid"=>$userid, "visible"=>1));
+		$user_name = $user_type_arr['username'];
+		$user_pic = $user_type_arr['pic_path'];
+		
 		$user_type = $user_type_arr['account_type'];
 		
 		$this->assign("user_type", $user_type);
+		$this->assign("user_name", $user_name);
+		$this->assign("user_pic", $user_pic);
 	}
 	
 	

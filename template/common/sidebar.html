@@ -21,9 +21,9 @@
 <!-- 设计师后台sidebar -->
 <div id="designer" class="admin_sidebar">
     <div id="userPic">
-      <img src="/image/head.png">
+      <img src="{%$user_pic|default:''%}">
     </div>
-    <div id="userName">Sam</div>
+    <div id="userName">{%$user_name|default:''%}</div>
     <div id="userTitle">设计师</div>
 
     <div id="admin_sidebar_gapline"></div>
