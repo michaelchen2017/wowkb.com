@@ -232,32 +232,138 @@ class space extends Action{
 	
 	function ACT_zuopin_modify(){
 		$res = array();
+		$pics = array();
+		$wuliaos = array();
+		
+		$obj_zuopin_pics = load("account_tmp_zuopin_pics");
+		$obj_tmp_wuliao_list = load("account_tmp_wuliaolist");
 		  
 		if(isset($_GET) && !empty($_GET['id'])){
 			$res = $this->obj_tmp_zuopin->getOne("*", array("pk_id"=>$_GET['id'], "visible"=>1));
+			$pics  = $obj_zuopin_pics->getAll("*", array("fk_zid" =>$_GET['id'], "visible"=>1));
+			$wuliaos = $obj_tmp_wuliao_list->getAll("*", array("fk_id"=>$_GET['id'], "visible"=>1));
 		}
 		
 		$this->assign("res", $res);
+		$this->assign("pics", $pics);
+		$this->assign("wuliaos", $wuliaos);
 	}
 	
 	function ACT_zuopin_modify_process(){
-// 		debug::d($_POST);exit;
+// 		debug::d($_FILES);
+// 		exit;
 		$res_post = array();
+		
+		$pics = array();
+		$obj_zuopin_pics = load("account_tmp_zuopin_pics");
+		
+		$obj_tmp_wuliao_list = load("account_tmp_wuliaolist");
+		
+		$target_dir = DOCUROOT . "/image/material/";
+		$pic_path = "";
+		$res_pics = array();
+		
+		if(isset($_FILES) && !empty($_FILES['files']['name'])){
+			foreach ($_FILES['files']['name'] as $i => $val){
+				$item_id = time() . "_" .md5($_FILES["files"]["name"][$i]) . "_" . rand(1, 1000);
+			
+				$target_file = $target_dir . basename($_FILES["files"]["name"][$i]);
+			
+				$imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
+				$imageFileType = strtolower($imageFileType);
+			
+				$file_name = $item_id . '.' . $imageFileType;
+			
+				$target_file = $target_dir . $file_name;
+				$pic_path = "/image/material/" . $file_name;
+				$uploadOk = 1;
+			
+				if (file_exists($target_file)) {
+					//echo "Sorry, file already exists.";
+					$uploadOk = 0;
+				}
+				// Check file size
+				if ($_FILES["files"]["size"][$i] > 5000000) {
+					//echo "Sorry, your file is too large.";
+					$uploadOk = 0;
+				}
+				// Allow certain file formats
+				$file_type = "图片";
+				if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
+						&& $imageFileType != "gif"  && $imageFileType != "xlsx" && $imageFileType != "xls") {
+							//echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
+							$uploadOk = 0;
+							$file_type = "非图片";
+						}
+						// Check if $uploadOk is set to 0 by an error
+						if ($uploadOk == 0) {
+							//echo "Sorry, your file was not uploaded.";
+							// if everything is ok, try to upload file
+						} else {
+							if (move_uploaded_file($_FILES["files"]["tmp_name"][$i], $target_file)) {
+			
+								$res_pics[$i] = $pic_path;
+								//echo "The file ". basename( $_FILES["fileToUpload"]["name"]). " has been uploaded.";
+			
+							} else {
+								//echo "Sorry, there was an error uploading your file.";
+							}
+						}
+			}
+			
+			$res_delete_pics = $obj_zuopin_pics->getAll("*", array("fk_zid"=>$_POST['pk_id'], "visible"=>1));
+			
+			if(count($res_pics) > 0){
+				foreach ($res_delete_pics as $val){
+					$obj_zuopin_pics->Update(array("visible" =>0), array("id"=>$val['id'], "visible"=>1));
+				}
+				foreach ($res_pics as $i=>$pic){
+					if($i ==0 ){
+						$this->obj_tmp_zuopin->Update(array("pic_path"=>$pic), array("pk_id"=>$_POST['pk_id'], "visible"=>1));
+					}
+					$obj_zuopin_pics->insert(array("fk_zid"=>$_POST['pk_id'], "pic_path"=>$pic));
+				}
+			
+			}
+	
+		}
+			
+		
 		
 		if(isset($_POST)){
 			$res_post = array(
 					"name"=>$_POST['name'],
 					"category"=>$_POST['category'],
 					"price"=>$_POST['price'],
-					"size"=>$_POST['size'],
-					"texture"=>$_POST['texture'],
-					"interior"=>$_POST['interior'],
-					"color"=>$_POST['color'],
-					"application"=>$_POST['application'],
+// 					"size"=>$_POST['size'],
+// 					"texture"=>$_POST['texture'],
+// 					"interior"=>$_POST['interior'],
+// 					"color"=>$_POST['color'],
+// 					"application"=>$_POST['application'],
+
+					"style" =>$_POST['style'],
+					"area" =>$_POST['area'],
+					"shape" =>$_POST['shape'],
+					"layout" =>$_POST['layout'],
 					"intro"=>$_POST['intro'],	
 			);
 			
 			$this->obj_tmp_zuopin->update($res_post, array("pk_id"=>$_POST['pk_id']));
+			
+			$res_wuliaos = $obj_tmp_wuliao_list->getAll("*", array("fk_id"=>$_POST['pk_id'], "visible"=>1));
+			foreach ($res_wuliaos as $wuliao){
+				$obj_tmp_wuliao_list->Update(array("visible"=>0), array("id" => $wuliao['id'], "visible"=>1));
+			}
+// 			$obj_tmp_wuliao_list->insert()
+			
+			
+			$wuliao_list = array();
+			foreach ($_POST['m_names'] as $i => $val){
+				$wuliao_list = array("name"=>$_POST['m_names'][$i], "fk_id" => $_POST['pk_id'], "color" => $_POST['m_colors'][$i], "texture" =>$_POST['m_textures'][$i], "amount"=>$_POST['m_amounts'][$i] );
+					
+				$obj_tmp_wuliao_list->insert($wuliao_list);
+			}
+			
 		}
 		go("/account/space.php?act=designer_manage");
 		

@@ -102,28 +102,18 @@
               <tr>
                 <td>作品图片<span class="required">*</span></td>
                 <td>
-                  <input class="btn" type="file" id="imgInp" name="designpicture" accept="image/*" multiple required>
+                  <input class="btn" type="file" id="imgInp" name="files[]" accept="image/*" multiple required>
                   <label for="imgInp">Choose a file</label>
                   <div class="type_counter">最多上传10张</div>
                   <div>
                     <div id="uploaded_images">
                       <h6>已上传作品图片</h6>
+                      {%foreach from=$pics key=i item=val%}
                       <li>
                         <span class="glyphicon glyphicon-remove"></span>
-                        <img src="../../image/test_work01.jpg" title="undefined">
+                        <img src="{%$val['pic_path']|default:''%}" title="undefined">
                       </li>
-                      <li>
-                        <span class="glyphicon glyphicon-remove"></span>
-                        <img src="../../image/test_work02.jpg" title="undefined">
-                      </li>
-                      <li>
-                        <span class="glyphicon glyphicon-remove"></span>
-                        <img src="../../image/test_work03.jpg" title="undefined">
-                      </li>
-                      <li>
-                        <span class="glyphicon glyphicon-remove"></span>
-                        <img src="../../image/test_work04.jpg" title="undefined">
-                      </li>
+                      {%/foreach%}
                     </div>
                     <div id="upload_images">
                     </div>
@@ -144,16 +134,16 @@
             <select name="style" id="mySelect2" required>
               <option value="">请选择</option>
               <option disabled="disabled">----</option>
-              <option value="Mid">Mid-century Modern Style</option>
-              <option value="Modern">Modern Style</option>
-              <option value="Art">Art Deco Style</option>
-              <option value="Minimalism">Minimalism Style</option>
-              <option value="Traditional">Traditional Style</option>
-              <option value="Chinese">Chinese Style</option>
-              <option value="Japanese">Japanese Style</option>
-              <option value="Scandinavian">Scandinavian Design Style</option>
-              <option value="Eclectic">Eclectic Style</option>
-              <option value="Country">Country Style</option>
+              <option value="Mid" {%if $res['style'] eq "Mid"%} selected {%/if%}>Mid-century Modern Style</option>
+              <option value="Modern" {%if $res['style'] eq "Modern"%} selected {%/if%}>Modern Style</option>
+              <option value="Art" {%if $res['style'] eq "Art"%} selected {%/if%}>Art Deco Style</option>
+              <option value="Minimalism" {%if $res['style'] eq "Minimalism"%} selected {%/if%}>Minimalism Style</option>
+              <option value="Traditional" {%if $res['style'] eq "Traditional"%} selected {%/if%}>Traditional Style</option>
+              <option value="Chinese" {%if $res['style'] eq "Chinese"%} selected {%/if%}>Chinese Style</option>
+              <option value="Japanese" {%if $res['style'] eq "Japanese"%} selected {%/if%}>Japanese Style</option>
+              <option value="Scandinavian" {%if $res['style'] eq "Scandinavian"%} selected {%/if%}>Scandinavian Design Style</option>
+              <option value="Eclectic" {%if $res['style'] eq "Eclectic"%} selected {%/if%}>Eclectic Style</option>
+              <option value="Country" {%if $res['style'] eq "Country"%} selected {%/if%}>Country Style</option>
             </select>
           </td>
         </tr>
@@ -163,11 +153,11 @@
             <select name="area" id="mySelect3" required>
               <option value="">请选择</option>
               <option disabled="disabled">----</option>
-              <option value="1">Smaller: < 70 sq. ft</option>
-              <option value="2">Small: 71 - 100 sq.ft</option>
-              <option value="3">Medium: 101 - 200 sq. ft</option>
-              <option value="4">Large: 201 - 400 sq. ft</option>
-              <option value="5">Larger: > 400 sq. ft</option>
+              <option value="1" {%if $res['area'] eq 1 %} selected {%/if%}>Smaller: < 70 sq. ft</option>
+              <option value="2" {%if $res['area'] eq 2 %} selected {%/if%}>Small: 71 - 100 sq.ft</option>
+              <option value="3" {%if $res['area'] eq 3 %} selected {%/if%}>Medium: 101 - 200 sq. ft</option>
+              <option value="4" {%if $res['area'] eq 4 %} selected {%/if%}>Large: 201 - 400 sq. ft</option>
+              <option value="5" {%if $res['area'] eq 5 %} selected {%/if%}>Larger: > 400 sq. ft</option>
             </select>
           </td>
         </tr>
@@ -177,9 +167,9 @@
             <select name="shape" id="mySelect4" onchange="myFunction()" required>
               <option value="">请选择</option>
               <option disabled="disabled">----</option>
-              <option value="square">正方形</option>
-              <option value="rectangle">长方形</option>
-              <option value="multiple">多边形</option>
+              <option value="square" {%if $res['shape'] eq "square" %} selected {%/if%}>正方形</option>
+              <option value="rectangle" {%if $res['shape'] eq "rectangle" %} selected {%/if%}>长方形</option>
+              <option value="multiple" {%if $res['shape'] eq "multiple" %} selected {%/if%}>多边形</option>
             </select>
           </td>
         </tr>
@@ -189,14 +179,14 @@
             <select name="layout" id="mySelect5" onchange="myFunction()" required>
               <option value="">请选择</option>
               <option disabled="disabled">----</option>
-              <option value="one">一字型</option>
-              <option value="onem">一字型带中岛</option>
-              <option value="l">L型</option>
-              <option value="lm">L型带中岛</option>
-              <option value="u">U型</option>
-              <option value="um">U型带中岛</option>
-              <option value="g">G型</option>
-              <option value="gm">步入型</option>
+              <option value="one" {%if $res['layout'] eq "one" %} selected {%/if%}>一字型</option>
+              <option value="onem" {%if $res['layout'] eq "onem" %} selected {%/if%}>一字型带中岛</option>
+              <option value="l" {%if $res['layout'] eq "l" %} selected {%/if%}>L型</option>
+              <option value="lm" {%if $res['layout'] eq "lm" %} selected {%/if%}>L型带中岛</option>
+              <option value="u" {%if $res['layout'] eq "u" %} selected {%/if%}>U型</option>
+              <option value="um" {%if $res['layout'] eq "um" %} selected {%/if%}>U型带中岛</option>
+              <option value="g" {%if $res['layout'] eq "g" %} selected {%/if%}>G型</option>
+              <option value="gm" {%if $res['layout'] eq "gm" %} selected {%/if%}>步入型</option>
             </select>
           </td>
         </tr>
@@ -208,17 +198,19 @@
         <tbody id="tb1">
         <tr>
           <td>产品编号<span class="required">*</span></td>
+          {%foreach from=$wuliaos key=i item=val%}
           <td id="addmaterial">
-            <input type="text" class="input-field-short" name="" value="m_names[]" required="true" />
-            <input type="text" class="input-field-short" name="" value="m_colors[]" required="true" />
-            <input type="text" class="input-field-short" name="" value="m_textures[]" required="true" />
-            <input type="text" class="input-field-short" name="" value="m_amounts[]" required="true" />
+            <input type="text" class="input-field-short" name="m_names[]" value="{%$val['name']|default:''%}" required="true" />
+            <input type="text" class="input-field-short" name="m_colors[]" value="{%$val['color']|default:''%}" required="true" />
+            <input type="text" class="input-field-short" name="m_textures[]" value="{%$val['texture']|default:''%}" required="true" />
+            <input type="text" class="input-field-short" name="m_amounts[]" value="{%$val['amount']|default:''%}" required="true" />
            <br />
            <div class="type_counter">输入产品名称</div>
            <div class="type_counter">输入产品材质</div>
            <div class="type_counter">输入产品颜色</div>
            <div class="type_counter">输入产品数量</div>
           </td>
+          {%/foreach%}
         </tr>
         </tbody>
         <tr>
@@ -243,7 +235,7 @@
   $("#addMaterialButton").click(function() {
     var trObj = document.createElement("tr");  
     trObj.id = new Date().getTime();  
-    trObj.innerHTML = "<td></td><td><input name='' class='input-field-short' type='text'/><input name='' type='text' class='input-field-short'/><input name='' type='text' class='input-field-short'/><input name='' type='text' class='input-field-short'/>&nbsp;<input type='button' class='addbutton' value='删除'' onclick='del(this)'></td>";
+    trObj.innerHTML = "<td></td><td><input name='m_names[]' class='input-field-short' type='text'/><input name='m_colors[]' type='text' class='input-field-short'/><input name='m_textures[]' type='text' class='input-field-short'/><input name='m_amounts[]' type='text' class='input-field-short'/>&nbsp;<input type='button' class='addbutton' value='删除'' onclick='del(this)'></td>";
     $("#tb1").append(trObj);
   });
   function del(obj) {
