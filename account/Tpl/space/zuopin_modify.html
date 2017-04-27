@@ -207,13 +207,14 @@
           </td>
         </tr>
         {%foreach from=$wuliaos key=i item=val%}
-        <tr>
+        <tr id="addm">
           <td></td>          
           <td id="addmaterial">
             <input type="text" class="input-field-short" name="m_names[]" value="{%$val['name']|default:''%}" required="true" />
             <input type="text" class="input-field-short" name="m_colors[]" value="{%$val['color']|default:''%}" required="true" />
             <input type="text" class="input-field-short" name="m_textures[]" value="{%$val['texture']|default:''%}" required="true" />
             <input type="text" class="input-field-short" name="m_amounts[]" value="{%$val['amount']|default:''%}" required="true" />
+            <input type='button' class='addbutton' value='删除'' onclick='delete_origin(this)'>
           </td>          
         </tr>
         {%/foreach%}
@@ -240,7 +241,11 @@
   $("#addMaterialButton").click(function() {
     var trObj = document.createElement("tr");  
     trObj.id = new Date().getTime();  
-    trObj.innerHTML = "<td></td><td><input name='m_names[]' class='input-field-short' type='text'/><input name='m_colors[]' type='text' class='input-field-short'/><input name='m_textures[]' type='text' class='input-field-short'/><input name='m_amounts[]' type='text' class='input-field-short'/>&nbsp;<input type='button' class='addbutton' value='删除'' onclick='del(this)'></td>";
+    trObj.innerHTML = "<td></td><td><input name='m_names[]' class='input-field-short' type='text'/>
+    <input name='m_colors[]' type='text' class='input-field-short'/>
+    <input name='m_textures[]' type='text' class='input-field-short'/>
+    <input name='m_amounts[]' type='text' class='input-field-short'/>&nbsp;
+    <input type='button' class='addbutton' value='删除'' onclick='del(this)'></td>";
     $("#tb1").append(trObj);
   });
   function del(obj) {
@@ -248,6 +253,13 @@
     var trObj = document.getElementById(trId);
     document.getElementById("tb1").removeChild(trObj);
   }
+  
+ function delete_origin(obj) {
+    var trId = obj.parentNode.id;
+    var trObj = document.getElementById(trId);
+    console.log(trObj);
+    document.getElementById("addm").removeChild(trObj);
+  } 
 
   $('form').submit(function(){
     if(this.files.length>10)
