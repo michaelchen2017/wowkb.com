@@ -562,6 +562,8 @@ class account extends Action{
 	function ACT_designs(){
 		$obj_designs = load("account_tmp_zuopin");
 		$res = "";
+		$category = "";
+		$q = "";
 		
 		if(isset($_GET) && !empty($_GET['q'])){
 			if($_GET['category'] == 1){
@@ -584,9 +586,13 @@ class account extends Action{
 		else{
 			$res = $obj_designs->getList("*", array("visible"=>1));
 		}
+		$category = $_GET['category'];
+		$q = $_GET['q'];
 		
 		shuffle($res);
 		
+		$this->assign("category", $category);
+		$this->assign("q", $q);
 		$this->assign("res", $res);
 		
 	}

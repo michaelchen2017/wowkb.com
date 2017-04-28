@@ -480,10 +480,13 @@ class space extends Action{
 								}
 								
 								$wuliao_list = array();
-								foreach ($_POST['m_names'] as $i => $val){
-									$wuliao_list = array("name"=>empty($_POST['m_names'][$i])?'#':$_POST['m_names'][$i] , "fk_id" => $id, "color" => empty($_POST['m_colors'][$i])?'#':$_POST['m_colors'][$i], "texture" =>empty($_POST['m_textures'][$i])?'#':$_POST['m_textures'][$i], "amount"=>empty($_POST['m_amounts'][$i])?'#':$_POST['m_amounts'][$i]);
+								foreach ($_POST['item_id'] as $i => $val){
+// 									debug::d($_POST['item_id']);exit;
+									if(!empty($val)){
+										$wuliao_list = array("fk_item_id"=>$val, "fk_id" => $id);
 									
-									$obj_tmp_wuliaolist->insert($wuliao_list);
+										$obj_tmp_wuliaolist->insert($wuliao_list);
+									}
 								}
 								
 								
@@ -492,6 +495,8 @@ class space extends Action{
 					}
 		
 				}
+				go("/account/space.php?act=designer_manage");
+				
 	}
 	function ACT_addpics(){
 		if(isset($_GET) && !empty($_GET['id'])){
@@ -753,13 +758,13 @@ class space extends Action{
 			$style = $_POST['style'];
 			$colour = $_POST['colour'];
 			if(!empty($style) && !empty($colour)){
-				$res = $this->obj_materials->getList("*", array("style"=>$style, "colour"=>$colour,"visible"=>1));
+				$res = $this->obj_materials->getAll("*", array("style"=>$style, "colour"=>$colour,"visible"=>1));
 			}
 			else if(empty($style) && !empty($colour)){
-				$res = $this->obj_materials->getList("*", array("colour"=>$colour,"visible"=>1));
+				$res = $this->obj_materials->getAll("*", array("colour"=>$colour,"visible"=>1));
 			}
 			else if(empty($colour) && !empty($style)){
-				$res = $this->obj_materials->getList("*", array("style"=>$style, "visible"=>1));
+				$res = $this->obj_materials->getAll("*", array("style"=>$style, "visible"=>1));
 			}
 			
 			
