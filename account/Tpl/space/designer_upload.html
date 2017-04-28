@@ -233,8 +233,7 @@ function popmaterial()
   $("#addMaterialButton").click(function() {
     var trObj = document.createElement("tr");  
     trObj.id = new Date().getTime();  
-    trObj.innerHTML = "<td></td><td><input name='' class='input-field-short' type='text'/>&nbsp;<input type='button' class='addbutton' value='删除'' onclick='del(this)'>
-    </td>";  
+    trObj.innerHTML = "<td></td><td><input name='' class='input-field-short' type='text'/>&nbsp;<input type='button' class='addbutton' value='删除'' onclick='del(this)'></td>";  
     $("#tb1").append(trObj);  
   });
   function del(obj) {  
