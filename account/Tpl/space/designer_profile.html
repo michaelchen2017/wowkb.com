@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WOWKB</title>
+  <link rel="shortcut icon" type="image/x-icon" href="image/favicon.ico">
+  <link rel="stylesheet" type="text/css" href="/template/common/css/common.css">
+  <link rel="stylesheet" type="text/css" href="/template/common/css/common_temp.css">
+  <link rel="stylesheet" type="text/css" href="/account/css/account.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="https://use.fontawesome.com/99d52acf31.js"></script>
+  <script type="text/javascript" src="cropper.js"></script>
+</head>
+<body>
+{%include file="$root/template/common/navbar_prewowkb.html"%}
+
+<div id="body_dash">
+   {%include file="$root/template/common/sidebar.html"%}
+
+  <div id="admin_main">
+ 
+    <div id="admin_content">
+        <div class="personal_profile">
+          <form action="" method="post" enctype="multipart/form-data" role="form">
+            <table class="profile_form">
+              <tr>
+                <td class="profile_left">头像</td>
+                <td><canvas id="testCanvas" width="240" height="240" style="border: 1px solid #afafaf;" >Your browser does not support canvas.</canvas></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td>
+                  <input type="file" name="file" id="fileInput" onchange="handleFileSelect()" class="pic_upload"/><label for="fileInput"><span>选择图片</span></label>
+                  <input type="button" onclick="cropper.startCropping()" value="裁剪" class="pic_button"/>
+                  <input type="button" onclick="cropper.getCroppedImageSrc()" value="确定" class="pic_button"/>
+                </td>
+              </tr>
+              <tr>
+                <td><span>姓名</span></td>
+                <td><input type="text" class="input-field" name="name" value="" /></td>
+              </tr>
+              <tr>
+                <td><span>电话</span></td>
+                <td><input type="text" class="input-field" name="phone" value="" /></td>
+              </tr>
+              <tr>
+                <td><span>邮箱</span></td>
+                <td><input type="text" class="input-field" name="email" value="" /></td>
+              </tr>
+              <tr>
+                <td><span>毕业学校</span></td>
+                <td><input type="text" class="input-field" name="school" value="" /></td>
+              </tr>
+              <tr>
+                <td><span>专业</span></td>
+                <td><input type="text" class="input-field" name="major" value="" /></td>
+              </tr>
+              <tr>
+                <td><span>使用软件</span></td>
+                <td><label class="checkbox-inline"><input name="" type="checkbox" id="inlineCheckbox1" value="AutoCAD" />AutoCAD</label> 
+                <label class="checkbox-inline"><input name="" type="checkbox" id="inlineCheckbox1" value="REVIT" />REVIT</label> 
+                <label class="checkbox-inline"><input name="" type="checkbox" id="inlineCheckbox1" value="3DS" />3DS MAX</label> 
+                <label class="checkbox-inline"><input name="" type="checkbox" id="inlineCheckbox1" value="2020" />2020 Design</label>
+                <label class="checkbox-inline"><input name="" type="checkbox" id="inlineCheckbox1" value="SketchUP" />SketchUP</label> 
+                <label class="checkbox-inline"><input name="" type="checkbox" id="inlineCheckbox1" value="Photoshop" />Photoshop</label> 
+              </td>
+              </tr>
+              <tr>
+                <td></td>
+                <td><label class="checkbox-inline"><input name="" type="checkbox" id="inlineCheckbox1" value="Indesign" />Indesign</label> 
+                <label class="checkbox-inline"><input name="" type="checkbox" id="inlineCheckbox1" value="Illustrator" />Illustrator</label>
+                <label class="checkbox-inline"><input name="" type="checkbox" id="inlineCheckbox1" value="VERY" />VERY</label> 
+                <label class="checkbox-inline"><input name="" type="checkbox" id="inlineCheckbox1" value="Redshift" />Redshift</label> 
+                <label class="checkbox-inline"><input name="" type="checkbox" id="inlineCheckbox1" value="ArchiCAD" />ArchiCAD</label> 
+                <label class="checkbox-inline"><input name="" type="checkbox" id="inlineCheckbox1" value="Vectorworks" />Vectorworks</label>
+                <label class="checkbox-inline"><input name="" type="checkbox" id="inlineCheckbox1" value="other" />其他</label>
+                </td>
+              </tr>
+              <tr>
+                <td><span>服务范围</span></td>
+                <td>
+                  <input type="text" class="input-field" name="service" value="" />
+              </td>
+              </tr>  
+              <tr>
+                <td><span>个人简介</span></td>
+                <td><textarea maxlength="250" name="description" class="textarea-field supplier_info_textarea" onkeydown='countChar("status","counter");' onkeyup='countChar("status","counter");' required="true"></textarea></br><div class="type_counter">可以输入<span id="counter">250</span>字<br/></div></td>
+              </tr>              
+            </table>
+            
+            <input type="submit" class="button_orange_input button_left" value="保存">
+           
+          </form>
+        </div>
+    </div>
+  </div>
+</div>
+<script type="text/javascript">
+      cropper.start(document.getElementById("testCanvas"), 1); // initialize cropper by providing it with a target canvas and a XY ratio (height = width * ratio)
+            
+      function handleFileSelect() {
+        // this function will be called when the file input below is changed
+        var file = document.getElementById("fileInput").files[0];  // get a reference to the selected file
+        
+        var reader = new FileReader(); // create a file reader
+        // set an onload function to show the image in cropper once it has been loaded
+        reader.onload = function(event) {
+          var data = event.target.result; // the "data url" of the image
+          cropper.showImage(data); // hand this to cropper, it will be displayed
+        };
+        
+        reader.readAsDataURL(file); // this loads the file as a data url calling the function above once done
+      }
+      
+</script>
+<script language="javascript">
+  function countChar(textareaName,spanName)
+  {
+    document.getElementById(spanName).innerHTML = 250 - document.getElementById(textareaName).value.length;
+  }
+</script>
+</body>
+</html>

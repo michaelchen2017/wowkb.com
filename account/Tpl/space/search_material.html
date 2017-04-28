@@ -6,31 +6,33 @@
   <title>WOWKB</title>
   <link rel="shortcut icon" type="image/x-icon" href="image/favicon.ico">
   <link rel="stylesheet" type="text/css" href="/template/common/css/common.css">
+  <link rel="stylesheet" type="text/css" href="/template/common/css/common_temp.css">
   <link rel="stylesheet" type="text/css" href="/account/css/account.css">
   <script src="https://use.fontawesome.com/99d52acf31.js"></script>
 </head>
 <body>
-{%include file="$root/template/common/navbar.html"%}
+{%include file="$root/template/common/navbar_prewowkb.html"%}
 
-<div id="body_dash">
+<div id="body">
 
 
   <div class="search_main_content">
       
       <div id="admin_content">
  
-	<form action="/account/space.php?act=search_material" method="post">
+  <form action="/account/space.php?act=search_material" method="post">
       <div class="select_box">
-<!--       <label class="dropdown">
+        <label class="dropdown">
         <select>
-                <option selected>按品牌选择</option>
-                <option>Blue</option>
-                <option >Red</option>
-                <option>Green</option>
-                <option>Yellow</option>
-                <option>Brown</option>
+                <option selected>按品类选择</option>
+                <option>Base Cabinet</option>
+                <option >Wall Cabinet</option>
+                <option>Tall /cabinet</option>
+                <option>Pantry Cabinet</option>
+                <option>Vanity Cabinet</option>
+                <option>Specialty Units</option>
         </select>
-        </label> -->
+        </label>
         <label class="dropdown">
         <select  name="style">
                 <option value="" selected>按款式选择</option>
@@ -63,19 +65,9 @@
                 <option value="Green">绿色 - Green</option>
         </select>
         </label>
-<!--         <label class="dropdown">
-        <select>
-                <option selected>按颜色选择</option>
-                <option>Blue</option>
-                <option >Red</option>
-                <option>Green</option>
-                <option>Yellow</option>
-                <option>Brown</option>
-        </select>
-      </label> -->
       </div><!-- select_box -->
       <label class="">
-      <input type="submit" name="submit" value="submit">
+      <input type="submit" class="button_light_input" name="submit" value="submit">
       </label>
       </form>
       
@@ -87,20 +79,18 @@
             <a href="/account/space.php?act=material_detail&id={%$val['item_id']|default:''%}"><img class="material_pic" src="{%$val['pic_path']|default:''%}"></a>
           </div>        
           <div class="material_info">
-            <div class="info_1">{%$val['name']|default:''%}</div>
+            <div class="info_1">{%$val['name']|default:''%}
+            </br><span class="sys_catogory">Base Cabinet</span>
+              </br><span class="sys_num">1314432141041043</span>
+            </div>
           </div>
         </div>
-		{%/foreach%}
-		
-		{%/if%}
-      </div>
-
-     
+    {%/foreach%}
+    
+    {%/if%}
+    
+      </div>     
     </div>
-
 </div>
-
-{%include file="$root/template/common/footer.html"%}
-
-  </body>
+</body>
 </html>

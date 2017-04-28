@@ -49,9 +49,9 @@
                 </div>
 <!-- AddToAny END -->
                 </div>
-                <a id="share_button" href="#">
+                <!-- <a id="share_button" href="#">
                     <i class="fa fa-share-alt" aria-hidden="true"></i> 
-                </a>
+                </a> -->
             </div>
             <!-- Wrapper for slides -->
            
@@ -119,6 +119,12 @@
                 Related Designs
             </div>
         </a>
+        <a href="#" onclick="share()" class="inline">
+            <div class="button" id="share_button">
+                <i class="fa fa-share-alt" aria-hidden="true"></i></br>
+                Share
+            </div>
+        </a>
         <a href="/prewowkb/account.php?act=form_customize&id={%$res['pk_id']|default:''%}" class="inline">
             <div class="button bottom_button" id="button_start_customize">
                 <img class="side_button_icon" src="/image/detail_icon5.png">
@@ -140,13 +146,27 @@
                 <img id="design_project_designer_head" src="{%$user['pic_path']|default:''%}">
                 <div class="design_project_designer_intro">
                     <span class="designer_name">{%$user['username']|default:''%}</span>
+                    <span class="designer_major">室内设计</span>
+                    <span class="designer_school">Academy of Art University</span>
                     <div class="design_project_designer_des">{%$user['intro']|default:''%}</div>
+                    <div class="designer_software">
+                        <span class="software_title">服务范围</span>
+                        擅长厨房、橱柜、台面、地板、墙面、油漆
+                    </div>
+                    <div class="designer_software">
+                        <span class="software_title">擅长软件</span>
+                        <span class="each_software">AutoCAD</span>
+                        <span class="each_software">3DS MAX</span>
+                        <span class="each_software">REVIT</span>
+                        <span class="each_software">2020 Design</span>
+                    </div>
+
                 </div>
             </div>
-            <div class="design_project_detail_price">
+<!--             <div class="design_project_detail_price">
                 <span class="price_number">
                     <span class="price_title">Service Price</span></br>${%$res['price']|default:''%}/h</span>
-            </div>
+            </div> -->
         </div><!-- basic_info -->
 
 <!-- 作品介绍 -->
@@ -165,6 +185,7 @@
                 {%foreach from=$wuliao key=i item=val%}
                     <tr>
                         <td>
+                            <img src="../../image/B09R.png">
                             <h5>{%$val['name']|default:''%}<span class="material_num">&#215;{%$val['amount']|default:''%}</span></h5>
                             <div class="material_detail">Color: {%$val['color']|default:''%} | Texture: {%$val['texture']|default:''%}</div>
                         </td>

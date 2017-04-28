@@ -1,61 +1,61 @@
 @font-face {
-  		font-family: 'Avenir LT 45 Book';
-  		src: url('webfont.eot'); /* IE9 Compat Modes */
-  		src: url('webfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+      font-family: 'Avenir LT 45 Book';
+      src: url('webfont.eot'); /* IE9 Compat Modes */
+      src: url('webfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
         url('webfont.woff2') format('woff2'), /* Super Modern Browsers */
         url('webfont.woff') format('woff'), /* Pretty Modern Browsers */
         url('../font/Avenir LT 45 Book.ttf')  format('truetype'), /* Safari, Android, iOS */
         url('webfont.svg#svgFontName') format('svg'); /* Legacy iOS */
 }
 @font-face {
-  		font-family: 'Avenir LT 95 Black';
-  		src: url('webfont.eotx'); /* IE9 Compat Modes */
-  		src: url('webfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+      font-family: 'Avenir LT 95 Black';
+      src: url('webfont.eotx'); /* IE9 Compat Modes */
+      src: url('webfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
         url('webfont.woff2') format('woff2'), /* Super Modern Browsers */
         url('webfont.woff') format('woff'), /* Pretty Modern Browsers */
         url('../font/Avenir LT 95 Black.ttf')  format('truetype'), /* Safari, Android, iOS */
         url('webfont.svg#svgFontName') format('svg'); /* Legacy iOS */
 }
 @font-face {
-  		font-family: 'Avenir LT 35 Light';
-  		src: url('webfont.eot'); /* IE9 Compat Modes */
-  		src: url('webfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+      font-family: 'Avenir LT 35 Light';
+      src: url('webfont.eot'); /* IE9 Compat Modes */
+      src: url('webfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
         url('webfont.woff2') format('woff2'), /* Super Modern Browsers */
         url('webfont.woff') format('woff'), /* Pretty Modern Browsers */
         url('../font/Avenir LT 35 Light.ttf')  format('truetype'), /* Safari, Android, iOS */
         url('webfont.svg#svgFontName') format('svg'); /* Legacy iOS */
 }
 @font-face {
-  		font-family: 'Microsoft YaHei';
-  		src: url('webfont.eot'); /* IE9 Compat Modes */
-  		src: url('webfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+      font-family: 'Microsoft YaHei';
+      src: url('webfont.eot'); /* IE9 Compat Modes */
+      src: url('webfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
         url('webfont.woff2') format('woff2'), /* Super Modern Browsers */
         url('webfont.woff') format('woff'), /* Pretty Modern Browsers */
         url('../font/msyh.ttf')  format('truetype'), /* Safari, Android, iOS */
         url('webfont.svg#svgFontName') format('svg'); /* Legacy iOS */
 }
 @font-face {
-  		font-family: 'NotoSansHans-Bold';
-  		src: url('webfont.eot'); /* IE9 Compat Modes */
-  		src: url('webfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+      font-family: 'NotoSansHans-Bold';
+      src: url('webfont.eot'); /* IE9 Compat Modes */
+      src: url('webfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
         url('webfont.woff2') format('woff2'), /* Super Modern Browsers */
         url('webfont.woff') format('woff'), /* Pretty Modern Browsers */
         url('../font/NotoSansHans-Bold.otf')  format('truetype'), /* Safari, Android, iOS */
         url('webfont.svg#svgFontName') format('svg'); /* Legacy iOS */
 }
 @font-face {
-  		font-family: 'NotoSansHans-Regular';
-  		src: url('webfont.eot'); /* IE9 Compat Modes */
-  		src: url('webfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+      font-family: 'NotoSansHans-Regular';
+      src: url('webfont.eot'); /* IE9 Compat Modes */
+      src: url('webfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
         url('webfont.woff2') format('woff2'), /* Super Modern Browsers */
         url('webfont.woff') format('woff'), /* Pretty Modern Browsers */
         url('../font/NotoSansHans-Regular.otf')  format('truetype'), /* Safari, Android, iOS */
         url('webfont.svg#svgFontName') format('svg'); /* Legacy iOS */
 }
 @font-face {
-  		font-family: 'NotoSansHans-Light';
-  		src: url('webfont.eot'); /* IE9 Compat Modes */
-  		src: url('webfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+      font-family: 'NotoSansHans-Light';
+      src: url('webfont.eot'); /* IE9 Compat Modes */
+      src: url('webfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
         url('webfont.woff2') format('woff2'), /* Super Modern Browsers */
         url('webfont.woff') format('woff'), /* Pretty Modern Browsers */
         url('../font/NotoSansHans-Light.otf')  format('truetype'), /* Safari, Android, iOS */
@@ -101,11 +101,11 @@ body{
 }
 
 li{
-	list-style-type:none;
+  list-style-type:none;
 }
 a{
-	text-decoration: none !important;
-	color: #343434;
+  text-decoration: none !important;
+  color: #343434;
 }
 img{
   display: block;
@@ -139,16 +139,16 @@ input[type="color"]:focus,
   outline: 0 none;
 }
 .blank_150{
-	width: 100%;
-	height: 150px;
+  width: 100%;
+  height: 150px;
 }
 .blank_100{
-	width: 100%;
-	height: 100px;
+  width: 100%;
+  height: 100px;
 }
 .blank_60{
-	width: 100%;
-	height: 60px;
+  width: 100%;
+  height: 60px;
 }
 #body{
    min-height: 100vh;
@@ -169,20 +169,20 @@ input[type="color"]:focus,
    border: 0px solid green;
 }
 #admin_main{
-	overflow-y:scroll;
-	border: 0px solid red;
-	width: 100vw;
-	height: 100vh;
-	padding-left: 260px;
-	padding-top: 52px;
-/*	padding-left: 40px;*/
-	padding-right: 40px;
+  overflow-y:scroll;
+  border: 0px solid red;
+  width: 100vw;
+  height: 100vh;
+  padding-left: 260px;
+  padding-top: 52px;
+/*  padding-left: 40px;*/
+  padding-right: 40px;
 }
 #admin_content{
-	border: 0px solid red;
-	min-width: 960px;
-	height:auto;
-	margin-top: 40px;
+  border: 0px solid red;
+  min-width: 960px;
+  height:auto;
+  margin-top: 40px;
 }
 
 /*按钮button*/
@@ -343,9 +343,9 @@ input[type="color"]:focus,
 /*导航栏 navigation bar*/
 
 #navtop{
-	padding-right: 100px;
-	border: 0px solid red;
-	background-color: rgba(5,5,5,1)
+  padding-right: 100px;
+  border: 0px solid red;
+  background-color: rgba(5,5,5,1)
 }
 .nav_option_img img{
   width: 28px;
@@ -355,11 +355,11 @@ input[type="color"]:focus,
 }
 
 #nav_logo{
-	padding-top: 10px;
-	width: 160px;
-	margin-left: 30px;
-	display: inline-block;
-	vertical-align: top;
+  padding-top: 10px;
+  width: 160px;
+  margin-left: 30px;
+  display: inline-block;
+  vertical-align: top;
 }
 .nav_option{
   font-size: 14px !important;
@@ -378,8 +378,8 @@ input[type="color"]:focus,
   margin-right: 10px;
 }
 .nav_option:hover{
-	background-color: #FF6500 !important;
-	border: 1px solid #FF6500;
+  background-color: #FF6500 !important;
+  border: 1px solid #FF6500;
 }
 .nav_option_other{
   font-size: 14px !important;
@@ -408,7 +408,7 @@ input[type="color"]:focus,
   color: #ebebeb !important;
 }
 .choose{
-	color: #f8a041;
+  color: #f8a041;
 }
 #nav_sign_signin{
   height: 30px;
@@ -431,235 +431,238 @@ input[type="color"]:focus,
   color: red;
 }
 #nav_sign_signin:hover{
-	border: 1px solid #FF7F2A;
+  border: 1px solid #FF7F2A;
     color:#FF7F2A;
 }
 @media only screen and (max-width: 767px) {
-	.nav_option, #nav_sign_signin{
-		margin-left: 30px;
-	}
+  .nav_option, #nav_sign_signin{
+    margin-left: 30px;
+  }
 }
 
 /*侧边栏 sidebar*/
 #sidebar_message{
-	background-color: #e20909;
-	color: #fff;
-	width: 22px;
-	height: 12px;
-	border-radius: 50px;
-	position: absolute;
-	margin-left: 156px;
-	margin-top: 0px;
-	z-index: 90;
-	text-align: center;
-	padding-top: 2px;
-	padding-bottom: 8px;
-	font-size: 12px;
+  background-color: #e20909;
+  color: #fff;
+  width: 22px;
+  height: 12px;
+  border-radius: 50px;
+  position: absolute;
+  margin-left: 156px;
+  margin-top: 0px;
+  z-index: 90;
+  text-align: center;
+  padding-top: 2px;
+  padding-bottom: 8px;
+  font-size: 12px;
 }
 #sidebar_reddot{
-	background-color: #e20909;
-	color: #fff;
-	width: 8px;
-	height: 8px;
-	border-radius: 50px;
-	position: absolute;
-	margin-left: 140px;
-	margin-top: 0px;
-	z-index: 90;
+  background-color: #e20909;
+  color: #fff;
+  width: 8px;
+  height: 8px;
+  border-radius: 50px;
+  position: absolute;
+  margin-left: 140px;
+  margin-top: 0px;
+  z-index: 90;
 }
 .admin_sidebar{
-	width:220px;
-	height: 100vh;
-	padding-top: 61px;
-	display: inline-block;
-	vertical-align: top;
-	position: absolute;
-	background-color: #fff;
-	border-right: 1px solid #ebebeb;
-	box-shadow: 5px 5px 10px 0 rgba(0,0,0,.07);
-	left: 0
+  width:220px;
+  height: 100vh;
+  padding-top: 61px;
+  display: inline-block;
+  vertical-align: top;
+  position: absolute;
+  background-color: #fff;
+  border-right: 1px solid #ebebeb;
+  box-shadow: 5px 5px 10px 0 rgba(0,0,0,.07);
+  left: 0
 }
 #userPic{
-	width:100px;
-	height: 100px;
-	margin-left: auto;
-	margin-right: auto;
-	margin-top: 40px;
+  width:100px;
+  height: 100px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 40px;
+}
+#userPic img{
+  border-radius: 100px;
 }
 #userName{
-	margin-top: 20px;
-	text-align: center;
-	margin-bottom: 10px; 
-	color: #383838;
+  margin-top: 20px;
+  text-align: center;
+  margin-bottom: 10px; 
+  color: #383838;
 }
 #userTitle{
-	text-align: center;
-	font-size: 14px;
-	color: #9b9b9d;
+  text-align: center;
+  font-size: 14px;
+  color: #9b9b9d;
 }
 #admin_sidebar_gapline{
-	height:1px;
-	width:200px;
-	background-color: #bcbcbc;
-	margin-top: 30px;
-	margin-bottom: 30px;
-	margin-left: auto;
-	margin-right: auto;
+  height:1px;
+  width:200px;
+  background-color: #bcbcbc;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  margin-left: auto;
+  margin-right: auto;
 }
 #admin_menu{
-	margin-top: 10px;
+  margin-top: 10px;
 }
 
 .admin_button{
-	display: block;
-	border-left:6px solid #ebebeb;
-	height:30px;
-	padding-top: 10px;
-	text-align: center;
-	margin-top: 20px;
-	color: #676769;
+  display: block;
+  border-left:6px solid #ffffff;
+  height:30px;
+  padding-top: 10px;
+  text-align: center;
+  margin-top: 20px;
+  color: #676769;
 }
 .admin_button:hover{
-	border-left:6px solid #f8a041;
+  border-left:6px solid #f8a041;
 }
 
 /*底边栏 footer*/
 #bottombar{
-	height:200px;
-	background-color: #ebebeb;
+  height:200px;
+  background-color: #ebebeb;
   border-top: 1px solid #d5d5d5;
-	z-index: 2;
+  z-index: 2;
   right: 0;
   bottom: 0;
   left: 0;
 }
 .bottom_content{
-	width: 85%;
-	margin-left: auto;
-	margin-right: auto;
-	font-family: 'Avenir LT 45 Book';
-	color: #444444;
+  width: 85%;
+  margin-left: auto;
+  margin-right: auto;
+  font-family: 'Avenir LT 45 Book';
+  color: #444444;
 }
 .bottom_link{
-	width: 96%;
-	height:auto;
-	border: 0px solid red;
-	margin-top: 40px;
-	margin-bottom: 50px;
-	margin-left: auto;
-	margin-right: auto;
+  width: 96%;
+  height:auto;
+  border: 0px solid red;
+  margin-top: 40px;
+  margin-bottom: 50px;
+  margin-left: auto;
+  margin-right: auto;
 }
 .bottom_link_line{
-	margin-top: 16px;
-	border: 0px solid red;
-	display: inline-block;
-	vertical-align: top;
+  margin-top: 16px;
+  border: 0px solid red;
+  display: inline-block;
+  vertical-align: top;
 }
 .bottom_list{
-	line-height: 2.5;
-	font-size: 14px;
+  line-height: 2.5;
+  font-size: 14px;
 }
 #footer_logo{
-	display: inline-block;
-	vertical-align: top;
-	height: 120px;
-	width: 400px;
+  display: inline-block;
+  vertical-align: top;
+  height: 120px;
+  width: 400px;
 }
 #footer_partner{
-	display: block;
+  display: block;
 }
 .bottom_blank{
-	width:6%;
-	height:10px;
-	vertical-align: top;
-	display: inline-block;
+  width:6%;
+  height:10px;
+  vertical-align: top;
+  display: inline-block;
 }
 
 /*页码*/
 #page_body{
-	margin-top: 10px;
-	text-align: center;
-	margin-left: auto;
-	margin-right: auto;
-	right: 0;
-	left: 0;
+  margin-top: 10px;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  right: 0;
+  left: 0;
 }
 #page_all{
-	font-size: 14px;
+  font-size: 14px;
 }
 .page_display{
-	display: inline-block;
-	vertical-align: top;
-	border: 0px solid red;
-	background-color: #a6ceed;
-	padding: 8px;
-	margin: 6px;
-	color: #fff !important;
+  display: inline-block;
+  vertical-align: top;
+  border: 0px solid red;
+  background-color: #a6ceed;
+  padding: 8px;
+  margin: 6px;
+  color: #fff !important;
 }
 .page_display_choose{
-	display: inline-block;
-	vertical-align: top;
-	border: 0px solid red;
-	background-color: #499ad8;
-	padding: 8px;
-	margin: 6px;
-	color: #fff !important;
+  display: inline-block;
+  vertical-align: top;
+  border: 0px solid red;
+  background-color: #499ad8;
+  padding: 8px;
+  margin: 6px;
+  color: #fff !important;
 }
 
 /*系统消息*/
 #system_message{
-	border-radius:6px;
-	width: 100%;
-	height: 88px;
-	border: 1px solid #d5d5d5;
-	background-color: #fff;
-	margin-bottom: 12px;
+  border-radius:6px;
+  width: 100%;
+  height: 88px;
+  border: 1px solid #d5d5d5;
+  background-color: #fff;
+  margin-bottom: 12px;
 }
 #message_pic{
-	width: 80px;
-	height: 60px;
-	margin-top: 14px;
-	margin-left: 16px;
-	display: inline-block;
-	vertical-align: top;
+  width: 80px;
+  height: 60px;
+  margin-top: 14px;
+  margin-left: 16px;
+  display: inline-block;
+  vertical-align: top;
 }
 #message_main{
-	border: 0px solid red;
-	display: inline-block;
-	vertical-align: top;
-	width: 400px;
-	margin-top: 16px;
-	margin-left: 20px;
+  border: 0px solid red;
+  display: inline-block;
+  vertical-align: top;
+  width: 400px;
+  margin-top: 16px;
+  margin-left: 20px;
 }
 #message_time{
-	font-size: 14px;
-	color: #afafaf;
+  font-size: 14px;
+  color: #afafaf;
 }
 #message_content{
-	font-size: 15px;
-	margin-top: 12px;
+  font-size: 15px;
+  margin-top: 12px;
 }
 #message_gapline{
-	width: 100%;
-	height: 1px;
-	background-color: #d5d5d5;
-	margin-top: 40px;
+  width: 100%;
+  height: 1px;
+  background-color: #d5d5d5;
+  margin-top: 40px;
 }
 #message_gapline_title{
-	font-size: 12px;
-	color: #bababa;
-	text-align: center;
-	margin-top:-10px;
-	width: 80px;
-	margin-left: auto;
-	margin-right: auto;
-	background-color: #ebebeb;
-	border: 0px solid red;
-	margin-bottom: 30px; 
+  font-size: 12px;
+  color: #bababa;
+  text-align: center;
+  margin-top:-10px;
+  width: 80px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #ebebeb;
+  border: 0px solid red;
+  margin-bottom: 30px; 
 }
 
 input[type=number]::-webkit-inner-spin-button,
 input[type=number]::-webkit-outer-spin-button {
-	-webkit-appearance: none;
-	margin: 0;
+  -webkit-appearance: none;
+  margin: 0;
 }

@@ -7,12 +7,13 @@
   <title>WOWKB</title>
   <link rel="shortcut icon" type="image/x-icon" href="/image/favicon.ico">
   <link rel="stylesheet" type="text/css" href="/template/common/css/common.css">
+  <link rel="stylesheet" type="text/css" href="/template/common/css/common_temp.css">
   <link rel="stylesheet" type="text/css" href="/account/css/account.css">
 </head>
 <body>
-{%include file="$root/template/common/navbar.html"%}
+{%include file="$root/template/common/navbar_prewowkb.html"%}
 
-<div id="body_dash">
+<div id="body">
 
 
   <div class="search_main_content">
@@ -34,6 +35,7 @@
         <div class="right_side">
           <div class="right_info">
           <h3>{%$res['name']|default:''%}</h3>
+          系统编号：1122423414214141</br>
           编号：{%$res['project_no']|default:''%}</br>
           品类：{%$res['category']|default:''%}</br>
           品牌：{%$res['brand']|default:''%}</br>
@@ -51,7 +53,5 @@
       
     </div>
 </div>
-
-{%include file="$root/template/common/footer.html"%}
-  </body>
+</body>
 </html>

@@ -26,9 +26,9 @@
 .right_header{
   height: 100vh;
   position: absolute;
-  width: 400px;
+  width: 360px;
   background-color: #ebebeb;
-  background-color: rgba(255, 255, 255, .7);
+  background-color: rgba(255, 255, 255, .88);
   border: 0px solid red;
   display: inline-block;
   vertical-align: top;
@@ -132,6 +132,8 @@
 }
 .design_project_designer{
   width: 100%;
+  margin-left: auto;
+  margin-right: auto;
   margin-top: 80px;
   border-bottom: 0px solid red;
   padding-bottom: 20px;
@@ -141,12 +143,54 @@
   width: 100px;
   text-align: center;
   border: 0px solid red;
-  font-size: 16px;
+  font-size: 20px;
+  display:block;
+  margin-top: 10px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.designer_major{
+  display: block;
+  color: #ff6500;
+  font-size: 14px;
+  margin-top: 10px;
+}
+.designer_school{
+  display: block;
+  font-size: 14px;
+  color: #afafaf;
+  margin-top: 10px;
+}
+.designer_software{
+  display: block;
+  font-size: 12px;
+  margin-top: 30px;
+  width: 80%;
+  border: 0px solid red;
+  margin-left: auto;
+  margin-right: auto;
+}
+.software_title{
+  display: block;
+  margin-bottom: 14px;
+  padding-top: 20px;
+  color: #afafaf;
+  border-top: 1px solid #d5d5d5;
+}
+.each_software{
+  border:1px solid #ff6500;
+  border-radius: 20px;
+  margin:3px 3px 8px 3px;
+  font-size: 12px;
+  color: #ff6500;
+  padding: 2px 6px 2px 6px;
+  display: inline-block;
 }
 #design_project_designer_head{
   width: 88px;
   margin-left: auto;
   margin-right: auto;
+  border-radius: 88px;
 }
 .designer_contact{
   margin-top: 20px;
@@ -154,7 +198,7 @@
 }
 .design_project_designer_intro{
   border:0px solid green;
-  width: 400px;
+  width: 100%;
   margin-left: auto;
   margin-right: auto;
   margin-top: 20px;
@@ -167,7 +211,8 @@
   border: 0px solid red;
   color: #383838;
   font-size: 14px;
-  margin-top: 20px;
+  margin-top: 30px;
+  line-height: 1.6;
 }
 .design_title{
   border: 0px solid red;
@@ -270,7 +315,6 @@
   position: absolute;
   z-index: 99;
   left: 0;
-  bottom: 14vh;
   border: 0px solid red;
   font-size: 14px;
   color: #fff;
@@ -289,7 +333,9 @@
 #top_share_button{
   border: 0px solid red;
   text-align: center;
-  margin-bottom: 20px;
+/*  height: 100vh;*/
+  margin-bottom: 40vh;
+  margin-top:48vh;
 }
 .share_button{
   border: 0px solid red;
@@ -313,22 +359,29 @@
   background-color: #7bb32e;
 }
 #share_button{
-  background-color: #FF6500;
+/*  background-color: #FF6500;
   width: 50px;
   height: 50px;
   line-height: 50px;
   border-radius: 50px;
-  margin-left: auto;
+*/  margin-left: auto;
   margin-right: auto;
   text-align: center;
   cursor: pointer;
   color: #fff;
   display: block;
-  box-shadow: 5px 5px 5px 0 rgba(0,0,0,.2);
+  /*box-shadow: 5px 5px 5px 0 rgba(0,0,0,.2);*/
+}
+#share_button i{
+  font-size: 24px;
 }
 .top_button{
   height: 110px !important;
 }
+.top_button img{
+  border-radius: 50px;
+}
+
 .bottom_button{
   background-color: #FF6500;
 }
@@ -356,7 +409,7 @@
   font-size: 14px;
   color: #383838;
   margin-top: 100px;
-  width: 90%;
+  width: 86%;
   margin-left: auto;
   margin-right: auto;
   line-height: 1.6;
@@ -379,6 +432,9 @@
 }
 .material_content table{
   width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  border: 1px solid red;
 }
 .material_content table tr td{
   border: 1px solid #d5d5d5;
@@ -386,17 +442,16 @@
   color:#7a7a7a;
   text-align: left;
 }
+.material_content table tr td img{
+  border: 0px solid red;
+  width: 100%;
+}
 #design_material_list .material_content table tr td h5{
   font-size: 14px;
   color: #383838;
 }
 #design_material_list .material_content table tr td .material_detail{
   font-size: 12px;
-}
-.material_content table tr td .material_num{
-  color: #FF6500;
-  float: right;
-  font-size: 14px;
 }
 .each_relate_material{
   width: 180px;
@@ -419,14 +474,14 @@
   margin-bottom: 20px;
 }
 .each_relate_design{
-  width: 180px;
+  width: 236px;
   display: inline-block;
   vertical-align: top;
-  margin:8px;
+  margin:10px;
 }
 .each_relate_design img{
-  width: 180px;
-  height: 125px;
+  width: 236px;
+  height: 160px;
 }
 .each_relate_intro{
   font-size: 14px;
@@ -508,6 +563,7 @@
     padding-top: 5px;
     padding-left: 10px;
     padding-right: 10px;
+    border: 1px solid red;
   }
 
   .right_header{
@@ -515,7 +571,7 @@
     position: absolute;
     width: 100%;
     background-color: #ebebeb;
-    background-color: rgba(235, 235, 235, .7);
+    background-color: rgba(235, 235, 235, .88);
     border: 0px solid red;
     display: inline-block;
     vertical-align: top;
@@ -528,7 +584,7 @@
     position: absolute;
     width: 100%;
     background-color: #ebebeb;
-    background-color: rgba(235, 235, 235, .7);
+    background-color: rgba(235, 235, 235, .88);
     border: 0px solid red;
     display: inline-block;
     vertical-align: top;
