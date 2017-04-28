@@ -749,6 +749,7 @@ class space extends Action{
 	function ACT_search_material(){
 		$res = array();
 		if(isset($_POST) && !empty($_POST['submit'])){
+			$category = $_POST['category'];
 			$style = $_POST['style'];
 			$colour = $_POST['colour'];
 			if(!empty($style) && !empty($colour)){
@@ -760,6 +761,7 @@ class space extends Action{
 			else if(empty($colour) && !empty($style)){
 				$res = $this->obj_materials->getList("*", array("style"=>$style, "visible"=>1));
 			}
+			
 			
 		}
 		else{
