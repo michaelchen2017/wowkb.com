@@ -112,7 +112,7 @@
               </tr>
               <tr>
                 <td>作品信息 <span class="required">*</span></td>
-                <td><textarea maxlength="250" id="status" name="intro" class="textarea-field supplier_info_textarea" onkeydown='countChar("status","counter");' onkeyup='countChar("status","counter");'></textarea></br><div id="type_counter">可以输入<span id="counter">250</span>字<br/></div></td>
+                <td><textarea maxlength="3000" id="status" name="intro" class="textarea-field supplier_info_textarea" onkeydown='countChar("status","counter");' onkeyup='countChar("status","counter");'></textarea></br><div id="type_counter">可以输入<span id="counter">3000</span>字<br/></div></td>
               </tr>
               <tr>
                 <td colspan="2">
@@ -213,7 +213,7 @@
 <script language="javascript"> 
 function countChar(textareaName,spanName) 
 { 
-document.getElementById(spanName).innerHTML = 250 - document.getElementById(textareaName).value.length; 
+document.getElementById(spanName).innerHTML = 3000 - document.getElementById(textareaName).value.length; 
 } 
 </script>
 <script type="text/javascript">
