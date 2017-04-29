@@ -175,7 +175,9 @@
                             <img src="{%$val['pic_path']|default:''%}">
                       	{%/if%}
                             <h5>{%$val['name']|default:''%}</h5>
+                            {%if !empty($val['colour'] || $val['texture'])%}
                             <div class="material_detail">Color: {%$val['colour']|default:''%} | Texture: {%$val['texture']|default:''%}</div>
+                            {%/if%}
                         </td>
                     </tr>
                
