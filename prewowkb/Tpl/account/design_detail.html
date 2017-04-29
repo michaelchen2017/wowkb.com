@@ -27,31 +27,16 @@
     <div id="header">
         <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="false">
 
-            <div class="box_content">
-                <div id="top_share_button" class="hide">
-                    <!-- <div class="each_share" id="facebook">
-                        <div class="fb-share-button" data-href="http://beta.wowkb.com/"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fbeta.wowkb.com%2F&amp;src=sdkpreparse" style="text-decoration: none; color:white; z-index: 200;"></a></div>
-                        <i class="fa fa-facebook" aria-hidden="true" style="position: absolute; top: 38%; left: 42%;"></i>
-                    </div>
-
-                    <div class="each_share" id="twitter"><i class="fa fa-twitter" aria-hidden="true"></i></div>
-                    <div class="each_share" id="insta"><i class="fa fa-instagram" aria-hidden="true"></i></div>
-                    <div class="each_share" id="tumblr"><i class="fa fa-tumblr" aria-hidden="true"></i></div>
-                    <div class="each_share" id="wechat"><i class="fa fa-weixin" aria-hidden="true"></i></div> -->
-                    <!-- AddToAny BEGIN -->
-                <div class="a2a_kit a2a_kit_size_32 a2a_default_style share_button">
-                    <a class="a2a_dd each_share" href="https://www.addtoany.com/share"></a>
-                    <a class="a2a_button_facebook each_share"></a>
-                    <a class="a2a_button_twitter each_share"></a>
-                    <a class="a2a_button_google_plus each_share"></a>
-                    <a class="a2a_button_linkedin each_share"></a>
-                    <a class="a2a_button_tumblr each_share"></a>
+            <div id="top_share_button" class="hide">
+                <div id="share_buttons" class="a2a_kit a2a_kit_size_32 a2a_default_style">
+                    <!--<a class="a2a_dd" href="https://www.addtoany.com/share"></a>-->
+                    <a class="a2a_button_facebook share_icon"></a>
+                    <a class="a2a_button_twitter share_icon"></a>
+                    <a class="a2a_button_google_plus share_icon"></a>
+                    <a class="a2a_button_linkedin share_icon"></a>
+                    <a class="a2a_button_tumblr share_icon"></a>
+                    <a class="a2a_button_wechat share_icon"></a>
                 </div>
-<!-- AddToAny END -->
-                </div>
-                <!-- <a id="share_button" href="#">
-                    <i class="fa fa-share-alt" aria-hidden="true"></i> 
-                </a> -->
             </div>
             <!-- Wrapper for slides -->
            
@@ -186,7 +171,7 @@
                     <tr>
                         <td>
                             <img src="../../image/B09R.png">
-                            <h5>{%$val['name']|default:''%}<span class="material_num">&#215;{%$val['amount']|default:''%}</span></h5>
+                            <h5>{%$val['name']|default:''%}</h5>
                             <div class="material_detail">Color: {%$val['color']|default:''%} | Texture: {%$val['texture']|default:''%}</div>
                         </td>
                     </tr>
@@ -241,6 +226,23 @@
 
             </div>
         </div>
+
+
+        <div id="share_icons">
+            <div class="share_icons_content">
+                <h4>Share</h4>
+                <div class="a2a_kit a2a_kit_size_32 a2a_default_style">
+                    <a class="a2a_button_facebook share_icon"></a>
+                    <a class="a2a_button_twitter share_icon"></a>
+                    <a class="a2a_button_google_plus share_icon"></a>
+                    <a class="a2a_button_linkedin share_icon"></a>
+                    <a class="a2a_button_tumblr share_icon"></a>
+                    <a class="a2a_button_wechat share_icon"></a>
+                </div>
+            </div>
+        </div>
+
+
     </div><!-- right_header -->
 </div><!-- design_detail_body -->
 
@@ -270,12 +272,12 @@
 
 <div id="test_screen"></div>
 <script type="text/javascript">
-    /*
-    $("#myCarousel").width($( document ).width() - 84);
-    $( window ).resize(function() {
-        $( "#myCarousel" ).width($( document ).width() - 84);
-    });
-    */
+
+    // $("#myCarousel").width($( document ).width() - 84);
+    // $( window ).resize(function() {
+    //     $( "#myCarousel" ).width($( document ).width() - 84);
+    // });
+
     var page_designer = document.getElementById("designers");
     var page_intro = document.getElementById("design_descriptions");
     var page_list = document.getElementById("design_material_lists");
@@ -402,18 +404,90 @@
 
 
     $( document ).ready(function() {
-        if($('#screen_test').css('display')!='none') {
+        if($('#screen_tst').css('display')!='none') {
             $("#headers").width($(window).width() - 84);
             $("#top_share_buttons").removeClass("show").addClass("hide");
             $(".right_page_buttons .button").width(84);
             $('#right_headers').animate({right: '-=600px'});
         } else {
+            $("#top_share_buttn").fadeOut("3000", function () {
+                $("#top_share_buttn").hide();
+                $("#top_share_buttn").removeClass("show").addClass("hide");
+            });
+
+            $("#top_share_buttn").css("display", "none");
+            page_designers.style.display = "none";
+            page_intros.styls.display = "none";
+            page_lists.style.display = "none";
+            page_relates.style.display = "none";
+            var currentWidth = $(window).width()+27;
+            $('#right_headers').css({"right": "+="+currentWidth+"px"});
+
             $("#headers").width($(window).width());
             $("#top_share_btn").removeClass("hide").addClass("show");
             $(".right_page_button .btn").width($(window).width()/5);
             $("#button_designers").width($(window).width());
             $('#right_headers').animate({right: '-=220px' });
         }
+    });
+
+    $("#button_designers").mouseenter(function() {
+        show();
+        button_designer.className = "choose_button top_buttn";
+        button_intro.className = "buttn";
+        button_list.className = "buttn";
+        button_relate_works.className = "buttn";
+
+        page_designer.style.display = "none";
+        page_intro.style.display = "none";
+        page_list.style.display = "none";
+        page_relate_works.style.display = "none";
+    });
+
+    $("#button_intros").mouseenter(function() {
+        button_designers.className = "button top_buttn";
+        button_intros.className = "choose_buttn";
+        button_lists.className = "button";
+        button_relates_works.className = "buttn";
+
+        page_designers.style.display = "none";
+        page_intros.style.display = "none";
+        page_lists.style.display = "none";
+        page_relate_work.style.display = "none";
+    });
+
+    $("#button_lists").mouseenter(function() {
+        show();
+
+        button_designers.className = "button top_button";
+        button_intros.className = "button";
+        button_lists.className = "choose_button";
+        button_relate_work.className = "button";
+
+        page_designers.style.display = "none";
+        page_intros.style.display = "none";
+        page_lists.style.display = "block";
+        page_relate_work.style.display = "none";
+    });
+
+    $("#button_relate").mouseenter(function() {
+        show();
+
+        button_designers.className = "button top_button";
+        button_intros.className = "button";
+        button_lists.className = "button";
+        button_relate_work.className = "choose_top_button";
+
+        page_designers.style.display = "none";
+        page_intros.style.display = "none";
+        page_lists.style.display = "none";
+        page_relate_work.style.display = "none";
+    });
+
+    $("#shares").mouseenter(function() {
+        $("#top_share_button").fadeOut("3000", function () {
+            $("#top_share_button").removeClass("hide").addClass("show");
+        });
     });
 
     $( window ).resize(function() {
@@ -442,7 +516,12 @@
         }
     });
 
-    function show() {
+    function shows() {
+        $("#top_share_buttn").fadeOut("3", function () {
+            $("#top_share_buttn").hide();
+            $("#top_share_buttn").removeClass("show").addClass("show");
+        });
+
         if(!$("#button_designers").hasClass("choose_button") &&
                 !$("#button_intro").hasClass("choose_button") &&
                 !$("#button_list").hasClass("choose_button") &&
@@ -454,11 +533,11 @@
     }
 
     function hide() {
-        if($("#buttons_designer").hasClass("choose_button") ||
-                $("#button_intro").hasClass("choose_button") ||
-                $("#button_list").hasClass("choose_button") ||
-                $("#button_relate_material").hasClass("choose_button") ||
-                $("#button_relate_works").hasClass("choose_button")) {
+        if($("#buttons_designer").hasClass("choose_buttn") ||
+                $("#button_intro").hasClass("choose_buttn") ||
+                $("#button_list").hasClass("choose_buttn") ||
+                $("#button_relate_material").hasClass("choose_buttn") ||
+                $("#button_relate_works").hasClass("choose_buttn")) {
             $('#right_header').animate({"right": "-=580px"}, "slow");
         }
         button_designers.className = "button top_button";
@@ -485,7 +564,8 @@
     });
 
 </script>
-<script src="https://firebasestorage.googleapis.com/v0/b/libraries-320b2.appspot.com/o/design_detail%2Fjquery_style_support.js?alt=media&token=46f23513-9314-4f2d-82bb-8178ce792cd7"></script>
+<script src="https://firebasestorage.googleapis.com/v0/b/libraries-320b2.appspot.com/o/design_detail%2Fjquery_style_support.js?alt=media&token=06f30fa8-5d22-4a1d-8689-9c226d8bff78"></script>
+<script async src="https://static.addtoany.com/menu/page.js"></script>
 <div id="fb-root"></div>
 <script>(function(d, s, id) {
     var js, fjs = d.getElementsByTagName(s)[0];
