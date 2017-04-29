@@ -11,7 +11,7 @@
   vertical-align: top;
 }
 @media only screen and (min-device-width: 781px) {
-  #myCarousel img {
+  .carousel img {
     width: 100%;
     min-width: 1000px;
     min-height: 100vh;
@@ -159,7 +159,7 @@
   display: block;
   font-size: 14px;
   color: #afafaf;
-  margin-top: 10px;
+  margin-top: 4px;
 }
 .designer_software{
   display: block;
@@ -331,11 +331,33 @@
 /*  box-shadow: 5px 5px 5px 0 rgba(0,0,0,.2);*/
 }
 #top_share_button{
+  display: inline-block;
+  /*
   border: 0px solid red;
   text-align: center;
-/*  height: 100vh;*/
   margin-bottom: 40vh;
   margin-top:48vh;
+  */
+  display: inline;
+  position: absolute;
+  z-index: 100;
+  right: 0;
+  top: 414px;
+}
+#share_buttons{
+  display: inline-block;
+  background-color: black;
+  height: 84px;
+  padding: 22px;
+  padding-left: 10px;
+}
+.share_icon span {
+  width: 40px;
+  height: 40px;
+  margin-left: 12px;
+}
+#share_button {
+  display: block;
 }
 .share_button{
   border: 0px solid red;
@@ -409,7 +431,7 @@
   font-size: 14px;
   color: #383838;
   margin-top: 100px;
-  width: 86%;
+  width: 80%;
   margin-left: auto;
   margin-right: auto;
   line-height: 1.6;
@@ -463,7 +485,6 @@
   margin-bottom: 20px;
 }
 .related_design_content{
-  margin-top: 56px;
   margin-left: auto;
   margin-right: auto;
   border: 0px solid red;
@@ -472,6 +493,16 @@
 }
 .related_design_content h4{
   margin-bottom: 20px;
+}
+#share_icons {
+  margin-top: 110px;
+  margin-left: 24px;
+  width: 90%;
+
+}
+#share_icons h4{
+  margin-bottom: 20px;
+  text-align: center;
 }
 .each_relate_design{
   width: 236px;
@@ -502,6 +533,7 @@
 }
 
 @media only screen and (min-device-width: 780px) {
+
   #form_customize {
     background-color: rgba(255, 255, 255, 0.9);
     position: fixed;
@@ -521,6 +553,10 @@
   #form_customize_submitBtn {
     margin-left: auto;
     margin-right: auto;
+  }
+
+  #share_icons {
+    display: none;
   }
 }
 
@@ -543,27 +579,26 @@
     height: 40vh;
   }
 
-  #top_share_button{
-    margin-top: -8px;
-  }
-
-  #share_button {
+  #top_share_button {
     display: none;
   }
 
-  .box_content{
-    width: 100%;
-    height: 60px;
-    position: absolute;
-    z-index: 100;
-    left: 0;
-    top: 28vh;
-    font-size: 14px;
-    color: #fff;
-    padding-top: 5px;
-    padding-left: 10px;
-    padding-right: 10px;
-    border: 1px solid red;
+  #share_buttons {
+    display: none;
+  }
+
+  #share_icons {
+    padding: 0px;
+  }
+
+  .share_icons_content {
+    width: 98%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .share_icon span {
+    margin: 1px;
   }
 
   .right_header{
@@ -576,26 +611,27 @@
     display: inline-block;
     vertical-align: top;
     overflow-y:scroll;
-    top: 52vh;
+    top: 40vh;
     z-index: 200;
   }
   .right_header_hide {
-    height: 100vh;
+    height: 55vh;
     position: absolute;
-    width: 100%;
+    width: 113%;
     background-color: #ebebeb;
     background-color: rgba(235, 235, 235, .88);
     border: 0px solid red;
     display: inline-block;
     vertical-align: top;
     overflow-y:scroll;
-    top: 60vh;
+    top: 40vh;
     z-index: 200;
+    margin-bottom: 500px;
+    padding: 3%;
   }
   .right_page_button {
     width: 100%;
-    height: 40vh;
-    height: 26vh;
+    height: 42px;
     background-color: #333333;
     border: 0px solid red;
     position: fixed;
@@ -605,21 +641,14 @@
     padding: 0;
     z-index: 201;
   }
-  #button_designer {
-    height: 90px !important;
-  }
+
   .inline {
     float: left;
     display: inline-block;
   }
   .right_page_button .button{
-    font-size: 10px;
-    color: #fff;
-    text-align: center;
-    height: 72px;
-    width: 20vh;
-    padding-top: 8px;
-    border: 0px solid red;
+    padding-top: 20px;
+    display: none !important;
   }
 
   .right_page_button .button i{
@@ -658,6 +687,11 @@
 
   #form_customize_submitBtn {
     margin: 10px auto;
+  }
+
+  #button_start_customize {
+    display: block !important;
+    float: right;
   }
 
 }
