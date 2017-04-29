@@ -832,39 +832,102 @@ class space extends Action{
 	
 	
 	function ACT_designer_profile(){
+
+		$obj_user_designer = load("account_user_designer");
+		$obj_user = load("account_users");
+		
+		$user_id = isset($_SESSION['userid'])?$_SESSION['userid']:"";
+		$res_user = "";
+		$res_user_designer = "";		
+		
+		
+		if(!empty($user_id)){
+			$res_user = $obj_user->getOne("*", array("uid"=>$user_id, "visible"=>1));
+			$res_user_designer = $obj_user_designer->getOne("*", array("fk_uid"=>$user_id, "visible"=>1));
+		}
+// 		debug::d($res_user);
+// 		debug::d($res_user_designer);
+// 		exit;
+		$softwares = array();
+		$softwares_tmp = explode(",", $res_user_designer['software_used']);
+		foreach ($softwares_tmp as $i => $val){
+			if(!empty($val)){
+				$softwares[] = trim($val);
+			}
+		}
+		
+		
+		$this->assign("res_user", $res_user);
+		$this->assign("res_user_designer", $res_user_designer);
+		$this->assign("softwares", $softwares);
 		
 	}
 	
 	function ACT_designer_profile_process(){
 		
 		$obj_user_designer = load("account_user_designer");
+		$obj_user = load("account_users");
 		
-		/*
-		 * Array
-(
-    [name] => 34
-    [phone] => erw
-    [email] => esdfa
-    [school] => sdfsa
-    [major] => ddd
-    [software_list] => Array
-        (
-            [0] => REVIT
-            [1] => 3DS
-            [2] => VERY
-        )
-
-    [service] => dd
-    [description] => fasdfe
-)
-		 */
 		$softwares = "";
+		$flag = false;
 		if(isset($_POST)){
 			
 			foreach ($_POST['software_list'] as $i => $val){
 				$softwares = $softwares . ", " . $val;
 			}
 			
+			$target_dir = DOCUROOT . "/image/material/";
+			$pic_path = "";
+		
+			
+				$item_id = time() . "_" .md5($_FILES["file"]["name"]) . "_" . rand(1, 1000);
+			
+				$target_file = $target_dir . basename($_FILES["file"]["name"]);
+			
+				$imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
+				$imageFileType = strtolower($imageFileType);
+			
+				$file_name = $item_id . '.' . $imageFileType;
+			
+				$target_file = $target_dir . $file_name;
+				$pic_path = "/image/material/" . $file_name;
+				$uploadOk = 1;
+			
+				if (file_exists($target_file)) {
+					//echo "Sorry, file already exists.";
+					$uploadOk = 0;
+				}
+				// Check file size
+				if ($_FILES["file"]["size"][$i] > 5000000) {
+					//echo "Sorry, your file is too large.";
+					$uploadOk = 0;
+				}
+				// Allow certain file formats
+				$file_type = "图片";
+				if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
+						&& $imageFileType != "gif"  && $imageFileType != "xlsx" && $imageFileType != "xls") {
+							//echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
+							$uploadOk = 0;
+							$file_type = "非图片";
+						}
+						// Check if $uploadOk is set to 0 by an error
+						if ($uploadOk == 0) {
+							
+						} else {
+							if (move_uploaded_file($_FILES["file"]["tmp_name"], $target_file)) {
+			
+								$flag = true;
+								
+			
+							} else {
+								
+							}
+						}
+			if(!empty($_SESSION['userid']) && $flag){
+				$obj_user->Update(array("pic_path"=>$pic_path), array("uid"=>$_SESSION['userid'], "visible"=>1));
+				
+			}
+		
 			$insert_res = array(
 					"name" => $_POST['name'],
 					"fk_uid" => isset($_SESSION['userid'])?$_SESSION['userid']:"",
@@ -878,7 +941,17 @@ class space extends Action{
 					"pic_path" => "#"
 			);
 			
-			$obj_user_designer->insert($insert_res);
+			if(!empty($insert_res['fk_uid'])){
+				$tmp = $obj_user_designer->getOne("*", array("fk_uid"=>$insert_res['fk_uid'], "visible"=>1));
+				if(!empty($tmp)){
+					$obj_user_designer->Update($insert_res, array("fk_uid" =>$insert_res['fk_uid'], "visible"=>1));
+				}
+				else{
+					$obj_user_designer->insert($insert_res);
+				}
+			}
+			
+			
 		}
 		go("/account/space.php?act=designer_profile");
 	}

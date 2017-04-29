@@ -28,7 +28,22 @@
             <table class="profile_form">
               <tr>
                 <td class="profile_left">头像</td>
-                <td><canvas id="testCanvas" width="240" height="240" style="border: 1px solid #afafaf;" >Your browser does not support canvas.</canvas></td>
+                <td>
+                
+                
+                <canvas id="testCanvas"   width="240" height="240" style="border: 1px solid #afafaf;" >Your browser does not support canvas.</canvas>
+               
+              <script>
+				      var canvas = document.getElementById('testCanvas');
+				      var context = canvas.getContext('2d');
+				      var imageObj = new Image();
+				
+				      imageObj.onload = function() {
+				        context.drawImage(imageObj, 69, 50);
+				      };
+				      imageObj.src = "{%$res_user['pic_path']|default:''%}"; 
+    			</script> 
+                </td>
               </tr>
               <tr>
                 <td></td>
@@ -40,54 +55,82 @@
               </tr>
               <tr>
                 <td><span>姓名</span></td>
-                <td><input type="text" class="input-field" name="name" value="" /></td>
+                <td><input type="text" class="input-field" name="name" value="{%$res_user_designer['name']|default:''%}" /></td>
               </tr>
               <tr>
                 <td><span>电话</span></td>
-                <td><input type="text" class="input-field" name="phone" value="" /></td>
+                <td><input type="text" class="input-field" name="phone" value="{%$res_user_designer['tel']|default:''%}" /></td>
               </tr>
               <tr>
                 <td><span>邮箱</span></td>
-                <td><input type="text" class="input-field" name="email" value="" /></td>
+                <td><input type="text" class="input-field" name="email" value="{%$res_user_designer['email']|default:''%}" /></td>
               </tr>
               <tr>
                 <td><span>毕业学校</span></td>
-                <td><input type="text" class="input-field" name="school" value="" /></td>
+                <td><input type="text" class="input-field" name="school" value="{%$res_user_designer['school']|default:''%}" /></td>
               </tr>
               <tr>
                 <td><span>专业</span></td>
-                <td><input type="text" class="input-field" name="major" value="" /></td>
+                <td><input type="text" class="input-field" name="major" value="{%$res_user_designer['major']|default:''%}" /></td>
               </tr>
               <tr>
                 <td><span>使用软件</span></td>
-                <td><label class="checkbox-inline"><input name="software_list[]" type="checkbox" id="inlineCheckbox1" value="AutoCAD" />AutoCAD</label> 
-                <label class="checkbox-inline"><input name="software_list[]" type="checkbox" id="inlineCheckbox1" value="REVIT" />REVIT</label> 
-                <label class="checkbox-inline"><input name="software_list[]" type="checkbox" id="inlineCheckbox1" value="3DS" />3DS MAX</label> 
-                <label class="checkbox-inline"><input name="software_list[]" type="checkbox" id="inlineCheckbox1" value="2020" />2020 Design</label>
-                <label class="checkbox-inline"><input name="software_list[]" type="checkbox" id="inlineCheckbox1" value="SketchUP" />SketchUP</label> 
-                <label class="checkbox-inline"><input name="software_list[]" type="checkbox" id="inlineCheckbox1" value="Photoshop" />Photoshop</label> 
+                <td>
+              
+                <label class="checkbox-inline"><input name="software_list[]" type="checkbox" id="inlineCheckbox1" value="AutoCAD"  {%foreach from=$softwares key=i item=val%}{%if $val eq 'AutoCAD' %}checked {%/if%}{%/foreach%}/>AutoCAD</label> 
+                
+                
+                <label class="checkbox-inline"><input name="software_list[]" type="checkbox" id="inlineCheckbox1" value="REVIT" {%foreach from=$softwares key=i item=val%}{%if $val eq 'REVIT' %}checked {%/if%}{%/foreach%}/>REVIT</label> 
+                 
+                
+                <label class="checkbox-inline"><input name="software_list[]" type="checkbox" id="inlineCheckbox1" value="3DS" {%foreach from=$softwares key=i item=val%}{%if $val eq '3DS' %}checked {%/if%}{%/foreach%}/>3DS MAX</label> 
+                 
+                
+                <label class="checkbox-inline"><input name="software_list[]" type="checkbox" id="inlineCheckbox1" value="2020" {%foreach from=$softwares key=i item=val%} {%if $val eq '2020' %}checked {%/if%}  {%/foreach%}/>2020 Design</label>
+                
+                
+                <label class="checkbox-inline"><input name="software_list[]" type="checkbox" id="inlineCheckbox1" value="SketchUP" {%foreach from=$softwares key=i item=val%} {%if $val eq 'SketchUP' %}checked {%/if%} {%/foreach%}/>SketchUP</label> 
+                 
+               
+                <label class="checkbox-inline"><input name="software_list[]" type="checkbox" id="inlineCheckbox1" value="Photoshop"  {%foreach from=$softwares key=i item=val%} {%if $val eq 'Photoshop' %}checked {%/if%}  {%/foreach%}/>Photoshop</label> 
+               
               </td>
               </tr>
               <tr>
                 <td></td>
-                <td><label class="checkbox-inline"><input name="software_list[]" type="checkbox" id="inlineCheckbox1" value="Indesign" />Indesign</label> 
-                <label class="checkbox-inline"><input name="software_list[]" type="checkbox" id="inlineCheckbox1" value="Illustrator" />Illustrator</label>
-                <label class="checkbox-inline"><input name="software_list[]" type="checkbox" id="inlineCheckbox1" value="VERY" />VERY</label> 
-                <label class="checkbox-inline"><input name="software_list[]" type="checkbox" id="inlineCheckbox1" value="Redshift" />Redshift</label> 
-                <label class="checkbox-inline"><input name="software_list[]" type="checkbox" id="inlineCheckbox1" value="ArchiCAD" />ArchiCAD</label> 
-                <label class="checkbox-inline"><input name="software_list[]" type="checkbox" id="inlineCheckbox1" value="Vectorworks" />Vectorworks</label>
-                <label class="checkbox-inline"><input name="software_list[]" type="checkbox" id="inlineCheckbox1" value="other" />其他</label>
+                <td>
+                
+                <label class="checkbox-inline"><input name="software_list[]" type="checkbox" id="inlineCheckbox1" value="Indesign" {%foreach from=$softwares key=i item=val%} {%if $val eq 'Indesign' %}checked {%/if%}{%/foreach%}/>Indesign</label> 
+                 
+                
+                <label class="checkbox-inline"><input name="software_list[]" type="checkbox" id="inlineCheckbox1" value="Illustrator" {%foreach from=$softwares key=i item=val%} {%if $val eq 'Illustrator' %}checked {%/if%} {%/foreach%}/>Illustrator</label>
+                
+                
+                <label class="checkbox-inline"><input name="software_list[]" type="checkbox" id="inlineCheckbox1" value="VERY" {%foreach from=$softwares key=i item=val%} {%if $val eq 'VERY' %}checked {%/if%}{%/foreach%}/>VERY</label> 
+                 
+                
+                <label class="checkbox-inline"><input name="software_list[]" type="checkbox" id="inlineCheckbox1" value="Redshift"  {%foreach from=$softwares key=i item=val%} {%if $val eq 'Redshift' %}checked {%/if%} {%/foreach%}/>Redshift</label> 
+                
+                
+                <label class="checkbox-inline"><input name="software_list[]" type="checkbox" id="inlineCheckbox1" value="ArchiCAD" {%foreach from=$softwares key=i item=val%} {%if $val eq 'ArchiCAD' %}checked {%/if%} {%/foreach%}/>ArchiCAD</label> 
+                 
+                
+                <label class="checkbox-inline"><input name="software_list[]" type="checkbox" id="inlineCheckbox1" value="Vectorworks"  {%foreach from=$softwares key=i item=val%} {%if $val eq 'Vectorworks' %}checked {%/if%} {%/foreach%}/>Vectorworks</label>
+                 
+                
+                <label class="checkbox-inline"><input name="software_list[]" type="checkbox" id="inlineCheckbox1" value="other" {%foreach from=$softwares key=i item=val%} {%if $val eq 'other' %}checked {%/if%} {%/foreach%}/>其他</label>
+                 
                 </td>
               </tr>
               <tr>
                 <td><span>服务范围</span></td>
                 <td>
-                  <input type="text" class="input-field" name="service" value="" />
+                  <input type="text" class="input-field" name="service" value="{%$res_user_designer['service']|default:''%}" />
               </td>
               </tr>  
               <tr>
                 <td><span>个人简介</span></td>
-                <td><textarea maxlength="250" name="description" class="textarea-field supplier_info_textarea" onkeydown='countChar("status","counter");' onkeyup='countChar("status","counter");' required="true"></textarea></br><div class="type_counter">可以输入<span id="counter">250</span>字<br/></div></td>
+                <td><textarea maxlength="250" name="description" class="textarea-field supplier_info_textarea" onkeydown='countChar("status","counter");' onkeyup='countChar("status","counter");' required="true">{%$res_user_designer['intro']|default:''%}</textarea></br><div class="type_counter">可以输入<span id="counter">250</span>字<br/></div></td>
               </tr>              
             </table>
             
