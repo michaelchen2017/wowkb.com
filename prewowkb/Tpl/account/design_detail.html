@@ -110,7 +110,9 @@
                 Share
             </div>
         </a>
-        <a href="/prewowkb/account.php?act=form_customize&id={%$res['pk_id']|default:''%}" class="inline">
+        <a href="#" class="inline">
+/prewowkb/account.php?act=form_customize&id={%$res['pk_id']|default:''%}        
+        
             <div class="button bottom_button" id="button_start_customize">
                 <img class="side_button_icon" src="/image/detail_icon5.png">
                 Start Customize
@@ -225,7 +227,7 @@
                 {%foreach from=$other_relative_zuopins key=i item=value %}
                 <a href="/prewowkb/account.php?act=design_detail&id={%$value['pk_id']|default:''%}">
                 <div class="each_relate_design">
-                    <img src="{%$value['pic_path']|default:''%}">
+                    <img src="{%$value['pic_path']|default:''%}">	
                     <div class="each_relate_intro">{%$value['name']|default:''%}</div>
                 </div></a>
                 {%/foreach%}
@@ -255,20 +257,21 @@
 <div class="hidediv" id="form_customize">
     <span id="close_form_customize" class="glyphicon glyphicon-remove"></span>
     <form action="/prewowkb/account.php?act=form_customize_process" method="post" enctype="multipart/form-data">
+    <input type="hidden" name="fk_zuopin_id" value="{%$res['pk_id']|default:''%}">
         <div class="form_title">Book Customized Design Service</div>
-
+			
         <table id="customize">
             <tr>
                 <td>Your Name<span class="required">*</span></td>
-                <td colspan="2"><input type="text"></td>
+                <td colspan="2"><input type="text" name="customer"></td>
             </tr>
             <tr>
                 <td>Email<span class="required">*</span></td>
-                <td colspan="2"><input type="text"></td>
+                <td colspan="2"><input type="text" name="customer_email"></td>
             </tr>
             <tr>
                 <td>Phone</td>
-                <td colspan="2"><input type="text"></td>
+                <td colspan="2"><input type="text" name="customer_tel"></td>
             </tr>            
         </table>
         <input id="form_customize_submitBtn" class="button_blue_input button_pop" type="submit" value="Submit">
