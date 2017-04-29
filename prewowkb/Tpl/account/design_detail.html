@@ -167,7 +167,7 @@
 <!-- 物料清单 -->
         <div id="design_material_list">
             <div class="material_content">
-                <h4>Products List</h4>
+                <h4>Cabinet List</h4>
                 <table>
                 {%foreach from=$wuliao key=i item=val%}
                 {%if !empty($val['pic_path']) || !empty($val['colour']) || !empty($val['texture'])%}
@@ -175,11 +175,12 @@
                         <td>
                         {%if !empty($val['pic_path'])%}
                             <img src="{%$val['pic_path']|default:''%}">
-                      	{%/if%}
+                        {%/if%}
+                        <div class="list_word">
                             <h5>{%$val['name']|default:''%}</h5>
                             
                             <div class="material_detail">Color: {%$val['colour']|default:''%} | Texture: {%$val['texture']|default:''%}</div>
-                           
+                        </div> 
                         </td>
                     </tr>
                {%/if%}
@@ -227,7 +228,7 @@
                 {%foreach from=$other_relative_zuopins key=i item=value %}
                 <a href="/prewowkb/account.php?act=design_detail&id={%$value['pk_id']|default:''%}">
                 <div class="each_relate_design">
-                    <img src="{%$value['pic_path']|default:''%}">	
+                    <img src="{%$value['pic_path']|default:''%}">   
                     <div class="each_relate_intro">{%$value['name']|default:''%}</div>
                 </div></a>
                 {%/foreach%}
@@ -259,7 +260,7 @@
     <form action="/prewowkb/account.php?act=form_customize_process" method="post" enctype="multipart/form-data">
     <input type="hidden" name="fk_zuopin_id" value="{%$res['pk_id']|default:''%}">
         <div class="form_title">Book Customized Design Service</div>
-			
+            
         <table id="customize">
             <tr>
                 <td>Your Name<span class="required">*</span></td>

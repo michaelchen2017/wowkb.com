@@ -133,7 +133,7 @@
   left: 0;
   line-height: 1;
   text-align: center;
-  margin-top: 25vh;
+  margin-top: 20vh;
   font-family: 'NotoSansHans-Medium';
 }
 .big_title{
@@ -154,6 +154,12 @@
 	color: #ebebeb;
 	line-height: 1.4;
 	font-family: 'PingFang ExtraLight';
+}
+@media screen and (max-width: 781px) {
+  .header_subtitle {
+  	margin-top: 2vh;
+    width: 78%;
+  }
 }
 .header_start{
 	border: 2px solid orange;
@@ -291,6 +297,47 @@
   margin-right: auto;
   text-align: left;
 }
+.supplier_logo{
+	width: 80%;
+	text-align: center;
+	height: 500px;
+	border:0px solid red;
+	margin-left: auto;
+	margin-right: auto;
+}
+.readmore{
+	margin-top: 20px;
+}
+.each_logo{
+/*	border: 1px solid green;*/
+	width: 420px;
+	display: inline-block;
+	vertical-align: top;
+	margin: 40px;
+}
+.logo_description{
+	margin-top: 10px;
+	text-align: left;
+	padding: 10px;
+	line-height: 1.6;
+}
+.each_logo .haus img{
+	padding-top: 15%;
+	padding-bottom: 14%;
+}
+.logo_img{
+	background-color: #fff;
+	padding: 40px;
+	height: 260px;
+	text-align: center;
+	border: 1px solid #d5d5d5;
+}
+.logo_img img{
+	width: 40%;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 20px;
+}
 .index_logo{
 	margin: 0;
 	padding: 0;
@@ -305,10 +352,10 @@
 .index_logo li{
   display: inline-block;
   vertical-align: top;
-  margin:20px;
+  margin:50px;
   background-color: #fff;
   border: 1px solid #d5d5d5;
-  width: 250px;
+  width: 320px;
   padding-top: 20px;
   padding-bottom: 16px;
 }
@@ -986,6 +1033,12 @@
 .aboutus_intro{
 	margin-top: 100px;
 }
+.aboutus_intro h3{
+	font-family: 'Avenir LT 95 Black';
+}
+.aboutus_intro p{
+	font-size: 14px;
+}
 .aboutus_intro,.contact_info{
 	width: 80%;
 	margin-left: auto;
@@ -1630,4 +1683,46 @@
 	margin-left: auto;
 	margin-right: auto;
 	margin-top: 40px;
+}
+.constructor_list{
+	width: 690px;
+	border: 0px solid red;
+	margin-left: auto;
+	margin-right: auto;
+}
+.constructor_list ul{
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	border: 0px solid red;
+}
+.constructor_list ul li .each_constru{
+	background-color: #fff;
+	border-radius: 4px;
+	padding: 30px;
+	width: 660px;
+	border: 0px solid green;
+	display: inline-block;
+	vertical-align: top;
+	margin: 10px;
+	box-shadow: 0 5px 10px rgba(0,0,0,0.06), 0 2px 2px rgba(0,0,0,0.03);
+}
+.constructor_list ul li .each_constru .title_c{
+	font-size: 16px;
+	color: #383838;
+}
+.constructor_list ul li .each_constru .title_e{
+	font-size: 18px;
+	color: orange;
+	margin-right: 20px;
+	font-family: 'Avenir LT 95 Black';
+}
+.constructor_list ul li .each_constru .constru_service{
+	margin-top: 20px;
+	display: block;
+	color: #afafaf;
+}
+.constructor_list ul li .each_constru .service_area{
+	font-size: 14px;
+	color: #5d5d5d;
 }
