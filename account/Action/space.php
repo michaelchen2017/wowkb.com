@@ -831,6 +831,15 @@ class space extends Action{
 // 	}
 	
 	
+	function ACT_designer_profile(){
+		debug::d($_FILES);
+		debug::d($_POST);
+		exit;
+		
+		
+		
+	}
+	
 	
 	
 }

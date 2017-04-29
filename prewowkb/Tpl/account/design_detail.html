@@ -170,9 +170,9 @@
                 {%foreach from=$wuliao key=i item=val%}
                     <tr>
                         <td>
-                            <img src="../../image/B09R.png">
+                            <img src="{%$val['pic_path']|default:''%}">
                             <h5>{%$val['name']|default:''%}</h5>
-                            <div class="material_detail">Color: {%$val['color']|default:''%} | Texture: {%$val['texture']|default:''%}</div>
+                            <div class="material_detail">Color: {%$val['colour']|default:''%} | Texture: {%$val['texture']|default:''%}</div>
                         </td>
                     </tr>
                 {%/foreach%}      
