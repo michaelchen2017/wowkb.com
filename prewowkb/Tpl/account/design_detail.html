@@ -168,13 +168,17 @@
                 <h4>Products List</h4>
                 <table>
                 {%foreach from=$wuliao key=i item=val%}
+                
                     <tr>
                         <td>
+                        {%if !empty($val['pic_path']) && )%}
                             <img src="{%$val['pic_path']|default:''%}">
+                      	{%/if%}
                             <h5>{%$val['name']|default:''%}</h5>
                             <div class="material_detail">Color: {%$val['colour']|default:''%} | Texture: {%$val['texture']|default:''%}</div>
                         </td>
                     </tr>
+               
                 {%/foreach%}      
                 </table>
             </div>
