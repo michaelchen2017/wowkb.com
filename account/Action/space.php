@@ -832,12 +832,55 @@ class space extends Action{
 	
 	
 	function ACT_designer_profile(){
-		debug::d($_FILES);
-		debug::d($_POST);
-		exit;
 		
+	}
+	
+	function ACT_designer_profile_process(){
 		
+		$obj_user_designer = load("account_user_designer");
 		
+		/*
+		 * Array
+(
+    [name] => 34
+    [phone] => erw
+    [email] => esdfa
+    [school] => sdfsa
+    [major] => ddd
+    [software_list] => Array
+        (
+            [0] => REVIT
+            [1] => 3DS
+            [2] => VERY
+        )
+
+    [service] => dd
+    [description] => fasdfe
+)
+		 */
+		$softwares = "";
+		if(isset($_POST)){
+			
+			foreach ($_POST['software_list'] as $i => $val){
+				$softwares = $softwares . ", " . $val;
+			}
+			
+			$insert_res = array(
+					"name" => $_POST['name'],
+					"fk_uid" => isset($_SESSION['userid'])?$_SESSION['userid']:"",
+					"tel" => $_POST['phone'],
+					"email" => $_POST['email'],
+					"school" => $_POST['school'],
+					"major" => $_POST['major'],
+					"software_used" => $softwares,
+					"service" => $_POST['service'],
+					"intro" => $_POST['description'],
+					"pic_path" => "#"
+			);
+			
+			$obj_user_designer->insert($insert_res);
+		}
+		go("/account/space.php?act=designer_profile");
 	}
 	
 	
