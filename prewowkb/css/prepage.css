@@ -1456,6 +1456,12 @@
 	vertical-align: top;
 	font-size: 14px;
 	width: 33%;
+	min-width: 240px;
+	margin-bottom: 20px;
+}
+.gap_content_each h4{
+	font-family: 'Avenir LT 95 Black';
+	font-size: 20px;
 }
 .index_gap_content img{
 	width: 50%;

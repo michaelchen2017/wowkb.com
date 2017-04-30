@@ -28,7 +28,7 @@
   position: absolute;
   width: 360px;
   background-color: #ebebeb;
-  background-color: rgba(255, 255, 255, .88);
+  background-color: rgba(255, 255, 255, 1);
   border: 0px solid red;
   display: inline-block;
   vertical-align: top;
@@ -460,20 +460,33 @@
 }
 .material_content table tr td{
   border: 1px solid #d5d5d5;
-  padding: 20px;
+  padding: 0px;
   color:#7a7a7a;
   text-align: left;
+  font-size: 0;
+}
+.material_content table tr td .list_word{
+  border: 0px solid red;
+  display: inline-block;
+  vertical-align: top;
+  width: 218px;
+  font-size: 14px;
+  padding-left: 5px;
+  padding-bottom: 10px;
+  padding-top: 5px;
 }
 .material_content table tr td img{
   border: 0px solid red;
-  width: 100%;
+  width: 100px;
+  height: 76px;
+  display: inline-block;
 }
 #design_material_list .material_content table tr td h5{
-  font-size: 14px;
+  font-size: 15px;
   color: #383838;
 }
 #design_material_list .material_content table tr td .material_detail{
-  font-size: 12px;
+  font-size: 13px;
 }
 .each_relate_material{
   width: 180px;
@@ -606,7 +619,7 @@
     position: absolute;
     width: 100%;
     background-color: #ebebeb;
-    background-color: rgba(235, 235, 235, .88);
+    background-color: rgba(235, 235, 235, 1);
     border: 0px solid red;
     display: inline-block;
     vertical-align: top;
@@ -619,7 +632,7 @@
     position: absolute;
     width: 113%;
     background-color: #ebebeb;
-    background-color: rgba(235, 235, 235, .88);
+    background-color: rgba(235, 235, 235, 1);
     border: 0px solid red;
     display: inline-block;
     vertical-align: top;
@@ -665,7 +678,7 @@
   }
 
   #form_customize {
-    background-color: rgba(255, 255, 255, 0.7);
+    background-color: rgba(255, 255, 255, 0.9);
     position: fixed;
     top:8vh;
     left:0;
