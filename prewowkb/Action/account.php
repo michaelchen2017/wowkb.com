@@ -685,7 +685,7 @@ class account extends Action{
 			
 			
 			//$res['category']
-			$other_relative_zuopins = $obj_tmp_zuopin->getList("*", array("category"=>$res['category'], "visible"=>1), 6);
+			$other_relative_zuopins = $obj_tmp_zuopin->getList("*", array("category"=>$res['style'], "visible"=>1), 6);
 			foreach ($other_relative_zuopins as $i=>$value){
 				if($value['pk_id'] == $_GET['id']){
 					unset($other_relative_zuopins[$i]);
