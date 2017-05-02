@@ -664,6 +664,8 @@ class account extends Action{
 			$obj_tmp_wuliao = load("prewowkb_tmp_wuliao_list");
 			$obj_materials = load("prewowkb_materials");
 			$obj_user = load("prewowkb_users");
+			$obj_designer = load("prewowkb_user_designer");
+			
 			
 			
 			$res = $obj_tmp_zuopin->getOne("*", array("pk_id"=>$_GET['id'], "visible"=>1));
@@ -680,6 +682,8 @@ class account extends Action{
 			
 			
 			$user = $obj_user->getOne("*", array("uid"=>$res['fk_uid'], "visible"=>1));
+			
+			$designer = $obj_designer->getOne("*", array("fk_uid"=>$res['fk_uid'], "visible"=>1));
 			
 			$zuopin_pics = $obj_tmp_zuopin_pics->getAll("*", array("fk_zid" =>$_GET['id'], "visible"=>1));
 			
@@ -698,6 +702,7 @@ class account extends Action{
 // 			$this->assign("pics", $pics);
 			$this->assign("wuliao", $materials);
 			$this->assign("user", $user);
+			$this->assign("designer", $designer);
 			$this->assign("zuopin_pics", $zuopin_pics);
 			$this->assign("other_relative_zuopins", $other_relative_zuopins);
 		}

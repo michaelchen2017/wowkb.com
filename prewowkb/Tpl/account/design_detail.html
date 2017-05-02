@@ -134,7 +134,7 @@
                 <div class="design_project_designer_intro">
                     <span class="designer_name">{%$user['username']|default:''%}</span>
                     <span class="designer_major">室内设计</span>
-                    <span class="designer_school">Academy of Art University</span>
+                    <span class="designer_school">{%$designer['school']|default:''%}</span>
                     <div class="design_project_designer_des">{%$user['intro']|default:''%}</div>
                     <div class="designer_software">
                         <span class="software_title">服务范围</span>
@@ -152,7 +152,7 @@
             </div>
 <!--             <div class="design_project_detail_price">
                 <span class="price_number">
-                    <span class="price_title">Service Price</span></br>${%$res['price']|default:''%}/h</span>
+                    <span class="price_title">Service Price</span></br>{%$designer['price']|default:''%}</span>
             </div> -->
         </div><!-- basic_info -->
 
