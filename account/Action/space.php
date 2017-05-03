@@ -775,6 +775,10 @@ class space extends Action{
 		$this->assign("res", $res);
 	}
 	
+	function ACT_search_material_process(){
+		
+	}
+	
 	function ACT_material_detail(){
 		if(isset($_GET) && !empty($_GET['id'])){
 			$item_id = $_GET['id'];
@@ -955,6 +959,18 @@ class space extends Action{
 		}
 		go("/account/space.php?act=designer_profile");
 	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	

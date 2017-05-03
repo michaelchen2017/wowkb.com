@@ -64,7 +64,7 @@
         
         {%foreach from=$res key=i item=val%}
         <tr >
-          <td><img id="design_pic" src="{%$val['pic_path']|default:''%}"></td>   
+          <td><a href="/account/space.php?act=zuopin_modify&id={%$val['pk_id']|default:''%}" ><img id="design_pic" src="{%$val['pic_path']|default:''%}"></a></td>   
           <td>{%$val['name']|default:''%}</td>
           <td>{%$val['style']|default:''%}</td>
           <td>{%$val['designer']|default:''%}</td>

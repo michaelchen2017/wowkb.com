@@ -568,6 +568,9 @@ class admin extends Action{
 		}
 	}
 	
+	function ACT_admin_checkdesign(){
+		
+	}
 	
 	
 	
