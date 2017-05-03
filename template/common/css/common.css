@@ -173,16 +173,17 @@ input[type="color"]:focus,
   border: 0px solid red;
   width: 100vw;
   height: 100vh;
-  padding-left: 260px;
+  padding-left: 220px;
   padding-top: 52px;
-/*  padding-left: 40px;*/
-  padding-right: 40px;
+  padding-bottom: 20px;
 }
 #admin_content{
   border: 0px solid red;
   min-width: 960px;
   height:auto;
   margin-top: 40px;
+  margin-left: 40px;
+  margin-right: 40px;
 }
 
 /*按钮button*/

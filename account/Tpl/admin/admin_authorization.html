@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WOWKB</title>
+  <link rel="shortcut icon" type="image/x-icon" href="image/favicon.ico">
+  <link rel="stylesheet" type="text/css" href="/template/common/css/common.css">
+  <link rel="stylesheet" type="text/css" href="/account/css/admin.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.0.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="https://use.fontawesome.com/99d52acf31.js"></script>
+</head>
+<body>
+{%include file="$root/template/common/navbar_prewowkb.html"%}
+
+<div id="body_dash">
+{%include file="$root/template/common/sidebar.html"%}
+
+  <div id="admin_main">
+    <div class="dash_top">
+      <span class="dash_top_button" id="button_user">审核用户</span>
+      <span class="dash_unchoose" id="button_design">审核作品</span>
+    </div>
+      
+    <div id="admin_content">
+      <div id="authorize_user">
+      <table id="dashList">
+        <tr>
+          <th>用户名</th>
+          <th>用户类型</th>
+          <th>邮箱</th>
+          <th>注册时间</th>
+          <th></th>
+        </tr>
+        <tr>
+          <td>James</td>
+          <td>用户</td>
+          <td>James@gmail.com</td>
+          <td>2017.4.1 23:59:34</td>
+          <td>
+            <a id="pass" href="#">通过</a>
+            </br>
+            <a id="deny" href="#" onclick="return del(this)">拒绝</a>
+          </td>
+        </tr>
+        <tr>
+          <td>Sarah</td>
+          <td>设计师</td>
+          <td>Sarah@gmail.com</td>
+          <td>2017.4.1 23:59:34</td>
+          <td>
+            <a id="pass" href="#">通过</a>
+            </br>
+            <a id="deny" href="#" onclick="return del(this)">拒绝</a>
+          </td>
+        </tr>
+      </table>
+    </div>
+
+
+    <div id="authorize_design">
+      <table id="dashList">
+        <tr>
+          <th>图片</th>
+          <th>作品名称</th>
+          <th>作品风格</th>
+          <th>设计师</th>
+          <th>上传时间</th>
+          <th></th>
+        </tr>
+        <tr >
+          <td><img id="design_pic" src="../../image/customize/A7/design.jpg"></td>   
+          <td>Sunshine Kitchen</td>
+          <td>Chinese Style</td>
+          <td>James</td>
+          <td>2017.4.1 23:59:34</td>
+          <td>
+            <a id="pass" href="#">通过</a>
+            </br>
+            <a id="deny" href="#" onclick="return del(this)">拒绝</a>
+          </td>
+        </tr>
+        <tr>
+          <td><img id="design_pic" src="../../image/customize/k3/design.jpg"></td>
+          <td>Favorite Kitchen</td>
+          <td>Traditional style</td>
+          <td>Sarah</td>
+          <td>2017.4.1 23:59:34</td>
+          <td>
+            <a id="pass" href="#">通过</a>
+            </br>
+            <a id="deny" href="#" onclick="return del(this)">拒绝</a>
+          </td>
+        </tr>
+      </table>
+    </div>
+
+    </div><!--admin_content-->
+
+  </div>
+</div>
+<script type="text/javascript">
+var user = document.getElementById('button_user');
+var design = document.getElementById('button_design');
+var user_page = document.getElementById('authorize_user');
+var design_page = document.getElementById('authorize_design');
+
+user.onclick = function(){
+  user.className = "dash_top_button";
+  design.className = "dash_unchoose";
+  user_page.style.display = "block";
+  design_page.style.display = "none";
+}
+design.onclick = function(){
+  design.className = "dash_top_button";
+  user.className = "dash_unchoose";
+  design_page.style.display = "block";
+  user_page.style.display = "none";
+}
+</script>
+</body>
+</html>

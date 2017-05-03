@@ -1,28 +1,46 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Wow Kitchen & Bath</title>
+  <title>WOWKB</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="shortcut icon" type="image/x-icon" href="image/favicon.ico">
-  <link rel="stylesheet" type="text/css" href="../../../template/common/css/common.css">
-  <link rel="stylesheet" type="text/css" href="../../account/css/admin.css">
+  <link rel="stylesheet" type="text/css" href="/template/common/css/common.css">
+  <link rel="stylesheet" type="text/css" href="/account/css/admin.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.0.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="https://use.fontawesome.com/99d52acf31.js"></script>
 </head>
 <body>
-{%include file="$root/template/common/navbar.html"%}
+{%include file="$root/template/common/navbar_prewowkb.html"%}
 
 <div id="body_dash">
-    {%include file="$root/template/common/sidebar.html"%}
+{%include file="$root/template/common/sidebar.html"%}
+
   <div id="admin_main">
-      <div id="admin_content">
-          <div class="admin_total">总共上传
-            <div class="admin_total_num">{%$count|default:''%}</div>
-          </div>
-        
+      <div class="dash_top">Dashboard Overview</div>
+      <div class="dash_main">
+        <div class="each_status status_grey">
+          <i class="fa fa-user-o" aria-hidden="true"></i>
+          <span class="status_title">用户</span>
+          <span class="status_num">129</span>
+        </div>
+        <div class="each_status status_orange">
+          <i class="fa fa-picture-o" aria-hidden="true"></i>
+          <span class="status_title">作品</span>
+          <span class="status_num">56</span>
+        </div>
+        <div class="each_status status_blue">
+          <i class="fa fa-cubes" aria-hidden="true"></i>
+          <span class="status_title">物料</span>
+          <span class="status_num">3199</span>
+        </div>
       </div>
   </div>
 </div>
 
 
-{%include file="$root/template/common/footer.html"%}
 
   </body>
 </html>
