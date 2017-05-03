@@ -39,11 +39,19 @@ class admin extends Action{
 	}
 	
 	function ACT_admin_dashboard(){
-		$res = $this->obj_material->getAll("*", array("visible"=>1));
-		$count = count($res);
+		$obj_zuopins = load("account_zuopin");
 		
-		$this->assign("count", $count);
+		$res_material = $this->obj_material->getAll("*", array("visible"=>1));
+		$res_users = $this->obj_user->getAll("*", array("visible"=>1));
+		$res_zuopins = $obj_zuopins->getAll("*", array("visible"=>1));
 		
+		$material_count = count($res_material);
+		$users_count = count($res_users);
+		$zuopins_count = count($res_zuopins);
+		
+		$this->assign("material_count", $material_count);
+		$this->assign("users_count", $users_count);
+		$this->assign("zuopins_count", $zuopins_count);
 		
 	}
 	
