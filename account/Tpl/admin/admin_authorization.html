@@ -34,28 +34,19 @@
           <th>注册时间</th>
           <th></th>
         </tr>
+        {%foreach from=$res_users key=i item=val%}
         <tr>
-          <td>James</td>
-          <td>用户</td>
-          <td>James@gmail.com</td>
-          <td>2017.4.1 23:59:34</td>
+          <td>{%$val['username']|default:''%}</td>
+          <td>{%$val['account_type']|default:''%}</td>
+          <td>{%$val['email']|default:''%}</td>
+          <td>{%$val['reg_time']|date_format:"%m/%d/%Y %H:%M:%S"%}</td>
           <td>
-            <a id="pass" href="#">通过</a>
+            <a id="pass" href="/account/admin.php?act=get_user_pass&id={%$val['uid']|default:''%}">通过</a>
             </br>
-            <a id="deny" href="#" onclick="return del(this)">拒绝</a>
+            <a id="deny" href="/account/admin.php?act=get_user_denial&id={%$val['uid']|default:''%}" onclick="return del(this)">拒绝</a>
           </td>
         </tr>
-        <tr>
-          <td>Sarah</td>
-          <td>设计师</td>
-          <td>Sarah@gmail.com</td>
-          <td>2017.4.1 23:59:34</td>
-          <td>
-            <a id="pass" href="#">通过</a>
-            </br>
-            <a id="deny" href="#" onclick="return del(this)">拒绝</a>
-          </td>
-        </tr>
+        {%/foreach%}
       </table>
     </div>
 
@@ -70,30 +61,22 @@
           <th>上传时间</th>
           <th></th>
         </tr>
+        
+        {%foreach from=$res key=i item=val%}
         <tr >
-          <td><img id="design_pic" src="../../image/customize/A7/design.jpg"></td>   
-          <td>Sunshine Kitchen</td>
-          <td>Chinese Style</td>
-          <td>James</td>
-          <td>2017.4.1 23:59:34</td>
+          <td><img id="design_pic" src="{%$val['pic_path']|default:''%}"></td>   
+          <td>{%$val['name']|default:''%}</td>
+          <td>{%$val['style']|default:''%}</td>
+          <td>{%$val['designer']|default:''%}</td>
+          <td>{%$val['time']|date_format:"%m/%d/%Y %H:%M:%S"%}</td>
+          
           <td>
-            <a id="pass" href="#">通过</a>
+            <a id="pass" href="/account/admin.php?act=get_zuopin_pass&id={%$val['pk_id']|default:''%}">通过</a>
             </br>
-            <a id="deny" href="#" onclick="return del(this)">拒绝</a>
+            <a id="deny" href="/account/admin.php?act=get_zuopin_denial&id={%$val['pk_id']|default:''%}" onclick="return del(this)">拒绝</a>
           </td>
         </tr>
-        <tr>
-          <td><img id="design_pic" src="../../image/customize/k3/design.jpg"></td>
-          <td>Favorite Kitchen</td>
-          <td>Traditional style</td>
-          <td>Sarah</td>
-          <td>2017.4.1 23:59:34</td>
-          <td>
-            <a id="pass" href="#">通过</a>
-            </br>
-            <a id="deny" href="#" onclick="return del(this)">拒绝</a>
-          </td>
-        </tr>
+       {%/foreach%} 
       </table>
     </div>
 

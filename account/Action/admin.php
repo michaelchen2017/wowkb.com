@@ -13,9 +13,9 @@ class admin extends Action{
 // 		$this->assign("user_type", $user_type);
 	
 		$userid = isset($_SESSION['userid'])?$_SESSION['userid']:"";
-		if(empty($userid)){
-			go("/");
-		}
+// 		if(empty($userid)){
+// 			go("/");
+// 		}
 		$this->assign("userid", $userid);
 		
 		$this->obj_material = load("account_material");
@@ -23,8 +23,8 @@ class admin extends Action{
 		
 		$user_type_arr = $this->obj_user->getOne("*", array("uid"=>$userid, "visible"=>1));
 		$user_type = $user_type_arr['account_type'];
-		if($user_type != "admin")
-			go("/");
+// 		if($user_type != "admin")
+// 			go("/");
 			
 		$this->assign("user_type", $user_type);
 		
@@ -484,5 +484,90 @@ class admin extends Action{
 	function ACT_admin_applycheck_detail(){
 		
 	}
+	
+	function ACT_admin_authorization(){
+		$obj_users = load("account_users");
+		$obj_zuopins = load("account_zuopin");
+		
+		$res_users = $obj_users->getAll("*", array("visible"=>1, "status"=>0));
+		$res_zuopins = $obj_zuopins->getAll("*", array("visible"=>1, "status"=>0));
+		 
+		$res = array();
+		foreach ($res_zuopins as $i => $val){
+			$user = $obj_users->getOne("*", array("uid"=>$val['fk_uid'], "visible"=>1));
+			
+			$res[] = array("pk_id"=>$val['pk_id'], "pic_path"=>$val['pic_path'], "name"=>$val['name'], "style"=>$val['style'], "designer"=>$user['username'], "time"=>$val['created_time']);
+			
+		}
+// 		debug::d($res_users);
+// 		exit;
+		$this->assign("res", $res);
+		$this->assign("res_users", $res_users);
+		
+		
+	}
+	
+	function ACT_get_zuopin_pass(){
+		$obj_zuopin = load("account_zuopin");
+		
+		if(isset($_GET['id']) && !empty($_GET['id'])){
+			$id = $_GET['id'];
+			$obj_zuopin->Update(array("status"=>1), array("pk_id"=>$id));
+			go("/account/admin.php?act=admin_authorization");
+		}
+		else{
+			go("/");
+		}
+	}
+	
+	
+	function ACT_get_zuopin_denial(){
+		$obj_zuopin = load("account_zuopin");
+		
+		if(isset($_GET['id']) && !empty($_GET['id'])){
+			$id = $_GET['id'];
+			$obj_zuopin->Update(array("visible"=>0), array("pk_id"=>$id));
+			go("/account/admin.php?act=admin_authorization");
+		}
+		else{
+			go("/");
+		}
+	}
+	
+	function ACT_get_user_pass(){
+		$obj_user = load("account_users");
+	
+		if(isset($_GET['id']) && !empty($_GET['id'])){
+			$id = $_GET['id'];
+			$obj_user->Update(array("status"=>1), array("uid"=>$id));
+			go("/account/admin.php?act=admin_authorization");
+		}
+		else{
+			go("/");
+		}
+	}
+	
+	function ACT_get_user_denial(){
+		$obj_user = load("account_users");
+	
+		if(isset($_GET['id']) && !empty($_GET['id'])){
+			$id = $_GET['id'];
+			$obj_user->Update(array("status"=>1), array("uid"=>$id));
+			go("/account/admin.php?act=admin_authorization");
+		}
+		else{
+			go("/");
+		}
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 }
