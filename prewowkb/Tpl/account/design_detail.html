@@ -184,7 +184,7 @@
                     <tr>
                         <td>
                             {%if !empty($val['pic_path'])%}
-                            <img "{%$val['pic_path']|default:''%}">
+                            <img src="{%$val['pic_path']|default:''%}">
                             {%/if%}
                             <div class="list_word">
                                 <h5>{%$val['name']|default:''%}</h5>
