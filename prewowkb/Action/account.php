@@ -567,24 +567,24 @@ class account extends Action{
 		
 		if(isset($_GET) && !empty($_GET['q'])){
 			if($_GET['category'] == 1){
-				$res = $obj_designs->getList("*", array("style"=>$_GET['q'], "visible"=>1));
+				$res = $obj_designs->getAll("*", array("style"=>$_GET['q'], "visible"=>1));
 			}
 			
 			if($_GET['category'] == 2){
-				$res = $obj_designs->getList("*", array("area"=>$_GET['q'], "visible"=>1));
+				$res = $obj_designs->getAll("*", array("area"=>$_GET['q'], "visible"=>1));
 			}
 			
 			if($_GET['category'] == 3){
-				$res = $obj_designs->getList("*", array("shape"=>$_GET['q'], "visible"=>1));
+				$res = $obj_designs->getAll("*", array("shape"=>$_GET['q'], "visible"=>1));
 			}
 			
 			if($_GET['category'] == 4){
-				$res = $obj_designs->getList("*", array("layout"=>$_GET['q'], "visible"=>1));
+				$res = $obj_designs->getAll("*", array("layout"=>$_GET['q'], "visible"=>1));
 			}
 		
 		}
 		else{
-			$res = $obj_designs->getList("*", array("visible"=>1));
+			$res = $obj_designs->getAll("*", array("visible"=>1));
 		}
 		$category = $_GET['category'];
 		$q = $_GET['q'];
@@ -687,8 +687,7 @@ class account extends Action{
 			
 			$zuopin_pics = $obj_tmp_zuopin_pics->getAll("*", array("fk_zid" =>$_GET['id'], "visible"=>1));
 			
-			
-			//$res['category']
+		
 			$other_relative_zuopins = $obj_tmp_zuopin->getList("*", array("style"=>$res['style'], "visible"=>1), 6);
 			foreach ($other_relative_zuopins as $i=>$value){
 				if($value['pk_id'] == $_GET['id']){
