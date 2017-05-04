@@ -479,18 +479,18 @@ class space extends Action{
 									$obj_tmp_zuopin_pics->insert(array("fk_zid" => $id, "pic_path"=>$pic));
 								}
 								
-								$wuliao_list = array();
-								foreach ($_POST['item_id'] as $i => $val){
-// 									debug::d($_POST['item_id']);exit;
-									if(!empty($val)){
-										$wuliao_list = array("fk_item_id"=>$val, "fk_id" => $id);
+// 								$wuliao_list = array();
+// 								foreach ($_POST['item_id'] as $i => $val){
+// // 									debug::d($_POST['item_id']);exit;
+// 									if(!empty($val)){
+// 										$wuliao_list = array("fk_item_id"=>$val, "fk_id" => $id);
 									
-										$obj_tmp_wuliaolist->insert($wuliao_list);
-									}
-								}
+// 										$obj_tmp_wuliaolist->insert($wuliao_list);
+// 									}
+// 								}
 								
 								
-								go("/account/space.php?act=designer_manage");
+								go("/account/space.php?act=search_material&id={$id}");
 
 					}
 		
@@ -498,6 +498,24 @@ class space extends Action{
 				go("/account/space.php?act=designer_manage");
 				
 	}
+	
+	function ACT_add_wuliao_list(){
+		$obj_tmp_wuliaolist = load("account_tmp_wuliaolist");
+		$wuliao_list = array();
+// 		debug::D($_POST['item_id']);exit;
+		foreach ($_POST['item_id'] as $i => $val){
+		
+			if(!empty($val)){
+					$wuliao_list = array("fk_item_id"=>$val, "fk_id" => $_POST['fk_id']);
+			
+					$obj_tmp_wuliaolist->insert($wuliao_list);
+			}
+			
+		}
+		go("/account/space.php?act=designer_manage");
+	}
+	
+	
 	function ACT_addpics(){
 		if(isset($_GET) && !empty($_GET['id'])){
 			$this->assign("id", $_GET['id']);
@@ -770,8 +788,14 @@ class space extends Action{
 			
 		}
 		else{
-			
+			$res = $this->obj_materials->getAll("*", array("visible"=>1));
 		}
+		$id = "";
+		
+		if(isset($_GET['id']) && !empty($_GET['id'])){
+			$id = $_GET['id'];
+		}
+		$this->assign('id', $id);
 		$this->assign("res", $res);
 	}
 	
