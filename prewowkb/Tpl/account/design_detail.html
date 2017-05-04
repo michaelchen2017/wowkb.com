@@ -1,33 +1,37 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>{%$res['name']|default:''%}</title>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta property="og:url"           content="ttp://beta.wowkb.com/" />
-  <meta property="og:type"          content="website" />
-  <meta property="og:title"         content="WOWKB" />
-  <meta property="og:description"   content="这一页的内容" />
-  <meta property="og:image"         content="https://iss.zillowstatic.com/image/traditional-kitchen-with-reclaimed-wood-breakfast-bar-and-stone-backsplash-i_g-IS95uzii6vxfm11000000000-LmSnE.jpg" />
-  <link rel="shortcut icon" type="image/x-icon" href="image/favicon.ico">
-  <link rel="stylesheet" type="text/css" href="/template/common/css/common_temp.css">
-  <link rel="stylesheet" type="text/css" href="/prewowkb/css/prepage.css">
-  <link rel="stylesheet" type="text/css" href="/prewowkb/css/design_detail.css">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <script src="https://use.fontawesome.com/99d52acf31.js"></script>
-  <script type="text/javascript" src="//platform-api.sharethis.com/js/sharethis.js#property=58f5448676d0e100120d89fb&product=inline-share-buttons"></script>
-  <script async src="https://static.addtoany.com/menu/page.js"></script>
+    <title>{%$res['name']|default:''%}</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" type="image/x-icon" href="image/favicon.ico">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:url"           content="ttp://beta.wowkb.com/" />
+    <meta property="og:type"          content="website" />
+    <meta property="og:title"         content="WOWKB" />
+    <meta property="og:description"   content="这一页的内容" />
+    <meta property="og:image"         content="https://iss.zillowstatic.com/image/traditional-kitchen-with-reclaimed-wood-breakfast-bar-and-stone-backsplash-i_g-IS95uzii6vxfm11000000000-LmSnE.jpg" />
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://use.fontawesome.com/99d52acf31.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="/template/common/css/common_temp.css">
+    <link rel="stylesheet" type="text/css" href="/prewowkb/css/design_detail.css">
+
+    <script type="text/javascript" src="//platform-api.sharethis.com/js/sharethis.js#property=58f5448676d0e100120d89fb&product=inline-share-buttons"></script>
 </head>
 <body>
+
 {%include file="$root/template/common/navbar_prewowkb.html"%}
 
 <div class="design_detail_body">
     <div id="header">
         <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="false">
 
-            <div id="top_share_button" class="hide">
+            <div id="top_share_button">
                 <div id="share_buttons" class="a2a_kit a2a_kit_size_32 a2a_default_style">
                     <!--<a class="a2a_dd" href="https://www.addtoany.com/share"></a>-->
                     <a class="a2a_button_facebook share_icon"></a>
@@ -39,23 +43,25 @@
                 </div>
             </div>
             <!-- Wrapper for slides -->
-           
-                {%if !empty($zuopin_pics) && count($zuopin_pics) != 1%}       
-                <div class="carousel-inner header_box" role="listbox">     
-                {%foreach from=$zuopin_pics key=i item=val%}
+            {%if !empty($zuopin_pics) && count($zuopin_pics) != 1%} 
+            <div class="carousel-inner header_box" role="listbox">
+
+            {%foreach from=$zuopin_pics key=i item=val%}
                 {%if $i == 0%}
-                <div class="item active">                    
-                    <img class="hero" src="{%$val['pic_path']|default:''%}" alt="Chania">
+
+                <div class="item active">
+                    <img class="hero" src="{%$val['pic_path']|default:''%}" alt="design">
                 </div>
                 {%else%}
-                 
+
                 <div class="item">
-                    <a href="#"><img class= "hero" src="{%$val['pic_path']|default:''%}" alt="Chania"></a>
+                    <a href="#"><img class= "hero" src="{%$val['pic_path']|default:''%}" alt="designs"></a>
                 </div>
-               {%/if%}
-               {%/foreach%}
-               </div>
-               <!-- Left and right controls -->
+                {%/if%}
+                {%/foreach%}
+            </div>
+
+            <!-- Left and right controls -->
             <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
                 <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
                 <span class="sr-only">Previous</span>
@@ -70,10 +76,6 @@
                 </div>
                 
                {%/if%}
-              
-            
-
-            
         </div>
     </div><!-- header -->
 
@@ -81,56 +83,67 @@
     <div class="right_page_button" id="right_page_button">
         <a href="#" onclick="designer()" class="inline">
             <div class="button top_button" id="button_designer">
-                <img class="design_designer" src="{%$user['pic_path']|default:''%}">
+                <img src="{%$user['pic_path']|default:''%}">
                 {%$user['username']|default:''%}
             </div>
         </a>
-
         <a href="#" onclick="intro()" class="inline">
             <div class="button" id="button_intro">
-                <img  class="side_button_icon" src="/image/detail_icon1.png">
+                <!-- <i class="fa fa-book" aria-hidden="true"></i> -->
+                <img  class="side_button_icon" src="../../image/detail_icon1.png">
                 Description
             </div>
         </a>
         <a href="#" onclick="list()" class="inline">
-            <div class="button" id="button_list">
-                <img class="side_button_icon" src="/image/detail_icon3.png">
+            <div class="button"  id="button_list">
+                <!-- <i class="fa fa-cube" aria-hidden="true"></i> -->
+                <img class="side_button_icon" src="../../image/detail_icon3.png">
                 Products
             </div>
-        </a>    
+        </a>
         <a href="#" onclick="relate_works()" class="inline">
             <div class="button" id="button_relate_works">
-                <img class="side_button_icon" src="/image/detail_icon4.png">
+                <!-- <i class="fa fa-tags" aria-hidden="true"></i> -->
+                <img class="side_button_icon" src="../../image/detail_icon4.png">
                 Related Designs
             </div>
         </a>
         <a href="#" onclick="share()" class="inline">
             <div class="button" id="share_button">
-                <i class="fa fa-share-alt" aria-hidden="true"></i></br>
+                <img class="side_button_icon" src="../../image/detail_icon6.png">
                 Share
             </div>
         </a>
-        <a href="#" class="inline">
-/prewowkb/account.php?act=form_customize&id={%$res['pk_id']|default:''%}        
-        
-            <div class="button bottom_button" id="button_start_customize">
-                <img class="side_button_icon" src="/image/detail_icon5.png">
-                Start Customize
+        <a href="/prewowkb/Tpl/account/buy.html" onclick="buy()" class="inline">
+            <div class="button" id="share_button">
+                <img class="side_button_icon" src="../../image/detail_icon7.png">
+                Where To Buy
             </div>
         </a>
-<!--         <a href="#" onclick="relate_material1()" class="inline">
-            <div class="button1" id="button_relate_material">
+        <a href="#" class="inline">
+            <div class="button bottom_button" id="button_start_customize">
+                <!--  <i class="fa fa-caret-right" aria-hidden="true"></i> -->
+                <img class="side_button_icon" src="../../image/detail_icon5.png">
+                Start Design
             </div>
-        </a> -->
+        </a>
     </div>
+    <a href="#">
+/prewowkb/account.php?act=form_customize&id={%$res['pk_id']|default:''%} 
+
+        <div class="button bottom_button" id="button_start_customize_small">
+            <!--  <i class="fa fa-caret-right" aria-hidden="true"></i> -->
+            <img class="side_button_icon" src="../../image/detail_icon5.png">
+            Start Customize
+        </div>
+    </a>
 
     <div class="right_header_hide" id="right_header">
-
 
         <!-- 设计师 -->
         <div id="designer">
             <div class="design_project_designer">
-                <img id="design_project_designer_head" src="{%$user['pic_path']|default:''%}">
+                <img id="design_project_designer_head" src="../../image/designer3.png">
                 <div class="design_project_designer_intro">
                     <span class="designer_name">{%$user['username']|default:''%}</span>
                     <span class="designer_major">室内设计</span>
@@ -149,14 +162,11 @@
                     </div>
 
                 </div>
+
             </div>
-<!--             <div class="design_project_detail_price">
-                <span class="price_number">
-                    <span class="price_title">Service Price</span></br>{%$designer['price']|default:''%}</span>
-            </div> -->
         </div><!-- basic_info -->
 
-<!-- 作品介绍 -->
+        <!-- 作品介绍 -->
         <div id="design_description">
             <div class="design_intro_top">
                 <h3>{%$res['name']|default:''%}</h3></br>
@@ -164,7 +174,7 @@
             </div>
         </div><!-- design_description -->
 
-<!-- 物料清单 -->
+        <!-- 物料清单 -->
         <div id="design_material_list">
             <div class="material_content">
                 <h4>Cabinet List</h4>
@@ -173,52 +183,21 @@
                 {%if !empty($val['pic_path']) || !empty($val['colour']) || !empty($val['texture'])%}
                     <tr>
                         <td>
-                        {%if !empty($val['pic_path'])%}
-                            <img src="{%$val['pic_path']|default:''%}">
-                        {%/if%}
-                        <div class="list_word">
-                            <h5>{%$val['name']|default:''%}</h5>
-                            
-                            <div class="material_detail">Color: {%$val['colour']|default:''%} | Texture: {%$val['texture']|default:''%}</div>
-                        </div> 
+                            {%if !empty($val['pic_path'])%}
+                            <img "{%$val['pic_path']|default:''%}">
+                            {%/if%}
+                            <div class="list_word">
+                                <h5>{%$val['name']|default:''%}</h5>
+                                <div class="material_detail">Color: {%$val['colour'] </br>Texture: {%$val['texture']|default:''%}</div>
+                            </div>
                         </td>
                     </tr>
-               {%/if%}
-                {%/foreach%}      
+                    {%/if%}
+                {%/foreach%} 
+                   
                 </table>
             </div>
         </div>
-
-<!-- 相关物料 -->
-<!--         <div id="relate_material">
-            <div class="material_content">
-                <h4>Related Commodity</h4>
-                <div class="each_relate_material">
-                    <img src="/image/customize/A7/material.jpg">
-                </div>
-                <div class="each_relate_material">
-                    <img src="/image/customize/CO66/material.jpg">
-                </div>
-                <div class="each_relate_material">
-                    <img src="/image/customize/J5/material.jpg">
-                </div>
-                <div class="each_relate_material">
-                    <img src="/image/customize/K8/material.jpg">
-                </div>
-                <div class="each_relate_material">
-                    <img src="/image/customize/K3/material.jpg">
-                </div>
-                <div class="each_relate_material">
-                    <img src="/image/customize/K10/material.jpg">
-                </div>
-                <div class="each_relate_material">
-                    <img src="/image/customize/M01/material.jpg">
-                </div>
-                <div class="each_relate_material">
-                    <img src="/image/customize/S2/material.jpg">
-                </div>
-            </div>
-        </div> --><!-- design_material_intro -->
 
         <!-- 相关作品 -->
         <div id="relate_works">
@@ -227,15 +206,15 @@
 
                 {%foreach from=$other_relative_zuopins key=i item=value %}
                 <a href="/prewowkb/account.php?act=design_detail&id={%$value['pk_id']|default:''%}">
+
                 <div class="each_relate_design">
-                    <img src="{%$value['pic_path']|default:''%}">   
+                    <img src="{%$value['pic_path']|default:''%}">
                     <div class="each_relate_intro">{%$value['name']|default:''%}</div>
                 </div></a>
                 {%/foreach%}
 
             </div>
         </div>
-
 
         <div id="share_icons">
             <div class="share_icons_content">
@@ -260,7 +239,7 @@
     <form action="/prewowkb/account.php?act=form_customize_process" method="post" enctype="multipart/form-data">
     <input type="hidden" name="fk_zuopin_id" value="{%$res['pk_id']|default:''%}">
         <div class="form_title">Book Customized Design Service</div>
-            
+
         <table id="customize">
             <tr>
                 <td>Your Name<span class="required">*</span></td>
@@ -273,36 +252,27 @@
             <tr>
                 <td>Phone</td>
                 <td colspan="2"><input type="text" name="customer_tel"></td>
-            </tr>            
+            </tr>
         </table>
         <input id="form_customize_submitBtn" class="button_blue_input button_pop" type="submit" value="Submit">
     </form>
 </div>
 
-
 <div id="test_screen"></div>
 <script type="text/javascript">
+    var page_designer = document.getElementById("designer");
+    var page_intro = document.getElementById("design_description");
+    var page_list = document.getElementById("design_material_list");
+    var page_relate_works = document.getElementById("relate_works");
 
-    // $("#myCarousel").width($( document ).width() - 84);
-    // $( window ).resize(function() {
-    //     $( "#myCarousel" ).width($( document ).width() - 84);
-    // });
+    var form_customize = document.getElementById("form_customize");
 
-    var page_designer = document.getElementById("designers");
-    var page_intro = document.getElementById("design_descriptions");
-    var page_list = document.getElementById("design_material_lists");
-    var page_relate_material = document.getElementById("relate_materials");
-    var page_relate_works = document.getElementById("relate_work");
+    var right_header = document.getElementById("right_header");
 
-    var form_customize = document.getElementById("form_customizes");
-
-    var right_header = document.getElementById("right_headers");
-
-    var button_designer = document.getElementById("button_designers");
-    var button_intro = document.getElementById("button_intros");
-    var button_list = document.getElementById("button_lists");
-    var button_relate_material = document.getElementById("button_relate_materials");
-    var button_relate_works = document.getElementById("button_relate_work");
+    var button_designer = document.getElementById("button_designer");
+    var button_intro = document.getElementById("button_intro");
+    var button_list = document.getElementById("button_list");
+    var button_relate_works = document.getElementById("button_relate_works");
 
     function designer(){
         if($("#button_designer").hasClass("choose_button")) {
@@ -310,18 +280,15 @@
         } else {
             show();
 
-            button_designer.className = "choose_buton top_button";
-            button_intro.className = "buttn";
-            button_intro.className = "buttn";
-            button_list.className = "buttn";
-            button_relate_material.className = "buton";
-            button_relate_works.className = "buttn";
+            button_designer.className = "choose_button top_button";
+            button_intro.className = "button";
+            button_list.className = "button";
+            button_relate_works.className = "button";
         }
 
         page_designer.style.display = "block";
         page_intro.style.display = "none";
         page_list.style.display = "none";
-        page_relate_material.style.display = "none";
         page_relate_works.style.display = "none";
     }
 
@@ -334,14 +301,12 @@
             button_designer.className = "button top_button";
             button_intro.className = "choose_button";
             button_list.className = "button";
-            button_relate_material.className = "button";
             button_relate_works.className = "button";
         }
 
         page_designer.style.display = "none";
         page_intro.style.display = "block";
         page_list.style.display = "none";
-        page_relate_material.style.display = "none";
         page_relate_works.style.display = "none";
     }
 
@@ -354,36 +319,13 @@
             button_designer.className = "button top_button";
             button_intro.className = "button";
             button_list.className = "choose_button";
-            button_relate_material.className = "button";
             button_relate_works.className = "button";
         }
 
         page_designer.style.display = "none";
         page_intro.style.display = "none";
         page_list.style.display = "block";
-        page_relate_material.style.display = "none";
         page_relate_works.style.display = "none";
-    }
-
-    function relate_material() {
-        if($("#button_relate_material").hasClass("choose_button")) {
-            hide();
-        } else {
-            show();
-
-            button_designer.className = "button top_button";
-            button_intro.className = "button";
-            button_list.className = "button";
-            button_relate_material.className = "choose_button";
-            button_relate_works.className = "button";
-        }
-
-        page_designer.style.display = "none";
-        page_intro.style.display = "none";
-        page_list.style.display = "none";
-        page_relate_material.style.display = "block";
-        page_relate_works.style.display = "none";
-
     }
 
     function relate_works() {
@@ -395,170 +337,187 @@
             button_designer.className = "button top_button";
             button_intro.className = "button";
             button_list.className = "button";
-            button_relate_material.className = "button";
             button_relate_works.className = "choose_button";
         }
 
         page_designer.style.display = "none";
         page_intro.style.display = "none";
         page_list.style.display = "none";
-        page_relate_material.style.display = "none";
         page_relate_works.style.display = "block";
     }
 
-    $("#headers").click(function () {
+    function share() {
         hide();
-        form_customize.className = "hidediv";
-        $("#form_customize").css("display", "none");
-    });
-
-
-    $( document ).ready(function() {
-        if($('#screen_tst').css('display')!='none') {
-            $("#headers").width($(window).width() - 84);
-            $("#top_share_buttons").removeClass("show").addClass("hide");
-            $(".right_page_buttons .button").width(84);
-            $('#right_headers').animate({right: '-=600px'});
-        } else {
-            $("#top_share_buttn").fadeOut("3000", function () {
-                $("#top_share_buttn").hide();
-                $("#top_share_buttn").removeClass("show").addClass("hide");
-            });
-
-            $("#top_share_buttn").css("display", "none");
-            page_designers.style.display = "none";
-            page_intros.styls.display = "none";
-            page_lists.style.display = "none";
-            page_relates.style.display = "none";
-            var currentWidth = $(window).width()+27;
-            $('#right_headers').css({"right": "+="+currentWidth+"px"});
-
-            $("#headers").width($(window).width());
-            $("#top_share_btn").removeClass("hide").addClass("show");
-            $(".right_page_button .btn").width($(window).width()/5);
-            $("#button_designers").width($(window).width());
-            $('#right_headers').animate({right: '-=220px' });
-        }
-    });
-
-    $("#button_designers").mouseenter(function() {
-        show();
-        button_designer.className = "choose_button top_buttn";
-        button_intro.className = "buttn";
-        button_list.className = "buttn";
-        button_relate_works.className = "buttn";
-
-        page_designer.style.display = "none";
-        page_intro.style.display = "none";
-        page_list.style.display = "none";
-        page_relate_works.style.display = "none";
-    });
-
-    $("#button_intros").mouseenter(function() {
-        button_designers.className = "button top_buttn";
-        button_intros.className = "choose_buttn";
-        button_lists.className = "button";
-        button_relates_works.className = "buttn";
-
-        page_designers.style.display = "none";
-        page_intros.style.display = "none";
-        page_lists.style.display = "none";
-        page_relate_work.style.display = "none";
-    });
-
-    $("#button_lists").mouseenter(function() {
-        show();
-
-        button_designers.className = "button top_button";
-        button_intros.className = "button";
-        button_lists.className = "choose_button";
-        button_relate_work.className = "button";
-
-        page_designers.style.display = "none";
-        page_intros.style.display = "none";
-        page_lists.style.display = "block";
-        page_relate_work.style.display = "none";
-    });
-
-    $("#button_relate").mouseenter(function() {
-        show();
-
-        button_designers.className = "button top_button";
-        button_intros.className = "button";
-        button_lists.className = "button";
-        button_relate_work.className = "choose_top_button";
-
-        page_designers.style.display = "none";
-        page_intros.style.display = "none";
-        page_lists.style.display = "none";
-        page_relate_work.style.display = "none";
-    });
-
-    $("#shares").mouseenter(function() {
-        $("#top_share_button").fadeOut("3000", function () {
-            $("#top_share_button").removeClass("hide").addClass("show");
-        });
-    });
-
-    $( window ).resize(function() {
-        if($('#screen_test').css('display')!='none') {
-            $("#header").width($(window).width() - 84);
-            $("#top_share_button").removeClass("show").addClass("hide");
-            $(".right_page_button .button").width(84);
-        } else {
-            $("#headers").width($(window).width());
-            $("#top_share_btn").removeClass("hide").addClass("show");
-            $(".right_page_btn .button").width($(window).width()/5);
-            $("#button_designers").width($(window).width());
-        }
-    });
-
-    $("#share_button").click(function () {
-        if($("#top_share_btn").hasClass( "show" )) {
+        if($("#top_share_button").hasClass( "show" )) {
             $("#top_share_button").fadeOut("3000", function () {
                 $("#top_share_button").hide();
                 $("#top_share_button").removeClass("show").addClass("hide");
             });
         } else {
-            $("#top_share_btn").fadeIn("3000", function () {
+            $("#top_share_button").fadeIn("3000", function () {
                 $("#top_share_button").removeClass("hide").addClass("show");
             });
         }
+    }
+
+    $("#header").click(function () {
+        hide();
+        form_customize.className = "hidediv";
+        $("#form_customize").css("display", "none");
     });
 
-    function shows() {
-        $("#top_share_buttn").fadeOut("3", function () {
-            $("#top_share_buttn").hide();
-            $("#top_share_buttn").removeClass("show").addClass("show");
+/*
+    $( document ).ready(function() {
+        if($('#test_screen').css('display')!='none') {
+            $("#header").width($(window).width() - 84);
+            $("#top_share_button").removeClass("show").addClass("hide");
+            $(".right_page_button .button").width(84);
+            $('#right_header').animate({right: '-=600px'});
+        } else {
+            $("#top_share_button").fadeOut("3000", function () {
+                $("#top_share_button").hide();
+                $("#top_share_button").removeClass("show").addClass("hide");
+            });
+
+            $("#top_share_button").css("display", "none");
+            page_designer.style.display = "block";
+            page_intro.style.display = "block";
+            page_list.style.display = "block";
+            page_relate_works.style.display = "block";
+            var currentWidth = $(window).width()+27;
+            $('#right_header').css({"right": "+="+currentWidth+"px"});
+
+            $("#header").width($(window).width());
+            $("#top_share_button").removeClass("hide").addClass("show");
+            $(".right_page_button .button").width($(window).width());
+            $(".share_icon span").width(($(window).width()/7)-2);
+            $(".share_icon span").height($(".share_icon span").width());
+            $("#button_designer").width($(window).width());
+            //$('#right_header').animate({right: '-=220px' });
+        }
+    });
+*/
+    $("#button_designer").mouseenter(function() {
+        show();
+        button_designer.className = "choose_button top_button";
+        button_intro.className = "button";
+        button_list.className = "button";
+        button_relate_works.className = "button";
+
+        page_designer.style.display = "block";
+        page_intro.style.display = "none";
+        page_list.style.display = "none";
+        page_relate_works.style.display = "none";
+    });
+
+    $("#button_intro").mouseenter(function() {
+        show();
+        button_designer.className = "button top_button";
+        button_intro.className = "choose_button";
+        button_list.className = "button";
+        button_relate_works.className = "button";
+
+        page_designer.style.display = "none";
+        page_intro.style.display = "block";
+        page_list.style.display = "none";
+        page_relate_works.style.display = "none";
+    });
+
+    $("#button_list").mouseenter(function() {
+        show();
+
+        button_designer.className = "button top_button";
+        button_intro.className = "button";
+        button_list.className = "choose_button";
+        button_relate_works.className = "button";
+
+        page_designer.style.display = "none";
+        page_intro.style.display = "none";
+        page_list.style.display = "block";
+        page_relate_works.style.display = "none";
+    });
+
+    $("#button_relate_works").mouseenter(function() {
+        show();
+
+        button_designer.className = "button top_button";
+        button_intro.className = "button";
+        button_list.className = "button";
+        button_relate_works.className = "choose_button";
+
+        page_designer.style.display = "none";
+        page_intro.style.display = "none";
+        page_list.style.display = "none";
+        page_relate_works.style.display = "block";
+    });
+
+    $("#share_button").mouseenter(function() {
+        hide();
+        $("#top_share_button").fadeIn("3000", function () {
+            $("#top_share_button").removeClass("hide").addClass("show");
+        });
+    });
+/*
+    $( window ).resize(function() {
+        if($('#test_screen').css('display')!='none') {
+            $("#header").width($(window).width() - 84);
+            $("#top_share_button").removeClass("show").addClass("hide");
+            $(".right_page_button .button").width(84);
+        } else {
+            $("#top_share_button").fadeOut("3000", function () {
+                $("#top_share_button").hide();
+                $("#top_share_button").removeClass("show").addClass("hide");
+            });
+
+            $("#top_share_button").css("display", "none");
+            page_designer.style.display = "block";
+            page_intro.style.display = "block";
+            page_list.style.display = "block";
+            page_relate_works.style.display = "block";
+            var currentWidth = $(window).width()+27;
+            $('#right_header').css({"right": "+="+currentWidth+"px"});
+
+            $("#header").width($(window).width());
+            $("#top_share_button").removeClass("hide").addClass("show");
+            $(".right_page_button .button").width($(window).width());
+            $(".share_icon span").width(($(window).width()/7)-2);
+            $(".share_icon span").height($(".share_icon span").width());
+            $("#button_designer").width($(window).width());
+        }
+    });
+*/
+    function show() {
+        $("#top_share_button").fadeOut("3000", function () {
+            $("#top_share_button").hide();
+            $("#top_share_button").removeClass("show").addClass("hide");
         });
 
-        if(!$("#button_designers").hasClass("choose_button") &&
+        if(!$("#button_designer").hasClass("choose_button") &&
                 !$("#button_intro").hasClass("choose_button") &&
                 !$("#button_list").hasClass("choose_button") &&
-                !$("#button_relate_material").hasClass("choose_button") &&
                 !$("#button_relate_works").hasClass("choose_button")) {
             right_header.className = "right_header";
-            $('#right_header').animate({"right": "+=580px"}, "slow");
+            $('#right_header').animate({"right": "+=390px"}, "slow");
         }
     }
 
     function hide() {
-        if($("#buttons_designer").hasClass("choose_buttn") ||
-                $("#button_intro").hasClass("choose_buttn") ||
-                $("#button_list").hasClass("choose_buttn") ||
-                $("#button_relate_material").hasClass("choose_buttn") ||
-                $("#button_relate_works").hasClass("choose_buttn")) {
-            $('#right_header').animate({"right": "-=580px"}, "slow");
+        if($("#button_designer").hasClass("choose_button") ||
+                $("#button_intro").hasClass("choose_button") ||
+                $("#button_list").hasClass("choose_button") ||
+                //$("#button_relate_material").hasClass("choose_button") ||
+                $("#button_relate_works").hasClass("choose_button")) {
+            $('#right_header').animate({"right": "-=390px"}, "slow");
         }
-        button_designers.className = "button top_button";
-        button_intros.className = "button";
-        button_lists.className = "button";
-        button_relates_material.className = "button";
-        button_relates_works.className = "button";
+        button_designer.className = "button top_button";
+        button_intro.className = "button";
+        button_list.className = "button";
+        //button_relate_material.className = "button";
+        button_relate_works.className = "button";
         //right_header.className = "right_header_hide";
     }
 
-    $("#start_customized_buttn").click(function() {
+    $("#button_start_customize").click(function() {
         if($("#form_customize").hasClass("hidediv")) {
             form_customize.className = "showdiv";
             $("#form_customize").css("display", "block");
@@ -568,21 +527,12 @@
         }
     });
 
-    $("#close_form_customized").click(function () {
+    $("#close_form_customize").click(function () {
         form_customize.className = "hidediv";
         $("#form_customize").css("display", "none");
     });
-
 </script>
-<script src="https://firebasestorage.googleapis.com/v0/b/libraries-320b2.appspot.com/o/design_detail%2Fjquery_style_support.js?alt=media&token=06f30fa8-5d22-4a1d-8689-9c226d8bff78"></script>
+<!--<script src="https://firebasestorage.googleapis.com/v0/b/libraries-320b2.appspot.com/o/design_detail%2Fjquery_style_support.js?alt=media&token=6df29762-ad7e-47d4-9c73-9256634421f1"></script>-->
 <script async src="https://static.addtoany.com/menu/page.js"></script>
-<div id="fb-root"></div>
-<script>(function(d, s, id) {
-    var js, fjs = d.getElementsByTagName(s)[0];
-    if (d.getElementById(id)) return;
-    js = d.createElement(s); js.id = id;
-    js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.8&appId=952956818145782";
-    fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
 </body>
 </html>
