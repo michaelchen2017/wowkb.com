@@ -129,7 +129,7 @@
         </a>
     </div>
     <a href="#">
-/prewowkb/account.php?act=form_customize&id={%$res['pk_id']|default:''%} 
+
 
         <div class="button bottom_button" id="button_start_customize_small">
             <!--  <i class="fa fa-caret-right" aria-hidden="true"></i> -->
@@ -143,7 +143,7 @@
         <!-- 设计师 -->
         <div id="designer">
             <div class="design_project_designer">
-                <img id="design_project_designer_head" src="../../image/designer3.png">
+                <img id="design_project_designer_head" src="{%$user['pic_path']|default:''%}">
                 <div class="design_project_designer_intro">
                     <span class="designer_name">{%$user['username']|default:''%}</span>
                     <span class="designer_major">室内设计</span>
