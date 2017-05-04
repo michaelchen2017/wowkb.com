@@ -114,7 +114,7 @@
                 Share
             </div>
         </a>
-        <a href="/prewowkb/Tpl/account/buy.html" onclick="buy()" class="inline">
+        <a href="/prewowkb/account.php?act=buy" onclick="buy()" class="inline">
             <div class="button" id="share_button">
                 <img class="side_button_icon" src="../../image/detail_icon7.png">
                 Where To Buy
@@ -188,7 +188,7 @@
                             {%/if%}
                             <div class="list_word">
                                 <h5>{%$val['name']|default:''%}</h5>
-                                <div class="material_detail">Color: {%$val['colour'] </br>Texture: {%$val['texture']|default:''%}</div>
+                                <div class="material_detail">Color: {%$val['colour']|default:''%} </br>Texture: {%$val['texture']|default:''%}</div>
                             </div>
                         </td>
                     </tr>

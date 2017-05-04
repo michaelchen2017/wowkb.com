@@ -708,6 +708,10 @@ class account extends Action{
 		}
 	}
 	
+	function ACT_buy(){
+		
+	}
+	
 	function ACT_tobedesigner(){
 		
 	}
