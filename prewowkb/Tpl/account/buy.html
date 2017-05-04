@@ -1,0 +1,212 @@
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WOWKB</title>
+<style type="text/css">
+  html { height: 100% }
+  body { height: 100%; margin: 0; padding: 0 }
+  #map_canvas { height: 100% }
+</style>
+<link rel="stylesheet" type="text/css" href="/prewowkb/css/map.css">
+<link rel="stylesheet" type="text/css" href="/template/common/css/common_temp.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="https://use.fontawesome.com/99d52acf31.js"></script>
+<script type="text/javascript" src="//platform-api.sharethis.com/js/sharethis.js#property=58f5448676d0e100120d89fb&product=inline-share-buttons"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCAr7z43-TMU2Ezj3wT5m2S_FTzFnlWiGE&callback=initMap" async defer>
+</script>
+<script type="text/javascript">
+
+var retails = [
+  ['Dakota Kitchen & Design Inc.', 46.7913008, -100.7629162, '1224 Airport Rd., Bismarck, ND, 58502', '701-595-1272'],
+  ['Kitchens Direct', 40.3480983, -111.7407798, '523 N. Geneva Rd., Lindon, UT, 84042', '801-785-7774'],
+  ['Innovation Cabinet & Design', 40.580474, -112.018071, '5320 W. Wells Park Road #6, West Jordan, UT, 84088', '801-888-5477'],
+  ['KIB Direct Inc.', 40.509993, -112.031727, '13343 South Madeline Ln., Herriman, UT, 84096','801-892-5550'],
+  ['Interior Passions Kitchen & Bath Design', 39.751321, -75.045404, '5100 Route 42 Ste. 1, Blackwood, NJ, 08012', '856-228-8989'],
+  ['JK58 Cabinet & Granite', 27.293687, -82.5293389, '4141 S. Tamiami Rail #9, Sarasota, FL, 34231', '941-922-6981'],
+  ['Cabinets Now LLC.', 36.1102279, -115.1913871, '4375 S. Valleyview Blvd., Las Vegas, NV, 89103', '702-220-6688'],
+  ['Clint Paulding Countertops Inc.', 48.123734, -114.2599, '4039-B US Hwy 93 South, Kalispell, MT, 59901', '406-752-9490'],
+  ['SRC Contracting', 47.755961, -116.763556, '1731 E. Woodstone Dr., Hayden, ID, 83835', '509-868-5400'],
+  ['Ranco Interiors Ltd.', 51.0846094, -114.2067543, '2 Bowridge Dr. NW, Calgary, AB, T3B 2T9','403-560-3927'],
+  ['Destiny Flooring and Cabinets', 37.3741076, -121.9064099, '1724 Junction Ave. Ste A, San Jose, CA, 95112','408-573-9589'],
+  ['Empire Flooring & Design Center', 37.379953, -121.910918, '495 E. Brokaw Rd., San Jose, CA, 95112', '408-213-0996'],
+  ['Urban Home Design, Inc.', 37.3819534, -121.908822, '1880 Hartog Dr., San Jose, CA, 95131','408-573-1880'],
+  ['NK Kitchen & Bath', 37.375373, -121.894267, '1510 Oakland Rd.Ste. 140, San Jose, CA, 95112','408-451-9819'],
+  ['Floor Concepts & Design Center', 37.2695346, -121.9377279, '2890 S. Bascom Ave., San Jose, CA, 95124','408-377-3333'],
+  ['Gew Hardwood Flooring Inc.', 37.5017179, -121.951135, '44711 S Grimmer Blvd.Ste. A, Fremont, CA, 94538','510-683-0650'],
+  ['ZMC Products', 37.507353, -121.962432, '43645 S. Grimmer Blvd., Fremont, CA, 94538','510-226-9627'],
+  ['Best Marble', 37.4796734, -122.2223642, '230 Pine St., Redwood City, CA, 94063', '650-366-8838'],
+  ['HB Kitchen Bath Inc.', 37.6060562, -122.0605732, '2424 Whipple Rd., Haywood , CA, 94544', '510-900-6388'],
+  ['Golden Stone Inc.', 37.6606445, -122.1159366, '21615 Hesperian Blvd.Ste. D, Hayward, CA, 94579', '510-266-3633']
+];
+
+  function initialize() {
+
+    var myOptions = {
+      center: new google.maps.LatLng(33.890542, 151.274856),
+      zoom: 10,
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+
+    };
+    var map = new google.maps.Map(document.getElementById("default"),
+        myOptions);
+
+    setMarkers(map,retails)
+
+  }
+
+  function setMarkers(map,locations){
+
+      var marker, i
+
+for (i = 0; i < retails.length; i++)
+ {  
+
+ var name = retails[i][0]
+ var lat = retails[i][1]
+ var long = retails[i][2]
+ var add =  retails[i][3]
+ var tel = retails[i][4]
+
+ latlngset = new google.maps.LatLng(lat, long);
+
+  var marker = new google.maps.Marker({  
+          map: map, title: name , position: latlngset  
+        });
+        map.setCenter(marker.getPosition())
+
+
+        var content = '<div id="content">'+
+      '<div id="siteNotice">'+
+      '</div>'+
+      '<h2>'+name+'</h2>'+
+      '<div id="bodyContent">'+
+      '<p><b>Address: </b> ' + add + '</p>'+
+      '<p><b>Phone: </b> '+ tel + '</p>'+
+      '</div>'+
+      '</div>'  
+
+  var infowindow = new google.maps.InfoWindow()
+
+google.maps.event.addListener(marker,'click', (function(marker,content,infowindow){ 
+        return function() {
+           infowindow.setContent(content);
+           infowindow.open(map,marker);
+        };
+    })(marker,content,infowindow)); 
+
+  }
+  }
+  </script>
+ </head>
+<body onload="initialize()">
+{%include file="$root/template/common/navbar_prewowkb.html"%}
+
+<div class="left_panel">
+    <h2>WHERE TO BUY</h2>
+    <div class="each_retail">
+      <h4>Dakota Kitchen & Design Inc.</h4>
+      <p>1224 Airport Rd., Bismarck, ND, 58502</p>
+      <p>701-595-1272</p>
+    </div>
+    <div class="each_retail">
+      <h4>Kitchens Direct</h4>
+      <p>523 N. Geneva Rd., Lindon, UT, 84042</p>
+      <p>801-785-7774</p>
+    </div>
+    <div class="each_retail">
+      <h4>Innovation Cabinet & Design</h4>
+      <p>5320 W. Wells Park Road #6, West Jordan, UT, 84088</p>
+      <p>801-888-5477</p>
+    </div>
+    <div class="each_retail">
+      <h4>KIB Direct Inc.</h4>
+      <p>13343 South Madeline Ln., Herriman, UT, 84096</p>
+      <p>801-892-5550</p>
+    </div>
+    <div class="each_retail">
+      <h4>Interior Passions Kitchen & Bath Design</h4>
+      <p>5100 Route 42 Ste. 1, Blackwood, NJ, 08012</p>
+      <p>856-228-8989</p>
+    </div>
+    <div class="each_retail">
+      <h4>JK58 Cabinet & Granite</h4>
+      <p>4141 S. Tamiami Rail #9, Sarasota, FL, 34231</p>
+      <p>941-922-6981</p>
+    </div>
+    <div class="each_retail">
+      <h4>Cabinets Now LLC.</h4>
+      <p>4375 S. Valleyview Blvd., Las Vegas, NV, 89103</p>
+      <p>702-220-6688</p>
+    </div>
+    <div class="each_retail">
+      <h4>Clint Paulding Countertops Inc.</h4>
+      <p>4039-B US Hwy 93 South, Kalispell, MT, 59901</p>
+      <p>406-752-9490</p>
+    </div>
+    <div class="each_retail">
+      <h4>SRC Contracting</h4>
+      <p>1731 E. Woodstone Dr., Hayden, ID, 83835</p>
+      <p>509-868-5400</p>
+    </div>
+    <div class="each_retail">
+      <h4>Ranco Interiors Ltd.</h4>
+      <p>2 Bowridge Dr. NW, Calgary, AB, T3B 2T9</p>
+      <p>403-560-3927</p>
+    </div>
+    <div class="each_retail">
+      <h4>Destiny Flooring and Cabinets</h4>
+      <p>1724 Junction Ave. Ste A, San Jose, CA, 95112</p>
+      <p>408-573-9589</p>
+    </div>
+    <div class="each_retail">
+      <h4>Empire Flooring & Design Center</h4>
+      <p>495 E. Brokaw Rd., San Jose, CA, 95112</p>
+      <p>408-213-0996</p>
+    </div>
+    <div class="each_retail">
+      <h4>Urban Home Design, Inc.</h4>
+      <p>1880 Hartog Dr., San Jose, CA, 95131</p>
+      <p>408-573-1880</p>
+    </div>
+    <div class="each_retail">
+      <h4>NK Kitchen & Bath</h4>
+      <p>1510 Oakland Rd.Ste. 140, San Jose, CA, 95112</p>
+      <p>408-451-9819</p>
+    </div>
+    <div class="each_retail">
+      <h4>Floor Concepts & Design Center</h4>
+      <p>2890 S. Bascom Ave., San Jose, CA, 95124</p>
+      <p>408-377-3333</p>
+    </div>
+    <div class="each_retail">
+      <h4>Gew Hardwood Flooring Inc.</h4>
+      <p>44711 S Grimmer Blvd.Ste. A, Fremont, CA, 94538</p>
+      <p>510-683-0650</p>
+    </div>
+    <div class="each_retail">
+      <h4>ZMC Products</h4>
+      <p>43645 S. Grimmer Blvd., Fremont, CA, 94538</p>
+      <p>510-226-9627</p>
+    </div>
+    <div class="each_retail">
+      <h4>Best Marble</h4>
+      <p>230 Pine St., Redwood City, CA, 94063</p>
+      <p>650-366-8838</p>
+    </div>
+    <div class="each_retail">
+      <h4>HB Kitchen Bath Inc.</h4>
+      <p>2424 Whipple Rd., Haywood , CA, 94544</p>
+      <p>510-900-6388</p>
+    </div>
+    <div class="each_retail">
+      <h4>Golden Stone Inc.</h4>
+      <p>21615 Hesperian Blvd.Ste. D, Hayward, CA, 94579</p>
+      <p>510-266-3633</p>
+    </div>
+</div>
+<div id="default" style="width:100%; height:100%"></div>
+</body>
+</html>

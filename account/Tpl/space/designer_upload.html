@@ -75,6 +75,7 @@
     {%include file="$root/template/common/sidebar.html"%}
     
 <div id="admin_main">
+  <div class="dash_top">第一步：填写作品信息 ｜ 第二步：关联产品清单</div>
       <form action="/account/space.php?act=designer_upload_process" method="post" enctype="multipart/form-data" name="productForm">
 
            <table class="upload_form">
@@ -181,32 +182,8 @@
                   </select>
                 </td>
               </tr>
-              <tr>
-                <td colspan="2">
-                  <div class="design_upload_title upload_blank">产品清单关联</div>
-                </td>
-              </tr>
-              <tbody id="tb1">
-              <tr>
-                <td>产品<span class="required">*</span></td>
-                <td>
-                  <div class="type_counter">输入系统编号</div>
-                </td>
-              </tr>
-              <tr>
-                <td></td>
-                <td id="addmaterial">
-                  <input type="text" class="input-field-short" name="item_id[]" value="" />
-                  <a title="popmaterial" onclick="return popmaterial()"><i class="fa fa-cube icon_style" aria-hidden="true"> 物料库搜索</i></a>
-                </td>
-              </tr>
-            </tbody>
-            <tr>
-              <td></td>
-              <td><input type="button" class="addbutton" value="增加" id="addMaterialButton"></td>
-            </tr>
             </table>
-            <span>&nbsp;</span><input type="submit" value="提交" class="button_orange_input button_left" id="submitButton"/>
+            <span>&nbsp;</span><input type="submit" value="下一步" class="button_orange_input button_left" id="submitButton"/>
           </form>
       </div>
   </div>
@@ -230,29 +207,29 @@ function popmaterial()
 </script>
 
 <script type="text/javascript">
-  $("#addMaterialButton").click(function() {
-    var trObj = document.createElement("tr");  
-    trObj.id = new Date().getTime();  
-    trObj.innerHTML = "<td></td><td><input name='item_id[]' class='input-field-short' type='text'/>&nbsp;<input type='button' class='addbutton' value='删除'' onclick='del(this)'></td>";  
-    $("#tb1").append(trObj);  
-  });
-  function del(obj) {  
-        var trId = obj.parentNode.parentNode.id;  
-        var trObj = document.getElementById(trId);  
-        document.getElementById("tb1").removeChild(trObj);  
-    }
+  // $("#addMaterialButton").click(function() {
+  //   var trObj = document.createElement("tr");  
+  //   trObj.id = new Date().getTime();  
+  //   trObj.innerHTML = "<td></td><td><input name='item_id[]' class='input-field-short' type='text'/>&nbsp;<input type='button' class='addbutton' value='删除'' onclick='del(this)'></td>";  
+  //   $("#tb1").append(trObj);  
+  // });
+  // function del(obj) {  
+  //       var trId = obj.parentNode.parentNode.id;  
+  //       var trObj = document.getElementById(trId);  
+  //       document.getElementById("tb1").removeChild(trObj);  
+  //   }
 
-  $("#addMaterialButton2").click(function() {
-    var trObj = document.createElement("tr");  
-    trObj.id = new Date().getTime();  
-    trObj.innerHTML = "<td></td><td><input name='item_id[]' class='input-field-short' type='text'/>&nbsp;<input type='button' class='addbutton' value='删除'' onclick='del2(this)'></td>";  
-    $("#tb2").append(trObj);  
-  });
-    function del2(obj) {  
-        var trId = obj.parentNode.parentNode.id;  
-        var trObj = document.getElementById(trId);  
-        document.getElementById("tb2").removeChild(trObj);  
-    }
+  // $("#addMaterialButton2").click(function() {
+  //   var trObj = document.createElement("tr");  
+  //   trObj.id = new Date().getTime();  
+  //   trObj.innerHTML = "<td></td><td><input name='item_id[]' class='input-field-short' type='text'/>&nbsp;<input type='button' class='addbutton' value='删除'' onclick='del2(this)'></td>";  
+  //   $("#tb2").append(trObj);  
+  // });
+  //   function del2(obj) {  
+  //       var trId = obj.parentNode.parentNode.id;  
+  //       var trObj = document.getElementById(trId);  
+  //       document.getElementById("tb2").removeChild(trObj);  
+  //   }
     /*
   $("#productForm").formValidation({
     framework: 'bootstrap',
