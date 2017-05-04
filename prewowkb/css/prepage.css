@@ -25,6 +25,7 @@
 .body_content{
 	margin-top: 90px;
 }
+
 .title_category{
 	color: orange;
 	font-family: 'PingFang ExtraLight';
@@ -173,6 +174,21 @@
 	margin-top: 10vh;
 	font-size: 30px;
 	color: orange;
+}
+@media only screen and (max-device-width: 780px) {
+	.header_subtitle{
+		width:60%;
+		margin-left: auto;
+		margin-right: auto;
+		margin-top: 5vh;
+		font-size: 22px;
+		color: #ebebeb;
+		line-height: 1.4;
+		font-family: 'PingFang ExtraLight';
+	}
+	.header_start {
+		margin-top: 5vh;
+	}
 }
 #show{
   background-size:cover;
@@ -1375,15 +1391,19 @@
 /*作品检索*/
 
 /*物料检索页面*/
+#body_design{
+   border: 0px solid red;
+   height: auto;
+}
 .right_mainarea{
    margin-left: auto;
    margin-right: auto;
-   border: 0px solid red;
+   border: 0px solid green;
    text-align: left;
    display: inline-block;
    vertical-align: top;
    padding-bottom: 60px;
-   width: 78%;
+   width: 100vw-300px;
    position: absolute;
    margin-left: 20px;
 }
@@ -1394,6 +1414,7 @@
   vertical-align: top;
   border: 0px solid red;
   margin: 0px 8px 16px 8px;
+  
 }
 #sidebar{
    margin-left: 20px;
