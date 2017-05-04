@@ -8,11 +8,11 @@
 <link rel="stylesheet" type="text/css" href="/account/css/admin.css">
 </head>
 <body>
-{%include file="$root/template/common/navbar.html"%}
+{%include file="$root/template/common/navbar_prewowkb.html"%}
 <div id="body_dash">
     {%include file="$root/template/common/sidebar.html"%}
     <div id="admin_main">
-      <div class="productLink topspace"><a href="admin_manage.html">管理物料</a>/批量上传</div>
+    	<div class="dash_top">管理物料 / 批量上传</div>
         <div id="admin_upload">
 			<form method="post" action="/account/admin.php?act=admin_multiupload" enctype="multipart/form-data">
 				<input type="file" class="custom-file-upload" id="file" name="file" />

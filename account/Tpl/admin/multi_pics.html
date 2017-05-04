@@ -6,17 +6,19 @@
 <link rel="shortcut icon" type="image/x-icon" href="/image/favicon.ico">
 <link rel="stylesheet" type="text/css" href="/template/common/css/common.css">
 <link rel="stylesheet" type="text/css" href="/account/css/admin.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.0.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
 
-{%include file="$root/template/common/navbar.html"%}
+{%include file="$root/template/common/navbar_prewowkb.html"%}
 
 <div id="body_dash">
 	{%include file="$root/template/common/sidebar.html"%}
 
 	<div id="admin_main">
-
-	  <div class="productLink topspace"><a href="admin_manage.html">管理物料</a>/批量上传/批量上传图片</div>
+	<div class="dash_top">管理物料 / 批量上传 / 批量上传图片</div>
 
 		<div id="admin_upload">
 		  <form  action="/account/admin.php?act=multipics_process" enctype="multipart/form-data"  method="post">
@@ -24,8 +26,8 @@
 			<input id="multi_pic_submit" type="submit" name="submit" value="提交">
 		  </form>
 		</div>
+		
 	</div>
 </div>
-{%include file="$root/template/common/footer.html"%}
 </body>
 </html>

@@ -230,23 +230,55 @@ body, html{
 #form_customize {
     background-color: rgba(255, 255, 255, 0.9);
     position: fixed;
-    top:8vh;
+    top:18vh;
     left:0;
+    right: 0;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
     max-width: 100% !important;
     height: 55vh;
     font-size: medium;
     text-align: center;
-    padding: 20px;
+    padding: 10px;
     display: none;
+    border-radius: 4px;
+}
+#close_form_customize{
+    color: #383838;
+    float: right;
+    cursor: pointer;
 }
 #form_customize .form_title {
-    margin: 0;
+    margin-top: 30px;
+    font-size: 20px;
 }
 #form_customize input {
     width: 100%;
 }
 #form_customize_submitBtn {
     margin: 10px auto;
+}
+.button_pop{
+    margin-top: 30px !important;
+    width: 54% !important;
+}
+#customize{
+    border: 0px solid red;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 40px;
+}
+#customize tr td{
+    padding-top: 8px;
+    padding-bottom: 8px;
+}
+#customize .required{
+    color: red;
+}
+#customize tr td input{
+    width: 300px;
+    margin-left: 10px;
 }
 
 @media only screen and (min-device-width: 780px) {

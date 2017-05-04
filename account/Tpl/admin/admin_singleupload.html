@@ -5,16 +5,19 @@
   <link rel="shortcut icon" type="image/x-icon" href="image/favicon.ico">
   <link rel="stylesheet" type="text/css" href="/template/common/css/common.css">
   <link rel="stylesheet" type="text/css" href="/account/css/admin.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.0.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-{%include file="$root/template/common/navbar.html"%}
+{%include file="$root/template/common/navbar_prewowkb.html"%}
 
 <div id="body_dash">
   
   {%include file="$root/template/common/sidebar.html"%}
     
     <div id="admin_main">
-        <div class="productLink topspace"><a href="admin_manage.html">管理物料</a>/上传单个物料</div>
+      <div class="dash_top">管理物料 / 上传单个物料</div>
         <div class="form-style-2">
           <form action="" method="post">
             <label for="field1"><span>产品名称<span class="required">*</span></span><input type="text" class="input-field" name="name" value=""/></label>
@@ -40,8 +43,6 @@
         </div>
       </div>
   </div>
-
-  {%include file="$root/template/common/footer.html"%}
 
   </body>
 </html>

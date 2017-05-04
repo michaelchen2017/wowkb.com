@@ -6,16 +6,19 @@
 <link rel="shortcut icon" type="image/x-icon" href="/image/favicon.ico">
 <link rel="stylesheet" type="text/css" href="/template/common/css/common.css">
 <link rel="stylesheet" type="text/css" href="/account/css/admin.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.0.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-{%include file="$root/template/common/navbar.html"%}
+{%include file="$root/template/common/navbar_prewowkb.html"%}
 
 
 <div id="body_dash">
   {%include file="$root/template/common/sidebar.html"%}
     
   <div id="admin_main">
-    <div class="productLink topspace">  
+    <div class="dash_top">
         <a href="/admin/admin.php?act=index">返回</a>
     </div>
 
@@ -77,6 +80,5 @@
   </div>
 </div>
 
-{%include file="$root/template/common/footer.html"%}
   </body>
 </html>
