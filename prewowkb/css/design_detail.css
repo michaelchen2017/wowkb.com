@@ -203,11 +203,14 @@ body, html{
     height: 160px;
     margin-left: auto;
     margin-right: auto;
+    border: 0px solid red;
 }
 .each_relate_intro{
     font-size: 14px;
     color: #383838;
     margin-top: 4px;
+    border: 0px solid red;
+    padding-bottom: 14px;
 }
 
 /*               Share               */
@@ -221,9 +224,21 @@ body, html{
     text-align: center;
 }
 .share_icons_content {
-     width: 80%;
+     width: 320px;
      margin-left: auto;
      margin-right: auto;
+     border: 0px solid red;
+     display: block;
+     text-align: center !important;
+ }
+ .a2a_default_style{
+    border: 0px solid green;
+    text-align: center;
+    display: inline-block;
+    width: 232px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0;
  }
 
 .share_icon span {
@@ -292,6 +307,7 @@ body, html{
 
     #myCarousel {
         height: 100vh;
+        position: fixed;
     }
     .carousel img {
         width: 100%;

@@ -9,25 +9,28 @@
    font-family: Arial;
 }
 .designs_project{
-  width:290px;
-  height: 250px;
+  width:296px;
+  height: 242px;
   display: inline-block;
   vertical-align: top;
-  margin: 10px 10px 20px 10px;
+  margin: 6px 6px 6px 6px;
+  position: relative;
+  border: 0px solid red;
 }
 .project_title_blank{
 	padding-top: 40px;
 }
 .designs_project_pic{
-  width: 288px;
-  height:206px;
+  width: 296px;
+  height:180px;
+clip:rect(0px 288px 206px 10px)
 }
 .body_content{
 	margin-top: 90px;
 }
 
 .title_category{
-	color: orange;
+	color: #ff6500;
 	font-family: 'PingFang ExtraLight';
 	margin-left: 10px;
 }
@@ -39,7 +42,7 @@
 	line-height: 1.6;
 }
 .icon_style{
-	color: orange;
+	color: #ff6500;
 	margin-left: 14px;
 	cursor: pointer;
 }
@@ -64,7 +67,7 @@
 .designer_catogory{
 	border: 0px solid red;
 	font-size: 12px;
-	color: orange;
+	color: #ff6500;
 	margin-bottom: 8px;
 }
 .design_sidebar_gapline{
@@ -87,7 +90,7 @@
 }
 .price_title{
 	font-size: 14px;
-	color: orange;
+	color: #ff6500;
 }
 .price_number{
 	font-size:26px;
@@ -99,7 +102,7 @@
 .admin_collect_designer{
 	font-size: 16px;
 	margin-top: 6px;
-	color: orange;
+	color: #ff6500;
 }
 #showArea{
    width: 100%;
@@ -163,7 +166,7 @@
   }
 }
 .header_start{
-	border: 2px solid orange;
+	border: 2px solid #ff6500;
 	width: 40px;
 	height: 40px;
 	line-height: 40px;
@@ -173,7 +176,7 @@
 	margin-right: auto;
 	margin-top: 10vh;
 	font-size: 30px;
-	color: orange;
+	color: #ff6500;
 }
 @media only screen and (max-device-width: 780px) {
 	.header_subtitle{
@@ -227,9 +230,9 @@
 }
 .header_show_label{
   font-size: 12px;
-  color: orange;
+  color: #ff6500;
   margin-top: 10px;
-  border: 1px solid orange;
+  border: 1px solid #ff6500;
   border-radius: 20px;
   padding-top: 2px;
   padding-bottom: 2px;
@@ -273,8 +276,8 @@
 	font-size: 14px;
 }
 .step_icon{
-	border: 1px solid orange;
-	color: orange;
+	border: 1px solid #ff6500;
+	color: #ff6500;
 	border-radius: 30px;
 	height: 30px;
 	width: 30px;
@@ -426,7 +429,7 @@
 	margin-right: 40px;
 }
 .catogory_button:hover{
-	color: orange;
+	color: #ff6500;
 }
 .catogory_button_choose{
 	color: #ebebeb !important;
@@ -446,7 +449,7 @@
 	height: 100px;
 }
 .back_top{
-	background-color: orange;
+	background-color: #ff6500;
 	color: #fff;
 	position: fixed;
 	z-index: 99;
@@ -518,7 +521,7 @@
 	width: 236px;
 	height: 40px;
 	margin-top: -10px;
-	color: orange;
+	color: #ff6500;
 }
 .construct_logo .construct_contact{
 	border: 0px solid green;
@@ -613,15 +616,15 @@
 	height: 30px;
 	line-height: 30px;
 	margin-left: 20px;
-	border: 1px solid orange;
+	border: 1px solid #ff6500;
 	display: inline-block;
-	color: orange;
+	color: #ff6500;
 	border-radius: 20px;
 	text-align: center;
 	cursor: pointer;
 }
 .down_button:hover{
-	background-color: orange;
+	background-color: #ff6500;
 	color: #fff;
 }
 .designer_box{
@@ -664,7 +667,7 @@
 	line-height: 1;
 }
 .designer_title{
-	color: orange;
+	color: #ff6500;
 	font-size: 13px;
 	text-align: center;
 }
@@ -672,7 +675,7 @@
 	color: #878787;
 }
 .designer_show{
-	color: orange;
+	color: #ff6500;
 	border: 0px solid red;
 	position: absolute;
 	cursor: pointer;
@@ -724,8 +727,8 @@
 	height: 40px;
 	line-height: 40px;
 	text-align: center;
-	color: orange;
-	border: 1px solid orange;
+	color: #ff6500;
+	border: 1px solid #ff6500;
 	margin-top: 60px;
 }
 .service_button{
@@ -734,7 +737,7 @@
 	height: 40px;
 	line-height: 40px;
 	text-align: center;
-	background-color: orange;
+	background-color: #ff6500;
 	color: #fff;
 	font-size: 14px;
 	border-radius: 20px;
@@ -784,7 +787,7 @@
 	text-align: center;
 	margin-top: 40px;
 	font-size: 14px;
-	color: orange;
+	color: #ff6500;
 }
 .price_box_des{
 	border:0px solid red;
@@ -881,7 +884,7 @@
 .form_button{
 	width: 110px;
 	height: 40px;
-	background-color: orange;
+	background-color: #ff6500;
 	color: #fff;
 	text-align: center;
 	line-height: 40px;
@@ -914,7 +917,7 @@
 #customize tr:nth-child(even) {
 }
 #customize tr td a{
-	color: orange;
+	color: #ff6500;
 	border: 0px solid red;
 	position: absolute;
 	margin-left: -320px;
@@ -985,7 +988,7 @@
 	height: 40px;
 	margin-top: 40px;
 	margin-left: 42%;
-	background-color:orange;
+	background-color:#ff6500;
 	outline: none;
 	border:none;
 	color: #fff;
@@ -1126,9 +1129,11 @@
 	display: inline-block;
 	margin-top: -10px;
 	margin-right: 10px;
+	letter-spacing: -0.5;
+	font-family: 'Avenir LT 35 Light';
 }
 .project_title_category{
-	border-bottom: 0px solid orange;
+	border-bottom: 0px solid #ff6500;
 	height: 24px;
 	display: inline-block;
 	vertical-align: top;
@@ -1139,7 +1144,7 @@
 .dropdown {
     position: relative;
     display: inline-block;
-    border-bottom: 1px dashed orange;
+    border-bottom: 1px dashed #ff6500;
     height: 34px;
 }
 .dropdown-content {
@@ -1294,8 +1299,8 @@
 .upload_form tr td .addbutton{
 	width: 90px;
 	height: 30px;
-	border: 1px solid orange;
-	color: orange;
+	border: 1px solid #ff6500;
+	color: #ff6500;
 	background-color: #fff;
 	border-radius: 4px;
 }
@@ -1331,7 +1336,7 @@
 	margin-top: 50px;
 	margin-bottom: 10px;
 	border-bottom: 1px solid #d5d5d5;
-	color: orange;
+	color: #ff6500;
 }
 .design_upload_title{
 	width: 96%;
@@ -1379,7 +1384,7 @@
 }
 .hire_email{
 	text-align: center;
-	color: orange;
+	color: #ff6500;
 	margin-top: 20px;
 }
 .icon_bottom{
@@ -1392,13 +1397,13 @@
 
 /*物料检索页面*/
 #body_design{
-   border: 0px solid red;
+   border: 1px solid red;
    height: auto;
 }
 .right_mainarea{
    margin-left: auto;
    margin-right: auto;
-   border: 0px solid green;
+   border: 1px solid green;
    text-align: left;
    display: inline-block;
    vertical-align: top;
@@ -1573,7 +1578,7 @@
 	vertical-align: top;
 	height: 100%;
 	width: 1px;
-	background-color: orange;
+	background-color: #ff6500;
 }
 .process_right{
 	width: 420px;
@@ -1603,11 +1608,11 @@
 .process_center_circle_stay{
 	width: 20px;
 	height: 20px;
-	border: 1px solid orange;
+	border: 1px solid #ff6500;
 	border-radius: 20px;
 	line-height: 20px;
 	font-size: 10px;
-	color: orange;
+	color: #ff6500;
 	margin-left: -10px;
 	background-color: #ebebeb;
 	margin-top: 60px;
@@ -1616,13 +1621,13 @@
 .process_center_circle_select{
 	width: 20px;
 	height: 20px;
-	border: 1px solid orange;
+	border: 1px solid #ff6500;
 	border-radius: 20px;
 	line-height: 20px;
 	font-size: 10px;
 	color: #fff;
 	margin-left: -10px;
-	background-color: orange;
+	background-color: #ff6500;
 	margin-top: 60px;
 	margin-bottom: 60px;
 }
@@ -1740,7 +1745,7 @@
 }
 .constructor_list ul li .each_constru .title_e{
 	font-size: 18px;
-	color: orange;
+	color: #ff6500;
 	margin-right: 20px;
 	font-family: 'Avenir LT 95 Black';
 }
