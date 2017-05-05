@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WOWKB</title>
+  <link rel="shortcut icon" type="image/x-icon" href="image/favicon.ico">
+  <link rel="stylesheet" type="text/css" href="/template/common/css/common.css">
+  <link rel="stylesheet" type="text/css" href="/account/css/admin.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.0.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="https://use.fontawesome.com/99d52acf31.js"></script>
+</head>
+<body>
+{%include file="$root/template/common/navbar_prewowkb.html"%}
+
+<div id="body_dash">
+{%include file="$root/template/common/sidebar.html"%}
+
+  <div id="admin_main">
+    <div class="dash_top">
+      <a href="#">返回</a> / 添加供应商
+    </div>
+      
+    <div id="admin_content">
+      <div class="top_area">
+        <span class="label_select"></span>
+        <div class="select_area">
+            <label class="checkbox-inline"><input name="" type="checkbox" id="inlineCheckbox1" value="JK" />JK</label> 
+            <label class="checkbox-inline"><input name="" type="checkbox" id="inlineCheckbox1" value="Hausglobal" />Hausglobal</label> 
+        </div>
+        <input type="submit" class="button_light_input">
+      </div>
+
+      <table id="dashList">
+        <tr>
+          <th><input type="checkbox"></th>
+          <th>图片</th>
+          <th>作品ID</th>
+          <th>作品名称</th>
+          <th>供应商</th>
+        </tr>
+        <tr >
+          <td><input type="checkbox"></td>
+          <td><img id="design_pic" src="../../image/customize/A7/design.jpg"></td>
+          <td>123</td>   
+          <td>Sunshine Kitchen</td>
+          <td>JK</td>
+        </tr>
+        <tr>
+          <td><input type="checkbox"></td>
+          <td><img id="design_pic" src="../../image/customize/k3/design.jpg"></td>
+          <td>123</td>
+          <td>Favorite Kitchen</td>
+          <td>Hausglobal</td>
+        </tr>
+      </table>
+
+
+    </div><!--admin_content-->
+
+
+
+
+  </div>
+</div>
+</body>
+</html>

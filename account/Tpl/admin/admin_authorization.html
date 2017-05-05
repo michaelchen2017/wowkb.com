@@ -20,12 +20,46 @@
 
   <div id="admin_main">
     <div class="dash_top">
-      <span class="dash_top_button" id="button_user">审核用户</span>
-      <span class="dash_unchoose" id="button_design">审核作品</span>
+      <span class="dash_top_button" id="button_design">审核作品</span>
+      <span class="dash_unchoose" id="button_user">审核用户</span>
+      <a class="dash_top_right button_orange" id="add_supplier" href="">添加供应商</a>
     </div>
       
     <div id="admin_content">
-      <div id="authorize_user">
+
+    <div id="authorize_design">
+      <table id="dashList">
+        <tr>
+          <th>图片</th>
+          <th>作品名称</th>
+          <th>作品ID</th>
+          <th>作品风格</th>
+          <th>设计师</th>
+          <th>上传时间</th>
+          <th></th>
+        </tr>
+        
+        {%foreach from=$res key=i item=val%}
+        <tr >
+          <td><a href="/account/space.php?act=zuopin_modify&id={%$val['pk_id']|default:''%}" ><img id="design_pic" src="{%$val['pic_path']|default:''%}"></a></td>   
+          <td>{%$val['name']|default:''%}</td>
+          <td>123</td>
+          <td>{%$val['style']|default:''%}</td>
+          <td>{%$val['designer']|default:''%}</td>
+          <td>{%$val['time']|date_format:"%m/%d/%Y %H:%M:%S"%}</td>
+          
+          <td>
+            <a id="pass" href="/account/admin.php?act=get_zuopin_pass&id={%$val['pk_id']|default:''%}">通过</a>
+            </br>
+            <a id="deny" href="/account/admin.php?act=get_zuopin_denial&id={%$val['pk_id']|default:''%}" onclick="return del(this)">拒绝</a>
+          </td>
+        </tr>
+       {%/foreach%} 
+      </table>
+    </div>
+
+
+    <div id="authorize_user">
       <table id="dashList">
         <tr>
           <th>用户名</th>
@@ -47,36 +81,6 @@
           </td>
         </tr>
         {%/foreach%}
-      </table>
-    </div>
-
-
-    <div id="authorize_design">
-      <table id="dashList">
-        <tr>
-          <th>图片</th>
-          <th>作品名称</th>
-          <th>作品风格</th>
-          <th>设计师</th>
-          <th>上传时间</th>
-          <th></th>
-        </tr>
-        
-        {%foreach from=$res key=i item=val%}
-        <tr >
-          <td><a href="/account/space.php?act=zuopin_modify&id={%$val['pk_id']|default:''%}" ><img id="design_pic" src="{%$val['pic_path']|default:''%}"></a></td>   
-          <td>{%$val['name']|default:''%}</td>
-          <td>{%$val['style']|default:''%}</td>
-          <td>{%$val['designer']|default:''%}</td>
-          <td>{%$val['time']|date_format:"%m/%d/%Y %H:%M:%S"%}</td>
-          
-          <td>
-            <a id="pass" href="/account/admin.php?act=get_zuopin_pass&id={%$val['pk_id']|default:''%}">通过</a>
-            </br>
-            <a id="deny" href="/account/admin.php?act=get_zuopin_denial&id={%$val['pk_id']|default:''%}" onclick="return del(this)">拒绝</a>
-          </td>
-        </tr>
-       {%/foreach%} 
       </table>
     </div>
 

@@ -218,6 +218,13 @@ input[type="color"]:focus,
   padding-left: 10px;
   margin-top: 10px;
 }
+.dash_top_right{
+  display: inline-block;
+  float: right;
+  margin-top: -10px;
+  margin-right: 40px;
+}
+
 
 /*按钮button*/
 .button_orange{
