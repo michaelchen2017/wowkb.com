@@ -235,7 +235,7 @@ body, html{
     border: 0px solid green;
     text-align: center;
     display: inline-block;
-    width: 232px;
+    min-width: 232px;
     margin-left: auto;
     margin-right: auto;
     padding: 0;
@@ -328,12 +328,11 @@ body, html{
         background-color: black;
         height: 72px;
         padding: 16px;
-        padding-left: 10px;
     }
     .share_icon span {
         width: 40px;
         height: 40px;
-        margin-left: 12px;
+        margin-left: 2px;
     }
     #share_button {
         display: block;
